@@ -1,0 +1,90 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+#bg {
+	background: url(../img/miji2/bg.png) no-repeat;
+	height: 1010px;
+	border: 1px solid;
+	position: relative;
+}
+#box {
+	background: url(../img/miji2/box.png) no-repeat;
+	height: 846px;
+	width: 483px;
+	margin: 52px auto 109px;
+	border: 1px solid;
+
+}
+.jiantou {
+	float: right;
+	margin-top: 5px;
+	margin-right: 25px;
+}
+#main {
+	width: 370px;
+	height: 753px;
+	/*background-color: red;*/
+	margin: 60px auto 34px;
+}
+.yaoqing {
+	float: right;
+}
+#part1 p {
+	color: #a98874;
+	margin-top: 5px;
+}
+#part2 textarea {
+	width: 364px;
+	height: 182px;
+	background: black;
+	/*border-color: #a98874;*/
+	resize: none;
+	border: 2px solid #3e3329;
+	font-size: 25px;
+}
+#part3 {
+	margin-top: 15px;
+}
+#part3 span {
+	color: white;
+	font-size: 22px;
+	position: relative;
+	top: -10px;
+	/*height: 25px;*/
+	/*line-height: 25px;*/
+}
+#part3-1, #part3-2 {
+	display: inline-block;
+}
+/*#part3 img {
+	width: 37px;
+	height: 37px;
+}*/
+#part3-2 {
+	margin-left: 40px;
+}
+#part4 {
+	position: relative;
+}
+#part4 a {
+	position: relative;
+	top: 98px;
+	left: 8px;
+}
+.p1 {
+	position: absolute;
+	top: 47px;
+	left: 43px;
+}
+.p2 {
+	position: absolute;
+	top: 8px;
+	left: 98px;
+}
+#footer {
+	position: absolute;
+	bottom: 40px;
+	left: 38%;
+	right: 50%;
+}

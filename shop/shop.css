@@ -1,0 +1,40 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+.bg {
+	background: url(img/sc_1_bg.jpg);
+	height: 1000px;
+}
+#part1 {
+	margin: 200px 0 0 70px;
+	display: inline-block;
+}
+#part1 img {
+	vertical-align: middle;
+}
+.mianmo {
+	width: 380px;
+	height: 380px;
+	margin: 0 20px 0;
+}
+#part2 {
+	display: inline-block;
+	margin: 250px 0 0 550px;
+}
+.p2 {
+	opacity: 0.5;
+}
+#part3 {
+	position: absolute;
+	margin-top: 20px;
+	margin-left: 474px;
+}
+li {
+	background-color: white;
+	color: gray;
+	font-size: 23px;
+	padding: 10px 20px;
+	list-style-type: none;
+	font-weight: bold;
+}
