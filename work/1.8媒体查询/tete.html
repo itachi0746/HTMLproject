@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>立方体</title>
+	<style>
+		.box {
+			width: 200px;
+			height: 200px;
+			position: absolute;
+			left: 0;
+			right: 0;
+			top: 0;
+			bottom: 0;
+			margin: auto;
+			-webkit-transform: rotateY(15deg) rotateX(-15deg);
+			-webkit-transform-style: preserve-3d;
+		}
+		.box2 {
+			width: 400px;
+			height: 400px;
+			/*background: rgba(0,0,0,0.5);*/
+			position: absolute;
+			left: 0;
+			right: 0;
+			top: 0;
+			bottom: 0;
+			margin: auto;
+			-webkit-transform: rotateY(15deg) rotateX(-15deg);
+			-webkit-transform-style: preserve-3d;
+
+		}
+
+		.box2:hover div:nth-child(1){
+			-webkit-transform: rotateX(90deg) translateZ(400px);
+			transition: all .5s;
+		}
+		.box2:hover div:nth-child(2){
+			-webkit-transform: rotateX(-90deg) translateZ(400px);
+			transition: all .5s;
+		}
+		.box2:hover div:nth-child(3){
+			-webkit-transform: rotateY(-90deg) translateZ(400px);
+			transition: all .5s;
+		}
+		.box2:hover div:nth-child(4){
+			-webkit-transform: rotateY(90deg) translateZ(400px);
+			transition: all .5s;
+		}
+		.box2:hover div:nth-child(5){
+			-webkit-transform: translateZ(400px);
+			transition: all .5s;
+		}
+		.box2:hover div:nth-child(6){
+			-webkit-transform: rotateY(180deg) translateZ(400px);
+			transition: all .5s;
+		}
+/*		.box2 div:hover {
+			-webkit-transform: translateZ(400px);
+		}*/
+		.box div {
+			width: 200px;
+			height: 200px;
+			font-size: 3em;
+			text-align: center;
+			line-height: 200px;
+			position: absolute;
+			left: 0;
+			top: 0;
+		}
+		.box2 div {
+			width: 400px;
+			height: 400px;
+			font-size: 3em;
+			text-align: center;
+			line-height: 400px;
+			position: absolute;
+			left: 0;
+			top: 0;
+		}
+
+
+		.box2 div:nth-child(1) {
+			background: rgba(255,0,0,.5);
+			-webkit-transform: rotateX(90deg) translateZ(200px);
+		}
+		.box2 div:nth-child(2) {
+			background: rgba(255,255,0,.5);
+			-webkit-transform: rotateX(-90deg) translateZ(200px);
+		}
+		.box2 div:nth-child(3) {
+			background: rgba(255,0,255,.5);
+			-webkit-transform: rotateY(-90deg) translateZ(200px);
+		}
+		.box2 div:nth-child(4) {
+			background: rgba(255,150,0,.5);
+			-webkit-transform: rotateY(90deg) translateZ(200px);
+		}
+		.box2 div:nth-child(5) {
+			background: rgba(156,0,250,.5);
+			-webkit-transform: translateZ(200px);
+		}
+		.box2 div:nth-child(6) {
+			background: rgba(100,100,200,.5);
+			-webkit-transform: rotateY(180deg) translateZ(200px);
+		}
+
+
+
+
+		.box div:nth-child(1) {
+			background: rgba(255,0,0,.5);
+			-webkit-transform: rotateX(90deg) translateZ(100px);
+		}
+		.box div:nth-child(2) {
+			background: rgba(255,255,0,.5);
+			-webkit-transform: rotateX(-90deg) translateZ(100px);
+
+		}
+		.box div:nth-child(3) {
+			background: rgba(255,0,255,.5);
+			-webkit-transform: rotateY(-90deg) translateZ(100px);
+
+		}
+		.box div:nth-child(4) {
+			background: rgba(100,0,255,.5);
+			-webkit-transform: rotateY(90deg) translateZ(100px);
+
+		}
+		.box div:nth-child(5) {
+			background: rgba(0,255,0,.5);
+			-webkit-transform: translateZ(100px);
+
+		}
+		.box div:nth-child(6) {
+			background: rgba(100,200,100,.5);
+			/*换方向,再位移*/
+			-webkit-transform: rotateY(180deg) translateZ(100px);
+
+		}
+
+
+	</style>
+</head>
+<body>
+	<div class="box">
+		<div>上</div>
+		<div>下</div>
+		<div>左</div>
+		<div>右</div>
+		<div>前</div>
+		<div>后</div>
+	</div>
+	<div class="box2">
+		<div>上</div>
+		<div>下</div>
+		<div>左</div>
+		<div>右</div>
+		<div>前</div>
+		<div>后</div>		
+	</div>
+</body>
+</html>

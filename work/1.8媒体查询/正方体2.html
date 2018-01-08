@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		* {
+			padding: 0;
+			margin: 0;
+			box-sizing: border-box;
+		}
+		.box {
+			width: 200px;
+			height: 200px;
+			border: 1px solid black;
+		}
+		.container {
+			width: 500px;
+			height: 800px;
+			margin: 100px auto;
+			transform: rotate3d(1,1,0,-40deg);
+			-webkit-transform-style: preserve-3d;
+		}
+		.left {
+			transform: translate(-200px,-600px);
+			background-color: red;
+			transform-origin: 100% 0%;
+			transform: rotate3d(0,1,0,-90deg);
+		}
+		.right {
+			transform: translate(200px,-800px);
+			background-color: blue;
+			transform-origin: 0% 0%;
+			transform: rotate3d(0,1,0,90deg);
+		}
+		.top {
+			background-color: green;
+			transform-origin: 0% 100%;
+			transform: rotate3d(1,0,0,90deg);
+		}
+		.bottom {
+			background-color: orange;
+			transform-origin: 0% 0%;
+			transform: rotate3d(1,0,0,-90deg);
+		}
+		.face {
+			background-color: white;
+		}
+		.back {
+			background-color: pink;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div class="box top"><span>top</span></div>
+		<div class="box face"><span>face</span></div>
+		<div class="box bottom"><span>bottom</span></div>
+		<div class="box back"><span>back</span></div>
+		<div class="box left"><span>left</span></div>
+		<div class="box right"><span>right</span></div>
+	</div>
+</body>
+</html>
