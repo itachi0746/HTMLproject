@@ -4,6 +4,14 @@
 	<meta charset="UTF-8">
 	<title>立方体</title>
 	<style>
+		.container {
+			width: 400px;
+			height: 400px;
+			position: relative;
+			animation: move 3s linear infinite normal;
+			-webkit-transform-style: preserve-3d;
+
+		}
 		.box {
 			width: 200px;
 			height: 200px;
@@ -136,6 +144,26 @@
 			background: rgba(100,200,100,.5);
 			/*换方向,再位移*/
 			-webkit-transform: rotateY(180deg) translateZ(100px);
+		}
+
+
+		/*要全部方向相同才能旋转?*/
+		@-webkit-keyframes move {
+			0% {
+				left: 0px;
+				top: 200px;
+				transform: rotate3d(0,0,0,0deg);
+			}
+			50% {
+				left: 800px;
+				top: 50px;
+				transform: rotate3d(1,1,1,720deg);
+			}
+			100% {
+				left: 0px;
+				top: 200px;
+				transform: rotate3d(1,1,1,1440deg);
+			}
 
 		}
 
@@ -143,21 +171,23 @@
 	</style>
 </head>
 <body>
-	<div class="box">
-		<div>上</div>
-		<div>下</div>
-		<div>左</div>
-		<div>右</div>
-		<div>前</div>
-		<div>后</div>
-	</div>
-	<div class="box2">
-		<div>上</div>
-		<div>下</div>
-		<div>左</div>
-		<div>右</div>
-		<div>前</div>
-		<div>后</div>		
+	<div class="container">
+		<div class="box">
+			<div>上</div>
+			<div>下</div>
+			<div>左</div>
+			<div>右</div>
+			<div>前</div>
+			<div>后</div>
+		</div>
+		<div class="box2">
+			<div>上</div>
+			<div>下</div>
+			<div>左</div>
+			<div>右</div>
+			<div>前</div>
+			<div>后</div>		
+		</div>
 	</div>
 </body>
 </html>
