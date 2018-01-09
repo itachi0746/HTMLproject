@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>动画</title>
+	<style>
+		.box {
+			width: 82.3px;
+			height: 125px;
+			background-color: red;
+			position: absolute;
+			top: 0;
+			left: 0;
+
+			/*css3的帧动画一定是背景图*/
+			background: url(2.png);
+			/*不加前缀在安卓上会卡*/
+			/*动画名*/
+			/*animation-name: one;*/
+
+			/*动画时间*/
+			/*animation-duration: 3s;*/
+
+			/*速度曲线*/
+			/*animation-timing-function: ease;*/
+
+			/*延迟时间*/
+			/*animation-delay: 0.5s;*/
+
+			/*执行次数*/
+			/*animation-iteration-count: infinite;*/
+
+			/*是否反向*/
+			/*alternate  反向*/
+			/*animation-direction: alternate;*/
+
+			/*当动画完成后，保持最后一个属性值（在最后一个关键帧中定义）*/
+			/*animation-fill-mode：forwards；*/
+
+
+			/*不加前缀在安卓上会卡*/
+			/*-webkit-animation: one 3s ease 0.5s infinite alternate;*/
+			-webkit-animation: bb 1s infinite steps(6);
+		}
+
+/*		@-webkit-keyframes one {
+			0% {
+				left: 0;
+			}
+			50% {
+				left: 500px;
+			}
+			100% {
+				top: 500px;
+				border-radius: 50%;
+			}*/
+
+		@-webkit-keyframes bb {
+			0% {
+				background-position: 0;
+			}
+			100% {
+				background-position: -494px;
+			}
+		}
+	</style>
+</head>
+<body>
+	<div class="box">
+		
+	</div>
+</body>
+</html>

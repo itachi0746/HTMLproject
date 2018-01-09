@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>过渡练习</title>
+	<style>
+		* {
+			padding: 0;
+			margin: 0;
+		}
+		.box {
+			width: 1000px;
+			display: flex;
+
+		}
+		.container {
+			width: 1000px;
+			height: 330px;
+			margin: 50px auto;
+			border: 5px solid black;
+			padding: 10px;
+			overflow: hidden;
+		}
+		.container li {
+			width: 200px;
+			/*height: 320px;*/
+			transition: all 1s;
+			list-style: none;
+			float: left;
+			overflow: hidden;
+			position: relative;
+			/*弹性布局解决bug*/
+			flex: 1 1 auto;
+		}
+
+		/*先设置这个*/
+		ul:hover li{  
+		  	width:90px;
+			/*-webkit-filter:grayscale(.8);  */
+			/*filter:grayscale(.8);  */
+		}
+		/*后设置这个 */
+		ul li:hover {
+			width: 640px;
+			/*-webkit-filter:grayscale(0) hue-rotate(300deg);  */
+			/*filter:grayscale(0) hue-rotate(300deg); */
+		}
+		.box p {
+			width: 640px;
+			height: 40px;
+			display: inline-block;
+			background-color: rgba(0,0,0,.5);
+			position: absolute;
+			bottom: 0;
+			color: white;
+			line-height: 40px;
+		}
+		.box p:hover {
+			height: 320px;
+			/*position: absolute;
+			bottom: 0;
+			color: white;
+			line-height: 40px;*/
+
+		}
+
+	</style>
+</head>
+<body>
+	<div class="container">
+		<ul class="box">
+			<li>
+				<img src="img1.jpg" alt="">
+				<p>&nbsp;111<br>介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍</p>
+			</li>
+			<li>
+				<img src="img2.jpg" alt="">
+				<p>&nbsp;222<br>介绍介绍介绍</p>
+			</li>
+			<li>
+				<img src="img3.jpg" alt="">
+				<p>&nbsp;333<br>介绍介绍介绍</p>
+			</li>
+			<li>
+				<img src="img4.jpg" alt="">
+				<p>&nbsp;444<br>介绍介绍介绍</p>
+			</li>
+			<li>
+				<img src="img5.jpg" alt="">
+				<p>&nbsp;555<br>介绍介绍介绍</p>
+			</li>
+		</ul>
+	</div>
+</body>
+</html>
