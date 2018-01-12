@@ -6,6 +6,7 @@
 	min-width: 1264px;
 	border: 1px solid; /*外边距合并*/
 	background: url(img/bg.jpg) top center;
+	position: relative;
 }
 #main {
 	width: 1264px;
@@ -103,6 +104,9 @@ span.two {
 }
 #part2 {
 	position: relative;
+	top: 55px;
+	left: 115px;
+	width: 1150px;
 }
 .p2 {
 	display: inline-block;
@@ -178,7 +182,7 @@ span.two {
 }
 #part3 {
 	display: inline-block;
-	margin-left: 140px;
+	margin-left: 188px;
 	margin-top: 50px;
 	text-align: center;
 
@@ -247,21 +251,27 @@ span.two {
 	text-align: center;
 	position: absolute;
 	left: 0;
-	top: 191px;
+	top: 195px;
+	line-height: 40px;
 }
 .jieshao2 {
 	display: inline-block;
-	width: 743px;
+	width: 772px;
 	height: 40px;
 	color: white;
 	background-color: rgba(0,0,0,.5);
 	position: absolute;
 	bottom: 4px;
+	line-height: 40px;
 }
 #car {
 	position: relative;
 	display: inline-block;
 	margin-right: 3px;
+}
+#car img {
+	width: 327px;
+	height: 235px;
 }
 #container4 {
 	display: inline-block;
@@ -289,7 +299,8 @@ span.two {
 	background: url(img/common.png) 0 -430px;
 }
 .gaoqingtu {
-	height: 450px;
+	height: 446px;
+	width: 772px;
 }
 #heijiantou {
 	position: absolute;
@@ -300,7 +311,7 @@ span.two {
 	background: url(img/common.png) -305px 0;
 	width: 90px;
 	height: 130px;
-	margin-right: 558px;
+	margin-right: 585px;
 }
 .heijiantou-right {
 	background: url(img/common.png) -305px 0;
@@ -312,6 +323,9 @@ span.two {
 .jingcai {
 	position: relative;
 
+}
+.jingcai img {
+	width: 996px;
 }
 .xiaojiantou {
 	position: absolute;
@@ -331,4 +345,26 @@ span.two {
 	background: url(img/common.png) -395px 0;
 	transform: rotate(180deg);
 	display: inline-block;
+}
+#part6 {
+	background: black;
+	color: #acadb0;
+	width: 100%;
+	height: 190px;
+	position: absolute;
+	bottom: 0;
+	font-size: 15px;
+}
+.container6 {
+	width: 1200px;
+	margin: 0 auto;
+}
+#tel {
+	font-size: 25px;
+}
+#part6 p {
+	margin: 20px auto 0;
+}
+.container6 span {
+	margin-right: 10px;
 }

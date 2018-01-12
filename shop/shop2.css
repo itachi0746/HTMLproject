@@ -9,6 +9,7 @@
 	margin: 10px;
 	width: 80%;
 	height: 35px;
+	outline: none;
 }
 .btn {
 	display: inline-block;

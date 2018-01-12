@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		* {
+			margin: 0;
+			padding: 0;
+			/*最好用在块与块之间，块内用其他*/
+		}
+		.ul {
+			list-style: none;
+			margin: 10px;
+		}
+		.ul li,.div1,.div2 {
+			width: 100px;
+			height: 100px;
+			background: red;
+			display: inline-block; /*inline-block有间隙*/
+		}
+		/*同级元素通用选择器*/
+		/*选择.li4后面的所有li元素*/
+		.ul .abca~li {
+			background-color: yellow;
+		}
+
+		/*属性选择器*/
+		/* 	^ 匹配开头的字符*/
+/*			$ 匹配最后的字符
+			* 只有有某个字符就匹配成功
+*/		/*.ul li[class*='a'] {
+			background-color: yellow;
+		}*/
+
+		/*结构伪类选择器（常用）(与类型无关)*/
+		/*（an+b），表示周期长度，n是计数器（从0开始），b是偏移值，*/
+		/*even:偶数  odd：基数*/
+		/*.ul li:nth-child(1) {
+			background-color: yellow;
+		}*/
+
+		/*匹配倒数第x个*/
+		/*.ul li:nth-last-child(1){
+			background-color: yellow;
+		}
+*/
+		/*匹配最后一个*/
+		/*.ul li:last-child {
+			background-color:yellow;
+		}*/
+		
+		/*匹配同种元素*/
+		/*.ul li:nth-of-type(2) {
+			background-color: yellow;
+		}*/
+
+		/*不区分类型，匹配父元素div下的子元素只有一个，并且该子元素是p的情况*/
+		/*div p:only-child {
+			background-color: yellow;
+		}*/
+
+		/*匹配父元素div下只有一个p元素类型的情况*/
+/*		div p:only-of-type {
+			background-color: yellow;
+		}
+*/
+
+		/*div {
+			width: 100px;
+			height: 100px;
+			background-color: red;
+		}*/
+		/*匹配不包含任何子元素的元素*/
+		/*div:empty {
+			background-color: yellow;
+		}*/
+
+
+
+		/*反选伪类选择器*/
+		/*选择非.ali4的全部元素*/
+		/*ul li:not(.ali4) {
+			background-color: yellow;
+		}*/
+
+		/*伪元素，用户选中文字部分，只能改变以下样式*/
+		/*div::selection {
+			background-color: red;
+			color: yellow;
+		}*/
+		
+		/*用户界面相关的伪类*/
+		/*input:enabled {
+			background-color: yellow;
+		}*/
+		/*disable关闭输入*/
+		/*input:disabled {
+			background-color: pink;
+		}*/
+	</style>
+</head>
+<body>
+	<ul class="ul">
+		<div class="div1">div1</div>
+		<li class="abcd">13</li>
+		<li class="bcda">13</li>
+		<li class="abca">13</li>
+		<li class="ali4">13</li>
+		<li class="bcad">13</li>
+		<li class="dada">13</li>
+		<div class="div2">div2</div>
+	</ul>
+
+
+
+ 	
+ 	<div>
+ 		<p>1</p>
+ 	</div>
+ 	<div>
+ 		<p>1</p>
+ 		<div>div2</div>
+ 	</div>
+ 	<div>
+ 		<p>1</p>
+ 		<p>2</p>
+ 	</div>
+ 
+
+	<!-- <div></div>
+	<div>1</div>
+	<div>
+		<span></span>
+	</div> -->
+
+<!-- 	<div>gggggggggggggggggggggggggggggggg</div>
+
+	<input type="text" class="input1">
+	<input type="text" class="input2">
+	<input type="text" class="input3" disabled="disabled">
+ --></body>
+</html>

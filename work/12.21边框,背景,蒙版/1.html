@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.box1 {
+			width: 100px;
+			height: 100px;
+			background-color: red;
+			border-radius: 10px;
+		}
+		.box2 {
+			width: 100px;
+			height: 100px;
+			background-color: red;
+			border-radius: 50%;
+		}
+		.box3 {
+			width: 100px;
+			height: 100px;
+			background-color: red;
+			border-top-left-radius: 20px;
+			border-bottom-right-radius: 20px;
+		}
+		.box4 {
+			width: 100px;
+			height: 100px;
+			background-color: red;
+			border-top-left-radius: 50%;
+			border-bottom-left-radius: 50%;
+			border-bottom-right-radius: 50%;
+		}
+		.box5 {
+			width: 100px;
+			height: 100px;
+			background-color: red;	
+			border-bottom-left-radius: 50px;		
+		}
+		.box6 {
+			width: 200px;
+			height: 100px;
+			background-color: red;
+			border-radius: 50%;
+		}
+		.box7 {
+			position: absolute;
+			border: 50px solid;
+			border-radius: 50%;
+			border-right-color: transparent;
+			border-top-color: black;
+			border-left-color: red;
+			border-bottom-color: red;
+		}
+/*		.box8 {
+			position: absolute;
+			border: 50px solid;
+			border-radius: 50%;
+			border-right-color: transparent;
+			border-top-color: black;
+			border-left-color: transparent;
+			border-bottom-color: black;
+		}
+
+*/
+		.yin {
+			/*文字陰影*/
+			/*text-shadow: x(正向) y(反向) 模糊值(不允許負數) 顏色*/
+			font-size: 2em;
+			text-shadow: 10px 10px 5px #000;
+
+		}
+
+		.boxyin {
+			width: 100px;
+			height: 100px;
+			font-size: 2em;
+			/*box-shadow: x y 模糊值 延展值 颜色*/
+			box-shadow: 10px 10px 15px 10px #000;
+		}
+	</style>
+</head>
+<body>
+	<div class="box1"></div>
+	<div class="box2"></div>
+	<div class="box3"></div>
+	<div class="box4"></div>
+	<div class="box5"></div>
+	<div class="box6"></div>
+	<div class="box7"></div>
+	<div class="box8"></div>
+
+	<div class="yin">灌灌灌灌灌过过过过过过过过过过过过过</div>
+	<div class="boxyin"></div>
+</body>
+</html>
