@@ -94,22 +94,24 @@
 }
 
 .text_input {
-	width: 460px;
-	height: 50px;
-	font-size: 32px;
-	border: none;
-	outline: none;
-	/*background: red;*/
-	position: absolute;
-	bottom: 0;
-	left: 0;
-	top: 120px;
-	right: 0;
-	margin: auto;
-
+    width: 460px;
+    height: 50px;
+    font-size: 32px;
+    border: none;
+    outline: none;
+    /*background: red;*/
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    top: 120px;
+    right: 0;
+    margin: auto;
 }
 
+
 /*改变input placeholder的字体颜色*/
+
+
 /*::-webkit-input-placeholder {  WebKit, Blink, Edge 
     color:    #000;
 }
@@ -480,6 +482,7 @@
 }
 
 
+
 /*第二部分*/
 
 .part2 {
@@ -520,8 +523,8 @@
 }
 
 .part3 {
-	position: absolute;
-	bottom: 0;
+    position: absolute;
+    bottom: 0;
     opacity: 0;
     -webkit-animation: part3 1s ease 1s 1;
     -webkit-animation-fill-mode: forwards;
@@ -626,6 +629,7 @@
         transform: translate(0, 0);
     }
 }
+
 
 
 /*-----第二页-----*/
@@ -860,6 +864,7 @@
 }
 
 
+
 /*-----第三页-----*/
 
 .page3 {
@@ -962,6 +967,7 @@
         opacity: 1;
     }
 }
+
 
 
 /*-----第四页-----*/
@@ -1077,6 +1083,7 @@
         transform: translate(0, -4px);
     }
 }
+
 
 
 /*-----第五页-----*/
@@ -1206,6 +1213,7 @@
 }
 
 
+
 /*-----第六页-----*/
 
 .page6 {
@@ -1232,6 +1240,7 @@
         background-position: -680px;
     }
 }
+
 
 
 /*-----第7页-----*/
@@ -1364,6 +1373,7 @@
 
 
 
+
 /*-----第8页-----*/
 
 .page8 {
@@ -1470,6 +1480,7 @@
     -webkit-animation: left_to_center 1s .8s 1;
     -webkit-animation-fill-mode: forwards;
 }
+
 
 
 /*-----第9页-----*/
@@ -1682,5 +1693,5 @@
 }
 
 .hide {
-	display: none;
+    display: none;
 }
