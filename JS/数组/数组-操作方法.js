@@ -1,11 +1,12 @@
-// var colors = ['red', 'green', 'blue'];
+var colors = ['red', 'green', 'blue'];
 
 // concat()添加到数组末尾
-// var colors2 = colors.concat('yellow', ['black', 'brown']);  // 返回新数组
+var colors2 = colors.concat('yellow', ['black', 'brown']);  // 返回新数组
 
-// console.log(colors);
-// console.log(colors2);
+console.log(colors);
+console.log(colors2);
 
+console.log('------------------------------------------')
 
 //slice() 切片
 var num = [1,2,3,4,5];
@@ -16,6 +17,8 @@ var num3 = num.slice(1,4);  // 1到4 不包括4
 console.log(num1);
 console.log(num2);
 console.log(num3);
+
+console.log('------------------------------------------')
 
 
 // splice(起始位置,要删除的项数,要插入的项(可多个))

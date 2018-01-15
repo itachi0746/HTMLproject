@@ -15,4 +15,3 @@ var num3 = num1-- + num2;  //num-- 后执行, 再语句
 var num4 = num1 + num2;
 
 console.log(num3, num4);
-
