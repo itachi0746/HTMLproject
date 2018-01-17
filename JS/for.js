@@ -6,8 +6,8 @@
 
 var count = 10;
 var i;
-for (i = 110; i < count; i++) {
+for (i = 1; i < count; i++) {
 	console.log(i);
 }
 
-console.log(i);
+// console.log(i);
