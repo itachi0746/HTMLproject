@@ -22,4 +22,5 @@ color[color.length] = 'black';  // 在位置3添加
 color[color.length] = 'brown';  // 在位置4添加
 
 
-// Array.isArray() 方法最终确定某个值是不是数组, 而不管它是在哪个全局执行环境中创建的
+// Array.isArray() 方法最终确定某个值是不是数组,
+// 而不管它是在哪个全局执行环境中创建的
