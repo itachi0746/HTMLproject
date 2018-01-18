@@ -128,3 +128,19 @@ function zhishu(n) {
 	console.log(result);
 }
 zhishu(100);
+
+console.log('------------------99乘法表--------------');
+
+function chengfabiao() {
+	for(var i=1;i<10;i++) {
+		var string = '';
+		for(var j=1;j<=i;j++) {
+			result = i.toString()+'*'+j.toString()+ '='+ i*j + ' ';
+			string+=result;
+
+		}
+		console.log(string);
+	}
+}
+
+chengfabiao();
