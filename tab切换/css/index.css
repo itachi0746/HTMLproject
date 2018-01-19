@@ -5,6 +5,7 @@
 #wp {
 	width: 3600px;
 	height: 481px;
+	transition: all .3s;
 }
 #wp div {
 	width: 600px;

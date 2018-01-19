@@ -12,20 +12,21 @@ var Btn4 = document.getElementById('btn4');
 var Btn5 = document.getElementById('btn5');
 var Btn6 = document.getElementById('btn6');
 
+var Wp = document.getElementById('wp');
+
 Btn1.onmouseover = function() {
 	// ro();
-	Box1.className = 'db';
-	Box1.style.float = 'right';
+	// Box1.className = 'db';
 
+	Wp.style.margin = '0 0 0 0%';
 	ro_btn();
-
 	Btn1.style.background = '#21b6bb';
 	Btn1.style.cursor = 'pointer';
 }
 Btn2.onmouseover = function() {
 	// ro();
-	Box2.className = 'db';
-	Box2.style.float = 'right';
+	// Box2.className = 'db';
+	Wp.style.margin = '0 0 0 -100%';
 
 	ro_btn();
 
@@ -35,8 +36,8 @@ Btn2.onmouseover = function() {
 }
 Btn3.onmouseover = function() {
 	// ro();
-	Box3.className = 'db';
-	Box3.style.float = 'right';
+	// Box3.className = 'db';
+	Wp.style.margin = '0 0 0 -200%';
 
 	ro_btn();
 
@@ -46,8 +47,8 @@ Btn3.onmouseover = function() {
 }
 Btn4.onmouseover = function() {
 	// ro();
-	Box4.className = 'db';
-	Box4.style.float = 'right';
+	// Box4.className = 'db';
+	Wp.style.margin = '0 0 0 -300%';
 
 	ro_btn();
 
@@ -57,8 +58,8 @@ Btn4.onmouseover = function() {
 }
 Btn5.onmouseover = function() {
 	// ro();
-	Box5.className = 'db';
-	Box5.style.float = 'right';
+	// Box5.className = 'db';
+	Wp.style.margin = '0 0 0 -400%';
 
 	ro_btn();
 	Btn5.style.background = '#21b6bb';
@@ -67,8 +68,9 @@ Btn5.onmouseover = function() {
 }
 Btn6.onmouseover = function() {
 	// ro();
-	Box6.className = 'db';
-	Box6.style.float = 'right';
+	// Box6.className = 'db';
+	Wp.style.margin = '0 0 0 -500%';
+
 	ro_btn();
 	Btn6.style.background = '#21b6bb';
 	Btn6.style.cursor = 'pointer';
@@ -95,10 +97,5 @@ function ro_btn() {
 }
 
 function fl() {
-	Box1.className = 'dn';
-	Box2.className = 'dn';
-	Box3.className = 'dn';
-	Box4.className = 'dn';
-	Box5.className = 'dn';
-	Box6.className = 'dn';	
+
 }
