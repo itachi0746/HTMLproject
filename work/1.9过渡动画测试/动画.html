@@ -5,15 +5,15 @@
 	<title>动画</title>
 	<style>
 		.box {
-			width: 82.3px;
-			height: 125px;
+			width: 54px;
+			height: 62px;
 			background-color: red;
 			position: absolute;
 			top: 0;
 			left: 0;
 
 			/*css3的帧动画一定是背景图*/
-			background: url(2.png);
+			background: url(testpic.png);
 			/*不加前缀在安卓上会卡*/
 			/*动画名*/
 			/*animation-name: one;*/
@@ -40,7 +40,7 @@
 
 			/*不加前缀在安卓上会卡*/
 			/*-webkit-animation: one 3s ease 0.5s infinite alternate;*/
-			-webkit-animation: bb 1s infinite steps(6);
+			-webkit-animation: one 3s infinite steps(2);
 		}
 
 /*		@-webkit-keyframes one {
@@ -55,12 +55,12 @@
 				border-radius: 50%;
 			}*/
 
-		@-webkit-keyframes bb {
+		@-webkit-keyframes one {
 			0% {
 				background-position: 0;
 			}
 			100% {
-				background-position: -494px;
+				background-position: -54px;
 			}
 		}
 	</style>
