@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>tab切换</title>
+	<style type="text/css">
+		.wp div {
+			width: 400px;
+			height: 400px;
+			font-size: 5em;
+			text-align: center;
+			line-height: 400px;
+			position: 
+		}
+		.wp div:nth-child(1) {
+			background: red;
+		}
+		.wp div:nth-child(2) {
+			background: yellow;
+			display: none;
+		}
+		.wp div:nth-child(3) {
+			background: blue;
+			display: none;
+
+		}
+		.wp div:nth-child(4) {
+			background: green;
+			display: none;
+
+		}
+		.btn_wp {
+			overflow: hidden;
+			width: 400px;
+		}
+		.btn_wp span{
+			float: left;
+			height: 50px;
+			width: 100px;
+			line-height: 50px;
+			text-align: center;
+
+		}
+		.btn_wp span:nth-child(1) {
+			background: red;
+			
+		}
+		.btn_wp span:nth-child(2) {
+			background: #ccc;
+			
+		}
+		.btn_wp span:nth-child(3) {
+			background: #ccc;
+			
+		}
+		.btn_wp span:nth-child(4) {
+			background: #ccc;
+
+		}
+		.body .wp .dn {
+			display: none;
+		}
+		.body .wp .db {
+			display: block;
+		}
+	</style>
+</head>
+<body class="body">
+
+	<div class="wp">
+		<div id="box1">内容1</div>
+		<div id="box2">内容2</div>
+		<div id="box3">内容3</div>
+		<div id="box4">内容4</div>
+	</div>
+	<div class="btn_wp">
+		<span id="btn1">按钮1</span>
+		<span id="btn2">按钮2</span>
+		<span id="btn3">按钮3</span>
+		<span id="btn4">按钮4</span>
+	</div>
+</body>
+<script>
+
+	var Box1 = document.getElementById('box1');
+	var Box2 = document.getElementById('box2');
+	var Box3 = document.getElementById('box3');
+	var Box4 = document.getElementById('box4');
+
+	var Btn1 = document.getElementById('btn1');
+	var Btn2 = document.getElementById('btn2');
+	var Btn3 = document.getElementById('btn3');
+	var Btn4 = document.getElementById('btn4');
+
+	Btn1.onclick = function() {
+		// console.log('123');
+		Box4.className = 'dn';
+		Box3.className = 'dn';
+		Box2.className = 'dn';
+		Box1.className = 'db';
+		Btn1.style.background = 'red';
+		Btn2.style.background = '#ccc';
+		Btn3.style.background = '#ccc';
+		Btn4.style.background = '#ccc';
+	}
+	Btn2.onclick = function() {
+		// console.log('123');
+		Box1.className = 'dn';
+		Box3.className = 'dn';
+		Box4.className = 'dn';
+		Box2.className = 'db';
+		Btn2.style.background = 'yellow';
+		Btn1.style.background = '#ccc';
+		Btn3.style.background = '#ccc';
+		Btn4.style.background = '#ccc';
+	}
+	Btn3.onclick = function() {
+		// console.log('123');
+		Box2.className = 'dn';
+		Box1.className = 'dn';
+		Box4.className = 'dn';
+		Box3.className = 'db';
+		Btn3.style.background = 'blue';
+		Btn2.style.background = '#ccc';
+		Btn1.style.background = '#ccc';
+		Btn4.style.background = '#ccc';
+	}
+	Btn4.onclick = function() {
+		// console.log('123');
+		Box1.className = 'dn';
+		Box2.className = 'dn';
+		Box3.className = 'dn';
+		Box4.className = 'db';
+		Btn4.style.background = 'green';
+		Btn2.style.background = '#ccc';
+		Btn3.style.background = '#ccc';
+		Btn1.style.background = '#ccc';
+	}
+</script>
+</html>
