@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.box {
+			background: black;
+			display: flex;
+			float: left;
+			width: 200px;
+			height: 200px;
+			margin: 20px;
+			padding: 10px;
+		}
+		.box span {
+			background-color: white;
+			width: 40px;
+			height: 40px;
+		}
+		.box1 {
+			flex-direction: column;
+			justify-content: space-between;
+			align-items: center;
+		}
+		.span2 {
+			align-self: center;
+		}
+		.box3 {
+			justify-content: space-between;
+		}
+		.span3 {
+			align-self: flex-end;
+		}
+		.box4 {
+			justify-content: space-between;
+		}
+		.span4 {
+			align-self: center;
+		}
+		.span4-1 {
+			align-self: flex-end;
+		}
+		.box5 {
+			flex-wrap: wrap;
+			justify-content: space-between;
+			flex-direction: row-reverse;
+		}
+		.box5 span, .box7 span, .box8 span {
+			width: 60px;
+			height: 60px;
+		}
+		.span5 {
+			align-self: flex-end;
+		}
+		.box6 {
+			justify-content: space-between;
+		}
+		.box6inner {
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
+		}
+		.span6 {
+			align-self: flex-end;
+		}
+		.box7 {
+			flex-wrap: wrap;
+			justify-content: space-between;
+			align-content: space-between;
+		}
+		.box8 {
+			flex-direction: column;
+			flex-wrap: wrap;
+			justify-content: space-between;
+			align-content: space-between;
+		}
+		.box9 {
+			justify-content: space-between;
+		}
+		.box9inner {
+			flex-direction: column;
+			display: flex;
+			justify-content: space-between;
+		}
+		.span9 {
+			align-self: center;
+		}
+		.box10 {
+			display: flex;
+			height: 200px;
+			width: 100%;
+		}
+		.left {
+			background-color: blue;
+			flex: auto;
+		}
+		.right {
+			background-color: green;
+			flex: auto;
+		}
+		.center {
+			background-color: red;
+			flex: 4;
+		}
+	</style>
+</head>
+<body>
+	<div class="box box1">
+		<span></span>
+		<span></span>
+	</div>
+	<div class="box box2">
+		<span></span>
+		<span class="span2"></span>
+	</div>
+	<div class="box box3">
+		<span></span>
+		<span class="span3"></span>
+	</div>
+	<div class="box box4">
+		<span></span>
+		<span class="span4"></span>
+		<span class="span4-1"></span>
+	</div>
+	<div class="box box5">
+		<span></span>
+		<span></span>
+		<span></span>
+		<span class="span5"></span>
+	</div>
+	<div class="box box6">
+		<div class="box6inner">
+			<span></span>
+			<span></span>
+		</div>
+		<div class="box6inner">
+			<span></span>
+			<span></span>
+		</div>
+	</div>
+	<div class="box box7">
+		<span></span>
+		<span></span>
+		<span></span>
+		<span></span>
+		<span></span>
+		<span></span>
+	</div>
+	<div class="box box8">
+		<span></span>
+		<span></span>
+		<span></span>
+		<span></span>
+		<span></span>
+		<span></span>
+	</div>
+	<div class="box box9">
+		<div class="box9inner">
+			<span></span>
+			<span></span>
+		</div>
+		<span class="span9"></span>
+		<div class="box9inner">
+			<span></span>
+			<span></span>
+		</div>
+	</div>
+	<div class="box10">
+		<div class="left"></div>
+		<div class="center"></div>
+		<div class="right"></div>
+	</div>
+</body>
+</html>

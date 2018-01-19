@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>demo</title>
+	<style>
+		.container {
+			/*vertical-align: top;*/
+			/*display: table;*/
+			height: 50px;
+			background-color: lightblue;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+		.outer {
+			width: 200px;
+			height: 200px;
+			background-color: lightgreen;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			margin: 10px;
+			/*position: relative;*/
+		}
+		.inner {
+			width: 60px;
+			height: 60px;
+			background-color: red;
+/*			position: absolute;
+			left: 0;
+			right: 0;
+			top: 0;
+			bottom: 0;
+			margin: auto;*/
+		}
+		.outer2 {
+			width: 200px;
+			height: 200px;
+			background-color: lightblue;
+			margin: 10px;
+			position: relative;
+			display: flex;
+			justify-content: center;
+			align-items: center;		
+		}
+		.inner2 {
+			width: 60px;
+			height: 60px;
+			background-color: red;
+/*			position: absolute;
+			bottom: 0;
+			top: 0;
+			left: 0;
+			right: 0;
+			margin: auto;
+*/		}
+		.outer3 {
+			width: 200px;
+			height: 90px;
+			background-color: lightblue;
+			/*line-height: 90px;*/
+			/*vertical-align: center;*/
+		}
+
+	</style>
+</head>
+<body>
+	<div class="container">
+		<img src="head.png" alt="">
+		<span>123</span>
+		<img src="cow.png" alt="">
+		<span>哈哈哈哈哈哈哈或或或</span>
+		<input type="text">
+	</div>
+	<div class="outer">
+		<div class="inner"></div>
+	</div>
+	<div class="outer">
+		<span class="inner">32221</span>
+	</div>
+	<div class="outer2">
+		<span class="inner2">333333</span>
+	</div>
+	<div class="outer2">
+		<span>333333哈哈哈哈哈哈哈或或或或或哈哈哈哈哈哈哈或或坎坎坷坷扩扩扩扩</span>
+	</div>
+	<div class="outer3">
+		<span>333333哈哈哈哈哈哈哈或或或或或哈哈哈哈哈哈哈或或坎坎坷坷扩扩扩扩</span>
+	</div>
+</body>
+</html>

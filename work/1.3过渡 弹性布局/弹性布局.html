@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>弹性布局</title>
+	<style>
+		.box {
+			border: 1px solid;
+			height: 100px;
+			font-size: 2em;
+			display: -webkit-box;
+
+			/*子元素的排列方式*/
+			/*horizontal  横向;*/
+			/*vertical 竖向*/
+			/*-webkit-box-orient: horizontal;*/
+
+			/*子元素排列顺序*/
+			/*正向 inherit*/
+			/*反向 reverse*/
+			/*-webkit-box-direction: reverse;*/
+
+			/*水平对齐方式*/
+			/*start 向左对齐;*/
+			/*end 向右对齐;*/
+			/*center 居中*/
+			/*justify 水平等分父元素宽度*/
+			/*-webkit-box-pack: justify;*/
+
+			/*垂直方式*/
+			/*stretch(默认) 拉伸到父体等高 */
+			/*-webkit-box-align: end;*/
+			
+			/*控制显示顺序*/
+			/*放在子元素*/
+			/*-webkit-box-ordinal-group: 数字;*/
+		}
+		.box div:nth-child(1) {
+			width: 100px;
+			height: 50%;
+			background: red;
+			-webkit-box-flex: 1;
+		}
+		.box div:nth-child(2) {
+			width: 100px;
+			height: 80%;
+			background: pink;
+			-webkit-box-flex: 1;
+
+		}
+		.box div:nth-child(3) {
+			width: 100px;
+			height: 40%;
+			background: blue;
+			-webkit-box-flex: 1;
+		}
+		.box2 {
+			height: 200px;
+			width: 200px;
+			font-size: 1em;
+			display: -webkit-box;	
+			background-color: #000;		
+			margin: 20px;
+			padding: 10px;
+			-webkit-box-orient: horizontal;
+			-webkit-box-pack: center;
+			-webkit-box-align: center;
+			-webkit-box-direction: reverse;
+
+		}
+		span {
+			width: 50px;
+			height: 50px;
+			background: white;
+		}
+		.inner {
+			width: 50px;
+			height: 50px;
+			font-size: 2em;
+			background-color: green;
+		}
+	</style>
+</head>
+<body>
+	<div class="box">
+		<div>1</div>
+		<div>2</div>
+		<div>3</div>
+	</div>
+	<div class="box2">
+		<div class="inner">1</div>
+		<div class="inner">2</div>
+		<div class="inner">3</div>
+	</div>
+</body>
+</html>

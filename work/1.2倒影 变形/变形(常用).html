@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>变形(很常用)一般用绝对定位</title>
+	<style>
+		.box {
+			width: 100px;
+			height: 100px;
+			background: red;
+			/*变形属性 
+			多种种类的时候可以用空格隔开(属性值的顺序有影响)*/
+			/*rotate:旋转  deg;*/
+			/*transform: rotate(45deg);*/
+
+			/*锚点(旋转原点)四方位,百分比*/
+			/*transform-origin: 50% 0;*/
+
+			/*transform: translate(x,y);
+			translateX translateY translateZ 位移(常用) 还占着原来位置(用绝对定位)*/
+			/*transform: translate(100px,100px);*/
+
+			/*缩放 scaleX scaleY*/
+			/*transform: scale(2) translate(100px,100px);*/
+
+			/*扭曲*/
+			/*transform: skew(x,y);*/
+			/*skewX  skewY*/
+			transform: skew(8deg,45deg);
+
+		}
+
+	</style>
+</head>
+<body>
+	<div class="box">
+		<span>福</span>
+	</div>
+</body>
+</html>

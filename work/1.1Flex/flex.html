@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.box {
+			width: 100px;
+			height: 100px;
+			background-color: red;
+			margin: 0 10px 0 ;
+			display: inline;
+		}
+		.box2 {
+			width: 100px;
+			height: 100px;
+			background-color: black;
+			margin: 0 10px 0 ;
+			display: inline;
+
+		}
+		.box3 {
+			width: 100px;
+			height: 100px;
+			background-color: green;
+			margin: 0 10px 0 ;
+			display: inline;
+
+		}
+		.big {
+			width: 500px;
+			height: 500px;
+			background-color: blue;
+			/*flex布局*/
+			display: flex;
+			/*主轴方向*/
+			flex-direction: row;
+			/*交叉轴(垂直)对齐方式*/
+			align-items: center;
+			/*主轴(水平)对齐方式*/
+			justify-content: center;
+			/*是否换行*/
+			flex-wrap: wrap;
+			/*align-content: center;*/
+		}
+	</style>
+</head>
+<body>
+	<div class="big">
+		<div class="box"></div>
+		<div class="box2"></div>
+		<div class="box3"></div>
+		<div class="box"></div>
+		<!-- <div class="box2"></div> -->
+		<!-- <div class="box3"></div> -->
+		<!-- <div class="box"></div> -->
+	</div>
+</body>
+</html>

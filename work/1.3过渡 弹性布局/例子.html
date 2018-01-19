@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>弹性布局</title>
+    <style>
+        *{margin: 0;padding: 0;list-style: none;text-decoration: none;}
+        .box{flex-direction: row;}
+    </style>
+    <style>
+ 
+        .flex
+        {
+            /* 基本样式 */
+            /*width: 550px;*/
+            height: 2000px;
+            border: 1px solid #555;
+            font: 14px Arial;
+ 
+            /*  建立弹性框 */
+            display: -webkit-flex;/*很多浏览器用到的内核*/
+            display: -ms-flexbox;/*ie*/
+            display: -webkit-box;/*苹果*/
+            -webkit-flex-direction: row;
+            -ms-flex-direction: row;
+ 
+            display: flex;
+            flex-direction: row;
+        }
+ 
+        .flex > div
+        {
+            -webkit-writing-mode: vertical-rl;
+            writing-mode: vertical-rl;
+            -webkit-flex: 1 1 auto;
+            -ms-flex: 1 1 auto;
+            flex: 1 1 auto;
+            height: 2000px;
+            width: 500px; /* 让过渡表现良好。（从/到"width:auto"的过渡
+                      至少在 Gecko 和 Webkit 上是有 bug 的。
+                      更多信息参见 http://bugzil.la/731886 ） */
+ 
+            -webkit-transition: width 0.7s ease-out;
+            -ms-transition: width 0.7s ease-out;
+            transition: width 0.7s ease-out;
+        }
+ 
+        /* colors */
+        .flex > div:nth-child(1){ background : #009246; }
+        .flex > div:nth-child(2){ background : #F1F2F1; }
+        .flex > div:nth-child(3){ background : #CE2B37; }
+        .flex > div:nth-child(4){ background : yellow; }
+        .flex > div:nth-child(5){ background : blue;}
+        .flex > div:hover
+        {
+            width: 800px;
+        }
+ 
+    </style>
+</head>
+<body>
+<p>Flexbox nuovo</p>
+<div class="flex">
+    <div>我是今后非常火的弹性布局</div>
+    <div>今天又学到一个新的知识</div>
+    <div>真的很开心</div>
+    <div>所以好好学习，真的很重要。</div>
+    <div>再来一个！</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>DEMO</title>
+	<style>
+		.www {
+			/*vertical-align: center;*/
+			height: 80px;
+			/*line-height: 40px;*/
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			background-color: red;
+
+		}
+		.outer {
+			width: 200px;
+			height: 200px;
+			background-color: red;
+			position: relative;
+		}
+		.inner {
+			width: 60px;
+			height: 60px;
+			background-color: green;
+			position: absolute;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+			margin: auto;
+
+		}
+		.box {
+			height: 200px;
+			width: 200px;
+			background-color: black;
+			padding: 10px;
+			display: flex;
+			justify-content: space-between;
+
+		}
+		.smallbox {
+			background-color: white;
+			display: flex;
+			justify-content: span
+
+		}
+		.span {
+			height: 60px;
+			width: 60px;
+			background-color: red;
+		}
+	</style>
+
+</head>
+<body>
+	<div class="www">
+		<img src="cow.png" alt="">
+		<span>123</span>
+		<img src="head.png" alt="">
+		<span>hfhfhfhf呵呵呵呵</span>
+	</div>
+	<div class="outer">
+		<div class="inner"></div>
+		
+	</div>
+	<div class="box">
+		<div class="smallbox">
+			<span class="span"></span>
+		</div>
+		<div class="smallbox">
+			<span class="span"></span>
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.a {
+			width: 100px;
+			height: 100px;
+		  	background-color: red;
+
+		}
+		.b {
+			width: 100px;
+			height: 100px;
+		  	background-color: green;
+		}
+		/*多类选择器*/
+		.a.b {
+			width: 100px;
+			height: 100px;
+		  	background-color: blue;
+		}
+		/*通过把两个类选择器链接在一起，仅可以选择同时包含这些类名的元素（类名的顺序不限）.
+		如果一个多类选择器包含类名列表中没有的一个类名，匹配就会失败*/
+/*		.b.a {
+			width: 100px;
+			height: 100px;
+		  	background-color: black;
+		}*/
+	</style>
+</head>
+<body>
+	<div class="a">text1</div>
+	<div class="b">text2</div>
+	<div class="a b">text3</div>
+	<div class="b a">text4</div>
+</body>
+</html>
