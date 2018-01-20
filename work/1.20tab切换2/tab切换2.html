@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>tab切换2</title>
+	<style type="text/css">
+		.wp div {
+			width: 400px;
+			height: 500px;
+			font-size: 3em;
+		}
+		#box1 {
+			background: red;
+			display: block;
+		}
+		#box2 {
+			background: green;
+			display: none;
+
+		}
+		#box3 {
+			background: blue;
+			display: none;
+
+		}
+		#box4 {
+			background: yellow;
+			display: none;
+
+		}
+
+		.wp {
+			width: 400px;
+			height: 500px;
+			overflow: hidden;
+
+		}
+		.btn_wp span {
+			width: 100px;
+			height: 50px;
+			background: #ccc;
+			text-align: center;
+			line-height: 50px;
+			float: left;
+		}
+		.btn_wp span:nth-child(1) {
+			background: red;
+			
+		}
+		.btn_wp span:nth-child(2) {
+			background: #ccc;
+			
+		}
+		.btn_wp span:nth-child(3) {
+			background: #ccc;
+			
+		}
+		.btn_wp span:nth-child(4) {
+			background: #ccc;
+
+		}
+		.db {
+			display: block;
+		}
+		.dn {
+			display: none;
+		}
+	</style>
+	<script src="../../Johnz.js"></script>
+</head>
+<body>
+	<div class="wp" id="box">
+		<div id="box1">内容1</div>
+		<div id="box2">内容2</div>
+		<div id="box3">内容3</div>
+		<div id="box4">内容4</div>
+		
+	</div>
+
+	<div class="btn_wp" id="btn">
+		<span id="btn1" class="bt">按钮1</span>
+		<span id="btn2" class="bt">按钮2</span>
+		<span id="btn3" class="bt">按钮3</span>
+		<span id="btn4" class="bt">按钮4</span>
+	</div>
+</body>
+<script>
+	// 获取目标标签名
+	var Box = $('box').getElementsByTagName('div');
+	// var Btn = $('btn').getElementsByTagName('span');
+
+	// 获取类名
+	var Btn = document.getElementsByClassName('bt');
+
+	for(var i=0;i<Btn.length;i++) {
+		
+		Btn[i].index = i;
+		Btn[i].onclick = function() {
+
+			// console.log(i);  循环已结束 i是4
+
+			// this 指向方法的 对象
+
+
+			for(var j=0;j<Box.length;j++) {
+				Box[this.index].style.display = 'none';
+				this.style.background = '#ccc';
+
+
+
+			}
+			if(this.index == 0) {
+				Box[0].style.display = 'block';
+				this.style.background = 'red';
+			}
+			if(this.index == 1) {
+				Box[1].style.display = 'block';
+				this.style.background = 'blue';
+			}
+			if(this.index == 2) {
+				Box[2].style.display = 'block';
+				this.style.background = 'green';
+			}
+			if(this.index == 3) {
+				Box[3].style.display = 'block';
+				this.style.background = 'yellow';
+			}
+
+			// Box[this.index].style.display = 'block';
+			// this.style.background = 'red';
+
+		}
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	// var Box1 = $('box1');
+	// // console.log(Box1);
+	// var Box2 = $('box2');
+	// var Box3 = $('box3');
+	// var Box4 = $('box4');
+
+	// var Btn1 = $('btn1');
+	// var Btn2 = $('btn2');
+	// var Btn3 = $('btn3');
+	// var Btn4 = $('btn4');
+
+	// Btn1.onclick = function() {
+	// 	Ro();
+	// 	Box1.style.display = 'block';
+	// 	Btn1.style.background = 'red';
+	// }
+
+	// Btn2.onclick = function() {
+	// 	Ro();
+	// 	Box2.style.display = 'block';
+	// 	Btn2.style.background = 'green';		
+	// }
+
+	// Btn3.onclick = function() {
+	// 	Ro();
+	// 	Box3.style.display = 'block';
+	// 	Btn3.style.background = 'blue';		
+	// }
+
+	// Btn4.onclick = function() {
+	// 	Ro();
+	// 	Box4.style.display = 'block';
+	// 	Btn4.style.background = 'yellow';
+	// }
+
+
+	// // 重置样式的函数
+	// function Ro() {
+	// 	for(var i=1;i<=4;i++) {
+	// 		eval('Box' + i).style.display = 'none';
+	// 		eval('Btn' + i).style.background = '#ccc';
+
+
+	// 	}
+	// }
+</script>
+</html>
