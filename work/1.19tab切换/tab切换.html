@@ -10,10 +10,10 @@
 			font-size: 5em;
 			text-align: center;
 			line-height: 400px;
-			position: 
 		}
 		.wp div:nth-child(1) {
 			background: red;
+			display: block;
 		}
 		.wp div:nth-child(2) {
 			background: yellow;
@@ -82,63 +82,25 @@
 </body>
 <script>
 
-	var Box1 = document.getElementById('box1');
-	var Box2 = document.getElementById('box2');
-	var Box3 = document.getElementById('box3');
-	var Box4 = document.getElementById('box4');
+	var Box = document.getElementsByClassName('wp')[0].getElementsByTagName('div');
 
-	var Btn1 = document.getElementById('btn1');
-	var Btn2 = document.getElementById('btn2');
-	var Btn3 = document.getElementById('btn3');
-	var Btn4 = document.getElementById('btn4');
 
-	Btn1.onclick = function() {
-		// console.log('123');
-		Box4.className = 'dn';
-		Box3.className = 'dn';
-		Box2.className = 'dn';
-		Box1.className = 'db';
-		Btn1.style.background = 'red';
-		Btn2.style.background = '#ccc';
-		Btn3.style.background = '#ccc';
-		Btn4.style.background = '#ccc';
-	}
-	Btn2.onclick = function() {
-		// console.log('123');
-		Box1.className = 'dn';
-		Box3.className = 'dn';
-		Box4.className = 'dn';
-		Box2.className = 'db';
-		Btn2.style.background = 'yellow';
-		Btn1.style.background = '#ccc';
-		Btn3.style.background = '#ccc';
-		Btn4.style.background = '#ccc';
-	}
-	Btn3.onclick = function() {
-		// console.log('123');
-		Box2.className = 'dn';
-		Box1.className = 'dn';
-		Box4.className = 'dn';
-		Box3.className = 'db';
-		Btn3.style.background = 'blue';
-		Btn2.style.background = '#ccc';
-		Btn1.style.background = '#ccc';
-		Btn4.style.background = '#ccc';
-	}
-	Btn4.onclick = function() {
-		// console.log('123');
-		Box1.className = 'dn';
-		Box2.className = 'dn';
-		Box3.className = 'dn';
-		Box4.className = 'db';
-		Btn4.style.background = 'green';
-		Btn2.style.background = '#ccc';
-		Btn3.style.background = '#ccc';
-		Btn1.style.background = '#ccc';
-	}
+	var Btn = document.getElementsByClassName('btn_wp')[0].getElementsByTagName('span');
+// console.log(Box,Btn);
 
-	function ro() {
 
+	for(var i=0;i<Box.length;i++) {
+
+		Btn[i].index = i;
+		Btn[i].onmouseover = function() {
+			for(var j=0;j<Btn.length;j++) {
+				Box[j].className = 'dn';
+				Btn[j].style.background = '#ccc';
+
+			}
+			Box[this.index].className = 'db';
+			this.style.background = 'red';
+		}
 	}
 </script>
 </html>
