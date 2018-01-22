@@ -2,8 +2,10 @@ var Box = document.getElementById('wp').getElementsByTagName('div');
 
 var Btn = document.getElementsByClassName('btn_wp')[0].getElementsByTagName('span');
 
-console.log(Box,Btn);
+// console.log(Box,Btn);
 var Wp = document.getElementById('wp');
+
+
 
 // Btn1.onmouseover = function() {
 // 	// ro();

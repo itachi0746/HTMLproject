@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.wp div {
+			width: 400px;
+			height: 400px;
+			font-size: 5em;
+
+		}
+		.btn_wp span {
+			height: 50px;
+			width: 100px;
+			background: #ccc;
+			text-align: center;
+			line-height: 50px;
+			float: left;
+		}
+		.btn_wp {
+			overflow: hidden;
+		}
+		#box1 {
+			display: block;
+			background: red;
+		}
+		#box2 {
+			display: none;
+			background: green;
+		}
+		#box3 {
+			display: none;
+			background: blue;
+		}
+		#box4 {
+			display: none;
+			background: yellow;
+		}
+
+	</style>
+</head>
+<body>
+	<div class="wp">
+		<div id="box1">内容1</div>
+		<div id="box2">内容2</div>
+		<div id="box3">内容3</div>
+		<div id="box4">内容4</div>
+	</div>
+	<div class="btn_wp">
+		<span>按键1</span>
+		<span>按键2</span>
+		<span>按键3</span>
+		<span>按键4</span>
+	</div>
+</body>
+<script>
+	var Box = document.getElementsByClassName('wp')[0].getElementsByTagName('div'),
+		Btn = document.getElementsByClassName('btn_wp')[0].getElementsByTagName('span');
+
+	for(var i=0;i<Box.length;i++) {
+
+		Btn[i].index = i;
+		Btn[i].onmouseover = function() {
+
+			for(var j=0;j<Btn.length;j++) {
+				Box[j].style.display = 'none';
+				Btn[j].style.background = '#ccc';
+
+			}
+			Box[this.index].style.display = 'block';
+			this.style.background = 'red';
+		}
+	}
+</script>
+</html>

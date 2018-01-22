@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>大图滚动练习</title>
+	<style>
+		.show {
+			overflow: hidden;
+			width: 1200px;
+			height: 400px;
+		}
+		#box {
+			width: 1600px;
+			transition: all .5s;
+			position: relative;
+		}
+		#box div {
+			height: 400px;
+			width: 400px;
+			float: left;
+			font-size: 4em;
+		}
+		#box div:nth-child(1) {
+			background: red;
+		}
+		#box div:nth-child(2) {
+			background: green;
+		}
+		#box div:nth-child(3) {
+			background: blue;
+		}
+		#box div:nth-child(4) {
+			background: pink;
+		}
+
+	</style>
+</head>
+<body>
+	<div class="show">
+		<div id="box">
+			<div>内容1</div>
+			<div>内容2</div>
+			<div>内容3</div>
+			<div>内容4</div>
+		</div>
+	</div>
+</body>
+<script type="text/javascript">
+	var Box = document.getElementById('box');
+	var num = Box.getElementsByTagName('div');
+	console.log(num[0],num[1]);
+
+	var i =0;	
+	var T1 = setInterval(function() {
+		if(i<4) {
+			Box.style.left = -400 * i + 'px';
+		}
+
+		i++;
+	},1000);
+</script>
+</html>

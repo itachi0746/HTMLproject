@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>文本获取与输出</title>
+</head>
+<body>
+	<div id="div">夫妇付付过或</div>
+	<input type="text" id="inp" value=""> 
+</body>
+
+<script>
+	var Div = document.getElementById('div');
+
+	var Inp = document.getElementById('inp');
+
+	// 获取文本
+	var aa = Div.innerText;
+
+	// 获取文本
+	var bb = Div.innerHTML;
+	// console.log(aa,bb);
+
+	// innerText 不能读取标签
+	// Div.innerText = 'llkgsjag';
+
+	// innerHTML 可以读取HTML标签
+	Div.innerHTML = '<span>llkgsjag</span>';
+
+	document.onclick = function() {
+		var cc = Inp.value;  // value 常用
+
+		console.log(cc);
+	}
+	
+</script>
+</html>

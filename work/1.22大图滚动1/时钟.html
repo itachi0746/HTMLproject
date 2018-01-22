@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>时钟</title>
+	<style>
+		span {
+			font-size: 5em;
+
+		}
+	</style>
+</head>
+<script type="text/javascript" src="Johnz.js"></script>
+<body>
+	<p>
+		<span id="hour"></span>
+		<span id="min"></span>
+		<span id="sec"></span>
+	</p>
+</body>
+<script>
+	// var Hour = $('hour').innerHTML,
+	// 	Min =  $('min').innerHTML,
+	// 	Sec = $('sec').innerHTML;
+
+	var h = 23,
+		m = 59,
+		s = 40;
+
+	// console.log(Sec);
+	var T1 = setInterval(function() {
+		// Sec = s.toString();
+		// console.log(Sec);
+
+		if(s==60) {
+			m++;
+			s = 0;
+			if(m==60) {
+				h++;
+				m = 0;
+				if(h==24) {
+					h = m = s = 0;
+				}
+			}
+
+		}
+
+		$('hour').innerHTML = h + ':';
+		$('min').innerHTML = m + ':';
+		$('sec').innerHTML = s + '';
+
+		s++;
+	}, 1000);	
+</script>
+</html>

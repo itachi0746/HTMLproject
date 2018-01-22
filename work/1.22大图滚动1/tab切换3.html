@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>tab切换3</title>
+	<style>
+		.box {
+			width: 9999px;
+			position: relative;
+		}
+		.show {
+			height: 400px;
+			width: 400px;
+			overflow: hidden;
+		}
+		.box div{
+			height: 400px;
+			width: 400px;
+			text-align: center;
+			line-height: 400px;
+			font-size: 4em;
+			float: left;
+		}
+		.box div:nth-child(1) {
+			background: red;
+		}
+		.box div:nth-child(2) {
+			background: green;
+		}
+		.box div:nth-child(3) {
+			background: blue;
+		}
+		.box div:nth-child(4) {
+			background: pink;
+		}
+		.btn {
+			overflow: hidden;
+		}
+		.btn span {
+			width: 100px;
+			height: 50px;
+			text-align: center;
+			line-height: 50px;
+			font-size: 2em;
+			float: left;
+			background: #ccc;
+		}
+
+
+	</style>
+	<script src="Johnz.js"></script>
+</head>
+<body>
+	<div class="show">
+		<div class="box" id="box">
+			<div>内容1</div>
+			<div>内容2</div>
+			<div>内容3</div>
+			<div>内容4</div>
+		</div>
+	</div>
+	<div class="btn" id="btn">
+		<span>按钮1</span>
+		<span>按钮2</span>
+		<span>按钮3</span>
+		<span>按钮4</span>
+	</div>
+</body>
+<script>
+	var Box = $('box');
+	var Btn = $('btn').getElementsByTagName('span');
+
+	// console.log(Box,Btn);
+	for(var i=0;i<Btn.length;i++) {
+		Btn[i].index = i;
+		Btn[i].onclick = function() {
+			Box.style.left = -400 * this.index + 'px';
+		}
+	}
+</script>
+</html>
