@@ -4,59 +4,74 @@
 	<meta charset="UTF-8">
 	<title>大图滚动练习</title>
 	<style>
-		.show {
+		#show {
 			overflow: hidden;
 			width: 1200px;
 			height: 400px;
 		}
 		#box {
-			width: 1600px;
+			width: 1200px;
 			transition: all .5s;
 			position: relative;
+			left: 0;
 		}
-		#box div {
+		#box div,#box2 div {
 			height: 400px;
 			width: 400px;
 			float: left;
 			font-size: 4em;
 		}
-		#box div:nth-child(1) {
+		#box div:nth-child(1),#box2 div:nth-child(1) {
 			background: red;
 		}
-		#box div:nth-child(2) {
+		#box div:nth-child(2),#box2 div:nth-child(2) {
 			background: green;
 		}
-		#box div:nth-child(3) {
+		#box div:nth-child(3),#box2 div:nth-child(3) {
 			background: blue;
 		}
-		#box div:nth-child(4) {
+		#box div:nth-child(4),#box2 div:nth-child(4) {
 			background: pink;
 		}
-
+		#wp {
+			width: 2400px;
+		}
 	</style>
 </head>
 <body>
-	<div class="show">
-		<div id="box">
-			<div>内容1</div>
-			<div>内容2</div>
-			<div>内容3</div>
-			<div>内容4</div>
+	<div id="show">
+		<div id="wp">
+			<div id="box">
+				<div>内容1</div>
+				<div>内容2</div>
+				<div>内容3</div>
+			</div>
+			<div id="box2">
+				<div>内容1</div>
+				<div>内容2</div>
+				<div>内容3</div>				
+			</div>
 		</div>
 	</div>
 </body>
 <script type="text/javascript">
-	var Box = document.getElementById('box');
-	var num = Box.getElementsByTagName('div');
-	console.log(num[0],num[1]);
+	var wp = document.getElementById('wp');
+	var box = document.getElementById('box');
+	var box2 = document.getElementById('box2');
+	// box2.innerHTML = box.innerHTML;
 
-	var i =0;	
-	var T1 = setInterval(function() {
-		if(i<4) {
-			Box.style.left = -400 * i + 'px';
+	// console.log(box2.innerHTML);
+
+	function marquee() {
+		if(show.scrollLeft >= box.scrollWidth) {
+			show.scrollLeft = 0;
+		} else {
+			wp.style.left = ;
 		}
-
-		i++;
-	},1000);
+	}
+	var s = setInterval(marquee, 500);
+	// 鼠标悬浮滚动停止
+	show.onmouseover = function() { clearInterval(s);  } 
+	show.onmouseout = function() { s = setInterval('marquee()', 50);}	
 </script>
 </html>

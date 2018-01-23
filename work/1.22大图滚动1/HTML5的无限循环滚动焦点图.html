@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <meta content="telephone=no" name="format-detection"/>
+    <script src="Johnz2.js" type="text/javascript"></script>
+</head>
+<style>
+    * {
+        max-width: 100%;
+        height: auto;
+        margin: 0;
+        padding: 0;
+        font-size: 100%;
+        vertical-align: baseline;
+    }
+
+    html {
+        max-width: 100%;
+        height: auto;
+        font-family: "Microsoft Yahei"
+    }
+
+    body {
+        line-height: 1;
+        background: #f5f5f5;
+        -webkit-text-size-adjust: auto;
+        font-size: 14px;
+        color: #333;
+    }
+
+    ol, ul {
+        list-style: none;
+    }
+
+    .slider {
+        width: 400px;
+        height: 200px;
+        overflow: hidden;
+        position: relative;
+        margin: 10px auto;
+    }
+
+    .slider li {
+        position: absolute;
+        height: 200px;
+        width: 400px;
+        text-align: center;
+        line-height: 200px;
+    }
+
+    .button {
+        width: 200px;
+        margin: 10px auto;
+    }
+</style>
+<body>
+<ul class="slider">
+    <li style="background: #006cff">1</li>
+    <li style="background: #798777">2</li>
+    <li style="background: #127841">3</li>
+</ul>
+<div class="button">
+    <input id="pre" type="button" value="上一张"/>
+    <input id="next" type="button" value="下一张"/>
+    <input id="showAll" onclick="showAll()" type="button" value="显示所有滑块"/>
+</div>
+<script>
+    function showAll(){
+        if($('#showAll').val() == '显示所有滑块') {
+            $('.slider').css('overflow', 'visible');
+            $('#showAll').val('显示焦点滑块');
+        } else {
+            $('.slider').css('overflow', 'hidden');
+            $('#showAll').val('显示所有滑块');
+        }
+    }
+    $(function () {
+        var arr = new Array();//用数组来保存每个图块的位置
+        var width = $('li').width();//获取焦点图li的大小
+        var margin = 0;
+        var i = 0;//记录滑动的位置，下一张i+1，上一张i-1，当前位置为:i%length
+        var length = $("ul").children("li").length;//获取焦点图的个数
+        //遍历所有的图片滑块，为其设置位置，并且把所以位置保存到arr数组里。
+        $('li').each(function (index) {
+            //下面这一行是判断如果当前滑块为最后一个的话，则将它的margin-left设为-200px，
+            //假设有五个图片滑块，则顺序是5，1，2，3，4。
+            var marginLeft = index + 1 == length ? -width : index * (width + margin);
+            arr.push(marginLeft);//保存每个焦点图滑块的位置
+            $(this).css('margin-left', marginLeft + 'px');//设置每个焦点图的位置
+        })
+        //点击下一张按钮
+        $('#next').click(function () {
+            //判断滑动动画是否执行完毕
+            if (!$('li').is(":animated")) {
+                i++;
+                $('li').each(function (index) {//遍历所有滑块li
+                    //为每个滑块指定位置
+                    var marginLeft = index - i % length < 0 ?
+                            arr[index + length - i % length] : arr[index - i % length];
+                    //设置每个滑块的位置
+                    if (marginLeft == width * (length - 2)) {
+                        //width * (length - 2)为最后一个滑块的位置
+                        //如果当前滑动要滑动到最右边，也就是最后一个，则不执行动画。
+//                        setTimeout(function() {
+                        $('li').eq(index).css({'margin-left': marginLeft + 'px'});
+//                        }, 600)
+                    } else {
+                        $('li').eq(index).animate({'margin-left': marginLeft + 'px'},600);
+                    }
+//                    console.debug('i=' + i + ',index = ' + marginLeft);
+                })
+            }
+        })
+        //点击上一张按钮
+        $('#pre').click(function () {
+            //判断滑动动画是否执行完毕
+            if (!$('li').is(":animated")) {
+                i = --i < 0 ? length - 1 : i;
+                $('li').each(function (index) {
+                    var marginLeft = index - i % length < 0 ?
+                            arr[index + length - i % length] : arr[index - i % length];
+                    if (marginLeft == -width) {
+                        //-width为最第一个滑块的位置
+                        //如果当前滑动要滑动到最左边边，也就是第一个，则不执行动画。
+//                        setTimeout(function() {
+                            $('li').eq(index).css({'margin-left': marginLeft + 'px'});
+//                        }, 600)
+                    } else {
+                        $('li').eq(index).animate({'margin-left': marginLeft + 'px'});
+                    }
+//                    console.debug('i=' + i + ',index = ' + marginLeft);
+                })
+            }
+        })
+    })
+</script>
+</body>
+</html>

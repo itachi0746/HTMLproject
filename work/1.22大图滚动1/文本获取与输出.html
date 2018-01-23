@@ -6,7 +6,7 @@
 </head>
 <body>
 	<div id="div">夫妇付付过或</div>
-	<input type="text" id="inp" value=""> 
+	<input type="text" id="inp" value="5555"> 
 </body>
 
 <script>
@@ -15,23 +15,25 @@
 	var Inp = document.getElementById('inp');
 
 	// 获取文本
-	var aa = Div.innerText;
+	// var aa = Div.innerText;
 
 	// 获取文本
-	var bb = Div.innerHTML;
+	// var bb = Div.innerHTML;
+
+	// aa = '123';
+	// bb = '45667';
 	// console.log(aa,bb);
 
 	// innerText 不能读取标签
-	// Div.innerText = 'llkgsjag';
+	Div.innerText = 'llkgsjag';
 
 	// innerHTML 可以读取HTML标签
 	Div.innerHTML = '<span>llkgsjag</span>';
 
-	document.onclick = function() {
-		var cc = Inp.value;  // value 常用
+		var cc = Div.value;  // value 常用
 
 		console.log(cc);
-	}
+
 	
 </script>
 </html>
