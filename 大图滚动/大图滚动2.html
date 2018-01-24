@@ -8,26 +8,38 @@
 			width: 780px;
 			height: 400px;
 			overflow: hidden;
+			float: left;
 		}
 		#box_wp {
 			width: 9999px;
 			position: relative;
-			left: 0;
+			left: -1300px;
 		}
-		.box,.box2 {
+		.box,.box2,.box1 {
 			overflow: hidden;
 			float: left;
 		}
-		.box img,.box2 img {
+		.box img,.box2 img,.box1 img {
 			float: left;
 			width: 260px;
+		}
+		.direction {
+			height: 100px;
+			width: 100px;
+			background: #ccc;
+			font-size: 2em;
+			float: left;
 		}
 	</style>
 	<script src="Johnz.js"></script>
 </head>
 <body>
+	<div class="direction">left</div>
 	<div class="show">
 		<div id="box_wp">
+			<div class="box1" id="box1">
+				
+			</div>
 			<div class="box" id="box">
 				<img src="image/1.jpg" alt="">
 				<img src="image/2.jpg" alt="">
@@ -40,40 +52,78 @@
 			</div>
 		</div>
 	</div>
+	<div class="direction">right</div>
+
 </body>
 <script>
 	var box = $('box'),
+		box1 = $('box1'),
 		box2 = $('box2'),
-		boxWp = $('box_wp');
+		boxWp = $('box_wp'),
+		left = $cls('direction')[0],
+		right = $cls('direction')[1];
 
-	box2.innerHTML = box.innerHTML;
+	// console.log(left,right);
+	box2.innerHTML = box1.innerHTML = box.innerHTML;
 
-	var i =0;
-	var move = function() {
+	// 初始位置
+	var i = temp = -1300;
+
+	var T = setTimeout(function() {
 		boxWp.style.left = i + 'px';
 		i -= 2;
-		if(260/i==1) {
-			setTimeout(move, 500);
+		// 回归原位
+		if(Math.abs(i-temp) == box.offsetWidth) {
+			i = -1300;
 		}
+		if(i%260===0) {
+
+			setTimeout(arguments.callee, 1000);
+			return;
+		}
+		setTimeout(arguments.callee,10);
+	},10)
+
+	function run(direction) {
+		clearTimeout(window.T);
+
+		var T = setTimeout(function() {
+			boxWp.style.left = i + 'px';
+			if(direction==='left'){
+				i -= 2;
+			} else {
+				i += 2;
+			}
+			// 回归原位
+			if(Math.abs(i-temp) == box.offsetWidth) {
+				i = -1300;
+			}
+			if(i%260===0) {
+
+				setTimeout(arguments.callee, 1000);
+				return;
+			}
+			setTimeout(arguments.callee,10);
+		},10)
 	}
-move();
 
-	// function s() { 
-	// 	var b = setInterval(move,0);
-	// }
-	// s();
+	right.onclick = function() {
+		// clearTimeout(T);
+		run('right');
+	};
+	left.onclick = function() {
+		// clearTimeout(T);
+		run('left');
+	};
+
+	// show.onmouseover = function() { clearTimeout(s);  } 
+	// show.onmouseout = function() { s = setInterval('marquee()', 50);}	
 
 
 
 
-	// var s = setInterval(function() {
-	// 	boxWp.style.left = i + 'px';
-	// 	// if(i== -260) {
-	// 	// 	clearInterval(s);
-	// 	// }
-	// 	i -= 10;
 
-	// },100)
+
 
 	
 
