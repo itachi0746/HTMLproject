@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>大图滚动</title>
+	<style>
+
+		.box,.box2 {
+			overflow: hidden;
+			float: left;
+		}
+		.box img,.box2 img {
+			float: left;
+		}
+		.box_wp {
+			width: 9999px;
+			position: relative;
+			left: 0;
+		}
+		.show {
+			width: 600px;
+			height: 400px;
+			overflow: hidden;
+			margin: 0 auto;
+		}
+	</style>
+</head>
+<body>
+	<!-- 显示区域 -->
+	<div class="show">
+		<!-- 容器 -->
+		<div class="box_wp" id="box_wp">
+			<!-- 内容区 -->
+			<div class="box" id="box">
+				<img src="image/1.jpg" alt="">
+				<img src="image/2.jpg" alt="">
+				<img src="image/3.jpg" alt="">
+				<img src="image/4.jpg" alt="">
+				<img src="image/5.jpg" alt="">
+			</div>
+			<div class="box2" id="box2">
+
+			</div>
+
+		</div>
+	</div>
+</body>
+<script>
+	var boxWp = document.getElementById('box_wp');
+	var box = document.getElementById('box');
+	var box2 = document.getElementById('box2');
+
+	box2.innerHTML = box.innerHTML;
+	// console.log(a.offsetWidth);
+	
+	var i = 0;
+	setInterval(function() {
+		boxWp.style.left = i + 'px';
+		i -= 5;
+		if(i<= -box.offsetWidth) {
+			i = 0;
+		}
+	},100);
+</script>
+</html>

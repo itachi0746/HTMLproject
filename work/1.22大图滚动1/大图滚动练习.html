@@ -62,14 +62,16 @@
 
 	// console.log(box2.innerHTML);
 
+	// scrollLeft滚动距离  scrollWidth滚动宽度
 	function marquee() {
 		if(show.scrollLeft >= box.scrollWidth) {
 			show.scrollLeft = 0;
 		} else {
-			wp.style.left = ;
+			show.scrollLeft += 10;
+			// console.log(show.scrollLeft);
 		}
 	}
-	var s = setInterval(marquee, 500);
+	var s = setInterval(marquee, 100);
 	// 鼠标悬浮滚动停止
 	show.onmouseover = function() { clearInterval(s);  } 
 	show.onmouseout = function() { s = setInterval('marquee()', 50);}	

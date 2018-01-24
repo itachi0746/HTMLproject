@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>大图滚动2</title>
+	<style>
+		.show {
+			width: 780px;
+			height: 400px;
+			overflow: hidden;
+		}
+		#box_wp {
+			width: 9999px;
+			position: relative;
+			left: 0;
+		}
+		.box,.box2 {
+			overflow: hidden;
+			float: left;
+		}
+		.box img,.box2 img {
+			float: left;
+			width: 260px;
+		}
+	</style>
+	<script src="Johnz.js"></script>
+</head>
+<body>
+	<div class="show">
+		<div id="box_wp">
+			<div class="box" id="box">
+				<img src="image/1.jpg" alt="">
+				<img src="image/2.jpg" alt="">
+				<img src="image/3.jpg" alt="">
+				<img src="image/4.jpg" alt="">
+				<img src="image/5.jpg" alt="">
+			</div>
+			<div class="box2" id="box2">
+				
+			</div>
+		</div>
+	</div>
+</body>
+<script>
+	var box = $('box'),
+		box2 = $('box2'),
+		boxWp = $('box_wp');
+
+	box2.innerHTML = box.innerHTML;
+
+	var i =0;
+	var move = function() {
+		boxWp.style.left = i + 'px';
+		i -= 2;
+		if(260/i==1) {
+			setTimeout(move, 500);
+		}
+	}
+move();
+
+	// function s() { 
+	// 	var b = setInterval(move,0);
+	// }
+	// s();
+
+
+
+
+	// var s = setInterval(function() {
+	// 	boxWp.style.left = i + 'px';
+	// 	// if(i== -260) {
+	// 	// 	clearInterval(s);
+	// 	// }
+	// 	i -= 10;
+
+	// },100)
+
+	
+
+	
+
+</script>
+</html>
