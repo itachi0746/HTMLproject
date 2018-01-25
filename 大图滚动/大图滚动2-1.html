@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>大图滚动2</title>
+	<title>大图滚动2-1</title>
 	<style>
 		.show {
 			width: 780px;
@@ -21,7 +21,7 @@
 		}
 		.box img,.box2 img,.box1 img {
 			float: left;
-			width: 260px;
+			width: 250px;
 		}
 		.direction {
 			height: 100px;
@@ -85,6 +85,7 @@
 	},10)
 
 	function run(direction) {
+		clearTimeout(window.T);
 
 		var T = setTimeout(function() {
 			boxWp.style.left = i + 'px';
@@ -121,12 +122,6 @@
 
 
 
-
-
-
-	
-
-	
 
 </script>
 </html>

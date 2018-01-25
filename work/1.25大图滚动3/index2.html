@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>练习2</title>
+	<style>
+		.show {
+			width: 260px;
+			height: 400px;
+			overflow: hidden;
+			margin: 0 auto;
+		}
+		#box {
+			width: 9999px;
+			position: relative;
+			left: 0;
+			transition: all .5s;
+		}
+		#box img {
+			float: left;
+			width: 260px;
+			height: 400px;
+		}
+		.btn {
+			height: 50px;
+			width: 358px;
+			margin: 0 auto;
+		}
+		.btn span,#left,#right {
+			float: left;
+			height: 50px;
+			width: 50px;
+			background: #ccc;
+			text-align: center;
+			line-height: 50px;
+			margin-right: 1px;
+		}
+		.db {
+			display: block;
+		}
+		.dn {
+			display: none;
+		}
+
+	</style>
+</head>
+<script src="Johnz.js"></script>
+<body>
+	<div class="show">
+		<div id="box">
+			<img src="image/1.jpg" alt="">
+			<img src="image/2.jpg" alt="">
+			<img src="image/3.jpg" alt="">
+			<img src="image/4.jpg" alt="">
+			<img src="image/5.jpg" alt="">
+		</div>
+	</div>
+	<div class="btn">
+		<div id="left">left</div>
+		<span>1</span>
+		<span>2</span>
+		<span>3</span>
+		<span>4</span>
+		<span>5</span>
+		<div id="right">right</div>
+	</div>
+</body>
+<script>
+	var box = $('box'),
+		left = $('left'),
+		right = $('right'),
+		btn = $cls('btn')[0].getElementsByTagName('span');
+		console.log(btn);
+
+	for(var i=0;i<btn.length;i++) {
+		btn[i].index = i;
+		btn[i].onclick = function() {
+			box.style.left = -260 * this.index + 'px';	
+		}			
+	}		
+
+</script>
+</html>
