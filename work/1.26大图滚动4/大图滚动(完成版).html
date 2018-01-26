@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>大图滚动1</title>
+	<style>
+		.box {
+			width: 9999px;
+			position: relative;
+			-webkit-transition: all .5s;
+			left: 0;
+			/*初始状态,结合最终状态才有transition效果*/
+		}
+
+		.show {
+			height: 400px;
+			width: 400px;
+			overflow: hidden;
+		}
+		.box div{
+			height: 400px;
+			width: 400px;
+			text-align: center;
+			line-height: 400px;
+			font-size: 4em;
+			float: left;
+		}
+		.box div:nth-child(1) {
+			background: red;
+		}
+		.box div:nth-child(2) {
+			background: green;
+		}
+		.box div:nth-child(3) {
+			background: blue;
+		}
+		.box div:nth-child(4) {
+			background: pink;
+		}
+		.btn {
+			overflow: hidden;
+		}
+		.btn div {
+			border-radius: 5px;
+			border: 1px solid;
+		}
+		.btn span,.btn div {
+			width: 100px;
+			height: 50px;
+			text-align: center;
+			line-height: 50px;
+			font-size: 2em;
+			float: left;
+			background: white;
+		}
+		.btn span:nth-child(1) {
+			background: yellow;
+		}
+	</style>
+	<script src="Johnz.js"></script>
+</head>
+<body>
+	<div class="show">
+		<div class="box" id="box">
+			<div>内容1</div>
+			<div>内容2</div>
+			<div>内容3</div>
+			<div>内容4</div>
+		</div>
+	</div>
+	<div class="btn" id="btn">
+		<span>按钮1</span>
+		<span>按钮2</span>
+		<span>按钮3</span>
+		<span>按钮4</span>
+		<div>上一页</div>
+		<div>下一页</div>
+	</div>
+</body>
+<script>
+	var Box = $('box');
+	var Btn = $('btn').getElementsByTagName('span');
+	var Btn2 = $('btn').getElementsByTagName('div');
+
+	// console.log(Box,Btn);
+	for(var i=0;i<Btn.length;i++) {
+		Btn[i].index = i;
+		Btn[i].onclick = function() {
+			clearInterval(timer);
+			aa = this.index;
+			if(this.index == Btn.length) {
+				aa = 0;
+			}
+			go();
+			Box.style.left = -400 * this.index + 'px';
+			for(var j=0;j<Btn.length;j++) {
+				Btn[j].style.background = 'none';
+			}
+			this.style.background = 'yellow';
+		}
+	}
+
+	function move(bll) {
+
+			for(var j=0;j<Btn.length;j++) {
+				Btn[j].style.background = 'none';
+
+			}
+			if(bll) {
+				aa++;
+			}else {
+				aa--;
+				bl = true;
+			}
+			if(aa>= Btn.length){
+				aa = 0;
+			}
+			if(aa<=-1) {
+				aa = 3;
+			}
+
+			Box.style.left = -400 * aa + 'px';
+			Btn[aa].style.background = 'yellow';
+
+	}
+
+	Btn2[0].onclick = function() {
+		bl = false;
+		clearInterval(timer);
+		move(bl);
+		go();
+	}
+	Btn2[1].onclick = function() {
+		clearInterval(timer);
+		move(bl);
+		go();
+	}
+
+	var aa = 0;
+	var timer;
+	var bl = true;
+	function go(){
+		timer = setInterval(function() {
+			move(bl);
+
+	},1000)
+}
+go();
+</script>
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>大图不均匀滚动</title>
+	<style>
+		.show {
+			width: 800px;
+			height: 400px;
+			overflow: hidden;
+			margin: 0 auto;
+		}
+		#box_wp {
+			width: 9999px;
+			position: relative;
+			left: 0;
+		}
+		.box1,.box2 {
+			overflow: hidden;
+			float: left;
+		}
+		.box1 img, .box2 img {
+			float: left;
+			height: 400px;
+			width: 250px;
+
+		}
+		#small {
+			width: 150px;
+			height: 400px;
+		}
+	</style>
+	<script src="Johnz.js"></script>
+</head>
+<body>
+	<div class="show">
+		<div id="box_wp">
+			<div class="box1" id="box1">
+				<img src="image/1.jpg" alt="">
+				<img src="image/2.jpg" alt="">
+				<img id="small" src="image/3.jpg" alt="">
+				<img src="image/4.jpg" alt="">
+				<img id="small" src="image/5.jpg" alt="">
+			</div>
+			<div class="box2" id="box2"></div>
+		</div>
+	</div>
+</body>
+<script>
+	var box1 = $('box1'),
+		box2 = $('box2'),
+		boxWp = $('box_wp'),
+		img = box1.getElementsByTagName('img');
+		// console.log(img[0].offsetWidth);
+
+	box2.innerHTML = box1.innerHTML;
+	// console.log(box1.offsetWidth);
+
+	var timer;
+	var i = 0;
+	var j = 0;
+	var imgWidth = [];
+
+	function getWidth(arr) {
+		for(var i=0;i<arr.length;i++) {
+			imgWidth.push(img[i].offsetWidth);
+		}
+		return imgWidth;
+	}
+	var arr = getWidth(img);
+	var num = 0;
+
+	function move(arr) {
+		boxWp.style.left = i + 'px';
+		i -= 2;
+		if(i<= -box1.offsetWidth) {
+			i = 0;
+		}
+
+		if((i-num)%arr[0]===0) {
+			num = i;
+			clearInterval(timer);
+			console.log(num);
+
+			var temp = arr.shift();
+			arr.push(temp);
+			setTimeout(function() {
+				go();
+			},1000);
+		}
+	}
+
+	function go() {
+		timer = setInterval('move(arr)',10);
+	}
+	go();
+</script>
+</html>

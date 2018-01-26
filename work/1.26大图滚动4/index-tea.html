@@ -37,6 +37,31 @@
 			float: left;
 			border: 1px solid;
 		}
+		.box img:nth-child(1) {
+			width: 100px;
+		}
+		.box img:nth-child(2) {
+			width: 300px;
+		}
+		.box img:nth-child(3) {
+			width: 200px;
+		}
+		.box img:nth-child(4) {
+			width: 100px;
+		}
+		.box2 img:nth-child(1) {
+			width: 100px;
+		}
+		.box2 img:nth-child(2) {
+			width: 300px;
+		}
+		.box2 img:nth-child(3) {
+			width: 200px;
+		}
+		.box2 img:nth-child(4) {
+			width: 100px;
+		}
+
 	</style>
 </head>
 <body>
@@ -71,23 +96,30 @@
 	var left = document.getElementById('left');
 	var right = document.getElementById('right');
 
+	var Img = box.getElementsByTagName('img');
+	// console.log(Img);
+
+
 	box2.innerHTML = box.innerHTML;
 	
 	var i = 0;
 	var timer;
 	var timer2;
 	var bl = true;
+	var _index = 1;
+	var main = Img[0].offsetWidth;
 
 	function go() {
 		timer = setInterval('move(bl)',10); // 传参数改为string
 	}
 
 	function move(bl) {
-		boxWp.style.left = i + 'px';
 		if(bl){
 			i -= 2;
 			if(i<= -box.offsetWidth) {
 				i = 0;
+				_index = 0;
+				main = 0;
 			}
 		}else {
 			i += 2;
@@ -96,13 +128,30 @@
 			}
 		}
 
-		if(i%250===0) {
+		if(i<= -main) {
 			clearInterval(timer);
+			main += Img[_index].offsetWidth;
+			if(bl){
+				_index++;
+			}else {
+				_index--;
+			}
 			timer2 = setTimeout(function() {
 				go();
 			},1000)
 		}
-	}	
+		boxWp.style.left = i + 'px';
+		
+
+		// if(i<= -Img[_index].offsetWidth) {
+		// 	// console.log(Img[_index]);
+		// 	clearInterval(timer);
+		// 	_index++;
+		// 	timer2 = setTimeout(function() {
+		// 		go();
+		// 	},1000)
+	}
+
 
 	go();
 

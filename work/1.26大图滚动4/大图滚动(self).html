@@ -13,7 +13,7 @@
 		#box {
 			width: 9999px;
 			position: relative;
-			left: 0;
+			left: 0px;
 			transition: all .5s;
 		}
 		#box img {
@@ -41,7 +41,6 @@
 		.dn {
 			display: none;
 		}
-
 	</style>
 </head>
 <script src="Johnz.js"></script>
@@ -70,28 +69,64 @@
 		left = $('left'),
 		right = $('right'),
 		btn = $cls('btn')[0].getElementsByTagName('span');
-		// console.log(btn);
-
+		// console.log(left,right);
 	for(var i=0;i<btn.length;i++) {
 		btn[i].index = i;
 		btn[i].onclick = function() {
-			box.style.left = -260 * this.index + 'px';	
-		}			
-	}		
-
-	function move(bl) {
-		boxWp.style.left = i + 'px';
-		i -= 260;
-
-		if(i%250===0) {
 			clearInterval(timer);
-			timer2 = setTimeout(function() {
-				go();
-			},1000)
-		}
+			// 移动对应的距离
+			box.style.left = -260 * this.index + 'px';	
+			// 移动后,j要变为对应的值,使定时器在对应位置继续执行
+			j = this.index;
+			// console.log(j);
+			go();
+		}			
 	}	
-	var Timer = setInterval(function() {
-
-	},1000);
+	// 全局的变量
+	var j = 0;
+	var timer;
+	function go() {
+		timer = setInterval(function(){
+		// var d = box.style.left;
+		// console.log(d);
+		j++;
+		if(j===5){
+			// console.log(d);
+			j=0;
+		}
+		box.style.left = -260 * j + 'px';
+		},1500)
+	}
+	go();
+	left.onclick = function() {
+		clearInterval(timer);
+		// console.log(j);
+		// console.log(box.style.left);
+		// j=4 已经是最后一张,回到第一张
+		if(j===4) {
+			// console.log(box.style.left);
+			box.style.left = '0px';
+			// 对应改变j
+			j = 0;
+		} else {
+			j += 1;
+			console.log(j);
+			box.style.left = -260 * j + 'px';	
+		}
+		go();
+	} 
+	right.onclick = function() {
+		clearInterval(timer);
+		// j=0显示的是第一张  跳到最后一张
+		if(j===0) {
+			// 对应改变j
+			j = 4;
+			box.style.left = -260 * j + 'px';
+		} else {
+			j -= 1;
+			box.style.left = -260 * j + 'px';	
+		}
+		go();
+	} 
 </script>
 </html>
