@@ -57,33 +57,32 @@
 	// console.log(box1.offsetWidth);
 
 	var timer;
+	// 移动距离i
 	var i = 0;
-	var j = 0;
-	var imgWidth = [];
+	// 图片宽度j
+	var j = img[0].offsetWidth;
+	// 下标
+	var num = 1;
 
-	function getWidth(arr) {
-		for(var i=0;i<arr.length;i++) {
-			imgWidth.push(img[i].offsetWidth);
-		}
-		return imgWidth;
-	}
-	var arr = getWidth(img);
-	var num = 0;
-
-	function move(arr) {
+	function move() {
 		boxWp.style.left = i + 'px';
 		i -= 2;
+		// 移动距离超过容器宽度,回归
+		// 还能触发下面的if,继续滚动
 		if(i<= -box1.offsetWidth) {
 			i = 0;
+			j = 0;
+			num = 0;
 		}
 
-		if((i-num)%arr[0]===0) {
-			num = i;
+		// 每次移动了一张图的距离,清除定时;
+		// 隔1秒再开始滚动
+		if(i <= -j) {
 			clearInterval(timer);
-			console.log(num);
+			// console.log(i,j,num);
+			j += img[num].offsetWidth;
+			num++;
 
-			var temp = arr.shift();
-			arr.push(temp);
 			setTimeout(function() {
 				go();
 			},1000);
@@ -91,7 +90,7 @@
 	}
 
 	function go() {
-		timer = setInterval('move(arr)',10);
+		timer = setInterval(move,10);
 	}
 	go();
 </script>

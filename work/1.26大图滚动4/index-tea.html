@@ -114,8 +114,10 @@
 	}
 
 	function move(bl) {
+		// 向左
 		if(bl){
 			i -= 2;
+			// 移动距离超出box,回到原点
 			if(i<= -box.offsetWidth) {
 				i = 0;
 				_index = 0;
