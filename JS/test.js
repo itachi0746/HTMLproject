@@ -9,4 +9,8 @@ function test2() {
 }
 test();
 test2();
-console.log(msg2);
+// console.log(msg2);
+
+var arr = ['one','two'];
+
+console.log('hello,%s and %s',arr[0],arr[1]);

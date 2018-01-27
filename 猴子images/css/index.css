@@ -1,0 +1,138 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+.p1 {
+	background: url(../images/home-bg.png) bottom no-repeat,
+				url(../images/home-bg.jpg) no-repeat;
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	display: none;
+	overflow: hidden;
+}
+.p1-logo img,.p2-logo img:nth-child(1) {
+	position: relative;
+	left: 30px;
+	top: 20px;
+}
+.music {
+	position: absolute;
+	right: 60px;
+	top: 0px;
+}
+.biaoyu {
+	position: relative;
+	top: -110px;
+}
+.font {
+	color: #ffb47b;
+	font-size: 25px;
+	height: 35px;
+	width: 150px;
+	line-height: 35px;
+	position: relative;
+	left: 370px;
+	top: -148px;
+	margin-top: 10px;
+}
+.font span:nth-child(1) {
+	width: 13px;
+	height: 13px;
+	background: #ffb47b;
+	border-radius: 50%;
+	display: inline-block;
+	position: relative;
+	right: 5px;
+}
+.p1-bigpic {
+	position: relative;
+	top: -264px;
+	left: 50px;
+}
+.start {
+	position: absolute;
+	height: 75px;
+	width: 300px;
+	bottom: 50px;
+	left: 175px;
+	text-align: center;
+	line-height: 75px;
+
+}
+.start span {
+	position: absolute;
+	top: 0;
+	bottom: 0px;
+	left: 0;
+	right: 0;
+	margin: auto;
+	color: #ce110d;
+	font-size: 40px;
+}
+
+.p2 {
+	background: url(../images/home-bg.png) bottom no-repeat,
+				url(../images/home-bg.jpg) no-repeat;
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	display: block;
+	overflow: hidden;
+}
+.p2-logo {
+	width: 100%;
+}
+.close {
+	position: absolute;
+	right: 60px;
+	top:10px;
+
+}
+.p2-rule {
+	width: 603px;
+	height: 645px;
+	margin: 50px auto;
+	position: relative;
+	/*text-align: center;*/
+}
+.p2-rule img:nth-child(1) {
+	/*position: absolute;*/
+	/*top: 10px;*/
+}
+.p2-rule img:nth-child(2) {
+	position: absolute;
+	top: 25px;
+	left: 65px;
+}
+.p2-rule .guize {
+	color: #c90914;
+	font-size: 25px;
+	position: absolute;
+	top: 80px;
+	left: 70px;
+	font-weight: bold;
+}
+.jiangpin {
+	position: absolute;
+	bottom: 125px;
+	left: 70px;
+
+}
+.p2-rule .shezhi {
+	color: #c90914;
+	font-size: 25px;
+	position: absolute;
+	top: 200px;
+	left: 70px;
+	font-weight: bold;
+	
+}
+.p2-rule .jieshi {
+	color: #c90914;
+	font-size: 25px;
+	position: absolute;	
+	font-weight: bold;
+	bottom: 30px;
+	left: 150px;
+}
