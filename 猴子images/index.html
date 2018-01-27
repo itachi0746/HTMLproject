@@ -8,7 +8,7 @@
 	<link rel="stylesheet" href="css/index.css">
 </head>
 <body>
-	<div class="p1">
+	<div id="p1">
 		<div>
 			<div class="p1-logo">
 				<img src="images/main-logo.png" alt="">
@@ -22,17 +22,19 @@
 			<img class="biaoyu" src="images/home-slogan.png" alt="">
 		</div>
 		<div>
-			<div class="font">
-				<span></span>
-				<span>活动规则</span>
-			</div>
-			<div class="font">
-				<span></span>
-				<span>中奖名单</span>
-			</div>
 			<div class="p1-bigpic">
 				<img src="images/home-goods.png" alt="">
-			</div>
+				<div id="font">
+					<span></span>
+					<span>活动规则</span>
+				</div>
+				<div id="font2">
+					<span></span>
+					<span>中奖名单</span>
+				</div>	
+			</div>			
+
+
 		</div>
 		<div>
 			<div class="start">
@@ -41,10 +43,10 @@
 			</div>
 		</div>
 	</div>
-	<div class="p2">
+	<div id="p2">
 		<div>
 			<div class="p2-logo">
-				<img src="images/main-logo.png" alt="">
+				<img class="logo" src="images/main-logo.png" alt="">
 				<div class="close">
 					<img src="images/main-x.png" alt="">
 				</div>
@@ -68,5 +70,49 @@
 			</div>			
 		</div>
 	</div>
+	<div id="p3">
+		<div class="p3-bgimg">
+			<img src="images/main-bg.jpg" alt="">
+		</div>
+		<div>
+			<div class="p2-logo">
+				<img class="logo" src="images/main-logo.png" alt="">
+				<div class="close">
+					<img src="images/main-x.png" alt="">
+				</div>
+			</div>
+		</div>
+		<div>
+			<div class="p3-list">
+				<img src="images/rule-wrapBg.png" alt="">
+				<img src="images/list-title.png" alt="">
+				<img src="images/list-arrowL.png" alt="">
+				<img src="images/list-arrowR.png" alt="">
+			</div>
+		</div>
+		<div>
+			<div class="start">
+				<img src="images/main-start.png" alt="">
+				<span>开始游戏</span>
+			</div>			
+		</div>
+	</div>
 </body>
+<script>
+	var Rule = $('font'),
+		List = $('font2'),
+		P1 = $('p1'),
+		P2 = $('p2'),
+		P3 = $('p3');
+		// console.log(Rule,List);
+		Rule.onclick = function() {
+			P1.style.display = 'none';
+			P2.style.display = 'block';
+		}
+		List.onclick = function() {
+			P1.style.display = 'none';
+			P3.style.display = 'block';
+		}
+
+</script>
 </html>
