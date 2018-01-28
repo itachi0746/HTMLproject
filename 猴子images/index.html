@@ -140,7 +140,7 @@
 	</div>
 	<div id="p5">
 		<div>
-			<div class="">
+			<div>
 				<img class="logo" src="images/main-logo.png" alt="">
 				<div>
 					<img class="music-btn" src="images/music-on.png" alt="">
@@ -152,8 +152,17 @@
 		</div>
 		<div class="dialogBox">
 			<img src="images/game-dialogBox.png" alt="">
-			<span class="tips">11111kkkkkkkkkkkkkk</span>
+			<span id="tips"></span>
 		</div>
+		<div class="trueBox">
+			<img src="images/game-trueTip.png" alt="">
+			<span class="tips">选择正确，盼盼好好喝</span>
+		</div>
+		<div class="errBox">
+			<img src="images/game-errorTip.png" alt="">
+			<span class="tips">喂，选错啦</span>
+		</div>
+
 		<div>
 			<img class="monkey" src="images/game-monkey.png" alt="">
 		</div>	
@@ -181,27 +190,52 @@
 				</div>
 			</div>
 		</div>	
+		<div id="gameover">
+			<div class="container2">
+				<img src="images/game-over.png" alt="">
+				<div class="again">
+					<img src="images/game-againBtn.png" alt="">
+				</div>
+				<div class="share">
+					<img src="images/game-callBtn.png" alt="">
+				</div>
+				
+			</div>
+		</div>
+		<div id="share">
+			<img src="images/share-tip.png" alt="">
+		</div>
 	</div>
 </body>
 <script>
 	var Rule = $('font'),
 		List = $('font2'),
+		Tips = $('tips'),
 		P1 = $('p1'),
 		P2 = $('p2'),
 		P3 = $('p3'),
-		P4 = $('p4'),
+		P4 = $('p4'),P5 = $('p5'),
 		Close = $cls('close');
 
 	var Music = $('music'),
 		Music_btn = $cls('music-btn');
-		// console.log(Music,Music_btn);
+		// console.log(Music_btn[0].src);
 
 	var Count = $('count'),
 		GameStart = $cls('start');
 		// console.log(Count,GameStart);
 
+	var A = '椰子汁',B = '在一起',C = '核桃慧',D = '优乐美';
+	var arr = [A,B,C,D];
+
+	// 从数组随机抽取
+	function select(arr) {
+		var ran = Math.floor(Math.random() * arr.length);
+		var result = arr.splice(ran,1)[0];
+		return result;
+	}
 	var timer;
-	// 倒数
+	// 倒数到开始
 	function go() {
 		var num = 8;
 		timer = setInterval(function() {
@@ -213,6 +247,12 @@
 			}
 
 		},1000)
+		var timer2 = setTimeout(function() {
+			P4.style.display = 'none';
+			P5.style.display = 'block';
+		},10000)
+
+		Tips.innerHTML = select(arr);
 	}
 
 	// 游戏开始
@@ -247,16 +287,16 @@
 	}
 
 	// 音乐按钮点击事件
-	for(var j=0;j<Music_btn.length;j++) {
+	for(let j=0;j<Music_btn.length;j++) {
 
 		Music_btn[j].onclick = function() {
 
 			if(Music.paused) {
 				Music.play();
-				Music_btn.src = 'images/music-on.png';
+				Music_btn[j].src = 'images/music-on.png';
 			} else {
 				Music.pause();
-				Music_btn.src = 'images/music-off.png';
+				Music_btn[j].src = 'images/music-off.png';
 			}
 		}
 	}
