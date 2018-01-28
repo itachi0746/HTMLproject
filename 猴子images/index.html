@@ -8,12 +8,13 @@
 	<link rel="stylesheet" href="css/index.css">
 </head>
 <body>
+	<audio id="music" src="images/bg_music.mp3" loop="loop" autoplay="autoplay"></audio>
 	<div id="p1">
 		<div>
-			<div class="p1-logo">
-				<img src="images/main-logo.png" alt="">
-				<div class="music">
-					<img src="images/music-on.png" alt="">
+			<div class="">
+				<img class="logo" src="images/main-logo.png" alt="">
+				<div>
+					<img class="music-btn" src="images/music-on.png" alt="">
 				</div>
 			</div>
 
@@ -97,22 +98,167 @@
 			</div>			
 		</div>
 	</div>
+	<div id="p4">
+		<div>
+			<div class="">
+				<img class="logo" src="images/main-logo.png" alt="">
+				<div>
+					<img class="music-btn" src="images/music-on.png" alt="">
+				</div>
+			</div>
+		</div>
+		<div>
+			<img id="count" src="images/game-time9.png" alt="">
+		</div>
+		<div>
+			<img class="monkey" src="images/game-monkey.png" alt="">
+		</div>	
+		<div>
+			<div class="container">
+				<div class="box1">
+					<img src="images/game-sz.png" alt="">
+					<span>盼盼<br>生榨椰子汁</span>
+					<img src="images/game-btn.png" alt="">
+				</div>
+				<div class="box2">
+					<img src="images/game-zyq.png" alt="">
+					<span>盼盼<br>在益起</span>
+					<img src="images/game-btn.png" alt="">
+				</div>
+				<div class="box3">
+					<img src="images/game-hth.png" alt="">
+					<span>盼盼<br>核桃慧</span>
+					<img src="images/game-btn.png" alt="">
+				</div>
+				<div class="box4">
+					<img src="images/game-jsm.png" alt="">
+					<span>盼盼就是蜜<br>盼盼就是檬</span>
+					<img src="images/game-btn.png" alt="">
+				</div>
+			</div>
+		</div>	
+	</div>
+	<div id="p5">
+		<div>
+			<div class="">
+				<img class="logo" src="images/main-logo.png" alt="">
+				<div>
+					<img class="music-btn" src="images/music-on.png" alt="">
+				</div>
+			</div>
+		</div>
+		<div>
+			<div class="jishi"></div>
+		</div>
+		<div class="dialogBox">
+			<img src="images/game-dialogBox.png" alt="">
+			<span class="tips">11111kkkkkkkkkkkkkk</span>
+		</div>
+		<div>
+			<img class="monkey" src="images/game-monkey.png" alt="">
+		</div>	
+		<div>
+			<div class="container">
+				<div class="box1">
+					<img src="images/game-sz.png" alt="">
+					<span>盼盼<br>生榨椰子汁</span>
+					<img src="images/game-btn.png" alt="">
+				</div>
+				<div class="box2">
+					<img src="images/game-zyq.png" alt="">
+					<span>盼盼<br>在益起</span>
+					<img src="images/game-btn.png" alt="">
+				</div>
+				<div class="box3">
+					<img src="images/game-hth.png" alt="">
+					<span>盼盼<br>核桃慧</span>
+					<img src="images/game-btn.png" alt="">
+				</div>
+				<div class="box4">
+					<img src="images/game-jsm.png" alt="">
+					<span>盼盼就是蜜<br>盼盼就是檬</span>
+					<img src="images/game-btn.png" alt="">
+				</div>
+			</div>
+		</div>	
+	</div>
 </body>
 <script>
 	var Rule = $('font'),
 		List = $('font2'),
 		P1 = $('p1'),
 		P2 = $('p2'),
-		P3 = $('p3');
-		// console.log(Rule,List);
-		Rule.onclick = function() {
-			P1.style.display = 'none';
-			P2.style.display = 'block';
-		}
-		List.onclick = function() {
-			P1.style.display = 'none';
-			P3.style.display = 'block';
-		}
+		P3 = $('p3'),
+		P4 = $('p4'),
+		Close = $cls('close');
 
+	var Music = $('music'),
+		Music_btn = $cls('music-btn');
+		// console.log(Music,Music_btn);
+
+	var Count = $('count'),
+		GameStart = $cls('start');
+		// console.log(Count,GameStart);
+
+	var timer;
+	// 倒数
+	function go() {
+		var num = 8;
+		timer = setInterval(function() {
+
+			Count.src = 'images/game-time' + num + '.png';
+			num--;
+			if(num<0) {
+				clearInterval(timer);
+			}
+
+		},1000)
+	}
+
+	// 游戏开始
+	for(var i=0;i<GameStart.length;i++) {
+		GameStart[i].onclick = function() {
+			P1.style.display = 'none';
+			P2.style.display = 'none';
+			P3.style.display = 'none';
+			P4.style.display = 'block';
+
+			go();
+
+		}
+	}
+
+	Close[0].onclick = function() {
+		P2.style.display = 'none';
+		P1.style.display = 'block';
+	}
+	Close[1].onclick = function() {
+		P3.style.display = 'none';
+		P1.style.display = 'block';
+	}
+
+	Rule.onclick = function() {
+		P1.style.display = 'none';
+		P2.style.display = 'block';
+	}
+	List.onclick = function() {
+		P1.style.display = 'none';
+		P3.style.display = 'block';
+	}
+
+	// 音乐按钮点击事件
+	for(var j=0;j<Music_btn.length;j++) {
+
+		Music_btn[j].onclick = function() {
+
+			if(Music.paused) {
+				Music.play();
+				Music_btn.src = 'images/music-on.png';
+			} else {
+				Music.pause();
+				Music_btn.src = 'images/music-off.png';
+			}
+		}
+	}
 </script>
 </html>
