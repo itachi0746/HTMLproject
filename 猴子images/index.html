@@ -375,7 +375,7 @@
 		// console.log(arr);
 		Chance = 3;
 		RightAnswer = 0;
-		arrNum = 4;	
+		// arrNum = 4;	
 		// Tips.innerHTML = select(arr);
 
 	}
@@ -389,6 +389,10 @@
 	// 分享
 	Share_btn.onclick = function() {
 		Share.style.display = 'block';
+
+	}
+	Share.onclick = function() {
+		Share.style.display = 'none';
 
 	}
 
@@ -410,24 +414,23 @@
 			P6.style.display = 'block';
 
 		}
-		// 通关失败
-		if(Chance===0) {
-			clearInterval(timer3);
-			GameOver.style.display = 'block';
-			Jishi[1].src = 'images/game-time0.png';	
+		// 通关失败(机会用完或者数组耗完)
+		if(Chance===0 || arr.length===0) {
+			// clearInterval(timer3);
+			// GameOver.style.display = 'block';
 			
 			return;
 		}
-		if(arrNum===arr.length){
+		// if(arrNum===arr.length){
 			Tips.innerHTML = select(arr);
 			TrueBox.style.display = 'none';
 			ErrBox.style.display = 'none';
 			DialogBox.style.display = 'block';
 			Monkey.src = 'images/game-monkey.png';
-		}
+		// }
 	}
 
-	var arrNum = 4;
+	// var arrNum = 4;
 	// 选择喂他点击事件
 	for(var k=0;k<Xuanze_btn.length;k++) {
 		Xuanze_btn[k].daan = arr[k];
@@ -437,6 +440,7 @@
 			if(DialogBox.style.display==='block'){
 				// arrNum--;
 				// console.log(this.daan,arr);
+				console.log(arr);
 				var temp = Tips.innerHTML;
 				if(this.daan===temp) {
 					RightAnswer++;
