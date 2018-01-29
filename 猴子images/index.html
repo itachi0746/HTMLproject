@@ -108,7 +108,7 @@
 			</div>
 		</div>
 		<div>
-			<img id="count" src="images/game-time9.png" alt="">
+			<img id="count" src="images/game-time3.png" alt="">
 		</div>
 		<div>
 			<img class="monkey" src="images/game-monkey.png" alt="">
@@ -148,17 +148,24 @@
 			</div>
 		</div>
 		<div>
-			<div class="jishi"></div>
+			<div class="container-jishi">
+				<img src="images/game-time0.png" alt="">
+				<img src="images/game-time0.png" alt="">
+				<div class="maohao1"></div>
+				<div class="maohao2"></div>
+				<img class="jishi" src="images/game-time1.png" alt="">
+				<img class="jishi" src="images/game-time0.png" alt="">
+			</div>
 		</div>
-		<div class="dialogBox">
+		<div id="dialogBox" style="display: block">
 			<img src="images/game-dialogBox.png" alt="">
 			<span id="tips"></span>
 		</div>
-		<div class="trueBox">
+		<div id="trueBox">
 			<img src="images/game-trueTip.png" alt="">
 			<span class="tips">选择正确，盼盼好好喝</span>
 		</div>
-		<div class="errBox">
+		<div id="errBox">
 			<img src="images/game-errorTip.png" alt="">
 			<span class="tips">喂，选错啦</span>
 		</div>
@@ -171,22 +178,22 @@
 				<div class="box1">
 					<img src="images/game-sz.png" alt="">
 					<span>盼盼<br>生榨椰子汁</span>
-					<img src="images/game-btn.png" alt="">
+					<img class="xuanze_btn" src="images/game-btn.png" alt="">
 				</div>
 				<div class="box2">
 					<img src="images/game-zyq.png" alt="">
 					<span>盼盼<br>在益起</span>
-					<img src="images/game-btn.png" alt="">
+					<img class="xuanze_btn" src="images/game-btn.png" alt="">
 				</div>
 				<div class="box3">
 					<img src="images/game-hth.png" alt="">
 					<span>盼盼<br>核桃慧</span>
-					<img src="images/game-btn.png" alt="">
+					<img class="xuanze_btn" src="images/game-btn.png" alt="">
 				</div>
 				<div class="box4">
 					<img src="images/game-jsm.png" alt="">
 					<span>盼盼就是蜜<br>盼盼就是檬</span>
-					<img src="images/game-btn.png" alt="">
+					<img class="xuanze_btn" src="images/game-btn.png" alt="">
 				</div>
 			</div>
 		</div>	
@@ -194,16 +201,38 @@
 			<div class="container2">
 				<img src="images/game-over.png" alt="">
 				<div class="again">
-					<img src="images/game-againBtn.png" alt="">
+					<img id="again-btn" src="images/game-againBtn.png" alt="">
 				</div>
 				<div class="share">
-					<img src="images/game-callBtn.png" alt="">
+					<img id="share-btn" src="images/game-callBtn.png" alt="">
 				</div>
 				
 			</div>
 		</div>
 		<div id="share">
 			<img src="images/share-tip.png" alt="">
+		</div>
+	</div>
+	<div id="p6">
+		<div class="p6-bgimg">
+			<img src="images/drawLottery-bg.jpg" alt="">
+		</div>
+		<div>
+			<div>
+				<img class="logo" src="images/main-logo.png" alt="">
+				<div>
+					<img class="music-btn" src="images/music-on.png" alt="">
+				</div>
+			</div>
+		</div>
+		<div>
+			<img class="lottery" src="images/drawLottery-monkey.png" alt="">
+		</div>
+		<div>
+			<div class="p6-container">
+				<img src="images/main-start.png" alt="">
+				<span>开始抽奖</span>
+			</div>
 		</div>
 	</div>
 </body>
@@ -214,18 +243,24 @@
 		P1 = $('p1'),
 		P2 = $('p2'),
 		P3 = $('p3'),
-		P4 = $('p4'),P5 = $('p5'),
+		P4 = $('p4'),P5 = $('p5'),P6 = $('p6'),
+		Jishi = $cls('jishi'),
 		Close = $cls('close');
+		// console.log(Jishi[0],Jishi[1]);
 
 	var Music = $('music'),
 		Music_btn = $cls('music-btn');
 		// console.log(Music_btn[0].src);
 
 	var Count = $('count'),
-		GameStart = $cls('start');
-		// console.log(Count,GameStart);
+		GameStart = $cls('start'),
+		GameOver = $('gameover'),
+		Share = $('share'),
+		Again_btn = $('again-btn'),
+		Share_btn = $('share-btn');
+		// console.log(Again_btn,Share_btn);
 
-	var A = '椰子汁',B = '在一起',C = '核桃慧',D = '优乐美';
+	var A = '椰子汁',B = '在益起',C = '核桃慧',D = '蜜檬';
 	var arr = [A,B,C,D];
 
 	// 从数组随机抽取
@@ -237,7 +272,7 @@
 	var timer;
 	// 倒数到开始
 	function go() {
-		var num = 8;
+		var num = 2;
 		timer = setInterval(function() {
 
 			Count.src = 'images/game-time' + num + '.png';
@@ -250,12 +285,33 @@
 		var timer2 = setTimeout(function() {
 			P4.style.display = 'none';
 			P5.style.display = 'block';
-		},10000)
 
-		Tips.innerHTML = select(arr);
+			// 随机选一个,游戏开始
+			Tips.innerHTML = select(arr);
+			// 倒数时间
+			countDown();			
+		},4000)
 	}
 
-	// 游戏开始
+	var timer3;
+	// 游戏倒数
+	function countDown() {
+		var num = 9;
+		timer3 = setInterval(function() {
+			if(num===9){
+				Jishi[0].src = 'images/game-time0.png';
+			}
+			Jishi[1].src = 'images/game-time' + num + '.png';
+			num--;
+			// 倒数完,但还未通关,游戏结束
+			if(num<0) {
+				clearInterval(timer3);
+				GameOver.style.display = 'block';
+			}
+		},1000)
+	}
+
+	// 游戏开始点击事件
 	for(var i=0;i<GameStart.length;i++) {
 		GameStart[i].onclick = function() {
 			P1.style.display = 'none';
@@ -268,6 +324,7 @@
 		}
 	}
 
+	// 关闭点击
 	Close[0].onclick = function() {
 		P2.style.display = 'none';
 		P1.style.display = 'block';
@@ -277,6 +334,7 @@
 		P1.style.display = 'block';
 	}
 
+	// 规则,中奖名单点击
 	Rule.onclick = function() {
 		P1.style.display = 'none';
 		P2.style.display = 'block';
@@ -300,5 +358,105 @@
 			}
 		}
 	}
+
+	function reset() {
+		GameOver.style.display = 'none';
+		Count.src = 'images/game-time3.png';
+		P4.style.display = 'block';
+		P5.style.display = 'none';
+		Jishi[0].src = 'images/game-time1.png';
+		Jishi[1].src = 'images/game-time0.png';	
+		Monkey.src = 'images/game-monkey.png';
+		TrueBox.style.display = 'none';
+		ErrBox.style.display = 'none';
+		DialogBox.style.display = 'block';
+		
+		arr = [A,B,C,D];
+		// console.log(arr);
+		Chance = 3;
+		RightAnswer = 0;
+		arrNum = 4;	
+		// Tips.innerHTML = select(arr);
+
+	}
+
+	// 重新开始
+	Again_btn.onclick = function() {
+		reset();
+		go();
+
+	}
+	// 分享
+	Share_btn.onclick = function() {
+		Share.style.display = 'block';
+
+	}
+
+	var	Xuanze_btn = $cls('xuanze_btn'),
+		Chance = 3,
+		RightAnswer = 0,
+		DialogBox = $('dialogBox'),
+		TrueBox = $('trueBox'),
+		ErrBox = $('errBox'),
+		Monkey = $cls('monkey')[1];
+		// console.log(Monkey);
+
+	// 判断函数
+	function Judge() {
+		// 通关,抽奖
+		if(RightAnswer===3) {
+			clearInterval(timer3);
+			P5.style.display = 'none';
+			P6.style.display = 'block';
+
+		}
+		// 通关失败
+		if(Chance===0) {
+			clearInterval(timer3);
+			GameOver.style.display = 'block';
+			Jishi[1].src = 'images/game-time0.png';	
+			
+			return;
+		}
+		if(arrNum===arr.length){
+			Tips.innerHTML = select(arr);
+			TrueBox.style.display = 'none';
+			ErrBox.style.display = 'none';
+			DialogBox.style.display = 'block';
+			Monkey.src = 'images/game-monkey.png';
+		}
+	}
+
+	var arrNum = 4;
+	// 选择喂他点击事件
+	for(var k=0;k<Xuanze_btn.length;k++) {
+		Xuanze_btn[k].daan = arr[k];
+		Xuanze_btn[k].onclick = function() {
+			// console.log(DialogBox.style.display);
+
+			if(DialogBox.style.display==='block'){
+				// arrNum--;
+				// console.log(this.daan,arr);
+				var temp = Tips.innerHTML;
+				if(this.daan===temp) {
+					RightAnswer++;
+					DialogBox.style.display = 'none';
+					TrueBox.style.display = 'block';
+					Monkey.src = 'images/game-trueMonkey.png';
+
+				} else {
+					Chance--;
+					DialogBox.style.display = 'none';
+					ErrBox.style.display = 'block';	
+					Monkey.src = 'images/game-errorMonkey.png';
+
+				}
+				setTimeout(function() {
+					Judge();
+				},1000);
+			}
+		}
+	}
+
 </script>
 </html>
