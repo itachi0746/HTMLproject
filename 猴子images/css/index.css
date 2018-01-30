@@ -390,7 +390,7 @@
 	top: 40px;
 }
 .container-jishi {
-	width: 200px;
+	width: 210px;
 	height: 60px;
 	/*background: red;*/
 	position: absolute;
@@ -399,6 +399,9 @@
 }
 .container-jishi img {
 	height: 45px;
+}
+.container-jishi img:nth-of-type(3) {
+	padding: 0 10px;
 }
 .maohao1 {
 	width: 10px;

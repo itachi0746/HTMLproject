@@ -108,7 +108,7 @@
 			</div>
 		</div>
 		<div>
-			<img id="count" src="images/game-time3.png" alt="">
+			<img id="count" src="images/game-time3.png">
 		</div>
 		<div>
 			<img class="monkey" src="images/game-monkey.png" alt="">
@@ -274,10 +274,12 @@
 	function go() {
 		var num = 2;
 		timer = setInterval(function() {
-
+			if(num===1) {
+				Count.style.left = '325px';
+			}
 			Count.src = 'images/game-time' + num + '.png';
 			num--;
-			if(num<0) {
+			if(num<1) {
 				clearInterval(timer);
 			}
 
@@ -290,7 +292,7 @@
 			Tips.innerHTML = select(arr);
 			// 倒数时间
 			countDown();
-		},4000)
+		},3000)
 	}
 
 	var timer3;
@@ -299,15 +301,22 @@
 		var num = 9;
 		timer3 = setInterval(function() {
 			if(num===9){
+				Jishi[0].style.padding = '0px';
 				Jishi[0].src = 'images/game-time0.png';
+			}
+			if(num===1) {
+				Jishi[1].style.padding = '0 0 0 10px';	
+			}
+			else {
+				Jishi[1].style.padding = '0px';
 			}
 			Jishi[1].src = 'images/game-time' + num + '.png';
 			num--;
 			// 倒数完,但还未通关,游戏结束
 			if(num<0) {
 				clearInterval(timer3);
-				Judge();
-				// GameOver.style.display = 'block';
+				// Judge();
+				GameOver.style.display = 'block';
 			}
 		},1000)
 	}
@@ -440,30 +449,35 @@
 
 		}
 		else {
-		// 通关失败(机会用完或者数组耗完)
-
+			// 否则继续
+			goon(Answer);
 
 		// if(arr.length===0) {
 			// clearInterval(timer3);
-			GameOver.style.display = 'block';
+			// GameOver.style.display = 'block';
 			
 			// return;
 		}
 
 	}
 
-	// 下一题
-	function goon() {
-		if(arr.length!==0){
-			Tips.innerHTML = select(arr);
-			TrueBox.style.display = 'none';
-			ErrBox.style.display = 'none';
-			DialogBox.style.display = 'block';
-			Monkey.src = 'images/game-monkey.png';
+	// 答对下一题,答错继续这一题
+	function goon(arg) {
+		if(arg) {
+			if(arr.length!==0){
+				Tips.innerHTML = select(arr);
+
+			}
 		}
+		TrueBox.style.display = 'none';
+		ErrBox.style.display = 'none';
+		DialogBox.style.display = 'block';
+		Monkey.src = 'images/game-monkey.png';
+		
 	}
 
-	// var arrNum = 4;
+	// 布尔值
+	var Answer;
 	// 选择喂他点击事件
 	for(var k=0;k<Xuanze_btn.length;k++) {
 		Xuanze_btn[k].daan = arr[k];
@@ -477,19 +491,23 @@
 				var temp = Tips.innerHTML;
 				if(this.daan===temp) {
 					RightAnswer++;
+					Answer = true;
 					DialogBox.style.display = 'none';
 					TrueBox.style.display = 'block';
 					Monkey.src = 'images/game-trueMonkey.png';
 
 				} else {
 					// Chance--;
+					Answer = false;
+
 					DialogBox.style.display = 'none';
 					ErrBox.style.display = 'block';	
 					Monkey.src = 'images/game-errorMonkey.png';
 
 				}
 				setTimeout(function() {
-					goon();
+					Judge();
+					// goon();
 				},1000);
 			}
 		}
