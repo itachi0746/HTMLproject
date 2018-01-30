@@ -9,20 +9,21 @@
 </head>
 <body>
 	<audio id="music" src="images/bg_music.mp3" loop="loop" autoplay="autoplay"></audio>
+	<div id="music-btn">
+		<img class="music-btn" src="images/music-on.png" style="display: block">
+	</div>	
 	<div id="p1">
+
 		<div>
 			<div class="">
 				<img class="logo" src="images/main-logo.png" alt="">
-				<div>
-					<img class="music-btn" src="images/music-on.png" alt="">
-				</div>
+
 			</div>
 
 		</div>
 		<div>
 			<img class="biaoyu" src="images/home-slogan.png" alt="">
 		</div>
-		<div>
 			<div class="p1-bigpic">
 				<img src="images/home-goods.png" alt="">
 				<div id="font">
@@ -36,7 +37,6 @@
 			</div>			
 
 
-		</div>
 		<div>
 			<div class="start">
 				<img src="images/main-start.png" alt="">
@@ -102,9 +102,9 @@
 		<div>
 			<div class="">
 				<img class="logo" src="images/main-logo.png" alt="">
-				<div>
+<!-- 				<div>
 					<img class="music-btn" src="images/music-on.png" alt="">
-				</div>
+				</div> -->
 			</div>
 		</div>
 		<div>
@@ -142,9 +142,9 @@
 		<div>
 			<div>
 				<img class="logo" src="images/main-logo.png" alt="">
-				<div>
+<!-- 				<div>
 					<img class="music-btn" src="images/music-on.png" alt="">
-				</div>
+				</div> -->
 			</div>
 		</div>
 		<div>
@@ -220,9 +220,9 @@
 		<div>
 			<div>
 				<img class="logo" src="images/main-logo.png" alt="">
-				<div>
+<!-- 				<div>
 					<img class="music-btn" src="images/music-on.png" alt="">
-				</div>
+				</div> -->
 			</div>
 		</div>
 		<div>
@@ -249,8 +249,8 @@
 		// console.log(Jishi[0],Jishi[1]);
 
 	var Music = $('music'),
-		Music_btn = $cls('music-btn');
-		// console.log(Music_btn[0].src);
+		Music_btn = $('music-btn').getElementsByTagName('img')[0];
+		console.log(Music_btn);
 
 	var Count = $('count'),
 		GameStart = $cls('start'),
@@ -289,7 +289,7 @@
 			// 随机选一个,游戏开始
 			Tips.innerHTML = select(arr);
 			// 倒数时间
-			countDown();			
+			countDown();
 		},4000)
 	}
 
@@ -306,7 +306,8 @@
 			// 倒数完,但还未通关,游戏结束
 			if(num<0) {
 				clearInterval(timer3);
-				GameOver.style.display = 'block';
+				Judge();
+				// GameOver.style.display = 'block';
 			}
 		},1000)
 	}
@@ -318,7 +319,7 @@
 			P2.style.display = 'none';
 			P3.style.display = 'none';
 			P4.style.display = 'block';
-
+			Music_btn.style.display = 'block';
 			go();
 
 		}
@@ -328,36 +329,50 @@
 	Close[0].onclick = function() {
 		P2.style.display = 'none';
 		P1.style.display = 'block';
+		check_btn();
 	}
 	Close[1].onclick = function() {
 		P3.style.display = 'none';
 		P1.style.display = 'block';
+		check_btn();
 	}
 
 	// 规则,中奖名单点击
 	Rule.onclick = function() {
 		P1.style.display = 'none';
 		P2.style.display = 'block';
+		check_btn();
 	}
 	List.onclick = function() {
 		P1.style.display = 'none';
 		P3.style.display = 'block';
+		check_btn();
 	}
 
 	// 音乐按钮点击事件
-	for(let j=0;j<Music_btn.length;j++) {
-
-		Music_btn[j].onclick = function() {
-
-			if(Music.paused) {
-				Music.play();
-				Music_btn[j].src = 'images/music-on.png';
-			} else {
-				Music.pause();
-				Music_btn[j].src = 'images/music-off.png';
-			}
-		}
+	Music_btn.onclick = function() {
+		if(Music.paused) {
+			Music.play();
+			Music_btn.src = 'images/music-on.png';
+		} else {
+			Music.pause();
+			Music_btn.src = 'images/music-off.png';
+		}		
 	}
+
+	// for(let j=0;j<Music_btn.length;j++) {
+
+	// 	Music_btn[j].onclick = function() {
+
+	// 		if(Music.paused) {
+	// 			Music.play();
+	// 			Music_btn[j].src = 'images/music-on.png';
+	// 		} else {
+	// 			Music.pause();
+	// 			Music_btn[j].src = 'images/music-off.png';
+	// 		}
+	// 	}
+	// }
 
 	function reset() {
 		GameOver.style.display = 'none';
@@ -373,7 +388,7 @@
 		
 		arr = [A,B,C,D];
 		// console.log(arr);
-		Chance = 3;
+		// Chance = 3;
 		RightAnswer = 0;
 		// arrNum = 4;	
 		// Tips.innerHTML = select(arr);
@@ -397,7 +412,7 @@
 	}
 
 	var	Xuanze_btn = $cls('xuanze_btn'),
-		Chance = 3,
+		// Chance = 3,
 		RightAnswer = 0,
 		DialogBox = $('dialogBox'),
 		TrueBox = $('trueBox'),
@@ -405,29 +420,47 @@
 		Monkey = $cls('monkey')[1];
 		// console.log(Monkey);
 
-	// 判断函数
+	// 检查音乐按钮
+	function check_btn() {
+		var btn = Music_btn.style.display;
+		if(btn==='block'){
+			Music_btn.style.display = 'none';
+		}else {
+			Music_btn.style.display = 'block';
+		}
+	}
+
+	// 判断通关函数
 	function Judge() {
 		// 通关,抽奖
-		if(RightAnswer===3) {
-			clearInterval(timer3);
+		if(RightAnswer>=3) {
+			// clearInterval(timer3);
 			P5.style.display = 'none';
 			P6.style.display = 'block';
 
 		}
+		else {
 		// 通关失败(机会用完或者数组耗完)
-		if(Chance===0 || arr.length===0) {
+
+
+		// if(arr.length===0) {
 			// clearInterval(timer3);
-			// GameOver.style.display = 'block';
+			GameOver.style.display = 'block';
 			
-			return;
+			// return;
 		}
-		// if(arrNum===arr.length){
+
+	}
+
+	// 下一题
+	function goon() {
+		if(arr.length!==0){
 			Tips.innerHTML = select(arr);
 			TrueBox.style.display = 'none';
 			ErrBox.style.display = 'none';
 			DialogBox.style.display = 'block';
 			Monkey.src = 'images/game-monkey.png';
-		// }
+		}
 	}
 
 	// var arrNum = 4;
@@ -449,14 +482,14 @@
 					Monkey.src = 'images/game-trueMonkey.png';
 
 				} else {
-					Chance--;
+					// Chance--;
 					DialogBox.style.display = 'none';
 					ErrBox.style.display = 'block';	
 					Monkey.src = 'images/game-errorMonkey.png';
 
 				}
 				setTimeout(function() {
-					Judge();
+					goon();
 				},1000);
 			}
 		}

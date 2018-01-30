@@ -2,6 +2,7 @@
 	margin: 0;
 	padding: 0;
 }
+
 #p1 {
 	background: url(../images/home-bg.png) bottom no-repeat,
 				url(../images/home-bg.jpg) no-repeat;
@@ -10,13 +11,14 @@
 	width: 100%;
 	display: block;
 	overflow: hidden;
+	/*background-size: cover;*/
 }
 .logo {
 	position: relative;
 	left: 30px;
 	top: 20px;
 }
-.music-btn {
+#music-btn {
 	position: absolute;
 	z-index: 999;
 	right: 30px;
@@ -96,7 +98,7 @@
 	position: absolute;
 	right: 30px;
 	top: 20px;
-
+	z-index: 99999;
 }
 .p2-rule,.p3-list {
 	width: 603px;
