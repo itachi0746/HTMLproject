@@ -13,13 +13,12 @@
 		<img class="music-btn" src="images/music-on.png" style="display: block">
 	</div>	
 	<div id="p1">
-
+		<div class="bg-bottom">
+			<img src="images/home-bg.jpg" alt="">
+			<img src="images/home-bg.png" alt="">
+		</div>
 		<div>
-			<div class="">
-				<img class="logo" src="images/main-logo.png" alt="">
-
-			</div>
-
+			<img class="logo" src="images/main-logo.png" alt="">
 		</div>
 		<div>
 			<img class="biaoyu" src="images/home-slogan.png" alt="">
@@ -110,7 +109,7 @@
 		<div>
 			<img id="count" src="images/game-time3.png">
 		</div>
-		<div>
+		<div class="monkey-box">
 			<img class="monkey" src="images/game-monkey.png" alt="">
 		</div>	
 		<div>
@@ -157,22 +156,23 @@
 				<img class="jishi" src="images/game-time0.png" alt="">
 			</div>
 		</div>
-		<div id="dialogBox" style="display: block">
-			<img src="images/game-dialogBox.png" alt="">
-			<span id="tips"></span>
+		<div class="monkey-box">
+			<div id="dialogBox" style="display: block">
+				<img src="images/game-dialogBox.png" alt="">
+				<span id="tips"></span>
+			</div>
+			<div id="trueBox">
+				<img src="images/game-trueTip.png" alt="">
+				<span class="tips">选择正确，盼盼好好喝</span>
+			</div>
+			<div id="errBox">
+				<img src="images/game-errorTip.png" alt="">
+				<span class="tips">喂，选错啦</span>
+			</div>
+			<div>
+				<img class="monkey" src="images/game-monkey.png" alt="">
+			</div>	
 		</div>
-		<div id="trueBox">
-			<img src="images/game-trueTip.png" alt="">
-			<span class="tips">选择正确，盼盼好好喝</span>
-		</div>
-		<div id="errBox">
-			<img src="images/game-errorTip.png" alt="">
-			<span class="tips">喂，选错啦</span>
-		</div>
-
-		<div>
-			<img class="monkey" src="images/game-monkey.png" alt="">
-		</div>	
 		<div>
 			<div class="container">
 				<div class="box1">
@@ -316,7 +316,9 @@
 			if(num<0) {
 				clearInterval(timer3);
 				// Judge();
-				GameOver.style.display = 'block';
+				setTimeout(function(){
+					GameOver.style.display = 'block';
+				},2000);
 			}
 		},1000)
 	}
@@ -394,6 +396,8 @@
 		TrueBox.style.display = 'none';
 		ErrBox.style.display = 'none';
 		DialogBox.style.display = 'block';
+		Count.style.left = '290px';
+
 		
 		arr = [A,B,C,D];
 		// console.log(arr);
@@ -443,7 +447,7 @@
 	function Judge() {
 		// 通关,抽奖
 		if(RightAnswer>=3) {
-			// clearInterval(timer3);
+			clearInterval(timer3);
 			P5.style.display = 'none';
 			P6.style.display = 'block';
 
