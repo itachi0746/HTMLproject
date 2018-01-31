@@ -250,7 +250,7 @@
 
 	var Music = $('music'),
 		Music_btn = $('music-btn').getElementsByTagName('img')[0];
-		console.log(Music_btn);
+		// console.log(Music_btn);
 
 	var Count = $('count'),
 		GameStart = $cls('start'),
@@ -312,13 +312,14 @@
 			}
 			Jishi[1].src = 'images/game-time' + num + '.png';
 			num--;
-			// 倒数完,但还未通关,游戏结束
+			// 倒数完
 			if(num<0) {
 				clearInterval(timer3);
-				// Judge();
-				setTimeout(function(){
+					console.log('RightAnswer:',RightAnswer);
+				// 最后的判断,答对不够3次,gameover
+				if(RightAnswer<3){
 					GameOver.style.display = 'block';
-				},2000);
+				}
 			}
 		},1000)
 	}
@@ -455,12 +456,6 @@
 		else {
 			// 否则继续
 			goon(Answer);
-
-		// if(arr.length===0) {
-			// clearInterval(timer3);
-			// GameOver.style.display = 'block';
-			
-			// return;
 		}
 
 	}
@@ -484,6 +479,7 @@
 	var Answer;
 	// 选择喂他点击事件
 	for(var k=0;k<Xuanze_btn.length;k++) {
+		// 自定义属性储存答案
 		Xuanze_btn[k].daan = arr[k];
 		Xuanze_btn[k].onclick = function() {
 			// console.log(DialogBox.style.display);
@@ -501,7 +497,6 @@
 					Monkey.src = 'images/game-trueMonkey.png';
 
 				} else {
-					// Chance--;
 					Answer = false;
 
 					DialogBox.style.display = 'none';
