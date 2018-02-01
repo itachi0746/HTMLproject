@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>轮播图练习</title>
+	<style>
+		#show {
+			width: 400px;
+			height: 400px;
+			overflow: hidden;
+			margin: 0 auto;
+
+		}
+		#box_wp {
+			width: 9999px;
+			height: 400px;
+			font-size: 4em;
+			text-align: center;
+			position: relative;
+			left: 0;
+			transition: all .5s;
+		}
+
+		.box1 {
+			width: 400px;
+			height: 400px;
+			background: red;
+			float: left;
+		}
+		.box2 {
+			width: 400px;
+			height: 400px;
+			background: pink;
+			float: left;
+		}
+		.box3 {
+			width: 400px;
+			height: 400px;
+			background: lightblue;
+			float: left;
+		}
+		.box4 {
+			width: 400px;
+			height: 400px;
+			background: lightgreen;
+			float: left;
+		}
+
+		.btn span,#prev,#next {
+			float: left;
+			width: 100px;
+			height: 50px;
+			text-align: center;
+			line-height: 50px;
+		}
+		#prev,#next {
+			background: brown;
+			border-radius: 5px;
+			border: 1px solid;
+		}
+		.btn span:nth-child(1) {
+			background: yellow;
+		}
+
+		.btn_wp {
+			overflow: hidden;
+			width: 610px;
+			margin: 0 auto;
+		}
+	</style>
+	<script src="Johnz.js"></script>
+</head>
+<body>
+	<div id="show">
+		<div id="box_wp">
+			<div class="box1">内容1</div>
+			<div class="box2">内容2</div>
+			<div class="box3">内容3</div>
+			<div class="box4">内容4</div>
+		</div>
+	</div>
+	<div class="btn_wp">
+		<div id="prev"><<</div>
+		<div class="btn">
+			<span>第一页</span>
+			<span>第二页</span>
+			<span>第三页</span>
+			<span>第四页</span>
+		</div>
+		<div id="next">>></div>
+	</div>
+</body>
+<script>
+	var Box = $('box_wp'),
+		Btn = $cls('btn')[0].getElementsByTagName('span'),
+		Prev = $('prev'),
+		Next = $('next');
+		console.log(Btn);
+
+	for(let i=0;i<Btn.length;i++) {
+		Btn[i].onclick = function() {
+			// 清除定时器
+			clearInterval(timer);
+			// 记录页数,使下一次滚动从这页开始
+			index = i;
+
+			Box.style.left = -400 * i + 'px';
+			// 重置所有按钮颜色
+			for(var j=0;j<Btn.length;j++) {
+				Btn[j].style.background = 'none';
+
+			}
+			// 设置目标按钮颜色
+			Btn[i].style.background = 'yellow';
+			// 继续滚动
+			go();
+		}
+	}
+
+	var index = 0;
+	var bl = true;
+
+	function move(arg) {
+		// 添加布尔值控制前一页,后一页
+		if(arg){
+			index++;
+		}else {
+			index--;
+
+		}
+		// 边界检测
+		if(index>=4) {
+			index = 0;
+		}
+		if(index<0) {
+			index =3;
+		}
+		Box.style.left = -400 * index + 'px';
+
+		// 消除所有按钮颜色
+		for(var j=0;j<Btn.length;j++) {
+			Btn[j].style.background = 'none';
+
+		}
+		// 设置目标按钮颜色
+		Btn[index].style.background = 'yellow';		
+
+	}
+
+	Prev.onclick = function() {
+		bl = false;
+		clearInterval(timer);
+		move(bl);
+		bl = true;
+		go();		
+	}
+	Next.onclick = function() {
+		clearInterval(timer);
+		move(bl);
+		go();
+	}
+
+	var timer;
+	function go() {
+		timer = setInterval('move(bl)',1000);
+	}
+	go();
+</script>
+</html>

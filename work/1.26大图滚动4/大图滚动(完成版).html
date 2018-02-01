@@ -88,7 +88,7 @@
 		Btn[i].onclick = function() {
 			clearInterval(timer);
 			aa = this.index;
-			if(this.index == Btn.length) {
+			if(this.index >= Btn.length) {
 				aa = 0;
 			}
 			go();
@@ -100,8 +100,9 @@
 		}
 	}
 
+	// 定时器移动函数
 	function move(bll) {
-
+			// 重置按钮颜色
 			for(var j=0;j<Btn.length;j++) {
 				Btn[j].style.background = 'none';
 
@@ -112,24 +113,29 @@
 				aa--;
 				bl = true;
 			}
+			// 回到原始位置 aa=0
 			if(aa>= Btn.length){
 				aa = 0;
 			}
+			// 回到最后一张
 			if(aa<=-1) {
 				aa = 3;
 			}
 
+			// 轮播
 			Box.style.left = -400 * aa + 'px';
+			// 按钮颜色跟着变
 			Btn[aa].style.background = 'yellow';
 
 	}
-
+	// 上一页
 	Btn2[0].onclick = function() {
 		bl = false;
 		clearInterval(timer);
 		move(bl);
 		go();
 	}
+	// 下一页
 	Btn2[1].onclick = function() {
 		clearInterval(timer);
 		move(bl);
