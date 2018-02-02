@@ -1,0 +1,35 @@
+#p1 {
+	background: url(../img/bg1.jpg);
+	height: 1138px;
+	/*overflow: hidden;*/
+	display: block;
+	background-size: 100% 100%;
+	position: relative;
+}
+* {
+	margin: 0;
+	padding: 0;
+}
+.pic1 img {
+	position: absolute;
+	bottom: 230px;
+	left: 50px;
+}
+.pic2 img {
+	position: absolute;
+	bottom: 100px;
+	left: 50px;
+}
+.p1-bottom {
+	bottom: 0;
+	position: absolute;
+}
+.p1-bottom img:nth-child(2) {
+	position: absolute;
+	bottom: 25px;
+	top: 0;
+	left: 0;
+	right: 0;
+	margin: auto;
+
+}
