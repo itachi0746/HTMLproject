@@ -5,25 +5,41 @@
 	<meta content="width=640,user-scalable=no,target-densitydpi=device-dpi" name="viewport" id="viewport">
 	<title>全民突击</title>
 	<script src="js/Johnz.js"></script>
+	<script src="js/swiper.min.js"></script>
 	<link rel="stylesheet" href="css/index.css">
+	<link rel="stylesheet" href="css/swiper.min.css">
+
 </head>
 <body>
-	<div id="p1">
-		<div class="pic1">
-			<img src="img/page1_person1.png" alt="">
+	<div class="swiper-container">
+		<div class="swiper-wrapper">
+			<div id="p1" class="swiper-slide">
+				<div class="pic1">
+					<img src="img/page1_person1.png" alt="">
+				</div>
+				<div class="pic2">
+					<img src="img/page1_person2.png" alt="">
+				</div>
+				<div class="p1-bottom">
+					<img src="img/page1_step3.png" alt="">
+					<img src="img/page1_step4.png" alt="">
+				</div>
+			</div>				
 		</div>
-		<div class="pic2">
-			<img src="img/page1_person2.png" alt="">
-		</div>
-		<div class="p1-bottom">
-			<img src="img/page1_step3.png" alt="">
-			<img src="img/page1_step4.png" alt="">
-		</div>
-
-<!-- 		<div class="pic1">
-			<img src="img/page1_person1.png" alt="">
-		</div> -->
+		<div class="swiper-button-prev"></div>
+		<div class="swiper-button-next"></div>
 
 	</div>
+
 </body>
+<script>
+	var mySwiper = new Swiper('.swiper-container',{
+		direction: 'horizontal',
+		navigation: {
+			nextEl: '.swiper-button-next',
+			prevEl: '.swiper-button-prev',
+		},
+
+	})
+</script>
 </html>
