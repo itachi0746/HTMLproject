@@ -110,7 +110,7 @@
 	left: 330px;
 }
 .p2-man img:nth-child(4),.p2-man img:nth-child(5),
-.p2-man img:nth-child(6) {
+.p2-man img:nth-child(6),.p2-man img:nth-child(10) {
 	position: absolute;
 	width: 66px;
 	height: 58px;
@@ -134,6 +134,11 @@
 	top: 160px;
 	left: 540px;
 }
+.p2-man img:nth-child(10) {
+	top: 160px;
+	left: 330px;
+}
+
 .p2-man img:nth-child(7) {
 	top: 161px;
 	left: 399px;
