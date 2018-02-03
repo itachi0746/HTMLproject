@@ -5,6 +5,7 @@
 	display: block;
 	background-size: 100% 100%;
 	position: relative;
+	z-index: -999;
 }
 * {
 	margin: 0;
@@ -13,7 +14,7 @@
 .pic1 img {
 	position: absolute;
 	bottom: 230px;
-	left: 50px;
+	left: 30px;
 }
 .pic2 img {
 	position: absolute;
@@ -31,9 +32,170 @@
 	left: 0;
 	right: 0;
 	margin: auto;
+}
+/*.swiper-button-next{background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2027%2044'%3E%3Cpath%20d%3D'M27%2C22L5%2C44l-4.2-4.2L18.6%2C22L0.8%2C4.2L5%2C0z'%20fill%3D'%23ffffff'%2F%3E%3C%2Fsvg%3E");}
+*/
 
+/*.p1-bottom img:nth-child(1) {
+
+}*/
+
+.p1-bottom .ani{
+   -webkit-animation-timing-function:  linear;
+   
 }
-.button {
-	width: 100px;
-	height: 100px;
+.p1-under img {
+	position: absolute;
+	z-index: -10;
+	top: 0;
 }
+.p1-under img:nth-child(1) {
+	position: absolute;
+	z-index: -1;
+	top: 0;
+}
+.p1-under img:nth-child(2) {
+	position: absolute;
+	z-index: -10;
+	top: 0;
+}
+
+.p1-under2 img {
+	position: absolute;
+	z-index: -10;
+	top: 0;
+}
+.p1-under3 img {
+	position: absolute;
+	z-index: -10;
+	top: 300px;
+	left: 15px;
+}
+
+#p2 {
+	background: url(../img/bg2.jpg);
+	height: 1138px;
+	/*overflow: hidden;*/
+	display: block;
+	background-size: 100% 100%;
+	position: relative;
+	z-index: -999;
+}
+.p2-women {
+	position: absolute;
+	/*z-index: -10;*/
+	left: 0;
+}
+.p2-man {
+	width: 100%;
+	height: 530px;
+	position: absolute;
+	bottom: 400px;
+}
+.p2-man img:nth-child(1) {
+	position: absolute;
+	top: 30px;
+	left: 80px;
+}
+.p2-man img:nth-child(2) {
+	position: absolute;
+	top: 106px;
+	left: 126px;
+}
+.p2-man img:nth-child(3) {
+	position: absolute;
+	width: 74px;
+	height: 113px;
+	top: 106px;
+	left: 330px;
+}
+.p2-man img:nth-child(4),.p2-man img:nth-child(5),
+.p2-man img:nth-child(6) {
+	position: absolute;
+	width: 66px;
+	height: 58px;
+}
+.p2-man img:nth-child(7),
+.p2-man img:nth-child(8),.p2-man img:nth-child(9) {
+	position: absolute;
+	width: 64px;
+	height: 56px;
+}
+.p2-man img:nth-child(4) {
+	top: 160px;
+	left: 398px;
+}
+
+.p2-man img:nth-child(5) {
+	top: 160px;
+	left: 469px;
+}
+.p2-man img:nth-child(6) {
+	top: 160px;
+	left: 540px;
+}
+.p2-man img:nth-child(7) {
+	top: 161px;
+	left: 399px;
+}
+.p2-man img:nth-child(8) {
+	top: 161px;
+	left: 470px;
+}
+.p2-man img:nth-child(9) {
+	top: 161px;
+	left: 541px;
+}
+
+.p2-man img:nth-child(7),.p2-man img:nth-child(8),
+.p2-man img:nth-child(9) {
+	z-index: -1;
+}
+.p2-bottom {
+	position: absolute;
+	bottom: 0;
+}
+.p2-bottom img:nth-child(2) {
+	position: absolute;
+	bottom: 0px;
+	top: 0px;
+	left: 0;
+	right: 0;
+	margin: auto;
+}
+.p2-bottom img:nth-child(3) {
+	position: absolute;
+	bottom: 0px;
+	top: 0px;
+	left: 0;
+	right: 0;
+	margin: auto;
+	/*display: none;	*/
+}
+.phone {
+	width: 100%;
+	height: 220px;
+	position: absolute;
+	bottom: 460px;
+}
+.phone img {
+	position: absolute;
+	bottom: 0px;
+	top: 0px;
+	left: 0px;
+	right: 0px;
+	margin: auto;
+}
+.p2-under img:nth-child(1) {
+	position: absolute;
+	z-index: -1;
+} 
+.p2-under img:nth-child(2) {
+	position: absolute;
+	z-index: -1;
+} 
+.p2-under img:nth-child(3) {
+	position: absolute;
+	z-index: -1;
+	bottom: 70px;
+} 

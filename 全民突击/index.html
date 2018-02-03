@@ -6,8 +6,10 @@
 	<title>全民突击</title>
 	<script src="js/Johnz.js"></script>
 	<script src="js/swiper.min.js"></script>
+	<script src="js/swiper.animate1.0.3.min.js"></script>
 	<link rel="stylesheet" href="css/index.css">
 	<link rel="stylesheet" href="css/swiper.min.css">
+	<link rel="stylesheet" href="css/animate.min.css">
 
 </head>
 <body>
@@ -15,16 +17,59 @@
 		<div class="swiper-wrapper">
 			<div id="p1" class="swiper-slide">
 				<div class="pic1">
-					<img src="img/page1_person1.png" alt="">
+					<img src="img/page1_person1.png" class="ani" swiper-animate-effect="fadeInRight" swiper-animate-duration="1s" swiper-animate-delay="0s">
 				</div>
 				<div class="pic2">
-					<img src="img/page1_person2.png" alt="">
+					<img src="img/page1_person2.png" class="ani" swiper-animate-effect="fadeInRight" swiper-animate-duration="1s" swiper-animate-delay="0.3s">
 				</div>
 				<div class="p1-bottom">
-					<img src="img/page1_step3.png" alt="">
-					<img src="img/page1_step4.png" alt="">
+					<img src="img/page1_step3.png" class="ani" swiper-animate-effect="fadeInLeft" swiper-animate-duration="0.5s" swiper-animate-delay="1s">
+					<img src="img/page1_step4.png" class="ani" swiper-animate-effect="bounceIn" swiper-animate-duration="1s" swiper-animate-delay="1.5s">
 				</div>
-			</div>				
+				<div class="p1-under">
+					<img src="img/page1_step5.png" class="ani" swiper-animate-effect="fadeIn" swiper-animate-duration="1.5s" swiper-animate-delay="2s">
+					<img src="img/page1_step6.png" class="ani" swiper-animate-effect="fadeIn" swiper-animate-duration="1.5s" swiper-animate-delay="1.5s">
+				</div>
+				<div class="p1-under2">
+					<img src="img/page1_step7.png" class="ani" swiper-animate-effect="zoomIn" swiper-animate-duration="1.5s" swiper-animate-delay="1.5s">
+					<img src="img/page1_step9.png" class="ani" swiper-animate-effect="zoomIn" swiper-animate-duration="1.5s" swiper-animate-delay="1.5s">
+				</div>
+				<div class="p1-under3">
+					<img src="img/page1_step8.png" class="ani" swiper-animate-effect="zoomIn" swiper-animate-duration="1.5s" swiper-animate-delay="1.5s">
+					<img src="img/page1_step10.png" class="ani" swiper-animate-effect="zoomIn" swiper-animate-duration="1.5s" swiper-animate-delay="1.5s">
+				</div>
+
+			</div>	
+			<div id="p2" class="swiper-slide">
+				<div class="p2-women">
+					<img src="img/page2_step1.png" class="ani" swiper-animate-effect="fadeIn" swiper-animate-duration="1s" swiper-animate-delay="0s">
+				</div>
+				<div class="p2-man">
+					<img src="img/page2_new_step2.png" alt="">
+					<img src="img/page2_new_step1.png" alt="">
+					<img src="img/page2_new_heartdRed_right.png" alt="">
+					<img src="img/page2_new_heartdRed.png" alt="">
+					<img src="img/page2_new_heartdRed.png" alt="">
+					<img src="img/page2_new_heartdRed.png" alt="">
+					<img src="img/page2_new_heartdGray.png" alt="">
+					<img src="img/page2_new_heartdGray.png" alt="">
+					<img src="img/page2_new_heartdGray.png" alt="">
+
+				</div>
+<!-- 				<div class="p2-bottom">
+					<img src="img/page2_step5.png" alt="">
+					<img src="img/page2_step6.png" alt="">
+					<img src="img/page2_step6-2.png" alt="">
+				</div>
+				<div class="phone">
+					<img src="img/new_phone.png" alt="">
+				</div> -->
+				<div class="p2-under">
+					<img src="img/page2_step2.png" class="ani" swiper-animate-effect="fadeIn" swiper-animate-duration="1s" swiper-animate-delay="0.5s">
+					<img src="img/page2_step3.png" class="ani" swiper-animate-effect="fadeIn" swiper-animate-duration="1s" swiper-animate-delay="0.5s">
+					<img src="img/page2_step4.png" class="ani" swiper-animate-effect="zoomIn" swiper-animate-duration="2s" swiper-animate-delay="0.5s">
+				</div>
+			</div>			
 		</div>
 		<div class="swiper-button-prev"></div>
 		<div class="swiper-button-next"></div>
@@ -32,14 +77,6 @@
 	</div>
 
 </body>
-<script>
-	var mySwiper = new Swiper('.swiper-container',{
-		direction: 'horizontal',
-		navigation: {
-			nextEl: '.swiper-button-next',
-			prevEl: '.swiper-button-prev',
-		},
+<script src="js/index.js"></script>
 
-	})
-</script>
 </html>
