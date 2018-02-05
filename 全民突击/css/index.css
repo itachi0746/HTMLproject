@@ -2,7 +2,7 @@
 	background: url(../img/bg1.jpg);
 	height: 1138px;
 	/*overflow: hidden;*/
-	display: block;
+	display: none;
 	background-size: 100% 100%;
 	position: relative;
 	z-index: -999;
@@ -40,10 +40,10 @@
 
 }*/
 
-.p1-bottom .ani{
+/*.p1-bottom .ani{
    -webkit-animation-timing-function:  linear;
    
-}
+}*/
 .p1-under img {
 	position: absolute;
 	z-index: -10;
@@ -76,12 +76,12 @@
 	background: url(../img/bg2.jpg);
 	height: 1138px;
 	/*overflow: hidden;*/
-	display: block;
+	display: none;
 	background-size: 100% 100%;
 	position: relative;
 	z-index: -999;
 }
-.p2-women {
+.p2-women,.p6-women {
 	position: absolute;
 	/*z-index: -10;*/
 	left: 0;
@@ -104,9 +104,9 @@
 }
 .p2-man img:nth-child(3) {
 	position: absolute;
-	width: 74px;
-	height: 113px;
-	top: 106px;
+	width: 68px;
+	height: 108px;
+	top: 110px;
 	left: 330px;
 }
 .p2-man img:nth-child(4),.p2-man img:nth-child(5),
@@ -136,7 +136,7 @@
 }
 .p2-man img:nth-child(10) {
 	top: 160px;
-	left: 330px;
+	left: 325px;
 }
 
 .p2-man img:nth-child(7) {
@@ -204,3 +204,349 @@
 	z-index: -1;
 	bottom: 70px;
 } 
+/*.flash-heart {
+	opacity: 0;
+	-webkit-animation: flash 1s ease 5s alternate,
+	flash 1s ease 6s infinite;
+}
+.pulse-heart {
+	-webkit-animation: pulse 1s ease 6s infinite;
+
+}*/
+/*闪烁*/
+@-webkit-keyframes flash {
+	0% {
+		opacity: 1;
+	}
+	100% {
+		opacity: 0;
+	}
+}
+/*心跳*/
+@-webkit-keyframes pulse {
+	0% {
+		transform: scale(1);
+	}
+	100% {
+		opacity: scale(1.3);
+	}
+}
+
+
+#p3 {
+	background: url(../img/bg4.jpg);
+	height: 1138px;
+	/*overflow: hidden;*/
+	display: none;
+	background-size: 100% 100%;
+	position: relative;
+	z-index: -999;	
+}
+.p3-women {
+	position: absolute;
+	z-index: -10;
+	left: 0;
+}
+.p3-middle {
+	position: absolute;
+	width: 100%;
+	height: 450px;
+	bottom: 400px;
+}
+.p3-middle img:nth-child(1) {
+	position: absolute;
+	bottom: 0px;
+	left: 200px;
+}
+.p3-middle img:nth-child(4) {
+	position: absolute;
+	bottom: 70px;
+	left: 120px;
+}
+.p3-middle img:nth-child(2) {
+	position: absolute;
+	bottom: 100px;
+	left: 385px;
+}
+.p3-middle img:nth-child(3) {
+	position: absolute;
+	bottom: 160px;
+	left: 420px;
+}
+.p3-middle img:nth-child(5) {
+	position: absolute;
+	bottom: 210px;
+	left: 175px;
+}
+.p3-bottom {
+	position: absolute;
+	bottom: 0px;
+}
+.p3-bottom img:nth-child(2),
+.p3-bottom img:nth-child(3) {
+	position: absolute;
+	bottom: 0px;
+	top: 0px;
+	left: 0px;
+	right: 0px;
+	margin: auto;
+}
+.p3-bottom img:nth-child(1) {
+	position: relative;
+	z-index: -1;
+	/*bottom: 0px;*/
+}
+
+#p4 {
+	background: url(../img/bg3.jpg);
+	height: 1138px;
+	/*overflow: hidden;*/
+	display: none;
+	background-size: 100% 100%;
+	position: relative;
+	z-index: -999;		
+}
+.p4-man,.p5-man,.p7-man {
+	position: absolute;
+	right: 0;
+}
+.zhujue {
+	position: absolute;
+	left: 20px;
+	top: -45px;
+}
+.p4-middle {
+	position: absolute;
+	bottom: 480px;
+	left: 70px;
+}
+#target {
+	position: absolute;
+	bottom: 180px;
+	left: 60px;
+}
+.p4-bottom {
+	position: absolute;
+	bottom: 0px;
+}
+.p4-bottom img:nth-child(2),
+.p4-bottom img:nth-child(3) {
+	position: absolute;
+	bottom: 0px;
+	top: 0px;
+	left: 0px;
+	right: 0px;
+	margin: auto;
+}
+.p4-bottom img:nth-child(1) {
+	position: relative;
+	z-index: -1;
+	/*bottom: 0px;*/
+}
+#p5 {
+	background: url(../img/bg5.jpg);
+	height: 1138px;
+	/*overflow: hidden;*/
+	display: none;
+	background-size: 100% 100%;
+	position: relative;
+	z-index: -999;		
+}
+.p5-middle {
+	position: absolute;
+	width: 100%;
+	height: 400px;
+	bottom: 400px;
+}
+.p5-container {
+	width: 180px;
+	height: 350px;
+	position: absolute;
+}
+.p5-container img:nth-child(2) {
+	position: absolute;
+	bottom: 60px;
+	top: 0px;
+	left: 0px;
+	right: 0px;
+	margin: auto;
+}
+.p5-container img:nth-child(1) {
+	position: absolute;
+	bottom: 0px;
+	right: -40px;
+}
+#one {
+	left: 70px;
+	bottom: 0px;
+}
+#two {
+	left: 215px;
+	bottom: 0px;
+
+}
+#three {
+	left: 360px;
+	bottom: 0px;
+
+}
+#tuanmie {
+	left: 235px;
+	position: absolute;
+}
+.p5-bottom {
+	position: absolute;
+	bottom: 0px;
+}
+.p5-bottom img:nth-child(2),
+.p5-bottom img:nth-child(3) {
+	position: absolute;
+	bottom: 0px;
+	top: 0px;
+	left: 0px;
+	right: 0px;
+	margin: auto;
+}
+.p5-bottom img:nth-child(1) {
+	position: relative;
+	z-index: -1;
+	/*bottom: 0px;*/
+}
+#p6 {
+	background: url(../img/bg6.jpg);
+	height: 1138px;
+	/*overflow: hidden;*/
+	display: none;
+	background-size: 100% 100%;
+	position: relative;
+	z-index: -999;		
+}
+.p6-middle {
+	height: 380px;
+	width: 100%;
+	position: absolute;
+	bottom: 335px;
+}
+.p6-middle img:nth-child(1) {
+	position: absolute;
+	left: 100px;
+	bottom: 35px;
+}
+.p6-middle img:nth-child(2) {
+	position: absolute;
+	left: 160px;
+	bottom: 165px;
+}
+.p6-middle img:nth-child(3) {
+	position: absolute;
+	right: 0px;
+	bottom: 25px;
+}
+.p6-middle img:nth-child(4) {
+	position: absolute;
+	right: 15px;
+	bottom: 215px;
+}
+
+.p6-bottom {
+	position: absolute;
+	bottom: 0px;
+}
+.p6-bottom img:nth-child(2),
+.p6-bottom img:nth-child(3) {
+	position: absolute;
+	bottom: 0px;
+	top: 0px;
+	left: 0px;
+	right: 0px;
+	margin: auto;
+}
+.p6-bottom img:nth-child(1) {
+	position: relative;
+	z-index: -1;
+	/*bottom: 0px;*/
+}
+#p7 {
+	background: url(../img/bg7.jpg);
+	height: 1138px;
+	/*overflow: hidden;*/
+	display: none;
+	background-size: 100% 100%;
+	position: relative;
+	z-index: -999;		
+}
+.p7-middle {
+	height: 250px;
+	width: 100%;
+	position: absolute;
+	bottom: 470px;
+}
+.p7-middle img:nth-child(1),.p7-middle img:nth-child(2) {
+	position: absolute;
+	bottom: 0px;
+	top: 0px;
+	left: 0px;
+	right: 0px;
+	margin: auto;	
+}
+.p7-middle img:nth-child(3) {
+	position: absolute;
+	bottom: 250px;
+	top: 0px;
+	left: 0px;
+	right: 0px;
+	margin: auto;		
+}
+.p7-bottom {
+	position: absolute;
+	bottom: 0px;
+}
+.p7-bottom img:nth-child(2),
+.p7-bottom img:nth-child(3) {
+	position: absolute;
+	bottom: 0px;
+	top: 0px;
+	left: 0px;
+	right: 0px;
+	margin: auto;
+}
+.p7-bottom img:nth-child(1) {
+	position: relative;
+	z-index: -1;
+	/*bottom: 0px;*/
+}
+#p8 {
+	background: url(../img/bg8.jpg);
+	height: 1138px;
+	/*overflow: hidden;*/
+	display: block;
+	background-size: 100% 100%;
+	position: relative;
+	z-index: -999;		
+}
+.p8-middle {
+	position: absolute;
+	top: 350px;
+	left: 30px;
+}
+.p8-top {
+	position: absolute;
+	bottom: 63px;
+}
+.p8-bottom {
+	position: absolute;
+	bottom: 0px;
+}
+.p8-bottom img:nth-child(2) {
+	position: absolute;
+	bottom: 0px;
+	top: 0px;
+	left: 0px;
+	right: 0px;
+	margin: auto;
+}
+.p8-bottom img:nth-child(1) {
+	position: relative;
+	z-index: -1;
+	/*bottom: 0px;*/
+}

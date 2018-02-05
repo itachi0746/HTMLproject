@@ -6,7 +6,7 @@ var mySwiper = new Swiper('.swiper-container',{
 		}, 
 		slideChangeTransitionEnd: function(){ 
 			swiperAnimate(this); //每个slide切换结束时也运行当前slide动画
-		} 
+		}
 	},
 
 	direction: 'horizontal',
