@@ -90,10 +90,9 @@
 	position: relative;
 	z-index: -999;
 }
-/*#kadun {
-	display: none;
-	-webkit-animation: shake 1s linear 8s infinite;
-}*/
+.shake {
+	-webkit-animation: shake 1s linear 1.5s infinite;
+}
 .p2-women,.p6-women {
 	position: absolute;
 	/*z-index: -10;*/
@@ -105,11 +104,20 @@
 	position: absolute;
 	bottom: 400px;
 }
-.p2-man img:nth-child(1) {
+/*.p2-man img:nth-child(1) {
+	position: absolute;
+	top: 30px;
+	left: 80px;
+}*/
+#kadun {
 	position: absolute;
 	top: 30px;
 	left: 80px;
 }
+#dianchi {
+	position: absolute;
+}
+
 .p2-man img:nth-child(2) {
 	position: absolute;
 	top: 106px;
