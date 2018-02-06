@@ -2,7 +2,7 @@
 	background: url(../img/bg1.jpg);
 	height: 1138px;
 	/*overflow: hidden;*/
-	display: none;
+	display: block;
 	background-size: 100% 100%;
 	position: relative;
 	z-index: -999;
@@ -11,6 +11,15 @@
 	margin: 0;
 	padding: 0;
 }
+.swiper-container .left {
+	transform: scale(2);
+	background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2027%2044'%3E%3Cpath%20d%3D'M0%2C22L22%2C0l2.1%2C2.1L4.2%2C22l19.9%2C19.9L22%2C44L0%2C22L0%2C22L0%2C22z'%20fill%3D'%23ffffff'%2F%3E%3C%2Fsvg%3E")
+}
+.swiper-container .right {
+	transform: scale(2);
+	background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2027%2044'%3E%3Cpath%20d%3D'M27%2C22L27%2C22L5%2C44l-2.1-2.1L22.8%2C22L2.9%2C2.1L5%2C0L27%2C22L27%2C22z'%20fill%3D'%23ffffff'%2F%3E%3C%2Fsvg%3E")
+}
+
 .pic1 img {
 	position: absolute;
 	bottom: 230px;
@@ -76,11 +85,15 @@
 	background: url(../img/bg2.jpg);
 	height: 1138px;
 	/*overflow: hidden;*/
-	display: none;
+	display: block;
 	background-size: 100% 100%;
 	position: relative;
 	z-index: -999;
 }
+/*#kadun {
+	display: none;
+	-webkit-animation: shake 1s linear 8s infinite;
+}*/
 .p2-women,.p6-women {
 	position: absolute;
 	/*z-index: -10;*/
@@ -182,6 +195,7 @@
 	height: 220px;
 	position: absolute;
 	bottom: 460px;
+	display: block;
 }
 .phone img {
 	position: absolute;
@@ -232,12 +246,28 @@
 	}
 }
 
+@-webkit-keyframes shake {
+  0%, 100% {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+
+  10%, 30%, 50%, 70%, 90% {
+    -webkit-transform: translate3d(-10px, 0, 0);
+    transform: translate3d(-10px, 0, 0);
+  }
+
+  20%, 40%, 60%, 80% {
+    -webkit-transform: translate3d(10px, 0, 0);
+    transform: translate3d(10px, 0, 0);
+  }
+}
 
 #p3 {
 	background: url(../img/bg4.jpg);
 	height: 1138px;
 	/*overflow: hidden;*/
-	display: none;
+	display: block;
 	background-size: 100% 100%;
 	position: relative;
 	z-index: -999;	
@@ -295,6 +325,16 @@
 	position: relative;
 	z-index: -1;
 	/*bottom: 0px;*/
+}
+.p3-under {
+	position: absolute;
+	top: 0;
+	z-index: -20;
+}
+.p3-under img:nth-child(2),
+.p3-under img:nth-child(3) {
+	position: absolute;
+	top: 0;
 }
 
 #p4 {
@@ -519,7 +559,7 @@
 	background: url(../img/bg8.jpg);
 	height: 1138px;
 	/*overflow: hidden;*/
-	display: block;
+	display: none;
 	background-size: 100% 100%;
 	position: relative;
 	z-index: -999;		
