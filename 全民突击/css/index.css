@@ -114,9 +114,7 @@
 	top: 30px;
 	left: 80px;
 }
-#dianchi {
-	position: absolute;
-}
+
 
 .p2-man img:nth-child(2) {
 	position: absolute;
@@ -296,12 +294,12 @@
 	bottom: 0px;
 	left: 200px;
 }
-.p3-middle img:nth-child(4) {
+.p3-middle img:nth-child(3) {
 	position: absolute;
 	bottom: 70px;
 	left: 120px;
 }
-.p3-middle img:nth-child(2) {
+/*.p3-middle img:nth-child(2) {
 	position: absolute;
 	bottom: 100px;
 	left: 385px;
@@ -310,12 +308,132 @@
 	position: absolute;
 	bottom: 160px;
 	left: 420px;
-}
-.p3-middle img:nth-child(5) {
+}*/
+.p3-middle img:nth-child(4) {
 	position: absolute;
 	bottom: 210px;
 	left: 175px;
 }
+#dianchi {
+	position: absolute;
+	bottom: 100px;
+	left: 385px;
+	width: 190px;
+	height: 190px;
+}
+#meidian {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+}
+#meidian2 {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	top: 0;
+	right: 0;
+	margin: auto;
+}
+.meidian2-after {
+	opacity: 1;
+}
+.meidian2-before {
+	opacity: 0;
+}
+
+.p3-target {
+	opacity: 0;
+	-webkit-animation: movingTarget .5s linear 3.5s;
+	-webkit-animation-fill-mode: forwards;
+}
+.p4-target {
+	opacity: 0;
+	-webkit-animation: movingTarget2 .5s linear 1.5s;
+	-webkit-animation-fill-mode: forwards;
+}
+.p5-target-one {
+	opacity: 0;
+	-webkit-animation: target .5s ease 1s;
+	-webkit-animation-fill-mode: forwards;
+}
+.p5-target-three {
+	opacity: 0;
+	-webkit-animation: target .5s ease 2s;
+	-webkit-animation-fill-mode: forwards;
+}
+.p5-target-two {
+	opacity: 0;
+	-webkit-animation: target .5s ease 3s;
+	-webkit-animation-fill-mode: forwards;
+}
+
+
+@-webkit-keyframes movingTarget {
+	0% {
+		opacity: 0;
+		-webkit-transform: translate(120px,120px) scale(1);
+
+	}	
+	25%{
+		-webkit-transform: translate(90px,90px) scale(2.5);
+	}	
+	50% {
+		-webkit-transform: translate(60px,60px) scale(1);
+
+	}
+	75% {
+		-webkit-transform: translate(30px,30px) scale(2.5);
+
+	}
+	100% {
+		opacity: 1;
+		-webkit-transform: translate(0px,0px) scale(1);
+	}
+}
+@-webkit-keyframes movingTarget2 {
+	0% {
+		opacity: 0;
+		-webkit-transform: translate(120px,-120px) scale(1);
+
+	}	
+	25%{
+		-webkit-transform: translate(90px,-90px) scale(2.5);
+	}	
+	50% {
+		-webkit-transform: translate(60px,-60px) scale(1);
+
+	}
+	75% {
+		-webkit-transform: translate(30px,-30px) scale(2.5);
+
+	}
+	100% {
+		opacity: 1;
+		-webkit-transform: translate(0px,0px) scale(1);
+	}
+}
+@-webkit-keyframes target {
+	0% {
+		opacity: 0;
+		-webkit-transform: scale(1);
+	}	
+	25%{
+		-webkit-transform: scale(2.5);
+	}	
+	50% {
+		-webkit-transform: scale(1);
+
+	}
+	75% {
+		-webkit-transform: scale(2.5);
+
+	}
+	100% {
+		opacity: 1;
+		-webkit-transform: scale(1);
+	}
+}
+
 .p3-bottom {
 	position: absolute;
 	bottom: 0px;
@@ -349,7 +467,7 @@
 	background: url(../img/bg3.jpg);
 	height: 1138px;
 	/*overflow: hidden;*/
-	display: none;
+	display: block;
 	background-size: 100% 100%;
 	position: relative;
 	z-index: -999;		
@@ -358,10 +476,30 @@
 	position: absolute;
 	right: 0;
 }
-.zhujue {
+#zhujue {
 	position: absolute;
 	left: 20px;
 	top: -45px;
+}
+.zhujue {
+	opacity: 0;
+	-webkit-animation: zhujue 4s 2s;
+	/*-webkit-animation-fill-mode: forwards;*/
+
+}
+.zhujue-after {
+	opacity: 0;
+}
+@-webkit-keyframes zhujue {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    -webkit-transform: translate3d(0, -150%, 0);
+    transform: translate3d(0, -150%, 0);
+  }
 }
 .p4-middle {
 	position: absolute;
@@ -372,6 +510,7 @@
 	position: absolute;
 	bottom: 180px;
 	left: 60px;
+	opacity: 0;
 }
 .p4-bottom {
 	position: absolute;
@@ -395,7 +534,7 @@
 	background: url(../img/bg5.jpg);
 	height: 1138px;
 	/*overflow: hidden;*/
-	display: none;
+	display: block;
 	background-size: 100% 100%;
 	position: relative;
 	z-index: -999;		
@@ -441,6 +580,22 @@
 #tuanmie {
 	left: 235px;
 	position: absolute;
+}
+.tuanmie {
+	opacity: 0;
+	-webkit-animation: tuanmie 1s ease 3.5s;
+	-webkit-animation-fill-mode: forwards;
+}
+@-webkit-keyframes tuanmie {
+	0% {
+		opacity: 0;
+		-webkit-transform: translate(0,-400px);
+	}
+	100% {
+		opacity: 1;
+		-webkit-transform: translate(0,0px);
+	}
+
 }
 .p5-bottom {
 	position: absolute;
