@@ -34,12 +34,39 @@ var mySwiper = new Swiper('.swiper-container',{
 				P5_target_two.className = 'ani p5-target-two';
 				P5_target_three.className = 'ani p5-target-three';
 				P5_tuanmie.className = 'ani tuanmie';
+				P5_font1.className = 'ani p5-font1';
 			} else {
 				P5_target_one.className = 'ani';
 				P5_target_two.className = 'ani';
 				P5_target_three.className = 'ani';	
 				P5_tuanmie.className = 'ani';
+				P5_font1.className = 'ani';
+			}
 
+			if(this.activeIndex==5) {
+				// p6瞄准
+				P6_target.className = 'ani p6-target';
+				P6_flash.className = 'ani p6-flash';
+			} else {
+				P6_target.className = 'ani';
+				P6_flash.className = 'ani';
+			}
+
+			if(this.activeIndex==6) {
+				P7_hot.className = 'ani p7-hot';
+				P7_fire.className = 'ani p7-fire';
+				setTimeout(function() {
+					P7_hot.className = 'ani';
+					P7_hot.style.opacity = '1';
+				},3000);
+				setTimeout(function() {
+					P7_fire.className = 'ani';
+					P7_fire.style.opacity = '1';
+				},3500)
+
+			} else {
+				P7_hot.className = 'ani';
+				P7_fire.className = 'ani';
 			}
 		},
 	},
@@ -58,7 +85,12 @@ var Meidian = $('meidian2'),
 	P5_target_one = $('target-one'),
 	P5_target_two = $('target-two'),
 	P5_target_three = $('target-three'),
-	P5_tuanmie = $('tuanmie');
+	P5_tuanmie = $('tuanmie'),
+	P5_font1 = $('p5-font1'),
+	P6_target = $('p6-target'),
+	P6_flash = $('p6-flash'),
+	P7_hot = $('p7-hot'),
+	P7_fire = $('p7-fire');
 
 
 // var a = $('kadun');
