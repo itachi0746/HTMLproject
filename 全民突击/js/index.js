@@ -21,11 +21,10 @@ var mySwiper = new Swiper('.swiper-container',{
 			if(this.activeIndex==3) {
 				// p4瞄准
 				P4_target.className = 'p4-target';
-				P4_zhujue.className = 'zhujue'
+				P4_zhujue.className = 'zhujue';
 			}else {
 				P4_target.className = 'none';
 				P4_zhujue.className = 'zhujue-after';
-
 			}
 
 			if(this.activeIndex==4) {
@@ -68,6 +67,7 @@ var mySwiper = new Swiper('.swiper-container',{
 				P7_hot.className = 'ani';
 				P7_fire.className = 'ani';
 			}
+
 		},
 	},
 		simulateTouch: false,//禁止鼠标模拟
