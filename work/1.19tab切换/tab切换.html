@@ -83,6 +83,7 @@
 <script>
 
 	var Box = document.getElementsByClassName('wp')[0].getElementsByTagName('div');
+	// console.log(Box);
 
 
 	var Btn = document.getElementsByClassName('btn_wp')[0].getElementsByTagName('span');
@@ -92,14 +93,17 @@
 	for(var i=0;i<Box.length;i++) {
 
 		Btn[i].index = i;
-		Btn[i].onmouseover = function() {
+		Btn[i].onclick = function() {
 			for(var j=0;j<Btn.length;j++) {
+				// console.log(i);
 				Box[j].className = 'dn';
 				Btn[j].style.background = '#ccc';
-
 			}
+
 			Box[this.index].className = 'db';
 			this.style.background = 'red';
+			console.log(this);
+			console.log(this.index);
 		}
 	}
 </script>

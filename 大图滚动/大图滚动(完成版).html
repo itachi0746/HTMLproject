@@ -92,10 +92,13 @@
 		}else {
 			i += 2;
 			if(i>= 0) {
+				// console.log(i);
+
 				i = -box.offsetWidth;
+				// console.log(i);
 			}
 		}
-
+		console.log(i);
 		if(i%250===0) {
 			clearInterval(timer);
 			timer2 = setTimeout(function() {

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		#show {
+			height: 400px;
+			width: 400px;
+			margin: 0 auto;
+			overflow: hidden;
+		}
+		#box_wp {
+			width: 9999px;
+			position: relative;
+			left: 0px;
+			-webkit-transition: all .5s;
+
+		}
+		#box1 {
+			background-color: red;
+			height: 400px;
+			width: 400px;
+			font-size: 4em;
+			line-height: 400px;
+			text-align: center;
+			float: left;
+		}
+		#box2 {
+			background-color: yellow;
+			height: 400px;
+			width: 400px;
+			font-size: 4em;
+			line-height: 400px;
+			text-align: center;
+			float: left;
+
+		}
+		#box3 {
+			background-color: green;
+			height: 400px;
+			width: 400px;
+			font-size: 4em;
+			line-height: 400px;
+			text-align: center;
+			float: left;
+
+		}
+		#box4 {
+			background-color: blue;
+			height: 400px;
+			width: 400px;
+			font-size: 4em;
+			line-height: 400px;
+			text-align: center;
+			float: left;
+
+		}
+		#btn_wp {
+			width: 400px;
+			margin: 0 auto;
+		}
+		#btn_wp div {
+			width: 100px;
+			height: 50px;
+			background: #ccc;
+			text-align: center;
+			line-height: 50px;
+			float: left;
+		}
+		#btn_wp #btn1 {
+			background: white;
+		}
+	</style>
+</head>
+<body>
+	<div id="show">
+		<div id="box_wp">
+			<div id="box1">ONE</div>
+			<div id="box2">TWO</div>
+			<div id="box3">THREE</div>
+			<div id="box4">FOUR</div>
+		</div>
+	</div>
+	<div id="btn_wp">
+		<div id="btn1">按钮1</div>
+		<div id="btn2">按钮2</div>
+		<div id="btn3">按钮3</div>
+		<div id="btn4">按钮4</div>
+	</div>
+
+</body>
+<script>
+	var Box = document.getElementById('box_wp');
+	var Btn = document.getElementById('btn_wp').getElementsByTagName('div');
+	// console.log(Box,Btn);
+
+
+	for(var i=0;i<Btn.length;i++) {
+		Btn[i].index = i;
+		Btn[i].onclick = function() {
+			clearInterval(timer);
+			for(var j=0;j<Btn.length;j++) {
+				Btn[j].style.background = '#ccc';
+
+			}
+			Box.style.left = -400 * this.index + 'px';
+			Btn[this.index].style.background = 'white';
+			num = this.index + 1;
+			move();
+		}
+	}
+
+	var timer;
+	var num = 1;
+
+
+	function move() {
+		timer = setInterval(go,1000);
+	}
+	move();
+
+	function go() {
+		for(var k=0;k<Btn.length;k++) {
+			Btn[k].style.background = '#ccc';
+		}
+		Btn[num].style.background = 'white';
+		Box.style.left = -400 * num + 'px';
+
+		num++;
+
+		if(num>3) {
+			num = 0;
+			// clearInterval(timer);
+
+		}	
+	}
+</script>
+</html>
