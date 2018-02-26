@@ -83,7 +83,6 @@
 	}
 
 	function move(bl) {
-		boxWp.style.left = i + 'px';
 		if(bl){
 			i -= 2;
 			if(i<= -box.offsetWidth) {
@@ -98,6 +97,8 @@
 				// console.log(i);
 			}
 		}
+		boxWp.style.left = i + 'px';
+
 		console.log(i);
 		if(i%250===0) {
 			clearInterval(timer);
