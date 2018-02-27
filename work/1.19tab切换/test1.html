@@ -88,6 +88,13 @@
 		<div id="btn3">按钮3</div>
 		<div id="btn4">按钮4</div>
 	</div>
+	<ul>
+		<li>1111</li>
+		<li>1111</li>
+		<li>1111</li>
+		<li>1111</li>
+		<li>1111</li>
+	</ul>
 
 </body>
 <script>
@@ -106,7 +113,7 @@
 			}
 			Box.style.left = -400 * this.index + 'px';
 			Btn[this.index].style.background = 'white';
-			num = this.index + 1;
+			num = i + 1;
 			move();
 		}
 	}
@@ -129,7 +136,7 @@
 
 		num++;
 
-		if(num>3) {
+		if(num>=4) {
 			num = 0;
 			// clearInterval(timer);
 
