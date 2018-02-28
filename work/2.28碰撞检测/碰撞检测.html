@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>碰撞检测</title>
+	<style>
+		.wp {
+			width: 800px;
+			height: 400px;
+			border: 1px solid;
+			position: relative;
+			/*overflow: auto;*/
+		}
+		.box {
+			width: 50px;
+			height: 50px;
+			background: lightblue;
+			/*border: 10px solid;*/
+			/*margin-left: 400px;*/
+			border-radius: 50%;
+			position: absolute;
+			/*left: 300px;*/
+			/*top: 0;*/
+		}
+		.box2 {
+			width: 200px;
+			height: 100px;
+			background: blue;
+			position: absolute;
+			bottom: 0;
+			left: 300px;
+		}
+	</style>
+</head>
+<body>
+	<div class="wp" id="wp">
+		<div class="box" id="box"></div>
+		<div class="box2" id="box2"></div>
+	</div>
+</body>
+<script>
+	var box = document.getElementById('box');
+	var wp = document.getElementById('wp');
+	var box2 = document.getElementById('box2');
+
+	// 获取当前对象与父体之间的左边距离
+	// var a = box.offsetLeft;
+	// 上距离
+	// var a = box.offsetTop;
+
+	// 获取元素自身的宽度/高度(Height),包含border
+	// var a = box.offsetWidth;
+
+	// 不包含边框的元素自身的宽度 高度
+	// var a = wp.clientWidth;
+
+	// 滚动条距离左边距离 还有top right bottom
+	// var a = box.scrollLeft;
+
+	// console.log(a);
+
+	// 位移值
+	var Lindex = 0,
+		Lspeed = 5;
+	var Tindex = 0,
+		Tspeed = 5;
+
+	// var timer = setInterval(function() {
+	// 	Lindex+=Lspeed;
+	// 	Tindex+=Tspeed;
+
+	// 	box.style.left = Lindex + 'px';
+	// 	box.style.top = Tindex + 'px';
+
+	// 	if(box.offsetLeft>=wp.clientWidth-box.offsetWidth || box.offsetLeft <= 0) {
+
+	// 		// 修正最后的位置
+	// 		// box.style.left = wp.clientWidth-box.offsetWidth + 'px';
+	// 		// clearInterval(timer);
+
+	// 		Lspeed *= -1;
+	// 	}
+	// 	if(box.offsetTop + box.offsetHeight>=wp.clientHeight || box.offsetTop <= 0){
+	// 		Tspeed *= -1;
+	// 	}
+
+	// },30)
+
+// ================================================
+// 加障碍物后的碰撞检测
+	var timer = setInterval(function() {
+		Lindex+=Lspeed;
+		Tindex+=Tspeed;
+		box.style.left = Lindex + 'px';
+		box.style.top = Tindex + 'px';
+
+		var top1 = box.offsetTop,
+			bottom1 = box.offsetTop + box.offsetHeight,
+			left1 = box.offsetLeft,
+			right1 = box.offsetLeft + box.offsetWidth;
+			// console.log(l1,r1);
+
+		var top2 = box2.offsetTop,
+			bottom2 = box2.offsetTop + box2.offsetHeight,
+			left2 = box2.offsetLeft,
+			right2 = box2.offsetLeft + box2.offsetWidth;		
+			// console.log(l2,r2);
+			// console.log(t2,b2);
+
+		var wp_height = wp.clientHeight,
+			wp_width = wp.clientWidth;
+
+		if(!(bottom1>=top2))
+
+
+		if(left1>=wp_width-box.offsetWidth || left1 <= 0) {
+			Lspeed *= -1;
+		}
+		if(top1 + box.offsetHeight>=wp_height || top1 <= 0){
+			Tspeed *= -1;
+		}
+
+	},30)
+
+
+</script>
+</html>
