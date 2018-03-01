@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>时钟</title>
+	<style>
+		.clock {
+			position: relative;
+			width: 500px;
+			height: 500px;
+		}
+		#sec {
+			width: 10px;
+			height: 200px;
+			background: red;
+			position: absolute;
+			left: 245px;
+			top: 50px;
+			-webkit-transform-origin: 50% 100%;
+		}
+		#min {
+			width: 10px;
+			height: 180px;
+			background: lightgreen;
+			position: absolute;
+			left: 245px;
+			top: 70px;
+			-webkit-transform-origin: 50% 100%;
+
+		}
+		#hour {
+			width: 10px;
+			height: 160px;
+			background: yellow;
+			position: absolute;
+			left: 245px;
+			top: 90px;
+			-webkit-transform-origin: 50% 100%;
+
+		}
+
+	</style>
+</head>
+<body>
+	<div class="clock">
+		<img src="123.jpg" alt="">
+		<div id="hour"></div>
+		<div id="min"></div>
+		<div id="sec"></div>
+	</div>
+</body>
+<script>
+	var hour = document.getElementById('hour'),
+		min = document.getElementById('min'),
+		sec = document.getElementById('sec');
+		// console.log(sec,min,hour);
+
+
+	function tgt() {
+		var now = new Date();
+		// console.log(now);
+
+		var h = now.getHours();
+		var m = now.getMinutes();
+		var s = now.getSeconds();
+		// console.log(h,m,s);
+
+		var second = 'rotate(' + (s*6) + 'deg)';
+		var minute = 'rotate(' + (m*6) + 'deg)';
+
+		var temp = ((m/60)*30)+h*30;
+		var hour2 = 'rotate(' + temp + 'deg)';
+		// console.log((m/60)*30);
+
+		sec.style.transform = second;
+		min.style.transform = minute;
+		hour.style.transform = hour2;		
+	}
+	tgt();
+
+	var timer = setInterval(tgt,1000);
+
+</script>
+</html>

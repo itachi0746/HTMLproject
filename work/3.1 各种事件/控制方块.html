@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>控制方块</title>
+	<style>
+		#box {
+			width: 100px;
+			height: 100px;
+			background: lightgreen;
+			position: absolute;
+			top: 100px;
+			left: 100px;
+		}
+		#wp {
+			width: 1000px;height: 1000px;
+			border: 1px solid;
+		}
+	</style>
+</head>
+<body>
+<!-- 	<div id="wp">
+ -->		<div id="box">
+			
+		</div>
+<!-- 	</div>
+ --></body>
+<script>
+	var box = document.getElementById('box');
+
+	var step = 10,
+		move,
+		T = box.offsetTop,
+		L = box.offsetLeft;
+		console.log(T,L);
+
+	// document.onkeydown = function(event) {
+	// 	if(event.keyCode===87) {
+	// 		// console.log(event.keyCode);
+	// 		T -= step;
+	// 		box.style.top = T + 'px';
+	// 	}
+	// 	if(event.keyCode===83) {
+	// 		// console.log(event.keyCode);
+	// 		T += step;
+	// 		box.style.top = T + 'px';
+	// 	}
+	// 	if(event.keyCode===65) {
+	// 		// console.log(event.keyCode);
+	// 		L -= step;
+	// 		box.style.left = L + 'px';
+	// 	}
+	// 	if(event.keyCode===68) {
+	// 		// console.log(event.keyCode);
+	// 		L += step;
+	// 		box.style.left = L + 'px';
+	// 	}
+	// }
+
+	document.onkeypress = function(event) {
+		if(event.keyCode===87 || event.keyCode===119) {
+			// console.log(event.keyCode);
+			T -= step;
+			box.style.top = T + 'px';
+		}
+		if(event.keyCode===83 || event.keyCode===115) {
+			// console.log(event.keyCode);
+			T += step;
+			box.style.top = T + 'px';
+		}
+		if(event.keyCode===65 || event.keyCode===97) {
+			// console.log(event.keyCode);
+			L -= step;
+			box.style.left = L + 'px';
+		}
+		if(event.keyCode===68 || event.keyCode===100) {
+			// console.log(event.keyCode);
+			L += step;
+			box.style.left = L + 'px';
+		}
+	}
+
+</script>
+</html>

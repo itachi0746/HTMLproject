@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>事件</title>
+	<style>
+		.btn {
+			width: 100px;
+			height: 100px;
+			background: blue;
+		}
+	</style>
+</head>
+<body>
+	<div class="btn" id="btn">
+		
+	</div>
+	<input type="text" id="inp">
+	<select name="" id="txt">
+		<option value="">gggggggggggggggggggggg</option>
+		<option value="">aaaaaaaaaaaaaaaaaa</option>
+		<option value="">hhhhhhhhhhhhhhh</option>
+	</select>
+</body>
+<script>
+	var btn = document.getElementById('btn');
+	var inp = document.getElementById('inp');
+	var txt = document.getElementById('txt');
+
+	// 点击事件
+	// btn.onclick = function() {
+	// 	console.log(111);
+	// }
+
+	// 右击事件
+	// btn.oncontextmenu = function() {
+	// 	console.log(222);
+	// }
+
+	// 双击事件
+	// btn.ondblclick = function() {
+	// 	console.log(333);
+	// }
+
+	// 鼠标点击下去的时候
+	// btn.onmousedown = function() {
+	// 	console.log(444);
+	// }
+
+	// 鼠标松开
+	// btn.onmouseup = function() {
+	// 	console.log(555);
+	// }
+
+	// 鼠标移出的时候
+	// btn.onmouseout = function() {
+	// 	console.log(666);
+	// }
+
+	// 鼠标移动的时候
+	// btn.onmousemove = function() {
+	// 	console.log(777);
+	// }
+
+	// 鼠标移进的时候
+	// btn.onmouseover = function() {
+	// 	console.log(888);
+	// }
+
+	// 按键按下去的时候inp.onkeydown document.onkeydown
+	// inp.onkeydown = function() {
+	// 	console.log(999);
+	// }
+
+	// 按键长按的时候
+	// keyCode 返回ASCII码
+	document.onkeydown = function(event) {
+		console.log(event.keyCode);
+		// if(event.keyCode==119) {
+		// 	console.log('gogogogo');
+		// }
+	}
+
+	// 失去焦点,常用在input
+	// inp.onblur = function() {
+	// 	console.log(11);
+	// }
+
+	// 获取焦点
+	// inp.onfocus = function() {
+	// 	console.log(22);
+	// }
+
+	// 改变作用域内容
+	// txt.onchange = function() {
+	// 	console.log(22);
+	// }
+
+
+
+
+</script>
+</html>

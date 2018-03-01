@@ -6,7 +6,7 @@
 	<style>
 		.wp {
 			width: 600px;
-			height: 400px;
+			height: 500px;
 			border: 1px solid;
 			position: relative;
 			/*overflow: auto;*/
@@ -61,9 +61,9 @@
 
 	// 位移值
 	var Lindex = 0,
-		Lspeed = 5;
+		Lspeed = 10;
 	var Tindex = 0,
-		Tspeed = 5;
+		Tspeed = 10;
 
 	// var timer = setInterval(function() {
 	// 	Lindex+=Lspeed;
@@ -97,29 +97,22 @@
 		var top1 = box.offsetTop,
 			bottom1 = box.offsetTop + box.offsetHeight,
 			left1 = box.offsetLeft,
-			right1 = box.offsetLeft + box.offsetWidth,
-			height1 = box.offsetHeight,
-			width1 = box.offsetWidth;		
+			right1 = box.offsetLeft + box.offsetWidth;
+			// height1 = box.offsetHeight,
+			// width1 = box.offsetWidth;		
 			// console.log(l1,r1);
 
 		var top2 = box2.offsetTop,
 			bottom2 = box2.offsetTop + box2.offsetHeight,
 			left2 = box2.offsetLeft,
-			right2 = box2.offsetLeft + box2.offsetWidth,
-			height2 = box2.offsetHeight,
-			width2 = box2.offsetWidth;		
+			right2 = box2.offsetLeft + box2.offsetWidth;
+			// height2 = box2.offsetHeight,
+			// width2 = box2.offsetWidth;		
 			// console.log(l2,r2);
 			// console.log(t2,b2);
 
 		var wp_height = wp.clientHeight,
 			wp_width = wp.clientWidth;
-
-		// if((bottom1>=top2)&&(right1>left2)&&(left1<right2)){
-		// 	if(top2>top1&&){
-		// 		Tspeed *= -1;
-		// 		console.log(1);
-		// 		}
-		// }
 
 
 		if((bottom1==top2 || top1==bottom2)&&(right1>left2)&&(left1<right2)) {
@@ -129,8 +122,16 @@
 			if((right1==left2 || left1==right2)&&(bottom1>top2)&&(top1<bottom2)) {
 				Lspeed *= -1;
 				console.log(2);
+			} else {
+				// if((right1>left2&&bottom1>top2)||(left1>=right2&&bottom1>=top2)||(top1>=bottom2&&right1>=left2)||(top1>=bottom2)&&(left1>=right2)) {
+				// 	Tspeed *= -1;
+				// 	Lspeed *= -1;
+				// 	console.log(3);
+				// }			
 			}
 		}
+
+
 
 
 
