@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>事件流</title>
+	<style>
+	#wp {
+		overflow: hidden;
+	}
+		#wp div {
+			width: 100px;
+			height: 100px;
+			background: red;
+			margin: 10px;
+			float: left;
+		}
+
+
+	</style>
+</head>
+<body>
+	<div id="wp">
+		<div id="box"></div>
+		<div id="box"></div>
+		<div id="box"></div>
+		<div id="box"></div>
+		<div id="box"></div>
+	</div>
+</body>
+<script>
+	var wp = document.getElementById('wp');
+	// var box = document.getElementById('box');
+
+	// 从大到小 (事件委托)(一个控制多个)(对多个元素有相同动作)
+	wp.onclick = function(e) {
+		console.log(e.srcElement.id);
+		e.srcElement.style.background = 'blue';
+
+	}
+
+
+
+
+</script>
+</html>

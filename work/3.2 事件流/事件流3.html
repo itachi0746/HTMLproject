@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>事jian3</title>
+	<style>
+		#box {
+			width: 100px;
+			height: 100px;
+			background: red;
+		}
+
+	</style>
+</head>
+<body>
+		<div id="box"></div>
+</body>
+<script>
+	var box = document.getElementById('box');
+
+	// 事件绑定   参数(事件, 方法, 控制事件流类型(冒泡流,委托流))  ('touchstart' 是移动端的点击),('touchend' 是移动端的点击放开的时候),('touchmove' 是移动端触摸移动)
+	box.addEventListener('touchmove', function(){
+		console.log(1);
+	}, false);
+
+</script>
+</html>

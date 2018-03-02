@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.box {
+			width: 100px;height: 100px;
+			background: red;
+		}
+	</style>
+</head>
+<body>
+	<div class="box" id="box"></div>
+</body>
+<script>
+	var box = document.getElementById('box');
+	box.oncontextmenu = function(e) {
+		// window.event 兼容写法, e 比较新的写法
+		var _event = window.event || e;
+
+		// 阻止默认事件(很重要)
+		_event.preventDefault();
+
+		// 阻止默认事件(低版本ie)
+		_event.returnVaule = false;
+		// console.log(_event);
+	}
+
+</script>
+</html>
