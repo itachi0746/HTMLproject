@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>自定义右键菜单</title>
+	<style type="text/css">
+		#menu {
+			/*宽度为0,使他一开始就隐藏*/
+			width: 0px;
+			height: 250px;
+			position: absolute;
+			overflow: hidden;
+			background: lightblue;
+
+		}
+		#menu div {
+			width: 150px;
+			height: 50px;
+			line-height: 50px;
+			padding: 0 0 0 10px;
+		}
+	</style>
+</head>
+<body>
+	<div id="menu">
+		<div>one</div>
+		<div>two</div>
+		<div>three</div>
+		<div>four</div>
+		<div>five</div>
+	</div>
+</body>
+<script>
+	var menu = document.getElementById('menu'),
+		menuWidth = 150,menuHeight = 250;
+	var width = window.innerWidth,
+		height = window.innerHeight;
+	 // alert(width);
+	 // alert(height);
+
+	document.oncontextmenu = function(e) {
+		var _event = window.event || e;
+		console.log(_event);
+		// 阻止默认菜单
+		_event.preventDefault();
+
+		// 判断菜单与窗口下边的碰撞检测
+		if(_event.clientY>height-menuHeight) {
+			menu.style.top = _event.clientY-menuHeight + 'px';
+		}else {
+			menu.style.top = _event.clientY + 'px';
+		}
+		// 判断菜单与窗口右边的碰撞检测
+		if(_event.clientX>width-menuWidth) {
+			menu.style.left = width-menuWidth + 'px';
+		}else {
+			menu.style.left = _event.clientX + 'px';
+		}
+
+
+		// 给菜单一个宽度,让它显示出来
+		menu.style.width = menuWidth+'px';
+	}
+
+	// 点击左键 菜单消失
+	document.onclick = function() {
+		menu.style.width = '0px';
+	}
+
+
+
+
+
+
+</script>
+</html>
