@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script>
+	var age = 29;
+	window.color = 'red';
+
+	// 全局变量不能通过delete操作符删除,而直接在
+	// window上定义的属性可以
+	delete window.age;
+	delete window.color;
+
+	console.log(window.age);
+	console.log(window.color);
+
+	// 这里会抛出错误,因为oldValue未定义
+	// var newValue = oldValue;
+
+	// 这里不会抛出错误,因为这是一次属性查询
+	// 它的值是undefined
+	var newValue = window.oldValue;
+	
+</script>
+</html>

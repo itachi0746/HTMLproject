@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>获得窗口位置</title>
+</head>
+<body>
+	
+</body>
+<script>
+	// 跨浏览器取得窗口左边和上边的位置
+	var l = (typeof window.screenLeft == 'number')?
+				window.screenLeft : window.screenX;
+	var t = (typeof window.screenTop == 'number')?
+				window.screenTop : window.screenY;
+
+	console.log(l,t);
+</script>	
+</html>
