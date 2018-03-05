@@ -2,39 +2,113 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>重力感应球</title>
+	<title>事jian3</title>
 	<style>
-		#box {
+		#box,#box2,#box3 {
 			width: 100px;
 			height: 100px;
 			background: red;
+			position: absolute;
+			left: 0;
+			right: 0;
+			/*margin-bottom: 10px;*/
+
 		}
 
 	</style>
 </head>
 <body>
 		<div id="box"></div>
-		<div id="box2"></div>
-		<div id="box3"></div>
+<!-- 		<div id="box2"></div>
+		<div id="box3"></div> -->
+
 </body>
 <script>
 	var box = document.getElementById('box');
-	var box2 = document.getElementById('box');
-	var box3 = document.getElementById('box');
+	// var box2 = document.getElementById('box2');
+	// var box3 = document.getElementById('box3');
+
+	var w = document.body.clientWidth;
+	var w2 = document.documentElement.clientWidth;
+	var h2 = document.documentElement.clientHeight;
+
+	// console.log(w,w2);
+
 
 	// 事件绑定   参数(事件, 方法, 控制事件流类型(冒泡流,委托流))  ('touchstart' 是移动端的点击),('touchend' 是移动端的点击放开的时候),('touchmove' 是移动端触摸移动)
 
 	// 
-	box.addEventListener('deviceorientation', function(e){
-		// console.log(1);
+
+	var s = 0,
+	b = 0;
+	window.addEventListener('deviceorientation', function(e){
 		// 围绕X轴旋转
-		box.innerHTML = e.beta;
-
+		// box.innerHTML = e.beta;
 		// 围绕Y轴旋转
-		box2.innerHTML = e.gamma;
-
+		// box2.innerHTML = e.gamma;
 		// 围绕Z轴旋转
-		box3.innerHTML = e.alpha;
+		// box3.innerHTML = e.alpha;
+		if(e.beta>0){
+			if(box.offsetTop>h2-box.offsetHeight){
+				box.style.top = h2-box.offsetHeight + 'px';	
+				s = h2-box.offsetHeight;	
+			}else{
+				box.style.top = s + 'px';
+				s+=5;				
+			}			
+		}
+		if(e.beta<0){
+			if(box.offsetTop<0){
+				box.style.top = 0 + 'px';	
+				s = 0;		
+			}else{
+				box.style.top = s + 'px';
+				s-=5;						
+			}			
+		}
+
+		if(e.gamma>0){
+			if(box.offsetLeft>w2-box.offsetWidth){
+				box.style.left = w2-box.offsetWidth + 'px';	
+				b = w2-box.offsetWidth;	
+			}else{
+				box.style.left = b + 'px';
+				b+=5;				
+			}			
+		}
+		if(e.gamma<0){
+			if(box.offsetLeft<0){
+				box.style.left = 0 + 'px';	
+				b = 0;		
+			}else{
+				box.style.left = b + 'px';
+				b-=5;						
+			}			
+		}
+
+		box.style.transform = 'rotate('+ (e.alpha*2) +'deg)';
+
+		// if(e.alpha>0){
+		// 	if(box.offsetLeft>w2-box.offsetWidth){
+		// 		box.style.left = w2-box.offsetWidth + 'px';	
+		// 		b = w2-box.offsetWidth;	
+		// 	}else{
+		// 		box.style.left = b + 'px';
+		// 		b+=5;				
+		// 	}			
+		// }
+		// if(e.alpha<0){
+		// 	if(box.offsetLeft<0){
+		// 		box.style.left = 0 + 'px';	
+		// 		b = 0;		
+		// 	}else{
+		// 		box.style.left = b + 'px';
+		// 		b-=5;						
+		// 	}			
+		// }
+
+
+
 	}, false);
 
 </script>

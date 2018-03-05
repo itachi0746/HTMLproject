@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>放大镜</title>
+	<style>
+		#kobe {
+			width: 200px;height: 200px;
+			position: absolute;
+			top: 0;
+			left: 0;
+		}
+		#jing {
+			width: 50px;
+			height: 50px;
+			background: rgba(0,0,255,.3);
+			position: absolute;
+			display: none;
+		}
+		.wp {
+			position: absolute;
+			width: 200px;
+			height: 200px;
+		}
+		#big {
+			width: 200px;
+			height: 200px;
+			overflow: hidden;
+			/*background: red;*/
+			position: relative;
+			left: 210px;
+		}
+		#big img {
+			width: 400px;
+			height: 400px;
+			display: none;
+			position: absolute;
+			top: 0;
+			left: 0;
+
+		}
+	</style>
+</head>
+<body>
+	<div class="wp" id="wp">
+		<img id="kobe" src="123.jpg" alt="">
+		<div id="jing"></div>
+		<div id="big">
+			<img id="bigkb" src="123.jpg" alt="">
+		</div>
+	</div>
+</body>
+<script>
+	var kobe = document.getElementById('kobe');
+	var jing = document.getElementById('jing');
+	var wp = document.getElementById('wp');
+	var big = document.getElementById('big');
+	var bigkb = document.getElementById('bigkb');
+
+	wp.onmouseover = function(e) {
+		// console.log(e.clientX,e.clientY);
+		var x = e.clientX;
+		var y = e.clientY;
+
+		if(x<25){
+			jing.style.left = '0px';
+		}else if(x>200-25){
+			jing.style.left = '150px';
+		}else {
+			jing.style.left = e.clientX - 25 + 'px';
+		}
+		if(y<25) {
+			jing.style.top = '0px';
+		}else if(y>200-25){
+			jing.style.top = '150px';
+		}else {
+			jing.style.top = e.clientY - 25 + 'px';
+		}	
+
+		document.onmousemove = function(e) {
+			var x = e.clientX;
+			var y = e.clientY;
+			if(x<25){
+				jing.style.left = '0px';
+			}else if(x>200-25){
+				jing.style.left = '150px';
+			}else {
+				jing.style.left = e.clientX - 25 + 'px';
+			}
+			if(y<25) {
+				jing.style.top = '0px';
+			}else if(y>200-25){
+				jing.style.top = '150px';
+			}else {
+				jing.style.top = e.clientY - 25 + 'px';
+			}
+			var jingOW = jing.offsetLeft*2;	
+			var jingOT = jing.offsetTop*2;
+			// console.log(jingOW,jingOT);	
+			bigkb.style.left = jingOW+'px';
+			bigkb.style.top = jingOT+'px';
+			// bigkb.style.transform = 'scale(2)';
+			bigkb.style.display = 'block';
+
+		}		
+		jing.style.display = 'block';
+
+	}
+
+	wp.onmouseout = function() {
+		jing.style.display = 'none';
+		document.onmousemove = null;
+		bigkb.style.display = 'none';
+
+	}
+
+</script>
+</html>
