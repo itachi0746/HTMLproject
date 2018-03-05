@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+		}
+		#btn {
+			width: 100px;height: 100px;
+			font-size: 20px;
+		}
+		#box {
+			/*display: none;*/
+			width: 300px;height: 300px;
+			background: red;
+			position: absolute;
+			left: 0;
+			top: 0;
+/*			right: 0;
+			bottom: 0;
+			margin: auto;*/
+		}
+		#p2 {
+			background: rgba(1,1,1,.5);
+			position: absolute;
+			left: 0;
+			top: 0;
+		}
+	</style>
+</head>
+<body>
+	<button type="button" id="btn">Log in</button>
+	<div id="p2">
+		<div id="box"></div>
+	</div>
+
+</body>
+<script>
+	var box = document.getElementById('box');
+	var btn = document.getElementById('btn');
+	var p2 = document.getElementById('p2');
+
+	var width = window.innerWidth;
+	var height = window.innerHeight;
+	console.log(width,height);
+	p2.style.width = width+'px';
+	p2.style.height = height+'px';
+
+
+	// btn.onclick = function( {
+
+	// })
+
+	box.onmousedown = function(e) {
+
+		var _x = e.offsetX;
+		var _y = e.offsetY;
+		// console.log(e.clientY,_y);
+		// console.log(_x,_y);
+
+		document.onmousemove = function(e) {
+
+			if(e.clientY<_y && e.clientX<_x){
+				// console.log(e.clientY-_y);
+				box.style.top = 0 + 'px';	
+				box.style.left = 0 + 'px';	
+				return;		
+			}
+			if(e.clientY<_y && e.clientX+box.offsetWidth-_x>width){
+				// console.log(e.clientY-_y);
+				box.style.top = 0 + 'px';	
+				box.style.left = width-box.offsetWidth + 'px';	
+				return;		
+			}
+			if(e.clientY+box.offsetHeight-_y>height && e.clientX<_x){
+				// console.log(e.clientY-_y);
+				box.style.top = height-box.offsetHeight+ 'px';	
+				box.style.left = 0 + 'px';	
+				return;		
+			}
+			if(e.clientY+box.offsetHeight-_y>height && e.clientX+box.offsetWidth-_x>width){
+				// console.log(e.clientY-_y);
+				box.style.top = height-box.offsetHeight+ 'px';	
+				box.style.left = width-box.offsetWidth + 'px';	
+				return;		
+			}
+
+			// 上
+			if(e.clientY<_y){
+				// console.log(e.clientY-_y);
+				box.style.top = 0 + 'px';	
+				box.style.left = e.clientX - _x + 'px';	
+				return;		
+			}
+			// 下
+			if(e.clientY+box.offsetHeight-_y>height){
+				box.style.top = height-box.offsetHeight+ 'px';	
+				box.style.left = e.clientX - _x + 'px';
+				return;
+
+				// console.log();	
+
+			}
+			// 左
+			if(e.clientX<_x){
+				box.style.top = e.clientY - _y + 'px';	
+				box.style.left = 0 + 'px';	
+				return;			
+			}
+			// 右
+			if(e.clientX+box.offsetWidth-_x>width){
+				box.style.top = e.clientY - _y + 'px';	
+				box.style.left = width-box.offsetWidth + 'px';
+				return;
+			}
+			box.style.top = e.clientY - _y + 'px';
+			box.style.left = e.clientX - _x + 'px';			
+
+			// if(e.clientY+box.offsetHeight-_y>=height){
+			// 	console.log(22);
+			// 	box.style.top = height - box.offsetHeight + 'px';
+			// 	box.style.left = e.clientX - _x + 'px';			
+			// }
+			// console.log(e.clientX,e.clientY);
+		}
+	}
+	document.onmouseup = function() {
+		document.onmousemove = null;
+	}
+</script>
+</html>

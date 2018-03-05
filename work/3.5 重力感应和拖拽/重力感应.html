@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>事jian3</title>
+	<style>
+		#box {
+			width: 100px;
+			height: 100px;
+			background: red;
+		}
+
+	</style>
+</head>
+<body>
+		<div id="box"></div>
+		<div id="box2"></div>
+		<div id="box3"></div>
+</body>
+<script>
+	var box = document.getElementById('box');
+	var box2 = document.getElementById('box');
+	var box3 = document.getElementById('box');
+
+	// 事件绑定   参数(事件, 方法, 控制事件流类型(冒泡流,委托流))  ('touchstart' 是移动端的点击),('touchend' 是移动端的点击放开的时候),('touchmove' 是移动端触摸移动)
+
+	// 
+	box.addEventListener('deviceorientation', function(e){
+		// console.log(1);
+		// 围绕X轴旋转
+		box.innerHTML = e.beta;
+
+		// 围绕Y轴旋转
+		box2.innerHTML = e.gamma;
+
+		// 围绕Z轴旋转
+		box3.innerHTML = e.alpha;
+	}, false);
+
+</script>
+</html>

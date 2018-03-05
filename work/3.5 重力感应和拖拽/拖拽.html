@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		#box {
+			width: 100px;height: 100px;
+			background: red;
+		}
+	</style>
+</head>
+<body>
+		<div id="box"></div>
+</body>
+<script>
+	var box = document.getElementById('box');
+	box.onclick = function(e) {
+		// clientX 距离浏览器到鼠标的X轴距离
+		// console.log(e.clientX);
+		// clientY 距离浏览器到鼠标的X轴距离
+		// console.log(e.clientY);
+
+		// 距离父体到鼠标Y轴的距离
+		// console.log(e.offsetY);
+
+		// 距离父体到鼠标X轴的距离
+		console.log(e.offsetX);
+
+	}
+</script>
+</html>

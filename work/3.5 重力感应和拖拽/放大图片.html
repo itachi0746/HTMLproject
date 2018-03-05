@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>放大镜</title>
+	<style>
+		#kobe {
+			width: 200px;height: 200px;
+			position: absolute;
+		}
+		#jing {
+			width: 50px;
+			height: 50px;
+			background: rgba(0,0,255,.3);
+			position: absolute;
+			display: none;
+		}
+		.wp {
+			position: relative;
+			width: 200px;
+			height: 200px;
+		}
+	</style>
+</head>
+<body>
+	<div class="wp">
+		<img id="kobe" src="123.jpg" alt="">
+		<div id="jing"></div>
+
+	</div>
+</body>
+<script>
+	var kobe = document.getElementById('kobe');
+	var jing = document.getElementById('jing');
+
+	kobe.onmousemove = function(e) {
+		// console.log(e.clientX,e.clientY);
+		var x = e.clientX;
+		var y = e.clientY;
+
+		if(x<25){
+			jing.style.left = '0px';
+		}else if(x>200-25){
+			jing.style.left = '150px';
+		}else {
+			jing.style.left = e.clientX - 25 + 'px';
+		}
+		if(y<25) {
+			jing.style.top = '0px';
+		}else if(y>200-25){
+			jing.style.top = '150px';
+		}else {
+			jing.style.top = e.clientY - 25 + 'px';
+		}
+		// jing.style.top = e.clientY - 25 + 'px';
+		jing.style.display = 'block';
+	}
+</script>
+</html>
