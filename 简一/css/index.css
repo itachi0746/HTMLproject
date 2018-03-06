@@ -1,0 +1,10 @@
+* {
+	padding: 0;
+	margin: 0;
+}
+.p1_bg {
+	/*background: url(../images/bg.jpg) no-repeat;*/
+	position: absolute;
+	width: 100%;
+	height: 100%;
+}
