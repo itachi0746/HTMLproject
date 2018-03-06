@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>拖拽练习答案</title>
+	<style>
+		.btn {
+			width: 100px;
+			height: 50px;
+			border: 1px solid;
+			text-align: center;
+			line-height: 50px;
+		}
+		.box {
+			width: 100%;
+			height: 100%;
+			position: absolute;
+			background: rgba(0,0,0,.3);
+			z-index: 999;
+			top: 0;
+			left: 0;
+			display: none;
+		}
+		.box_text {
+			width: 200px;
+			height: 400px;
+			background: red;
+			position: absolute;
+			left: 0;
+			right: 0;
+			top: 0;
+			bottom: 0;
+			margin: auto;
+		}
+	</style>
+</head>
+<body>
+	<div class="btn" id="btn">Log in</div>
+	<div class="box" id="box">
+		<div class="box_text" id="box_text">
+			<input type="text">
+		</div>
+	</div>
+
+</body>
+<script>
+	var btn = document.getElementById('btn');
+	var box = document.getElementById('box');
+	var box_text = document.getElementById('box_text');
+	var H = document.documentElement.clientHeight;
+	var W = document.documentElement.clientWidth;
+	console.log(document.documentElement.clientHeight);
+	btn.onclick = function() {
+		box.style.display = 'block';
+	}
+
+	var _x;
+	var _y;
+	box_text.onmousedown = function(e) {
+		_x = e.offsetX;
+		_y = e.offsetY;
+		// console.log(e);
+		move(e);
+		this.style.margin = 0;
+		document.onmousemove = function(e) {
+			move(e);
+
+
+		}
+	}
+
+
+	document.onmouseup = function() {
+		document.onmousemove = null;
+	}
+
+	function move(e) {
+		var _X = e.clientX - _x;
+		var _Y = e.clientY - _y;
+
+		box_text.style.left = _X + 'px';
+		box_text.style.top = _Y + 'px';
+
+
+		if(box_text.offsetTop<=0){
+			box_text.style.top = '0px';
+		}
+		if(box_text.offsetLeft<=0){
+			box_text.style.left = '0px';
+		}
+		if(box_text.offsetTop >= H-box_text.offsetHeight){
+			box_text.style.top = H-box_text.offsetHeight+ 'px';
+				// console.log(document.documentElement.clientHeight);
+
+		}
+		if(box_text.offsetLeft >= W-box_text.offsetWidth){
+			box_text.style.left = W-box_text.offsetWidth + 'px';
+		}
+
+
+	}
+</script>
+</html>

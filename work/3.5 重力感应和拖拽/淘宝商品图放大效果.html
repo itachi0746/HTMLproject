@@ -31,9 +31,9 @@
 			left: 210px;
 		}
 		#big img {
-			width: 400px;
-			height: 400px;
-			display: none;
+			width: 800px;
+			height: 800px;
+			/*display: none;*/
 			position: absolute;
 			top: 0;
 			left: 0;
@@ -94,11 +94,11 @@
 			}else {
 				jing.style.top = e.clientY - 25 + 'px';
 			}
-			var jingOW = jing.offsetLeft*2;	
-			var jingOT = jing.offsetTop*2;
-			// console.log(jingOW,jingOT);	
-			bigkb.style.left = jingOW+'px';
-			bigkb.style.top = jingOT+'px';
+			var jingOW = jing.offsetLeft*4;	
+			var jingOT = jing.offsetTop*4;
+			// console.log(jingOW,jingOT);
+			bigkb.style.left = -jingOW+'px';
+			bigkb.style.top = -jingOT+'px';
 			// bigkb.style.transform = 'scale(2)';
 			bigkb.style.display = 'block';
 
