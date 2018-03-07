@@ -24,6 +24,10 @@ html, body{
 	/*margin:0; */
 	height:100%; 
 }
+.p1-title {
+	position: relative;
+	text-align: center;
+}
 .p1-title img:nth-child(1) {
 	position: relative;
 	top: 50px;
@@ -38,9 +42,12 @@ html, body{
 }
 .p1-title img:nth-child(4) {
 	position: absolute;
-	top: 73px;
-	left: 47px;
+	top: 90px;
+	left: 0px;
+	bottom: 0px;
+	right: 0px;
 	width: 80%;
+	margin: auto;
 }
 .title-font {
 	font-size: 17px;
@@ -107,4 +114,167 @@ html, body{
 	font-size: 15px;
 	text-align: center;
 	margin-top: 5px;
+}
+
+#share-page {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	display: none;
+}
+#ranking-page {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	display: none;
+}
+.ranking-title img {
+	width: 100%;
+}
+.user {
+	margin-top: 10px;
+	height: 40px;
+}
+.user-pic {
+	width: 40px;
+	height: 40px;
+	background: yellow;
+	float: left;
+	margin: 0 10px 0 20px;
+}
+.user-name {
+	height: 40px;
+	width: 130px;
+	color: white;
+	font-size: 17px;
+	float: left;
+	/*text-align: center;*/
+	line-height: 40px;
+}
+.user-time {
+	color: white;
+	font-size: 17px;
+	height: 40px;
+	width: 80px;
+	float: left;
+	line-height: 40px;
+	padding-left: 10px; 
+}
+.ranking {
+	color: white;
+	font-size: 25px;
+	height: 40px;
+	width: 40px;
+	float: left;
+	line-height: 40px;
+	font-weight: bold;
+	position: relative;
+	left: 20px;
+	text-align: center;
+}
+#gamestart-page {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	display: none;
+}
+.gamestart-page-title {
+	text-align: center;
+	margin-top: 30px;
+}
+.gamestart-page-title img {
+	/*height: 300px;*/
+	width: 60%;
+}
+.title-font2 {
+	text-align: center;
+	font-size: 17px;
+	color: white;
+	margin-top: 27px;
+}
+.rule-img {
+	text-align: center;
+	margin-top: 30px;
+	display: none;	
+}
+.rule-img img {
+	/*height: 300px;*/
+	width: 60%;
+}
+.gamestart-btn2 {
+	text-align: center;
+	margin-top: 50px;	
+	display: none;	
+}
+.gamestart-btn2 img {
+	/*height: 300px;*/
+	width: 50%;
+}
+.answer-img {
+	width: 100%;
+	/*height: 160px;*/
+	/*background: red;*/
+	margin-top: 20px;
+	/*display: none;*/
+}
+.answer-img img {
+	width: 100px;
+	height: 100px;
+}
+.countdown {
+	width: 100%;
+	position: absolute;
+	bottom: 100px;
+	text-align: center;
+}
+.countdown img {
+	width: 80px;
+	height: 80px;
+}
+#game-page {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	/*display: none;*/
+}
+#items {
+	width: 100%;
+	text-align: center;
+}
+#items img {
+	width: 80px;
+	height: 80px;
+	margin: 5px 5px 5px 5px;
+}
+.time-cost {
+	width: 100%;
+	height: 60px;
+	position: absolute;
+	bottom: 50px;
+	/*text-align: center;*/
+}
+.time-cost img:nth-child(1) {
+	height: 50px;
+	width: 87%;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	margin: auto;
+}
+#timeover {
+	width: 70%;
+	height: 22%;
+	position: absolute;
+	top: 22px;
+	bottom: 0;
+	left: 16px;
+	right: 0;
+	margin: auto;	
+	display: none;
 }
