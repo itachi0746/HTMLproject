@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.box {
+			width: 200px;
+			height: 200px;
+			position: relative;
+			float: left;
+		}
+		.box img {
+			width: 100%;
+			height: 100%;
+		}
+		.show {
+			width: 100px;
+			height: 100px;
+			position: absolute;
+			top: 0;
+			left: 0;
+			background: rgba(0,255,255,.5);
+			display: none;
+		}
+		.box2 {
+			width: 250px;
+			height: 250px;
+			float: left;
+			display: none;
+			overflow: hidden;
+		}
+		.img_box {
+			width: 500px;
+			height: 500px;
+		}
+		.img_box img {
+			width: 100%;
+			height: 100%;
+		}
+	</style>
+</head>
+<body>
+	<div class="box" id="box">
+		<img src="123.jpg" alt="">
+		<div class="show" id="show"></div>
+	</div>
+	<div class="box2" id="box2">
+		<div class="img_box">
+			<img src="123.jpg" alt="">
+		</div>
+	</div>
+</body>
+<script>
+	var box = document.getElementById('box');
+	var show = document.getElementById('show');
+	var box2 = document.getElementById('box2');
+
+	box.onmousemove = function(e) {
+		show.style.display = 'block';
+		box2.style.display = 'block';
+		var t = e.clientY - this.offsetTop - show.offsetHeight*0.5;
+		var l = e.clientX - this.offsetLeft - show.offsetWidth*0.5;
+
+
+
+		if(t<=0){
+			t = 0;
+		}
+		if(l<=0){
+			l = 0;
+		}
+		if(t>=box.offsetHeight-show.offsetHeight){
+			t = box.offsetHeight-show.offsetHeight;
+		}
+		if(l>=box.offsetWidth-show.offsetWidth){
+			l = box.offsetWidth-show.offsetWidth;
+		}
+		show.style.top = t + 'px';
+		show.style.left = l + 'px';
+
+		var index = box2.offsetWidth/show.offsetWidth;
+		box2.scrollTop = show.offsetTop*index;
+		box2.scrollLeft = show.offsetLeft*index;
+	}
+
+	// 移动出去的时候
+	box.onmouseout = function() {
+		show.style.display = 'none';
+		box2.style.display = 'none';
+	}
+</script>
+</html>
