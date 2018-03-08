@@ -17,6 +17,7 @@ function _random(min,max) {
 	var a = Math.floor(Math.random()*(max-min)+min);
 	return a;
 }
+// console.log(_random(1,10));
 
 // 判断元素是否有某个类
 function hasClass( elements,cName ){ 

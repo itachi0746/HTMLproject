@@ -1,3 +1,4 @@
+
 // 按钮
 var shuomingBtn = $('shuoming-btn');
 var startBtn = $('start-btn');
@@ -11,6 +12,8 @@ var gamestartBtn = $('gamestart-btn2');
 var dianjikaishi = $('dianjikaishi');
 var ruleImg = $('rule-img');
 var answerImg = $('answer-img');
+var itemsImg = $('items');
+var time = $('time');
 var countDown = document.getElementsByClassName('countdown')[0];
 var countDownImg =  countDown.getElementsByTagName('img');
 // console.log(countDownImg.length);
@@ -21,6 +24,7 @@ var shuomingPage = $('shuoming-page');
 var rankingPage = $('ranking-page');
 var sharePage = $('share-page');
 var gamestartPage = $('gamestart-page');
+var gamePage = $('game-page');
 
 // 图片
 var imgArr = ['images/img_1.png','images/img_2.png','images/img_3.png','images/img_4.png',
@@ -45,7 +49,7 @@ function preloader() {
 		images.src = imgArr2[j];
 	}
 
-	console.log(images);
+	// console.log(images);
 }
 // preloader();
 
@@ -88,25 +92,30 @@ gamestartBtn.onclick = function() {
 	answerImg.style.display = 'block';
 	gamestartBtn.style.display = 'none';
 	countDown.style.display = 'block';
+	createItems();
+	innerImg(answerImg,imgNum);
 	countdown();
-	selectImg();
+
 }
+
 
 // 5秒倒计时,游戏记忆阶段
 function countdown() {
-	var num =  countDownImg.length - 1;
-	var index = 0;
+
+	var index = 1;
 	var timer = setInterval(function() {
 		
 		for(var i=0;i<countDownImg.length;i++) {
 			countDownImg[i].style.display = 'none';
 		}
-		index++;
-		countDownImg[index].style.display = 'inline';
-
-		if(index>num) {
+		if(index>countDownImg.length-1) {
 			clearInterval(timer);
+			playGame(min,sec);
 
+		}else{
+			// console.log(index);
+			countDownImg[index].style.display = 'inline';
+			index++;			
 		}
 
 	},1000)
@@ -114,41 +123,141 @@ function countdown() {
 
 // 第几关
 var checkpoint = 1;
-var imgNum = checkpoint + 1;
+// 储存图片地址的数组
 var result = [];
+// 游戏总时间
+var min = 3;
+var sec = 0;
+// console.log(result.length);
 
 // 随机选图片地址的函数
 function selectImg() {
 	var temp = _random(0,imgArr.length-1);
-	// var temp2 = _random(0,imgArr.length-1);
-	// for(;temp===temp2;){
-	// 	temp2 = _random(0,imgArr.length-1);
-	// }
-	// 返回图片地址
-	// return [imgArr[temp]]
 
 	// 把地址加入数组
 	for(var i=0;i<result.length;i++){
 		if(result[i]===imgArr[temp]){
 			selectImg();
-		}else {
-			result.push(imgArr[temp]);
-		}
+			return;
+		}	
 	}
-	innerImg();
+	result.push(imgArr[temp]);
 }
-// var a = selectImg();
-// console.log(a);
 
-function innerImg() {
-	for(var i=0;i<imgNum;i++) {
-		selectImg();
-	}
+// 要生成的图片数等于游戏关数加一
+var imgNum = checkpoint + 1;
+// 抽出图片给HTML的函数
+function innerImg(el,imgnum) {
+
+
+	// for(var i=0;i<imgNum;i++) {
+	// 	selectImg();
+	// }
 	var str1 = '<img src=';
 	var str2 = '>';
 	var temp = '';
-	for(var j=0;j<result.length;j++) {
+	for(var j=0;j<imgnum;j++) {
 		temp += str1 + result[j] + str2;
 	}
-	answerImg.innerHTML = temp;
+	el.innerHTML = temp;
+	// marginImg(imgNum);
+}
+
+// 给图片加上相同的margin的函数,让图片等分一行
+function marginImg(arg) {
+	var _img = answerImg.getElementsByTagName('img');
+	var imgWidth = _img[0].offsetWidth;
+	var screenW = document.documentElement.clientWidth;
+	var mg = (screenW - imgWidth * arg)/(arg + 5);
+
+	if(arg<4){
+		for(var i=0;i<arg;i++) {
+			_img[i].style.margin = '0px ' + mg + 'px';
+		}	
+	}else {
+		for(var i=0;i<arg;i++) {
+			_img[i].style.margin = '0px 5px';
+		}
+	}
+}
+
+// 游戏操作阶段
+function playGame(m,s) {
+	gamestartPage.style.display = 'none';
+	gamePage.style.display = 'block';
+	innerImg(itemsImg,result.length);
+	gameTime(m,s);
+	clickImg();
+}
+
+// 游戏操作阶段生成图的函数
+function createItems() {
+	if(checkpoint===1 || checkpoint===2) {
+		for(var i=0;i<8;i++){
+			selectImg(); 
+		}
+	}
+	if(checkpoint===3 || checkpoint===4) {
+		for(var i=0;i<12;i++){
+			selectImg(); 
+		}
+	}
+	if(checkpoint===5 || checkpoint===6) {
+		for(var i=0;i<16;i++){
+			selectImg(); 
+		}
+	}
+}
+
+// 游戏操作阶段的图的点击事件
+function clickImg() {
+	var allImgs = itemsImg.getElementsByTagName('img');
+	var _img = answerImg.getElementsByTagName('img');
+	var a = (JSON.stringify(_img[1])===JSON.stringify(allImgs[1]));
+	console.log(a);
+	// console.log(_img);
+	// console.log(allImgs);
+	for(var i=0;i<allImgs.length;i++) {
+		allImgs[i].index = i;
+		allImgs[i].onclick = function() {
+			for(var j=0;j<_img.length;j++) {
+				if(JSON.stringify(_img[j])===JSON.stringify(allImgs[this.index])){
+					console.log(5);
+					break;
+				}else {
+					// continue;
+					console.log(j,this.index);
+				}
+			}
+		}
+	}
+}
+
+// 游戏倒计时函数
+function gameTime(m,s) {
+
+	innerTime(m,s);
+	var timer = setInterval(function() {
+		s--;
+		if(s===0 && m===0){
+			clearInterval(timer);
+		}
+		if(s<0) {
+			s = 59;
+			m--;
+		}
+		innerTime(m,s);
+
+	},1000)
+}
+
+function innerTime(m,s) {
+	if(m<10) {
+		m = '0' + m;
+	}
+	if(s<10) {
+		s = '0' + s;
+	}
+	var t = m + ':' + s;
+	time.innerHTML = t;
 }
