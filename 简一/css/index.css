@@ -7,8 +7,7 @@
 	width: 100%;
 	height: 100%;
 	overflow: hidden;
-	display: none;
-	/*background: url(../images/bg.jpg) no-repeat;*/
+	/*display: none;*/
 
 }
 /*背景图*/
@@ -198,7 +197,7 @@ html, body{
 .rule-img {
 	text-align: center;
 	margin-top: 30px;
-	display: none;	
+	/*display: none;	*/
 }
 .rule-img img {
 	/*height: 300px;*/
@@ -207,7 +206,7 @@ html, body{
 .gamestart-btn2 {
 	text-align: center;
 	margin-top: 50px;	
-	display: none;	
+	/*display: none;	*/
 }
 .gamestart-btn2 img {
 	/*height: 300px;*/
@@ -218,17 +217,18 @@ html, body{
 	/*height: 160px;*/
 	/*background: red;*/
 	margin-top: 20px;
-	/*display: none;*/
+	display: none;
 }
 .answer-img img {
-	width: 100px;
-	height: 100px;
+	width: 80px;
+	/*height: 100px;*/
 }
 .countdown {
 	width: 100%;
 	position: absolute;
 	bottom: 100px;
 	text-align: center;
+	display: none;
 }
 .countdown img {
 	width: 80px;
@@ -239,7 +239,7 @@ html, body{
 	width: 100%;
 	height: 100%;
 	overflow: hidden;
-	/*display: none;*/
+	display: none;
 }
 #items {
 	width: 100%;
@@ -248,7 +248,7 @@ html, body{
 #items img {
 	width: 80px;
 	height: 80px;
-	margin: 5px 5px 5px 5px;
+	/*margin: 5px 5px 5px 5px;*/
 }
 .time-cost {
 	width: 100%;
@@ -276,5 +276,185 @@ html, body{
 	left: 16px;
 	right: 0;
 	margin: auto;	
+	/*display: none;*/
+}
+#time {
+	color: #34335d;
+	font-size: 18px;
+	position: absolute;
+	top: 7px;
+	left: 270px;
+}
+#result-page {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
 	display: none;
+}
+.result-page-title,.share-page2-title{
+	margin-top: 40px;
+	width: 100%;
+	position: relative;
+	height: 270px;
+	/*display: none;*/
+}
+.result-page-title img:nth-child(1),.result-page-title2 img:nth-child(1),
+.share-page2-title img:nth-child(1){
+	width: 75%;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	bottom: 0;
+	right: 0;
+	margin: auto;
+}
+.result-page-title img:nth-child(2),.result-page-title2 img:nth-child(2) {
+	width: 75%;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	bottom: 0;
+	right: 0;
+	margin: auto;
+}
+#gametime {
+	height: 35px;
+	width: 70px;
+	font-size: 25px;
+	color: white;
+	font-weight: bold;
+	position: absolute;
+	top: -35px;
+	left: 8px;
+	bottom: 0;
+	right: 0;
+	margin: auto;
+}
+#checkpoint {
+	height: 36px;
+	width: 20px;
+	font-size: 32px;
+	text-align: center;
+	color: white;
+	font-weight: bold;
+	position: absolute;
+	top: 21px;
+	left: 9px;
+	bottom: 0;
+	right: 0;
+	margin: auto;
+}
+.game-continue {
+	margin-top: 70px;
+	width: 100%;
+	text-align: center;
+}
+.game-continue img {
+	width: 50%;
+}
+.result-page-title2 {
+	margin-top: 40px;
+	width: 100%;
+	position: relative;
+	height: 270px;
+	/*display: none;	*/
+}
+#share-page2 {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	display: none;
+}
+.share-page2-title img:nth-child(2) {
+	width: 80%;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	bottom: 0;
+	right: 0;
+	margin: auto;	
+}
+.share-page2-font {
+	margin-top: 50px;
+	color: white;
+	font-size: 17px;
+	text-align: center;
+}
+#hongbao-page {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	display:none;
+}
+.open-hongbao {
+	width: 100%;
+	height: 60%;
+	margin-top: 30px;
+	position: relative;
+}
+.open-hongbao img:nth-child(1) {
+	width: 80%;
+	position: absolute;
+	top: 0px;
+	left: -15px;
+	bottom: 0;
+	right: 0;
+	margin: auto;	
+}
+.open-hongbao img:nth-child(2) {
+	width: 40%;
+	position: absolute;
+	top: 165px;
+	left: 0px;
+	bottom: 0;
+	right: 0;
+	margin: auto;
+}
+#get-hongbao-text{
+	width: 100%;
+	height: 80px;
+	/*display: none;*/
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	bottom: 0;
+	right: 0;
+	margin: auto;
+	text-align: center;
+}
+#get-hongbao-text img {
+	width: 50%;
+}
+#howmuch {
+	width: 50px;
+	height: 30px;
+	text-align: center;
+	color: white;
+	font-size: 25px;
+	position: absolute;
+	top: 38px;
+	left: -66px;
+	bottom: 0;
+	right: 0;
+	margin: auto;
+	font-weight: bold;
+}
+#zhuli-page {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	display:none;	
+}
+.zhuli-page-btns,.zhuli-page-btns2 {
+	width: 100%;
+	height: 65px;
+	text-align: center;
+	margin-top: 110px;
+}
+.zhuli-page-btns img,.zhuli-page-btns2 img {
+	width: 40%;
 }

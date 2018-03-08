@@ -12,7 +12,7 @@ function $cls(cls) {
 }
 
 // 产生max,min之间的随机数
-function Random(min,max) {
+function _random(min,max) {
 	max++;
 	var a = Math.floor(Math.random()*(max-min)+min);
 	return a;
