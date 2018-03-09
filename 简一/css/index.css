@@ -39,6 +39,14 @@ html, body{
 	left: 4px;
 	width: 98%;	
 }
+
+.p1-title img:nth-child(3) {
+	-webkit-animation: fade linear 3s infinite alternate;
+}
+.p1-title img:nth-child(2) {
+	-webkit-animation: fade linear 3s infinite alternate-reverse;
+}
+
 .p1-title img:nth-child(4) {
 	position: absolute;
 	top: 90px;
@@ -47,6 +55,10 @@ html, body{
 	right: 0px;
 	width: 80%;
 	margin: auto;
+}
+@-webkit-keyframes fade {
+	from {opacity: 1;}
+	to {opacity: 0;}
 }
 .title-font {
 	font-size: 17px;
