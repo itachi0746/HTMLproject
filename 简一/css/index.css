@@ -331,7 +331,7 @@ html, body{
 	right: 0;
 	margin: auto;
 }
-#checkpoint {
+#gamepoint,#gamepoint2 {
 	height: 36px;
 	width: 20px;
 	font-size: 32px;
@@ -358,7 +358,7 @@ html, body{
 	width: 100%;
 	position: relative;
 	height: 270px;
-	/*display: none;	*/
+	display: none;	
 }
 #share-page2 {
 	position: absolute;
