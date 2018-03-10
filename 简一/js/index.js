@@ -8,6 +8,7 @@ var p2Return = $('p2Return');
 var shareBtn = $('share-btn');
 var gamestartBtn = $('gamestart-btn2');
 var continueBtn = $('continue');
+var getHongbaoBtn = $('get-hongbao');
 
 // 元素块
 var dianjikaishi = $('dianjikaishi');
@@ -20,8 +21,7 @@ var _gamePoint2 = $('gamepoint2');
 var _gameTime = $('gametime');
 var resultPageTitle = $('result-page-title');
 var resultPageTitle2 = $('result-page-title2');
-
-var _gameChance = document.getElementsByClassName('game-chance');
+var getHongbaoText = $('get-hongbao-text');
 var countDown = document.getElementsByClassName('countdown')[0];
 var countDownImg =  countDown.getElementsByTagName('img');
 // console.log(countDownImg.length);
@@ -34,7 +34,6 @@ var sharePage = $('share-page');
 var gamestartPage = $('gamestart-page');
 var gamePage = $('game-page');
 var resultPage = $('result-page');
-var sharePage2 = $('share-page2');
 
 // 图片
 var imgArr = ['images/img_1.png','images/img_2.png','images/img_3.png','images/img_4.png',
@@ -111,14 +110,13 @@ gamestartBtn.onclick = function() {
 
 // 继续挑战按钮
 continueBtn.onclick = function() {
-	if(gameChance<0){
-		resultPage.style.display = 'none';
-		sharePage2.style.display = 'block';
-	}else{
-		resultPage.style.display = 'none';
-		nextLevel();	
-	}
+	resultPage.style.display = 'none';
+	nextLevel();
+}
 
+getHongbaoBtn.onclick = function() {
+	getHongbaoBtn.style.display = 'none';
+	getHongbaoText.style.display = 'block';
 }
 
 // console.log(countDownImg[0]);
@@ -146,17 +144,18 @@ function countdown() {
 
 // 第几关
 var checkpoint = 1;
-var gameChance = 5;
 // 储存图片地址的数组
 var result = [];
 var answerImgArr = [];
 
 // 游戏总时间
-var min  = 2;
+var min  = 3;
 var sec  = 0;
-// 过一关的开始时间,结束时间
+// 游戏的开始时间,结束时间
 var startTime;
 var endTime;
+// 游戏赛点
+var gameChance = 6;
 // console.log(result.length);
 
 // 随机选图片地址的函数
@@ -247,7 +246,6 @@ function chooseItems() {
 	}
 }
 
-// 点击布尔值
 var _click = false;
 
 // 游戏操作阶段的图的点击事件
@@ -274,29 +272,24 @@ function clickImg() {
 						var temp = allImgs[this.index].src;
 						// console.log(temp.split('.')[0] + '_y.png');
 						allImgs[this.index].src = temp.split('.')[0] + '_y.png';
+						_click = true;
 						// 取消点击事件,防止疯狂点击
 						allImgs[this.index].onclick = null;
-						_click = true;
 						if(right===allRight){
+							gameChance--;
 							_clear = true;
 							endTime = timing();
 							calTime(startTime,endTime);
-
 							setTimeout(function() {
 								gamePage.style.display = 'none';
 								resultPage.style.display = 'block';
-								if(right===6) {
-									ifAllClear();
-								}
 							},1000)
 						}
 						return;
 					}else {
 						continue;
-						// console.log('gg');
 					}
 				}
-				// allImgs[this.index].src = 'images/img_f.png';
 				imgReset(allImgs[this.index]);			
 			}
 
@@ -329,26 +322,17 @@ function nextLevel() {
 	countdown();
 }
 
-// 如果通关了的时候
-function ifAllClear() {
-	checkpoint = 1;
-
-}
-
 // 获得实时的函数
 function timing() {
 	var t = new Date().getTime();
 	return t;
 }
 
-
 // 计算用时的函数
 function calTime(start,end) {
-	var timeCost = 0;
 	var result = end - start;
-	timeCost += result;
-	var M = Math.floor(timeCost/1000/60%60);
-	var S = Math.floor(timeCost/1000%60);
+	var M = Math.floor(result/1000/60%60);
+	var S = Math.floor(result/1000%60);
 
 	if(M<10){
 		M = '0' + M;
@@ -371,34 +355,27 @@ function gameTime(m,s) {
 	innerTime(m,s);
 	var timer = setInterval(function() {
 		s--;
-
-		// 游戏时间结束
-		if(s<0 && m===0) {
+		if(_clear){
 			clearInterval(timer);
-			// innerTime(m,s);
+		}
+		if(s===0 && m===0) {
+			gameChance--;
+			clearInterval(timer);
+			innerTime(m,s);
 			resultPage.style.display = 'block';
 			resultPageTitle.style.display = 'none';
 			gamePage.style.display = 'none';
 			resultPageTitle2.style.display = 'block';
 			_gamePoint2.innerHTML = checkpoint;
-			// 重置游戏关卡
-			checkpoint = 1;
-			// 赛点减一
-			gameChance--;
-			_gameChance[0].innerHTML = gameChance;
-			_gameChance[1].innerHTML = gameChance;
-			// console.log(_clear);
+			console.log(_clear);
 		}
 		if(s<0) {
 			s = 59;
 			m--;
 		}
 		innerTime(m,s);
-		if(_clear){
-			clearInterval(timer);
-		}
 
-	},1000)
+	},30)
 }
 
 function innerTime(m,s) {
