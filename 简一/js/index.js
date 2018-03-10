@@ -50,6 +50,7 @@ var imgArr2 = ['images/img_1_y.png','images/img_2_y.png','images/img_3_y.png','i
 
 // 图片加载函数
 function preloader() {
+	// console.log(2345);
 	var images = new Image();
 	for(var i=0;i<imgArr.length;i++) {
 		images.src = imgArr[i];
@@ -60,7 +61,8 @@ function preloader() {
 
 	// console.log(images);
 }
-// preloader();
+
+window.onload = preloader();
 
 // 首页说明按钮
 shuomingBtn.onclick = function() {
@@ -285,7 +287,7 @@ function clickImg() {
 							setTimeout(function() {
 								gamePage.style.display = 'none';
 								resultPage.style.display = 'block';
-								if(right===6) {
+								if(right===7) {
 									ifAllClear();
 								}								
 							},1000)
@@ -316,21 +318,25 @@ function imgReset(el) {
 function nextLevel() {
 	if(_clear){
 		checkpoint++;
+		console.log('check');
 	}
 	result = [];
 	answerImgArr = [];
 	_clear = false;
 	createItems();
 	chooseItems();
-	innerImg(answerImg,answerImgArr);
 	gamestartPage.style.display = 'block';
+	innerImg(answerImg,answerImgArr);
 	countdown();
 }
 
 // 如果通关了的时候
 function ifAllClear() {
 	checkpoint = 1;
+	_clear = false;
+	setTimeout(function() {
 
+	},1000)
 }
 
 // 获得实时的函数
@@ -339,9 +345,9 @@ function timing() {
 	return t;
 }
 
+var timeCost = 0;
 // 计算用时的函数
 function calTime(start,end) {
-	var timeCost = 0;
 	var result = end - start;
 	timeCost += result;
 	var M = Math.floor(timeCost/1000/60%60);
@@ -382,6 +388,8 @@ function gameTime(m,s) {
 			checkpoint = 1;
 			// 赛点减一
 			gameChance--;
+			// 时间
+			timeCost = 0;
 			_gameChance[0].innerHTML = gameChance;
 			_gameChance[1].innerHTML = gameChance;
 			// console.log(_clear);
@@ -395,7 +403,7 @@ function gameTime(m,s) {
 			clearInterval(timer);
 		}
 
-	},1000)
+	},50)
 }
 
 function innerTime(m,s) {
