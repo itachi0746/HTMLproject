@@ -24,6 +24,7 @@ var resultPageTitle2 = $('result-page-title2');
 var getHongbaoText = $('get-hongbao-text');
 var timeOver = $('timeover');
 var countDown = document.getElementsByClassName('countdown')[0];
+var _gameChance = document.getElementsByClassName('game-chance');
 var countDownImg =  countDown.getElementsByTagName('img');
 // console.log(countDownImg.length);
 
@@ -32,6 +33,7 @@ var homePage = $('homepage');
 var shuomingPage = $('shuoming-page');
 var rankingPage = $('ranking-page');
 var sharePage = $('share-page');
+var sharePage2 = $('share-page2');
 var gamestartPage = $('gamestart-page');
 var gamePage = $('game-page');
 var resultPage = $('result-page');
@@ -114,7 +116,12 @@ gamestartBtn.onclick = function() {
 // 继续挑战按钮
 continueBtn.onclick = function() {
 	resultPage.style.display = 'none';
-	nextLevel();
+	if(gameChance<=0){
+		sharePage2.style.display = 'block';
+	}else {
+		nextLevel();	
+	}
+
 }
 
 // 开红包
@@ -135,7 +142,7 @@ function countdown() {
 		}
 		if(index>countDownImg.length-1) {
 			clearInterval(timer);
-			playGame(min,sec);
+			playGame(minTemp,secTemp);
 
 		}else{
 			// console.log(index);
@@ -153,13 +160,15 @@ var result = [];
 var answerImgArr = [];
 
 // 游戏总时间
-var min  = 3;
-var sec  = 0;
+var min = minTemp = 1;
+var sec = secTemp = 10;
 // 游戏的开始时间,结束时间
 var startTime;
 var endTime;
 // 游戏进度条长度
 var os;
+var osTemp = timeOver.style.width.replace('px','');
+console.log(osTemp);
 // 游戏赛点
 var gameChance = 5;
 // console.log(result.length);
@@ -215,11 +224,19 @@ function marginImg(arg) {
 	}
 }
 
+
+// var gameFail = false;
 // 游戏操作阶段
 function playGame(m,s) {
 	gamestartPage.style.display = 'none';
 	gamePage.style.display = 'block';
-	os = timeOver.offsetWidth;
+	if(_gameFail){
+		os = osTemp;
+		_gameFail = false;
+	}else{
+		os = timeOver.offsetWidth;
+	}
+	_clear = false;
 	startTime = timing();
 	innerImg(itemsImg,result);
 	gameTime(m,s);
@@ -277,18 +294,22 @@ function clickImg() {
 					if(answerImgArr[j]===result[this.index]){
 						right++;
 						// console.log(typeof allImgs[this.index].src);
-						var temp = allImgs[this.index].src;
-						// console.log(temp.split('.')[0] + '_y.png');
-						allImgs[this.index].src = temp.split('.')[0] + '_y.png';
+						var temp = allImgs[this.index].src.split('/');
+						var temp2 = temp[temp.length-2] + '/' + temp[temp.length-1];
+						var index = imgArr.indexOf(temp2);
+						allImgs[this.index].src = imgArr2[index];
+						// console.log(temp2);
+						// console.log(imgArr.indexOf(temp2));
+						// allImgs[this.index].src = temp.split('.')[0] + '_y.png';
 						_click = true;
 						// 取消点击事件,防止疯狂点击
 						allImgs[this.index].onclick = null;
 						if(right===allRight){
-							gameChance--;
 							_clear = true;
 							endTime = timing();
 							calTime(startTime,endTime);
 							setTimeout(function() {
+								_click = true;
 								gamePage.style.display = 'none';
 								resultPage.style.display = 'block';
 								if(right===7) {
@@ -310,11 +331,13 @@ function clickImg() {
 
 // 点错时的操作
 function imgReset(el) {
-	var temp = el.src;
+	// var temp = el.src;
 	el.src = 'images/img_f.png';
 	var timer = setTimeout(function() {
-		el.src = temp;
-		_click = true;
+		innerImg(itemsImg,result);
+		clickImg();
+		// el.src = temp;
+		// _click = true;
 	},1000)
 }
 
@@ -326,10 +349,12 @@ function nextLevel() {
 	}
 	result = [];
 	answerImgArr = [];
-	_clear = false;
+	// _clear = false;
 	createItems();
 	chooseItems();
 	gamestartPage.style.display = 'block';
+	_gameChance[0].innerHTML = gameChance;
+	_gameChance[1].innerHTML = gameChance;
 	innerImg(answerImg,answerImgArr);
 	countdown();
 }
@@ -372,6 +397,8 @@ function calTime(start,end) {
 
 // 是否过关
 var _clear = false;
+// 是否到时
+var _gameFail = false;
 // 游戏倒计时函数
 function gameTime(m,s) {
 
@@ -394,9 +421,10 @@ function gameTime(m,s) {
 			gameChance--;
 			// 时间
 			timeCost = 0;
-			_gameChance[0].innerHTML = gameChance;
-			_gameChance[1].innerHTML = gameChance;
-			// console.log(_clear);
+			_gameFail = true;
+			minTemp = min;
+			secTemp = sec;
+			console.log('时间到!@!');
 		}
 		if(s<0) {
 			s = 59;
@@ -405,11 +433,11 @@ function gameTime(m,s) {
 		innerTime(m,s);
 		if(_clear){
 			clearInterval(timer);
-			min = m;
-			sec = s;
+			minTemp = m;
+			secTemp = s;
 		}
 
-	},1000)
+	},500)
 }
 
 function innerTime(m,s) {
@@ -418,7 +446,7 @@ function innerTime(m,s) {
 	var now = m*60+s;
 
 	timeOver.style.width = os * (now/origin) + 'px';
-	console.log(os,now,origin);
+	console.log(min,sec,m,s);
 	if(m<10) {
 		m = '0' + m;
 	}
