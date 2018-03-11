@@ -22,6 +22,7 @@ var _gameTime = $('gametime');
 var resultPageTitle = $('result-page-title');
 var resultPageTitle2 = $('result-page-title2');
 var getHongbaoText = $('get-hongbao-text');
+var timeOver = $('timeover');
 var countDown = document.getElementsByClassName('countdown')[0];
 var countDownImg =  countDown.getElementsByTagName('img');
 // console.log(countDownImg.length);
@@ -157,8 +158,10 @@ var sec  = 0;
 // 游戏的开始时间,结束时间
 var startTime;
 var endTime;
+// 游戏进度条长度
+var os;
 // 游戏赛点
-var gameChance = 6;
+var gameChance = 5;
 // console.log(result.length);
 
 // 随机选图片地址的函数
@@ -216,6 +219,7 @@ function marginImg(arg) {
 function playGame(m,s) {
 	gamestartPage.style.display = 'none';
 	gamePage.style.display = 'block';
+	os = timeOver.offsetWidth;
 	startTime = timing();
 	innerImg(itemsImg,result);
 	gameTime(m,s);
@@ -289,7 +293,7 @@ function clickImg() {
 								resultPage.style.display = 'block';
 								if(right===7) {
 									ifAllClear();
-								}								
+								}					
 							},1000)
 						}
 						return;
@@ -318,7 +322,7 @@ function imgReset(el) {
 function nextLevel() {
 	if(_clear){
 		checkpoint++;
-		console.log('check');
+		// console.log('check');
 	}
 	result = [];
 	answerImgArr = [];
@@ -401,12 +405,20 @@ function gameTime(m,s) {
 		innerTime(m,s);
 		if(_clear){
 			clearInterval(timer);
+			min = m;
+			sec = s;
 		}
 
-	},50)
+	},1000)
 }
 
 function innerTime(m,s) {
+	var origin = min*60+sec;
+	// s = parseInt(s);
+	var now = m*60+s;
+
+	timeOver.style.width = os * (now/origin) + 'px';
+	console.log(os,now,origin);
 	if(m<10) {
 		m = '0' + m;
 	}
@@ -415,4 +427,7 @@ function innerTime(m,s) {
 	}
 	var t = m + ':' + s;
 	time.innerHTML = t;
+
+
+	// console.log(typeof m,typeof s);
 }
