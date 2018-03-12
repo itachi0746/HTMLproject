@@ -37,6 +37,7 @@ var sharePage2 = $('share-page2');
 var gamestartPage = $('gamestart-page');
 var gamePage = $('game-page');
 var resultPage = $('result-page');
+var hongbaoPage = $('hongbao-page');
 
 // 图片
 var imgArr = ['images/img_1.png','images/img_2.png','images/img_3.png','images/img_4.png',
@@ -88,7 +89,7 @@ rankingBtn.onclick = function() {
 // 首页分享按钮
 shareBtn.onclick = function() {
 	sharePage.style.display = 'block';
-	homePage.style.display = 'none';
+	// homePage.style.display = 'none';
 }
 // 分享页面点击返回
 sharePage.onclick = function() {
@@ -113,9 +114,16 @@ gamestartBtn.onclick = function() {
 
 }
 
+var _allclear = false;
 // 继续挑战按钮
 continueBtn.onclick = function() {
 	resultPage.style.display = 'none';
+	if(_allclear){
+		gamePage.style.display = 'none';
+		hongbaoPage.style.display = 'block';
+		_allclear = false;
+		return;
+	}
 	if(gameChance<=0){
 		sharePage2.style.display = 'block';
 	}else {
@@ -160,8 +168,8 @@ var result = [];
 var answerImgArr = [];
 
 // 游戏总时间
-var min = minTemp = 1;
-var sec = secTemp = 10;
+var min = minTemp = 2;
+var sec = secTemp = 0;
 // 游戏的开始时间,结束时间
 var startTime;
 var endTime;
@@ -225,7 +233,6 @@ function marginImg(arg) {
 }
 
 
-// var gameFail = false;
 // 游戏操作阶段
 function playGame(m,s) {
 	gamestartPage.style.display = 'none';
@@ -305,17 +312,16 @@ function clickImg() {
 						// 取消点击事件,防止疯狂点击
 						allImgs[this.index].onclick = null;
 						if(right===allRight){
+
 							_clear = true;
 							endTime = timing();
 							calTime(startTime,endTime);
-							setTimeout(function() {
-								_click = true;
-								gamePage.style.display = 'none';
-								resultPage.style.display = 'block';
-								if(right===7) {
-									ifAllClear();
-								}					
-							},1000)
+							_click = true;
+							// gamePage.style.display = 'none';
+							resultPage.style.display = 'block';
+							if(right===7) {
+								_allclear = true;
+							}					
 						}
 						return;
 					}else {
@@ -347,6 +353,7 @@ function nextLevel() {
 		checkpoint++;
 		// console.log('check');
 	}
+	gamePage.style.display = 'none';
 	result = [];
 	answerImgArr = [];
 	// _clear = false;
@@ -364,7 +371,9 @@ function ifAllClear() {
 	checkpoint = 1;
 	_clear = false;
 	setTimeout(function() {
-
+		hongbaoPage.style.display = 'block';
+		hongbaoPage.style.display = 'none';
+		continueBtn.style.display = 'none';
 	},1000)
 }
 
@@ -409,10 +418,10 @@ function gameTime(m,s) {
 		// 游戏时间结束
 		if(s<0 && m===0) {
 			clearInterval(timer);
-			// innerTime(m,s);
+			innerTime(0,0);
 			resultPage.style.display = 'block';
 			resultPageTitle.style.display = 'none';
-			gamePage.style.display = 'none';
+			// gamePage.style.display = 'none';
 			resultPageTitle2.style.display = 'block';
 			_gamePoint2.innerHTML = checkpoint;
 			// 重置游戏关卡
@@ -425,6 +434,7 @@ function gameTime(m,s) {
 			minTemp = min;
 			secTemp = sec;
 			console.log('时间到!@!');
+			return;
 		}
 		if(s<0) {
 			s = 59;
@@ -437,7 +447,7 @@ function gameTime(m,s) {
 			secTemp = s;
 		}
 
-	},500)
+	},1000)
 }
 
 function innerTime(m,s) {
@@ -446,7 +456,7 @@ function innerTime(m,s) {
 	var now = m*60+s;
 
 	timeOver.style.width = os * (now/origin) + 'px';
-	console.log(min,sec,m,s);
+	// console.log(min,sec,m,s);
 	if(m<10) {
 		m = '0' + m;
 	}

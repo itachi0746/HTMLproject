@@ -19,6 +19,25 @@
 	left: 0;
 	z-index: -999;
 }
+.bg-opc {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	background: rgba(0,0,0,.3);
+	z-index: 10;
+}
+.bg-opc-share {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	z-index: 10;
+
+}
+
 html, body{
 	/*margin:0; */
 	height:100%; 
@@ -132,6 +151,7 @@ html, body{
 	width: 100%;
 	height: 100%;
 	overflow: hidden;
+
 	display: none;
 }
 #ranking-page {
@@ -263,10 +283,11 @@ html, body{
 	/*margin: 0px 5px;*/
 }
 .time-cost {
-	width: 100%;
-	height: 60px;
+	width: 300px;
+	height: 45px;
 	position: absolute;
 	bottom: 50px;
+	left: 26px;
 	/*text-align: center;*/
 }
 .time-cost img:nth-child(1) {
@@ -283,18 +304,16 @@ html, body{
 	width: 240px;
 	height: 12px;
 	position: absolute;
-	top: 35px;
-	/*bottom: 0;*/
-	left: 76px;
-	right: 0;
-	/*margin: auto;	*/
+	top: 27px;
+	left: 38px;
+	/*margin: 27px 0 0 38px;*/
 }
 #time {
 	color: #34335d;
 	font-size: 18px;
 	position: absolute;
-	top: 7px;
-	left: 270px;
+	top: 3px;
+	left: 225px;
 }
 #result-page {
 	position: absolute;
@@ -308,6 +327,7 @@ html, body{
 	width: 100%;
 	position: relative;
 	height: 270px;
+	z-index: 20;
 	/*display: none;*/
 }
 .result-page-title img:nth-child(1),.result-page-title2 img:nth-child(1),
@@ -359,6 +379,8 @@ html, body{
 .game-continue {
 	margin-top: 70px;
 	width: 100%;
+	z-index: 20;
+	position: absolute;
 	text-align: center;
 }
 .game-continue img {
@@ -368,6 +390,7 @@ html, body{
 	margin-top: 40px;
 	width: 100%;
 	position: relative;
+	z-index: 20;
 	height: 270px;
 	display: none;	
 }
@@ -468,4 +491,15 @@ html, body{
 }
 .zhuli-page-btns img,.zhuli-page-btns2 img {
 	width: 40%;
+}
+.timeover-wp {
+	width: 240px;
+	height: 12px;
+	background: red;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	top: 0px;
+	bottom: 0px;
+	margin: auto;
 }
