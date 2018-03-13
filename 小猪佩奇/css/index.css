@@ -22,7 +22,7 @@ html,body {
 	width: 2.2rem;
 	position: absolute;
 	left: 15rem;
-	top: 3.5rem;
+	top: 2.5rem;
 }
 .sky img:nth-child(3) {
 	width: 1.5rem;
@@ -34,20 +34,22 @@ html,body {
 	width: 7.5rem;
 	position: absolute;
 	left: 6rem;
-	top: 4.5rem;
+	top: 2.5rem;
+	z-index: 999;
 }
 .homePageTitle img:nth-child(2) {
 	width: 6rem;
 	position: absolute;
 	left: 6.5rem;
-	top: 10rem;
+	top: 8rem;
+	z-index: 999;
 }
 #zba {
 	width: 6rem;
 	height: 8.5rem;
 	position: absolute;
-	top: 14rem;
 	left: 1rem;
+	bottom: 11rem;
 	/*background: red;*/
 }
 #zba img:nth-child(1) {
@@ -63,14 +65,13 @@ html,body {
 	left: 0.9rem;
 }
 
-#zba_hr {
-	width: 1.4rem;
+#zba_hl {
+	width: 1.6rem;
 	position: absolute;
-	left: 1.2rem;
+	left: -0.2rem;
 	top: 4.5rem;
 	z-index: 100;
-	-webkit-transform: rotate(98deg);
-	transform-origin: 0 0;
+	-webkit-transform-origin: top right;
 }
 #zba_fl {
 	width: 1rem;
@@ -78,6 +79,8 @@ html,body {
 	bottom: 0rem;
 	left: 1.3rem;
 	z-index: 100;
+	-webkit-transform-origin: top right;
+	
 }
 #zba_fr {
 	width: 1.3rem;
@@ -91,8 +94,8 @@ html,body {
 	height: 6.5rem;
 	position: absolute;
 	z-index: 40;
-	top: 15rem;
 	left: 6rem;
+	bottom: 12rem;
 	/*background: red;*/
 }
 #zma img:nth-child(1) {
@@ -108,7 +111,6 @@ html,body {
 	position: absolute;
 	z-index: 30;
 	transform-origin: 100% 0%;
-	/*-webkit-transform: rotate(-105deg);*/
 }	
 #zma_fr {
 	width: 1.05rem;
@@ -116,7 +118,6 @@ html,body {
 	top: 5.5rem;
 	position: absolute;
 	z-index: 30;	
-	/*-webkit-transform: rotate(-42deg);*/
 	transform-origin: 50% 0%;
 }
 #zma_fl {
