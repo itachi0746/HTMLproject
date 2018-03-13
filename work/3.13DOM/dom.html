@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>DOM</title>
+	<style>
+		
+	</style>
+</head>
+<body>
+	<ul class="ul" id="ul">
+		<li id="li">111</li>
+		<li>222</li>
+		<li class="li3">333</li>
+	</ul>
+</body>
+<script>
+	var ul = document.getElementById('ul');
+	var li = document.getElementById('li');
+
+	// 生成标签
+	var div = document.createElement('div');
+
+	// 生成文本
+	var text = document.createTextNode('qqq');
+	div.style.width = '100px';
+	div.style.height = '100px';
+	div.style.background = 'red';
+
+	// 末尾插入对象标签(body是父元素)
+	document.body.appendChild(div);
+
+	// 前端插入对象标签(ul是父元素)
+	// ul.insertBefore(div,li);
+
+	// old是ul子元素  替换子元素(new, old)
+	// ul.replaceChild(div,li);
+
+	// 删除父元素下的某个子元素
+	// document.body.removeChild(div);
+
+	// 复制元素
+	// true:深度复制,复制节点及整个子节点树
+	// false:浅复制,节点本身
+	// var _li = ul.lastElementChild.cloneNode(true);
+
+	// 设置dom对象属性  (属性名,属性值)
+	li.setAttribute('data','oooo');
+
+	// 获取属性   (属性名,属性值)
+	li.getAttribute('data','oooo');
+	
+	// 删除属性   (属性名,属性值)
+	li.removeAttribute('data');
+
+
+	// console.log(_li);
+</script>
+</html>
