@@ -49,6 +49,7 @@ html,body {
 	width: 6rem;
 	height: 8.5rem;
 	position: absolute;
+	z-index: 50;
 	left: 1rem;
 	bottom: 11rem;
 	/*background: red;*/
@@ -78,7 +79,7 @@ html,body {
 	width: 1rem;
 	position: absolute;
 	bottom: 0rem;
-	left: 1.3rem;
+	left: 1.5rem;
 	z-index: 100;
 	-webkit-transform-origin: top right;
 	
@@ -121,7 +122,6 @@ html,body {
 	top: 5.5rem;
 	position: absolute;
 	z-index: 30;	
-	transform-origin: 50% 0%;
 	-webkit-transform-origin: top left;
 
 }
@@ -148,7 +148,7 @@ html,body {
 	position: absolute;
 	z-index: 60;
 	bottom: 7.5rem;
-	left: -5rem;
+	left: 9.5rem;
 }
 #zsi_bd {
 	width: 3.5rem;
@@ -201,7 +201,7 @@ html,body {
 	position: absolute;
 	z-index: 60;
 	bottom: 7.5rem;
-	left: -4rem;	
+	left: 13.5rem;	
 }
 #zbo_bd {
 	width: 3.0rem;
@@ -229,8 +229,10 @@ html,body {
 	width: 0.6rem;
 	position: absolute;
 	bottom: 0.2rem;
-	left: 0.6rem;
+	left: 0.8rem;
 	z-index: 50;	
+	-webkit-transform-origin: top right;
+
 }
 #zbo_fr {
 	width: 0.7rem;
@@ -238,6 +240,8 @@ html,body {
 	bottom: 0.2rem;
 	right: 0.5rem;
 	z-index: 30;	
+	-webkit-transform-origin: top left;
+
 }
 #zbo_yz {
 	width: 2.0rem;
