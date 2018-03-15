@@ -180,9 +180,131 @@ var sun = $('.sun');
 
 // });
 
-console.log(zbo);
+// console.log(zbo);
 
+var expressPage = $('#expressPage');
+var homePage = $('#homePage');
+var clickPage = $('#clickPage');
 
 homeStart.on('click', function() {
-	// console.log(zba);
+	var box = $('#box');
+	var well = $('#well');
+	var t = new TimelineMax();
+	var t1 = new TimelineMax();
+	var t2 = new TimelineMax();
+	var t3 = new TimelineMax();
+
+	// console.log(homePage,expressPage);
+	homePage.css('display','none');
+	expressPage.css('display','block');
+
+	// 斑马前进 3.2s
+	t.from(box,3.2,{
+		x: -10*fs,
+		ease: Linear.easeIn,
+	})
+	.from('#zeb',3.2,{
+		x: -10*fs,
+		ease: Linear.easeIn,
+	},0)
+	// 斑马行走
+	t1.to('#zeb_fl',.8,{
+		x : .8*fs,
+		rotation:'-20deg',
+	})
+	.to('#zeb_fr',.8,{
+		x : -1*fs,
+		rotation:'20deg',
+	},0)
+	.to('#zeb_fl',.8,{
+		x : 0*fs,
+		rotation:'0deg',
+	})
+	.to('#zeb_fr',.8,{
+		x : 0,
+		rotation:'0deg',
+	},'-=1')
+
+	t1.repeat(1);
+
+	// 斑马放下快递 3.2+1.5s
+	// 弯腰
+	t2.to('#zeb_bd',1,{
+		rotation:'30deg',
+	},'+=3.2')
+	.to('#zeb_hl',1,{
+		x: .5*fs,
+		y: .5*fs,
+	},'-=1')
+	.to('#zeb_hr',1,{
+		x: .5*fs,
+		y: .5*fs,
+	},'-=1')
+	.to(box,1,{
+		x: .5*fs,
+		y: .5*fs,
+	},'-=1')
+	.to(box,.5,{
+		y: 1*fs,
+	})
+	// 直腰 3.2+1.5+1s
+	.to('#zeb_bd',1,{
+		rotation:'0deg',
+	})
+	.to('#zeb_hl',1,{
+		x: 0,
+		y: 0,
+	},'-=1')
+	.to('#zeb_hr',1,{
+		x: 0,
+		y: 0,
+	},'-=1')
+
+
+	//斑马离开 3.2+1.5+1+3.2 = 8.9s
+	// 转身
+	.set('#zeb_hr',{
+		display: 'none',
+	})	
+	.set('#zeb',{
+		rotationY: 180,
+	})	
+	.to('#zeb',3.2,{
+		x: -10*fs,
+	})
+	// 走开
+	t3.to('#zeb_fl',.8,{
+		x : .8*fs,
+		rotation:'-20deg',
+	},'+=5.7')
+	.to('#zeb_fr',.8,{
+		x : -1*fs,
+		rotation:'20deg',
+	},'-=.8')
+	.to('#zeb_fl',.8,{
+		x : 0*fs,
+		rotation:'0deg',
+	})
+	.to('#zeb_fr',.8,{
+		x : 0,
+		rotation:'0deg',
+	},'-=.8')
+	.set(expressPage,{
+		display: 'none',
+	})
+	.set(clickPage,{
+		display: 'block',
+		onComplete:function () {
+			clickBox();
+		}
+	})
+
 });
+
+var btnBox = $('#btnBox');
+
+function clickBox() {
+	btnBox.css('display','none');
+	box2.css('display','none');
+	well.css('display','block');
+}
