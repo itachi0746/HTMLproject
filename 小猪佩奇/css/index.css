@@ -8,6 +8,7 @@
 	height: 100%;
 	overflow: hidden;
 	background-size: 100% 100%;
+	display: none;
 }
 html,body {
 	height: 100%;
@@ -256,4 +257,285 @@ html,body {
 	bottom: 3rem;
 	left: 6.4rem;
 
+}
+/*送快递页*/
+#expressPage {
+	background: url(../img/bg2.png) no-repeat;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	background-size: 100% 100%;	
+	/*display: none;*/
+}
+#zeb {
+	width: 5rem;
+	height: 6rem;
+	/*background: red;	*/
+	position: absolute;
+	left: 1rem;
+	bottom: 13rem;
+}
+#zeb img:nth-child(1) {
+	width: 5rem;
+	position: relative;
+	z-index: 50;
+
+}
+#zeb_fl {
+	width: .8rem;
+	position: absolute;
+	z-index: 60;
+	bottom: -0.2rem;
+	left: 2rem;
+}
+#zeb_fr {
+	width: .8rem;
+	position: absolute;
+	z-index: 40;
+	bottom: 0rem;
+	right: 1.1rem;
+}
+#zeb_hl {
+	width: 1.5rem;
+	position: absolute;
+	z-index: 60;
+	bottom: 1.5rem;
+	right: 1.5rem;	
+}
+#box {
+	position: absolute;
+	z-index: 55;
+	width: 3rem;
+	bottom: 14rem;
+	left: 4rem;
+	/*display: none;*/
+}
+#zeb_hr {
+	width: 1.2rem;
+	position: absolute;
+	z-index: 50;
+	bottom: 1.8rem;
+	right: -1.2rem;		
+}
+#zeb_yz {
+	width: 4rem;
+	position: absolute;
+	bottom: -0.25rem;
+	left: 1.3rem;
+}
+#zba2 {
+	width: 5rem;
+	height: 6.5rem;
+	position: absolute;
+	z-index: 50;
+	left: 8rem;
+	bottom: 12.2rem;	
+}
+#zma2 {
+	width: 5rem;
+	height: 6.5rem;
+	position: absolute;
+	z-index: 50;
+	left: 13rem;
+	bottom: 12rem;	
+	/*background: red;*/
+}
+
+#zba2 img:nth-child(1) {
+	width: 4rem;
+	position: relative;
+	z-index: 50;
+	left: 1rem;
+}
+#zma2 img:nth-child(1) {
+	width: 3.7rem;
+	position: relative;
+	z-index: 50;
+	left: 1rem;
+}
+
+#zba_hl2 {
+	width: .9rem;
+	position: absolute;
+	left: 0.3rem;
+	top: 3rem;
+	z-index: 40;
+	-webkit-transform-origin: top right;	
+}
+#zma_hl2 {
+	width: .9rem;
+	position: absolute;
+	left: 0.5rem;
+	top: 3rem;
+	z-index: 40;
+	-webkit-transform-origin: top right;	
+}
+
+#zba_hr2 {
+	width: .9rem;
+	position: absolute;
+	right: 0rem;
+	top: 3rem;
+	z-index: 60;
+	-webkit-transform-origin: top left;	
+}
+#zma_hr2 {
+	width: .9rem;
+	position: absolute;
+	right: 0.3rem;
+	top: 3rem;
+	z-index: 60;
+	-webkit-transform-origin: top left;	
+}
+
+#zba_fl2 {
+	width: .8rem;
+	position: absolute;
+	left: 1.7rem;
+	bottom: .9rem;
+	z-index: 60;
+	-webkit-transform-origin: top right;	
+}
+#zma_fl2 {
+	width: .8rem;
+	position: absolute;
+	left: 1.3rem;
+	bottom: 1.1rem;
+	z-index: 60;
+	-webkit-transform-origin: top right;	
+}
+
+#zba_fr2 {
+	width: .7rem;
+	position: absolute;
+	left: 3.5rem;
+	bottom: 0.8rem;
+	z-index: 60;
+	-webkit-transform-origin: top right;	
+}
+#zma_fr2 {
+	width: .7rem;
+	position: absolute;
+	left: 3.3rem;
+	bottom: 1.0rem;
+	z-index: 40;
+	-webkit-transform-origin: top right;	
+}
+
+#zba_yz2 {
+	width: 3.5rem;
+	position: absolute;
+	bottom: 0.6rem;
+	left: 1.2rem;
+}
+#zma_yz2 {
+	width: 3.1rem;
+	position: absolute;
+	bottom: 0.85rem;
+	left: 1.2rem;
+}
+#zsi2 {
+	/*background: red;*/
+	width: 3.5rem;
+	height: 4.5rem;
+	position: absolute;
+	bottom: 2rem;
+	left: 10rem;
+	z-index: 60;	
+}
+#zbo2 {
+	/*background: red;*/
+	width: 3rem;
+	height: 3.5rem;
+	position: absolute;
+	bottom: 2rem;
+	left: 6rem;
+	z-index: 60;
+}
+
+#zsi2 img:nth-child(1) {
+	width: 3rem;
+	position: relative;
+	z-index: 50;
+	left: .5rem;
+}
+#zbo2 img:nth-child(1) {
+	width: 3rem;
+	position: relative;
+	z-index: 50;
+}
+
+#zsi_hl2 {
+	width: .7rem;
+	position: absolute;
+	z-index: 40;
+	left: 0.2rem;
+	top: 2.5rem;
+}
+#zbo_hl2 {
+	width: .8rem;
+	position: absolute;
+	z-index: 40;
+	left: 0rem;
+	top: 2rem;
+}
+
+#zsi_hr2 {
+	width: .8rem;
+	position: absolute;
+	z-index: 60;
+	right: 0rem;
+	top: 2.5rem;
+}
+#zbo_hr2 {
+	width: .7rem;
+	position: absolute;
+	z-index: 60;
+	right: 0rem;
+	top: 1.9rem;
+}
+
+#zsi_fl2 {
+	width: .8rem;
+	position: absolute;
+	z-index: 40;
+	left: 0.7rem;
+	bottom: 0.25rem;
+}
+#zbo_fl2 {
+	width: .7rem;
+	position: absolute;
+	z-index: 40;
+	left: 0.7rem;
+	bottom: 0.1rem;
+}
+
+#zsi_fr2 {
+	width: .8rem;
+	position: absolute;
+	z-index: 40;
+	left: 2rem;
+	bottom: 0.2rem;
+}
+#zbo_fr2 {
+	width: .7rem;
+	position: absolute;
+	z-index: 60;
+	left: 1.8rem;
+	bottom: 0rem;
+}
+
+#zsi_yz2 {
+	width: 2.3rem;
+	position: absolute;
+	z-index: 40;
+	left: .7rem;
+	bottom: 0rem;	
+}
+#zbo_yz2 {
+	width: 2.1rem;
+	position: absolute;
+	z-index: 40;
+	left: .6rem;
+	bottom: 0rem;	
 }

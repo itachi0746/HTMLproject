@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>瀑布流</title>
+	<style>
+	* {
+		padding: 0;
+		margin: 0;
+	}
+		.box {
+			width: 500px;margin:auto;
+
+		}
+		.ul {
+			list-style: none;
+			overflow: hidden;
+		}
+		.ul li {
+			width: 150px;height: 150px;
+			background: red;
+			margin-left: 10px;
+			margin-top: 10px;
+			float: left;
+		}
+
+	</style>
+</head>
+<body>
+	<div class="box" id="box">
+		<ul class="ul" id="ul">
+
+		</ul>
+	</div>
+</body> 
+<script>
+	var ul = document.getElementById('ul');
+	var box = document.getElementById('box');
+
+	function create() {
+		for(var i=0;i<18;i++){
+		var li = document.createElement('li');
+		ul.appendChild(li);
+	
+		}
+	}
+
+	create();
+	
+
+	var winHeight = document.documentElement.clientHeight;
+
+	window.onscroll = function() {
+
+		var ul = document.getElementById('ul');
+		var ulHeight = ul.offsetHeight;
+
+
+		// 滚动条上部的高
+		var st = document.documentElement.scrollTop;
+		// console.log(st);
+
+		// ul高减去窗口高得出滚动条高度
+		var gunH = ulHeight-winHeight;
+
+		if(st>=gunH){
+			// console.log(233);
+			create();
+		}
+	}
+	
+</script>
+</html>
