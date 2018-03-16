@@ -62,6 +62,7 @@
 		// console.log(e.clientX,e.clientY);
 		var x = e.clientX;
 		var y = e.clientY;
+		console.log('onmouseover');
 
 		if(x<25){
 			jing.style.left = '0px';
@@ -105,13 +106,13 @@
 
 		}		
 		jing.style.display = 'block';
-
 	}
 
 	wp.onmouseout = function() {
 		jing.style.display = 'none';
 		document.onmousemove = null;
 		bigkb.style.display = 'none';
+		console.log('onmouseout');
 
 	}
 

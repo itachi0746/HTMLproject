@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>正则</title>
+	<style>
+		
+	</style>
+</head>
+<body>
+	<div>
+		
+	</div>
+</body>
+<script>
+	// "g":表示全局模式，用于检测所有字符串
+	// "i":表示不区分大小写，匹配时忽略字符串大小写
+	// "m":表示匹配多行
+	//字面量
+	var reg = /\d{4,8}/g;
+	// var reg = new RegExp();
+
+	var str = '123456789123456789';
+
+	var oo = str.replace(reg,'zzh');
+
+	console.log(oo);
+
+</script>
+</html>

@@ -13,178 +13,179 @@ var sun = $('.sun');
 
 
 // ready事件(首页的动画)
-// $(function() {
-// 	var t = new TimelineMax();
-// 	var t1 = new TimelineMax();
-// 	var t2 = new TimelineMax();
-// 	var t3 = new TimelineMax();
-// 	var t4 = new TimelineMax();
-// 	var t5 = new TimelineMax();
-// 	var t6 = new TimelineMax();
+$(function() {
+	var t = new TimelineMax();
+	var t1 = new TimelineMax();
+	var t2 = new TimelineMax();
+	var t3 = new TimelineMax();
+	var t4 = new TimelineMax();
+	var t5 = new TimelineMax();
+	var t6 = new TimelineMax();
 
-// 	// 太阳
-// 	t1.to(sun,10,{
-// 		rotation:'360deg',
-// 		ease: Linear.easeIn,
-// 	});
-// 	// 猪爸妈前进
-// 	t.from(zba,4,{
-// 		x:-15*fs,
-// 		ease: Linear.easeIn,
-// 	})
-// 	.fromTo(homeStart,1,{
-// 		opacity: 0,
-// 	},{
-// 		opacity: 1,
-// 	})
-// 	.from(zma,4,{
-// 		x:-15*fs,
-// 		ease: Linear.easeIn,
-// 	},0);
+	// 太阳
+	t1.to(sun,10,{
+		rotation:'360deg',
+		ease: Linear.easeIn,
+	});
+	// 猪爸妈前进
+	t.from(zba,4,{
+		x:-15*fs,
+		ease: Linear.easeIn,
+	})
+	.fromTo(homeStart,1,{
+		opacity: 0,
+	},{
+		opacity: 1,
+	})
+	.from(zma,4,{
+		x:-15*fs,
+		ease: Linear.easeIn,
+	},0);
 
-// 	// 猪姐弟前进
-// 	t2.from(zsi,4.2,{
-// 		x:-18*fs,
-// 		ease: Linear.easeIn,
-// 	})
-// 	.from(zbo,4.2,{
-// 		x:-18*fs,
-// 		ease: Linear.easeIn,
-// 	},0);
+	// 猪姐弟前进
+	t2.from(zsi,4.2,{
+		x:-18*fs,
+		ease: Linear.easeIn,
+	})
+	.from(zbo,4.2,{
+		x:-18*fs,
+		ease: Linear.easeIn,
+	},0);
 
-// 	// 猪左脚
-// 	t3.to('#zba_fl',1,{
-// 		x : 1.5*fs,
-// 		rotation : '-30deg',
-// 		ease : Linear.easeIn,
-// 	})
-// 	.to('#zba_fl',1,{
-// 		x : 0,
-// 		rotation :'0deg',
-// 		ease :Linear.easeIn,
-// 	})
-// 	.to('#zma_fl',1,{
-// 		x : 1.5*fs,
-// 		rotation:'-30deg',
-// 		ease:Linear.easeIn,
-// 	},0)
-// 	.to('#zma_fl',1,{
-// 		x : 0,
-// 		rotation:'0deg',
-// 		ease:Linear.easeIn,
-// 	},'-=1');
+	// 猪左脚
+	t3.to('#zba_fl',1,{
+		x : 1.5*fs,
+		rotation : '-30deg',
+		ease : Linear.easeIn,
+	})
+	.to('#zba_fl',1,{
+		x : 0,
+		rotation :'0deg',
+		ease :Linear.easeIn,
+	})
+	.to('#zma_fl',1,{
+		x : 1.5*fs,
+		rotation:'-30deg',
+		ease:Linear.easeIn,
+	},0)
+	.to('#zma_fl',1,{
+		x : 0,
+		rotation:'0deg',
+		ease:Linear.easeIn,
+	},'-=1');
 
-// 	// 猪右脚
-// 	t4.to('#zba_fr',1,{
-// 		x : -1.5*fs,
-// 		rotation : '30deg',
-// 		ease : Linear.easeIn,
-// 	})
-// 	.to('#zba_fr',1,{
-// 		x : 0,
-// 		rotation:'0deg',
-// 		ease:Linear.easeIn,
-// 	})
-// 	.to('#zma_fr',1,{
-// 		x : -1.5*fs,
-// 		rotation:'30deg',
-// 		ease:Linear.easeIn,
-// 	},0)
-// 	.to('#zma_fr',1,{
-// 		x : 0,
-// 		rotation:'0deg',
-// 		ease:Linear.easeIn,
-// 	},'-=1');
+	// 猪右脚
+	t4.to('#zba_fr',1,{
+		x : -1.5*fs,
+		rotation : '30deg',
+		ease : Linear.easeIn,
+	})
+	.to('#zba_fr',1,{
+		x : 0,
+		rotation:'0deg',
+		ease:Linear.easeIn,
+	})
+	.to('#zma_fr',1,{
+		x : -1.5*fs,
+		rotation:'30deg',
+		ease:Linear.easeIn,
+	},0)
+	.to('#zma_fr',1,{
+		x : 0,
+		rotation:'0deg',
+		ease:Linear.easeIn,
+	},'-=1');
 
-// 	// 猪姐姐跳跃,时长1.4s
-// 	t5.to('#zsi_fl',.2,{
-// 		x : 1.5*fs,
-// 		rotation:'-30deg',
+	// 猪姐姐跳跃,时长1.4s
+	t5.to('#zsi_fl',.2,{
+		x : 1.5*fs,
+		rotation:'-30deg',
 
-// 	})
-// 	.to('#zsi_fr',.2,{
-// 		x : -1.5*fs,
-// 		rotation:'30deg',
-// 	},0)
+	})
+	.to('#zsi_fr',.2,{
+		x : -1.5*fs,
+		rotation:'30deg',
+	},0)
 
-// 	.to(zsi,.3,{
-// 		y:-1.5*fs,
-// 		ease: Circ.easeOut,
-// 	},'-=.1')
-// 	.to(zsi,.3,{
-// 		y:0,
-// 		ease: Circ.easeIn,
-// 	})
+	.to(zsi,.3,{
+		y:-1.5*fs,
+		ease: Circ.easeOut,
+	},'-=.1')
+	.to(zsi,.3,{
+		y:0,
+		ease: Circ.easeIn,
+	})
 
-// 	.to('#zsi_fl',.2,{
-// 		x : 0*fs,
-// 		rotation:'0deg',
-// 	})
-// 	.to('#zsi_fr',.2,{
-// 		x : 0,
-// 		rotation:'0deg',
-// 	},'-=.2')
+	.to('#zsi_fl',.2,{
+		x : 0*fs,
+		rotation:'0deg',
+	})
+	.to('#zsi_fr',.2,{
+		x : 0,
+		rotation:'0deg',
+	},'-=.2')
 
-// 	.to(zsi,.3,{
-// 		y:-1.5*fs,
-// 		ease: Circ.easeOut,
-// 	},'-=.1')
-// 	.to(zsi,.3,{
-// 		y:0,
-// 		ease: Circ.easeIn,
-// 	});
-// 	t5.repeat(2);
+	.to(zsi,.3,{
+		y:-1.5*fs,
+		ease: Circ.easeOut,
+	},'-=.1')
+	.to(zsi,.3,{
+		y:0,
+		ease: Circ.easeIn,
+	});
+	t5.repeat(2);
 
-// 	// 猪弟弟跳跃,时长1.4s
-// 	t6.to('#zbo_fl',.2,{
-// 		x : .5*fs,
-// 		rotation:'-30deg',
+	// 猪弟弟跳跃,时长1.4s
+	t6.to('#zbo_fl',.2,{
+		x : .5*fs,
+		rotation:'-30deg',
 		
-// 	})
-// 	.to('#zbo_fr',.2,{
-// 		x : -.6*fs,
-// 		rotation:'30deg',
-// 	},0)
+	})
+	.to('#zbo_fr',.2,{
+		x : -.6*fs,
+		rotation:'30deg',
+	},0)
 
-// 	.to(zbo,.3,{
-// 		y:-1.5*fs,
-// 		ease: Circ.easeOut,
-// 	},'-=.1')
-// 	.to(zbo,.3,{
-// 		y:0,
-// 		ease: Circ.easeIn,
-// 	})
+	.to(zbo,.3,{
+		y:-1.5*fs,
+		ease: Circ.easeOut,
+	},'-=.1')
+	.to(zbo,.3,{
+		y:0,
+		ease: Circ.easeIn,
+	})
 
-// 	.to('#zbo_fl',.2,{
-// 		x : 0*fs,
-// 		rotation:'0deg',
-// 	})
-// 	.to('#zbo_fr',.2,{
-// 		x : 0,
-// 		rotation:'0deg',
-// 	},'-=.2')
+	.to('#zbo_fl',.2,{
+		x : 0*fs,
+		rotation:'0deg',
+	})
+	.to('#zbo_fr',.2,{
+		x : 0,
+		rotation:'0deg',
+	},'-=.2')
 
-// 	.to(zbo,.3,{
-// 		y:-1.5*fs,
-// 		ease: Circ.easeOut,
-// 	},'-=.1')
-// 	.to(zbo,.3,{
-// 		y:0,
-// 		ease: Circ.easeIn,
-// 	});
-// 	t6.repeat(2);
+	.to(zbo,.3,{
+		y:-1.5*fs,
+		ease: Circ.easeOut,
+	},'-=.1')
+	.to(zbo,.3,{
+		y:0,
+		ease: Circ.easeIn,
+	});
+	t6.repeat(2);
 
-// 	t1.repeat(-1);
-// 	t3.repeat(1);
-// 	t4.repeat(1);
+	t1.repeat(-1);
+	t3.repeat(1);
+	t4.repeat(1);
 
-// });
+});
 
 // console.log(zbo);
 
 var expressPage = $('#expressPage');
 var homePage = $('#homePage');
 var clickPage = $('#clickPage');
+var wishPage = $('#wishPage');
 
 homeStart.on('click', function() {
 	var box = $('#box');
@@ -304,7 +305,63 @@ homeStart.on('click', function() {
 var btnBox = $('#btnBox');
 
 function clickBox() {
-	btnBox.css('display','none');
-	box2.css('display','none');
-	well.css('display','block');
+	var clickDiv = $('.clickDiv');
+	var box2 = $('#box2');
+	var well = $('#well');
+
+	var t = new TimelineMax();
+	var t1 = new TimelineMax();
+	var t2 = new TimelineMax();
+	var t3 = new TimelineMax();
+	var t4 = new TimelineMax();
+	// 手指
+	t.to(btnBox,1,{
+		y: .2*fs,
+	})
+	.to(btnBox,1,{
+		y: 0*fs,
+	});
+	// 云
+	t1.to('.zbaCloud',2,{
+		y: .3*fs,
+	})
+	.to('.zbaCloud',2,{
+		y: 0*fs,
+	});
+	t2.to('.zmaCloud',2,{
+		y: .3*fs,
+	},'+=1')
+	.to('.zmaCloud',2,{
+		y: 0*fs,
+	});
+	t3.to('.zsiCloud',2,{
+		y: .3*fs,
+	},'-=1')
+	.to('.zsiCloud',2,{
+		y: 0*fs,
+	});
+	t4.to('.zboCloud',2,{
+		y: .3*fs,
+	},'+=1')
+	.to('.zboCloud',2,{
+		y: 0*fs,
+	});
+
+	t.repeat(-1);
+	t1.repeat(-1);
+	t2.repeat(-1);
+	t3.repeat(-1);
+	t4.repeat(-1);
+
+	// 点击箱子
+	clickDiv.on('click',function() {
+		btnBox.css('display','none');
+		box2.css('display','none');
+		clickDiv.css('display','none');
+		well.css('display','block');
+		setTimeout(function() {
+			clickPage.css('display','none');
+			wishPage.css('display','block');
+		},1000);
+	})
 }
