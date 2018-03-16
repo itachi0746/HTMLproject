@@ -21,21 +21,39 @@ $(function() {
 	var t4 = new TimelineMax();
 	var t5 = new TimelineMax();
 	var t6 = new TimelineMax();
+	var t7 = new TimelineMax();
 
 	// 太阳
 	t1.to(sun,10,{
 		rotation:'360deg',
 		ease: Linear.easeIn,
 	});
+
+	t1.repeat(-1);
+
 	// 猪爸妈前进
 	t.from(zba,4,{
 		x:-15*fs,
 		ease: Linear.easeIn,
 	})
 	.fromTo(homeStart,1,{
-		opacity: 0,
+		y: 10*fs,
 	},{
-		opacity: 1,
+		y: 0,
+		ease: Back.easeOut,
+		onComplete: function() {
+			// 开始按钮出现
+			t7.to(homeStart,2,{
+				scale: .8,
+				ease: Linear.easeIn,
+			},'+=.3')
+			.to(homeStart,2,{
+				scale: 1,
+				ease: Linear.easeIn,
+			});	
+			t7.repeat(-1);
+		
+		}		
 	})
 	.from(zma,4,{
 		x:-15*fs,
@@ -50,6 +68,7 @@ $(function() {
 	.from(zbo,4.2,{
 		x:-18*fs,
 		ease: Linear.easeIn,
+
 	},0);
 
 	// 猪左脚
@@ -174,7 +193,6 @@ $(function() {
 	});
 	t6.repeat(2);
 
-	t1.repeat(-1);
 	t3.repeat(1);
 	t4.repeat(1);
 
@@ -187,6 +205,7 @@ var homePage = $('#homePage');
 var clickPage = $('#clickPage');
 var wishPage = $('#wishPage');
 
+// 开始按钮点击事件
 homeStart.on('click', function() {
 	var box = $('#box');
 	var well = $('#well');
@@ -304,6 +323,7 @@ homeStart.on('click', function() {
 
 var btnBox = $('#btnBox');
 
+// 点击快递后的操作
 function clickBox() {
 	var clickDiv = $('.clickDiv');
 	var box2 = $('#box2');
@@ -362,6 +382,117 @@ function clickBox() {
 		setTimeout(function() {
 			clickPage.css('display','none');
 			wishPage.css('display','block');
+			wishStart();
 		},1000);
 	})
+}
+wishStart();
+// 许愿动画
+function wishStart() {
+	var zbo4 = $('#zbo4');
+	var zbo5 = $('#zbo5');
+	var zboWish = $('#zbo_wish');
+	var zboMon = $('#zbo_mon');
+	var well2 = $('#well2');
+
+	var t = new TimelineMax();
+	var t1 = new TimelineMax();
+	var t2 = new TimelineMax();
+	var t3 = new TimelineMax();
+	var t4 = new TimelineMax();
+
+	// 猪弟弟前进
+	t.from(zbo4,1.4,{
+		x: 7*fs,
+		ease: Linear.easeIn,
+	})
+	// 投币
+	.staggerTo(zboMon,1,{
+		cycle: {
+			bezier: function() {
+				return [
+					{x:-3*fs,y:-2*fs},
+					{x:-5*fs,y:-1.3*fs},
+				]
+			}
+		},
+		onComplete: function() {
+			zboMon.css('display','none');
+			zboWish.css('display','block');
+			
+			// 井,猪消失
+			t2.to(well2,0,{
+				display: 'none',
+			},'+=1')
+			.to(zbo4,0,{
+				display: 'none',
+				onComplete: function() {
+					zbo5.css('display','block');
+				}
+			});
+			// 猪手摆动
+			t3.to('#zbo_hl5',1,{
+				rotation: -10,
+			})
+			.to('#zbo_hr5',1,{
+				rotation: -10,
+			},'-=1')
+			.to('#zbo_hl5',1,{
+				rotation: 0,
+			})
+			.to('#zbo_hr5',1,{
+				rotation: 0,
+			},'-=1')
+			t3.repeat(-1);
+
+			// 恐龙摆动
+			t4.to('#dinosaur',1,{
+				rotation: -10,
+			})
+			.to('#dinosaur',1,{
+				rotation: 0,
+			})
+			t4.repeat(-1);
+
+		}
+	})
+	// 猪弟弟跳跃,时长1.4s
+	t1.to('.zbo_fl',.2,{
+		x : .5*fs,
+		rotation:'-30deg',
+		
+	})
+	.to('.zbo_fr',.2,{
+		x : -.6*fs,
+		rotation:'30deg',
+	},0)
+
+	.to(zbo4,.3,{
+		y:-1.5*fs,
+		ease: Circ.easeOut,
+	},'-=.1')
+	.to(zbo4,.3,{
+		y:0,
+		ease: Circ.easeIn,
+	})
+
+	.to('.zbo_fl',.2,{
+		x : 0*fs,
+		rotation:'0deg',
+	})
+	.to('.zbo_fr',.2,{
+		x : 0,
+		rotation:'0deg',
+	},'-=.2')
+
+	.to(zbo4,.3,{
+		y:-1.5*fs,
+		ease: Circ.easeOut,
+	},'-=.1')
+	.to(zbo4,.3,{
+		y:0,
+		ease: Circ.easeIn,
+	});
+	t1.repeat(0);	
+
 }

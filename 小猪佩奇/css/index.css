@@ -9,7 +9,8 @@
 	height: 100%;
 	overflow: hidden;
 	background-size: 100% 100%;
-	/*display: none;*/
+	display: none;
+	display: none;
 }
 
 html,body {
@@ -722,19 +723,49 @@ html,body {
 }
 
 #zbo4 {
-	/*background: red;*/
-	width: 3rem;
-	height: 3.5rem;
 	position: absolute;
 	bottom: 10.5rem;
-	left: 11rem;
+	left: 10rem;
 	z-index: 60;
+	/*display: none;*/
 }
-
+.zbo4 {
+	width: 3rem;
+	height: 3.5rem;	
+}
+#zbo5 {
+	position: absolute;
+	bottom: 10.5rem;
+	left: 4rem;
+	z-index: 60;
+	display: none;
+}
+.zbo5 {
+	width: 4rem;
+	height: 4.5rem;	
+}
 .zbo_bd {
 	width: 3rem;
 	position: relative;
 	z-index: 50;	
+}
+.zbo_bd2 {
+	width: 5rem;
+	position: relative;
+	z-index: 50;	
+}
+.zbo_hl2 {
+	width: 1.5rem;
+	position: absolute;
+	left: 4.1rem;
+	top: 2.5rem;
+}
+.zbo_hr2 {
+	width: 2.5rem;
+	position: absolute;
+	z-index: 60;
+	left: 3.6rem;
+	top: 3.1rem;
 }
 
 .zbo_hl {
@@ -753,7 +784,7 @@ html,body {
 	top: 1.9rem;
 }
 
-.zbo_fl {
+.zbo_fl,.zbo_fl2 {
 	width: .7rem;
 	position: absolute;
 	z-index: 40;
@@ -761,7 +792,7 @@ html,body {
 	bottom: 0.1rem;
 }
 
-.zbo_fr {
+.zbo_fr,.zbo_fr2 {
 	width: .7rem;
 	position: absolute;
 	z-index: 60;
@@ -838,11 +869,24 @@ html,body {
 	height: 100%;
 	overflow: hidden;
 	background-size: 100% 100%;
-	display: none;
+	/*display: none;*/
 }
-.zbo_wish {
+#zbo_wish {
 	width: 6rem;
 	position: absolute;
 	bottom: 4rem;
 	right: -0.7rem;
+	display: none;
+}
+#zbo_mon {
+	width: .7rem;
+	position: absolute;
+	bottom: 1rem;
+	left: -0.4rem;	
+}
+.dinosaur {
+	width: 5rem;
+	position: absolute;
+	right: -6rem;
+	bottom: -1rem;
 }
