@@ -382,18 +382,22 @@ function clickBox() {
 		setTimeout(function() {
 			clickPage.css('display','none');
 			wishPage.css('display','block');
-			wishStart();
+			zboWishStart();
 		},1000);
 	})
 }
-wishStart();
+
+
+var well2 = $('#well2');
+
+// 测试效果函数
+// zboWishStart();
 // 许愿动画
-function wishStart() {
+function broWishStart() {
 	var zbo4 = $('#zbo4');
 	var zbo5 = $('#zbo5');
 	var zboWish = $('#zbo_wish');
 	var zboMon = $('#zbo_mon');
-	var well2 = $('#well2');
 
 	var t = new TimelineMax();
 	var t1 = new TimelineMax();
@@ -426,33 +430,30 @@ function wishStart() {
 			},'+=1')
 			.to(zbo4,0,{
 				display: 'none',
+
 				onComplete: function() {
 					zbo5.css('display','block');
+					// 龙掉下来
+					t4.from('#dinosaur',.5,{
+						y: -20*fs,
+					});
+					// 猪手 龙摆动
+					t3.to('#dinosaur_wp',.5,{
+						rotation: -5,
+					})
+					.to('#dinosaur_wp',.5,{
+						rotation: 0,
+					});
+					t3.repeat(-1);
+					// 点击屏幕  猪弟弟消失
+					setTimeout(function() {
+						zbo5.css('display','none');
+						zsiWishStart();
+					},2000);
 				}
 			});
-			// 猪手摆动
-			t3.to('#zbo_hl5',1,{
-				rotation: -10,
-			})
-			.to('#zbo_hr5',1,{
-				rotation: -10,
-			},'-=1')
-			.to('#zbo_hl5',1,{
-				rotation: 0,
-			})
-			.to('#zbo_hr5',1,{
-				rotation: 0,
-			},'-=1')
-			t3.repeat(-1);
 
-			// 恐龙摆动
-			t4.to('#dinosaur',1,{
-				rotation: -10,
-			})
-			.to('#dinosaur',1,{
-				rotation: 0,
-			})
-			t4.repeat(-1);
+			
 
 		}
 	})
@@ -495,4 +496,96 @@ function wishStart() {
 	});
 	t1.repeat(0);	
 
+}
+
+// zsiWishStart();
+// 猪姐姐许愿
+function zsiWishStart() {
+	var zsi5 = $('#zsi5');
+	var t = new TimelineMax();
+	var t1 = new TimelineMax();
+	var t2 = new TimelineMax();
+	var t3 = new TimelineMax();
+
+	t3.to(well2,0,{
+		display: 'block',
+	});
+
+	// 猪姐姐前进   2s
+	t.from(zsi5,2,{
+		x: 7*fs,
+		ease: Linear.easeIn,
+		onComplete: function () {
+			// 投币
+			t2.staggerTo('#zsi_mon',1,{
+				cycle: {
+					bezier: function() {
+						return [
+							{x:-2*fs,y:-2*fs},
+							{x:-3*fs,y:-1*fs},
+						]
+					}
+				}
+			},'+=1')
+			.to('#zsi_mon',0,{
+				opacity: 0,
+			})			
+			.to('#zsi_wish',.5,{
+				opacity: 1,
+			})
+			.to('#zsi5',0,{
+				display: 'none',
+			},'+=2')
+			.to(well2,0,{
+				display: 'none',
+				onComplete: function() {
+					zsiWishGo();
+				}
+			})
+
+		}
+	});
+
+	// 猪姐姐跳跃,时长1s
+	t1.to('#zsi_fl5',.2,{
+		x : 1.5*fs,
+		rotation:'-30deg',
+		
+	})
+	.to('#zsi_fr5',.2,{
+		x : -1.5*fs,
+		rotation:'20deg',
+	},0)
+
+	.to(zsi5,.2,{
+		y:-1.5*fs,
+		ease: Circ.easeOut,
+	},'-=.1')
+	.to(zsi5,.2,{
+		y:0,
+		ease: Circ.easeIn,
+	})
+
+	.to('#zsi_fl5',.2,{
+		x : 0*fs,
+		rotation:'0deg',
+	})
+	.to('#zsi_fr5',.2,{
+		x : 0,
+		rotation:'0deg',
+	},'-=.2')
+
+	.to(zsi5,.2,{
+		y:-1.5*fs,
+		ease: Circ.easeOut,
+	},'-=.1')
+	.to(zsi5,.2,{
+		y:0,
+		ease: Circ.easeIn,
+	});
+	t1.repeat(1);		
+}
+
+function zsiWishGo() {
+	
 }
