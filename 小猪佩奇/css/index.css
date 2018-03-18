@@ -708,6 +708,7 @@ html,body {
 	width: 6rem;
 	left: 2rem;
 	bottom: 10rem;
+	display: none;
 	/*display: none;*/
 }
 
@@ -927,6 +928,7 @@ html,body {
 	position: absolute;
 	bottom: 10.5rem;
 	left: 9rem;
+	display: none;
 	/*display: none;*/
 }
 
@@ -1082,7 +1084,7 @@ html,body {
 	opacity: 0;
 }
 #zba_wish {
-	width: 6rem;
+	width: 8rem;
 	position: absolute;
 	bottom: 7rem;
 	left: -1rem;
@@ -1183,4 +1185,38 @@ html,body {
 }
 #zmaWish {
 	display: none;
+}
+#zbaWish {
+	/*display: none;*/
+}
+
+.zsiBall {
+	width: 5rem;
+	height: 11rem;
+	position: absolute;
+	bottom: 8rem;
+	left: 4rem;
+}
+.w4_zsi {
+	width: 100%;
+}
+.w4_zsi_yz {
+	width: 70%;
+	position: absolute;
+	left: 1rem;
+}
+.zboBall {
+	width: 3rem;
+	height: 7rem;
+	position: absolute;
+	bottom: 15rem;
+	left: 12rem;
+}
+.w4_zbo {
+	width: 100%;
+}
+.w4_zbo_yz {
+	width: 70%;
+	position: absolute;
+	left: 0.1rem;
 }

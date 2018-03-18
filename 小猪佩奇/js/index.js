@@ -714,6 +714,9 @@ function zmaWishStart() {
 			}
 		}
 	})	
+	.to('#zma_mon',0,{
+		opacity: 0,
+	})	
 	.to('#zma_wish',.5,{
 		opacity: 1,
 
@@ -766,7 +769,7 @@ function zmaWishGo() {
 	},'+=4')
 }
 
-zbaWishStart();
+// zbaWishStart();
 // 猪爸爸许愿开始
 function zbaWishStart() {
 	var zba5 = $('#zba5');
@@ -778,13 +781,13 @@ function zbaWishStart() {
 	well2.css('display','block');
 	zba5.css('display','block');
 
-	// 猪妈妈前进
+	// 猪爸爸前进
 	t.from(zba5,2,{
 		x: 7*fs,
 		ease:Linear.easeIn,
 
 	})
-	// 猪妈妈脚步
+	// 猪爸爸脚步
 	t1.to('#zba_fl5',1,{
 		x : 1.3*fs,
 		rotation:'-40deg',
@@ -816,6 +819,9 @@ function zbaWishStart() {
 			}
 		}
 	})	
+	.to('#zba_mon',0,{
+		opacity: 0,
+	})	
 	.to('#zba_wish',.5,{
 		opacity: 1,
 
@@ -826,8 +832,55 @@ function zbaWishStart() {
 	.to(zba5,0,{
 		display: 'none',
 		onComplete: function() {
-		
+			zbaWishGo();
 		}
 	})	
 
+}
+
+zbaWishGo();
+// 猪爸愿望实现
+function zbaWishGo() {
+	var w4Zsi = $('.w4_zsi');
+	var w4Zbo = $('.w4_zbo');
+	var zbaWish = $('#zbaWish');
+
+	var t = new TimelineMax();
+	var t1 = new TimelineMax();
+	var t2 = new TimelineMax();
+	var t3 = new TimelineMax();
+
+	t.to(zbaWish,0,{
+		display: 'block',
+	})
+	// 姐姐玩球
+	t1.to(w4Zsi,1,{
+		y: -1*fs,
+		ease: Circ.easeOut,
+	})	
+	.to(w4Zsi,1,{
+		y: 1*fs,
+		ease: Circ.easeIn,
+	})
+
+	t1.repeat(-1);
+
+	// 弟弟玩球
+	t2.to(w4Zbo,1,{
+		y: 0.5*fs,
+		ease: Circ.easeIn,
+	})
+	.to(w4Zbo,1,{
+		y: 0*fs,
+		ease: Circ.easeOut,
+	})
+	t2.repeat(-1);
+	// t2.repeatDelay(1);
+
+	t3.to(zbaWish,0,{
+		display: 'none',
+		onComplete: function() {
+			
+		}
+	},'+=4')
 }
