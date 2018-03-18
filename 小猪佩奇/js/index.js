@@ -449,6 +449,7 @@ function broWishStart() {
 					setTimeout(function() {
 						zbo5.css('display','none');
 						zsiWishStart();
+						t3.stop();
 					},2000);
 				}
 			});
@@ -506,6 +507,8 @@ function zsiWishStart() {
 	var t1 = new TimelineMax();
 	var t2 = new TimelineMax();
 	var t3 = new TimelineMax();
+
+	zsi5.css('display','block');
 
 	t3.to(well2,0,{
 		display: 'block',
@@ -586,6 +589,245 @@ function zsiWishStart() {
 	t1.repeat(1);		
 }
 
+// zsiWishGo();
+// 姐弟跳泥
 function zsiWishGo() {
-	
+	var pigPlaying = $('#pigPlaying');
+	pigPlaying.css('display','block');
+
+	var zsiNt = $('#zsiNt');
+	var zboNt = $('#zboNt');
+	var butNt = $('#butNt');
+
+	var t = new TimelineMax();
+	var t1 = new TimelineMax();
+
+	// 猪跳跃
+	t.to(zsiNt,.5,{
+		y: -1*fs,
+		ease: Ease.easeOut,
+
+	})
+	.to(zsiNt,.5,{
+		y: 0*fs,
+		ease: Ease.easeOut,
+
+	})
+	.to(zboNt,.5,{
+		y: -1*fs,
+		ease: Ease.easeOut,
+
+	},'-=.5')
+	.to(zboNt,.5,{
+		y: 0*fs,
+		ease: Ease.easeOut,
+
+	});
+	// 蝴蝶飞
+	t1.staggerTo(butNt,5,{
+		cycle: {
+			bezier: function() {
+				return [
+					{x:4*fs,y:-2*fs} ,
+					{x:5*fs,y:-5*fs} ,
+					{x:2*fs,y:-4*fs} ,
+					{x:0*fs,y:0*fs} ,
+
+				]
+			},
+			rotationZ:[-180,0],
+			
+		},
+		ease: Linear.easeIn,
+	})
+	.staggerTo(butNt,5,{
+		cycle: {
+			bezier: function() {
+				return [
+					{x:-2*fs,y:4*fs} ,
+					{x:-5*fs,y:5*fs} ,
+					{x:-4*fs,y:2*fs} ,
+					{x:0*fs,y:0*fs} ,
+				]
+			},
+			rotationZ:[90,0],
+		},
+		ease: Linear.easeIn,
+	});
+	t.repeat(-1);
+	t1.repeat(-1);
+	setTimeout(function() {
+		pigPlaying.css('display','none');
+		zmaWishStart();
+		t.stop();
+		t1.stop();
+	},2000);
+}
+
+// zmaWishStart();
+// 猪妈妈许愿开始
+function zmaWishStart() {
+	var zma5 = $('#zma5');
+	var t = new TimelineMax();
+	var t1 = new TimelineMax();
+	var t2 = new TimelineMax();
+	var t3 = new TimelineMax();
+
+	well2.css('display','block');
+	zma5.css('display','block');
+
+	// 猪妈妈前进
+	t.from(zma5,2,{
+		x: 7*fs,
+		ease:Linear.easeIn,
+
+	})
+	// 猪妈妈脚步
+	t1.to('#zma_fl5',1,{
+		x : 1.5*fs,
+		rotation:'-30deg',
+		ease:Linear.easeIn,
+	})
+	.to('#zma_fl5',1,{
+		x : 0,
+		rotation:'0deg',
+		ease:Linear.easeIn,
+	})
+	.to('#zma_fr5',1,{
+		x : -1.5*fs,
+		rotation:'30deg',
+		ease:Linear.easeIn,
+	},0)
+	.to('#zma_fr5',1,{
+		x : 0,
+		rotation:'0deg',
+		ease:Linear.easeIn,
+	},'-=1')
+	// 投币
+	.staggerTo('#zma_mon',1,{
+		cycle: {
+			bezier: function() {
+				return [
+					{x:-2*fs,y:-2*fs},
+					{x:-3.5*fs,y:-0.3*fs},
+				]
+			}
+		}
+	})	
+	.to('#zma_wish',.5,{
+		opacity: 1,
+
+	},'+=.5')
+	.to(well2,0,{
+		display: 'none',
+	},'+=2')
+	.to(zma5,0,{
+		display: 'none',
+		onComplete: function() {
+			zmaWishGo();
+		
+		}
+	})	
+
+}
+
+// zmaWishGo();
+// 猪妈妈愿望实现
+function zmaWishGo() {
+	var zmaWish = $('#zmaWish');
+
+	var t = new TimelineMax();
+	var t1 = new TimelineMax();
+	var t2 = new TimelineMax();
+	// 显示
+	t.to(zmaWish,0,{
+		display: 'block',
+	});
+	// 猪手摆动
+	t1.to('.w3ZmaHl',1,{
+		rotation: 20,
+	})
+	.to('.w3ZmaHr',1,{
+		rotation: -20,
+	},0)
+	.to('.w3ZmaHl',1,{
+		rotation: 0,
+	})
+	.to('.w3ZmaHr',1,{
+		rotation: 0,
+	},'-=1')
+	t1.repeat(-1);
+	// 猪消失
+	t2.to(zmaWish,0,{
+		display: 'none',
+		onComplete: function() {
+			zbaWishStart();
+		}
+	},'+=4')
+}
+
+zbaWishStart();
+// 猪爸爸许愿开始
+function zbaWishStart() {
+	var zba5 = $('#zba5');
+	var t = new TimelineMax();
+	var t1 = new TimelineMax();
+	var t2 = new TimelineMax();
+	var t3 = new TimelineMax();
+
+	well2.css('display','block');
+	zba5.css('display','block');
+
+	// 猪妈妈前进
+	t.from(zba5,2,{
+		x: 7*fs,
+		ease:Linear.easeIn,
+
+	})
+	// 猪妈妈脚步
+	t1.to('#zba_fl5',1,{
+		x : 1.3*fs,
+		rotation:'-40deg',
+		ease:Linear.easeIn,
+	})
+	.to('#zba_fl5',1,{
+		x : 0,
+		rotation:'0deg',
+		ease:Linear.easeIn,
+	})
+	.to('#zba_fr5',1,{
+		x : -1.3*fs,
+		rotation:'40deg',
+		ease:Linear.easeIn,
+	},0)
+	.to('#zba_fr5',1,{
+		x : 0,
+		rotation:'0deg',
+		ease:Linear.easeIn,
+	},'-=1')
+	// 投币
+	.staggerTo('#zba_mon',1,{
+		cycle: {
+			bezier: function() {
+				return [
+					{x:-2*fs,y:-1*fs},
+					{x:-3*fs,y:0.3*fs},
+				]
+			}
+		}
+	})	
+	.to('#zba_wish',.5,{
+		opacity: 1,
+
+	},'+=.5')
+	.to(well2,0,{
+		display: 'none',
+	},'+=2')
+	.to(zba5,0,{
+		display: 'none',
+		onComplete: function() {
+		
+		}
+	})	
+
 }

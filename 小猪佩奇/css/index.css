@@ -10,7 +10,6 @@
 	overflow: hidden;
 	background-size: 100% 100%;
 	display: none;
-	display: none;
 }
 
 html,body {
@@ -709,7 +708,7 @@ html,body {
 	width: 6rem;
 	left: 2rem;
 	bottom: 10rem;
-	display: none;
+	/*display: none;*/
 }
 
 /*送快递页*/
@@ -911,11 +910,48 @@ html,body {
 	height: 5rem;
 	/*background: red;*/
 }
+#zma5 {
+	position: absolute;
+	bottom: 10.5rem;
+	left: 9rem;
+	display: none;
+	/*display: none;*/
+}
+
+.zma5 {
+	width: 4rem;
+	height: 6rem;
+	/*background: red;*/
+}
+#zba5 {
+	position: absolute;
+	bottom: 10.5rem;
+	left: 9rem;
+	/*display: none;*/
+}
+
+.zba5 {
+	width: 4.5rem;
+	height: 6.5rem;
+	/*background: red;*/
+}
+
 .zsi_bd5 {
 	width: 100%;
 	position: relative;	
 	z-index: 50;
 }
+.zma_bd5 {
+	width: 100%;
+	position: relative;	
+	z-index: 50;
+}
+.zba_bd5 {
+	width: 100%;
+	position: relative;	
+	z-index: 50;
+}
+
 .zsi_hl5 {
 	width: 1rem;
 	position: absolute;
@@ -930,6 +966,36 @@ html,body {
 	bottom: 1.5rem;
 	right: -0.1rem;		
 }
+
+.zma_hr5 {
+	width: 1rem;
+	position: absolute;
+	z-index: 40;
+	bottom: 2rem;
+	right: -0.1rem;		
+}
+.zma_hl5 {
+	width: 1rem;
+	position: absolute;
+	z-index: 40;
+	bottom: 2rem;
+	left: -0.7rem;		
+}
+.zba_hr5 {
+	width: 1.1rem;
+	position: absolute;
+	z-index: 40;
+	bottom: 2.5rem;
+	right: -0.4rem;		
+}
+.zba_hl5 {
+	width: 1.1rem;
+	position: absolute;
+	z-index: 40;
+	bottom: 2.5rem;
+	left: -0.9rem;		
+}
+
 .zsi_fl5 {
 	width: .9rem;
 	position: absolute;
@@ -946,15 +1012,61 @@ html,body {
 	-webkit-transform-origin: top right;
 
 }
+.zma_fl5 {
+	width: .9rem;
+	position: absolute;
+	z-index: 40;
+	bottom: 0.2rem;
+	left: 0.2rem;		
+}
+.zma_fr5 {
+	width: .8rem;
+	position: absolute;
+	z-index: 40;
+	bottom: 0.1rem;
+	right: 1rem;		
+	-webkit-transform-origin: top right;
+
+}
+.zba_fl5 {
+	width: 1rem;
+	position: absolute;
+	z-index: 40;
+	bottom: 0.2rem;
+	left: 0.8rem;		
+	-webkit-transform-origin: top right;
+}
+.zba_fr5 {
+	width: .8rem;
+	position: absolute;
+	z-index: 60;
+	bottom: 0.1rem;
+	right: 1.1rem;		
+	-webkit-transform-origin: top left;
+}
+
 .zsi_yz5 {
 	width: 3rem;
 	position: absolute;
 	z-index: 40;
 	bottom: -0.2rem;
 	right: 0.4rem;	
-	-webkit-transform-origin: top right;
-
 }
+.zma_yz5 {
+	width: 3.3rem;
+	position: absolute;
+	z-index: 40;
+	bottom: 0.1rem;
+	right: 0.8rem;	
+}
+.zba_yz5 {
+	width: 3.3rem;
+	position: absolute;
+	z-index: 40;
+	bottom: 0.1rem;
+	right: 0.8rem;	
+}
+
 #zsi_wish {
 	width: 6rem;
 	position: absolute;
@@ -962,6 +1074,21 @@ html,body {
 	left: -1rem;
 	opacity: 0;
 }
+#zma_wish {
+	width: 6rem;
+	position: absolute;
+	bottom: 6.5rem;
+	left: -1rem;
+	opacity: 0;
+}
+#zba_wish {
+	width: 6rem;
+	position: absolute;
+	bottom: 7rem;
+	left: -1rem;
+	opacity: 0;
+}
+
 #zsi_mon {
 	width: 0.7rem;
 	position: absolute;
@@ -969,6 +1096,21 @@ html,body {
 	left: -0.8rem;	
 	z-index: 50;
 }
+#zma_mon {
+	width: 0.7rem;
+	position: absolute;
+	bottom: 2.1rem;
+	left: -1rem;	
+	z-index: 50;
+}
+#zba_mon {
+	width: 0.7rem;
+	position: absolute;
+	bottom: 2.6rem;
+	left: -1.2rem;
+	z-index: 50;
+}
+
 #pigPlaying {
 	width: 15rem;
 	height: 11rem;
@@ -976,6 +1118,7 @@ html,body {
 	position: absolute;
 	bottom: 8rem;
 	left: 2rem;
+	display: none;;
 }
 .wishNt {
 	width: 100%;
@@ -998,6 +1141,46 @@ html,body {
 .butNt {
 	width: 1.5rem;
 	position: absolute;
-	bottom: 8rem;
+	bottom: 10rem;
 	left: 5.5rem;
+	-webkit-transform: rotate(90deg);
+}
+.w3Zbo {
+	width: 5rem;
+	position: absolute;
+	bottom: 9rem;
+	left: 3rem;
+}
+.w3ZboYz {
+	width: 2.5rem;
+	position: absolute;
+	bottom: 8.8rem;
+	left: 3.8rem;	
+}
+.w3Zma {
+	width: 5rem;
+	position: absolute;
+	z-index: 50;
+	bottom: 9rem;
+	left: 11rem;;	
+}
+.w3ZmaHl {
+	width: 1.5rem;
+	position: absolute;
+	bottom: 12.2rem;
+	left: 10rem;	
+	z-index: 40;
+	-webkit-transform-origin: bottom right;
+}
+.w3ZmaHr {
+	width: 1.5rem;
+	position: absolute;
+	bottom: 12.2rem;
+	left: 14.8rem;	
+	z-index: 60;	
+	-webkit-transform-origin: bottom left;
+
+}
+#zmaWish {
+	display: none;
 }

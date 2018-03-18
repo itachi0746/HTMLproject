@@ -182,7 +182,7 @@ function first () {
 //		爪子张开
 		.staggerTo(".paws",.1,{
 			cycle:{
-	 			rotation:[25,-25]
+	 			rotation:[55,-25]
 	 		},
 	 		ease:Circ.easeIn
 		})
