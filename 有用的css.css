@@ -1,0 +1,33 @@
+
+/*====================动画(上升的气泡)=============================*/
+@-webkit-keyframes showAndDisapper {
+    0% {
+        opacity: 0;
+    }
+    99% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+@-webkit-keyframes riseUp {
+    0% {
+        transform: translate(0);
+    }
+    100% {
+        transform: translate(0, -10px);
+    }
+}
+
+/*-webkit-animation: showAndDisapper 3s linear 0s infinite,
+riseUp 3s linear 0s infinite;
+
+-webkit-animation: showAndDisapper 3s linear 0.2s infinite,
+riseUp 3s linear 0.2s infinite;
+
+-webkit-animation: showAndDisapper 3s linear .4s infinite,
+riseUp 3s linear .4s infinite;*/
+
+/*============================================================*/

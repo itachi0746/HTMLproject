@@ -870,7 +870,7 @@ html,body {
 	height: 100%;
 	overflow: hidden;
 	background-size: 100% 100%;
-	/*display: none;*/
+	display: none;
 }
 #zbo_wish {
 	width: 6rem;
@@ -1219,4 +1219,161 @@ html,body {
 	width: 70%;
 	position: absolute;
 	left: 0.1rem;
+}
+#shakePage {
+	background: url(../img/bg8.png) no-repeat;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	background-size: 100% 100%;
+	display: none;	
+}
+#wishOne {
+	background: url(../img/bg9.png) no-repeat;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	background-size: 100% 100%;
+	display: none;
+}
+#wishTwo {
+	background: url(../img/bg11.png) no-repeat;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	background-size: 100% 100%;
+	/*display: none;	*/
+}
+#wishTwo2 {
+	background: url(../img/bg12.png) no-repeat;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	background-size: 100% 100%;
+	display: none;	
+}
+#lastPage {
+	background: url(../img/bg13.png) no-repeat;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	background-size: 100% 100%;
+	display: none;
+}
+#ticket_btn {
+	/*border: 1px solid;*/
+	width: 7rem;
+	height: 4rem;
+	position: absolute;
+	top: 11rem;
+	left: 6rem;
+}
+.bg13_title {
+	width: 11rem;
+	position: absolute;
+	top: 9rem;
+	left: 4rem;	
+}
+.milk {
+	width: 8rem;
+	position: absolute;
+	top: 11rem;
+	left: 5.5rem;
+}
+.bg8_q1 {
+	width: 1rem;
+	position: absolute;
+	top: 9rem;
+	left: 9rem;	
+	-webkit-animation: showAndDisapper 3s linear 0s infinite,
+	riseUp 3s linear 0s infinite;
+}
+.bg8_q2 {
+	width: 1.5rem;
+	position: absolute;
+	top: 7rem;
+	left: 7rem;	
+	-webkit-animation: showAndDisapper 3s linear 0.2s infinite,
+	riseUp 3s linear 0.2s infinite;
+}
+.bg8_q3 {
+	width: 3rem;
+	position: absolute;
+	top: 4rem;
+	left: 10rem;	
+	-webkit-animation: showAndDisapper 3s linear 0.4s infinite,
+	riseUp 3s linear 0.4s infinite;
+}
+/*气泡上升消失动画*/
+@-webkit-keyframes showAndDisapper {
+    0% {
+        opacity: 0;
+    }
+    99% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+@-webkit-keyframes riseUp {
+    0% {
+        transform: translate(0);
+    }
+    100% {
+        transform: translate(0, -1rem);
+    }
+}
+.yaoyiyao {
+	width: 3.5rem;
+	position: absolute;
+	top: 22rem;
+	left: 4rem;	
+	-webkit-transform-origin: bottom right;
+}
+.bg8_yyy{
+	width: 7rem;
+	position: absolute;
+	top: 24rem;
+	left: 8rem;	
+	/*display: none;*/
+}
+.bg10_yyy{
+	width: 6rem;
+	position: absolute;
+	top: 23rem;
+	left: 8rem;	
+	display: none;
+}
+
+#bg9_btn {
+	width: 6rem;	
+	position: absolute;
+	top: 25rem;
+	left: 6.5rem;	
+}
+#wishTwo_btn {
+	width: 6rem;	
+	position: absolute;
+	top: 26rem;
+	left: 6.5rem;	
+}
+#paste_btn {
+	width: 7rem;	
+	position: absolute;
+	bottom: 2rem;
+	left: 2rem;	
+}
+#noShare_btn {
+	width: 7rem;	
+	position: absolute;
+	bottom: 2rem;
+	left: 10rem;		
+}
+#playAgain {
+	width: 7rem;	
+	position: absolute;
+	bottom: 2rem;
+	left: 5.9rem;		
 }
