@@ -7,14 +7,18 @@
 	background: url(../img/bg1.png) no-repeat;
 	width: 100%;
 	height: 100%;
-	overflow: hidden;
 	background-size: 100% 100%;
 	display: none;
+	overflow: hidden;
 }
-
+.homePageStartWp {
+	height: 100%;
+	overflow: hidden;
+}
 html,body {
 	height: 100%;
 	/*display: none;*/
+	overflow: hidden;
 }
 
 .sun {
@@ -307,7 +311,7 @@ html,body {
 #homePageStart {
 	width: 6rem;
 	position: absolute;
-	bottom: 3rem;
+	bottom: 2rem;
 	left: 6.4rem;
 	/*display: none;*/
 }
@@ -708,7 +712,6 @@ html,body {
 	width: 6rem;
 	left: 2rem;
 	bottom: 10rem;
-	display: none;
 	/*display: none;*/
 }
 
@@ -727,7 +730,6 @@ html,body {
 	bottom: 10.5rem;
 	left: 10rem;
 	z-index: 60;
-	display: none;
 	/*display: none;*/
 }
 .zbo4 {
@@ -1187,7 +1189,7 @@ html,body {
 	display: none;
 }
 #zbaWish {
-	/*display: none;*/
+	display: none;
 }
 
 .zsiBall {
@@ -1242,7 +1244,7 @@ html,body {
 	height: 100%;
 	overflow: hidden;
 	background-size: 100% 100%;
-	/*display: none;	*/
+	display: none;
 }
 #wishTwo2 {
 	background: url(../img/bg12.png) no-repeat;

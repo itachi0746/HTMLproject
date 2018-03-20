@@ -12,24 +12,35 @@ var sun = $('.sun');
 // console.log(sun);
 
 
+// 太阳
+t0 = new TimelineMax();
+t0.to(sun,10,{
+	rotation:'360deg',
+	ease: Linear.easeIn,
+});
+t0.repeat(-1);
+
+function resetStyle(arg) {
+	arg.style = 'none';
+}
+
 // ready事件(首页的动画)
-$(function() {
+$(firstPage);
+
+// 首页的动画的函数
+function firstPage() {
 	var t = new TimelineMax();
-	var t1 = new TimelineMax();
 	var t2 = new TimelineMax();
 	var t3 = new TimelineMax();
 	var t4 = new TimelineMax();
 	var t5 = new TimelineMax();
 	var t6 = new TimelineMax();
 	var t7 = new TimelineMax();
+	var homePage= $('#homePage');
 
-	// 太阳
-	t1.to(sun,10,{
-		rotation:'360deg',
-		ease: Linear.easeIn,
-	});
+	homePage.css('display','block');
 
-	t1.repeat(-1);
+
 
 	// 猪爸妈前进
 	t.from(zba,4,{
@@ -196,8 +207,7 @@ $(function() {
 	t3.repeat(1);
 	t4.repeat(1);
 
-});
-
+}
 // console.log(zbo);
 
 var expressPage = $('#expressPage');
@@ -209,6 +219,7 @@ var wishPage = $('#wishPage');
 homeStart.on('click', function() {
 	var box = $('#box');
 	var well = $('#well');
+	var zeb = $('#zeb');
 	var t = new TimelineMax();
 	var t1 = new TimelineMax();
 	var t2 = new TimelineMax();
@@ -283,9 +294,9 @@ homeStart.on('click', function() {
 
 	//斑马离开 3.2+1.5+1+3.2 = 8.9s
 	// 转身
-	.set('#zeb_hr',{
-		display: 'none',
-	})	
+	// .set('#zeb_hr',{
+	// 	display: 'none',
+	// })	
 	.set('#zeb',{
 		rotationY: 180,
 	})	
@@ -375,11 +386,19 @@ function clickBox() {
 
 	// 点击箱子
 	clickDiv.on('click',function() {
+		console.log(zeb.style);
+		zeb.style = 'none';
+		console.log(zeb.style);
 		btnBox.css('display','none');
 		box2.css('display','none');
 		clickDiv.css('display','none');
 		well.css('display','block');
 		setTimeout(function() {
+			t.clear();
+			t1.clear();
+			t2.clear();
+			t3.clear();
+			t4.clear();
 			clickPage.css('display','none');
 			wishPage.css('display','block');
 			zboWishStart();
@@ -392,12 +411,15 @@ var well2 = $('#well2');
 
 // 测试效果函数
 // zboWishStart();
-// 许愿动画
-function broWishStart() {
+// 猪弟弟许愿动画
+function zboWishStart() {
 	var zbo4 = $('#zbo4');
 	var zbo5 = $('#zbo5');
 	var zboWish = $('#zbo_wish');
 	var zboMon = $('#zbo_mon');
+
+	zbo4.css('display','block');
+	zboMon.css('display','block');
 
 	var t = new TimelineMax();
 	var t1 = new TimelineMax();
@@ -445,11 +467,11 @@ function broWishStart() {
 						rotation: 0,
 					});
 					t3.repeat(-1);
-					// 点击屏幕  猪弟弟消失
+					//  猪弟弟消失
 					setTimeout(function() {
 						zbo5.css('display','none');
 						zsiWishStart();
-						t3.stop();
+						t3.clear();
 					},2000);
 				}
 			});
@@ -503,12 +525,14 @@ function broWishStart() {
 // 猪姐姐许愿
 function zsiWishStart() {
 	var zsi5 = $('#zsi5');
+	var zsiMon = $('#zsi_mon');
 	var t = new TimelineMax();
 	var t1 = new TimelineMax();
 	var t2 = new TimelineMax();
 	var t3 = new TimelineMax();
 
 	zsi5.css('display','block');
+	zsiMon.css('display','block');
 
 	t3.to(well2,0,{
 		display: 'block',
@@ -659,8 +683,8 @@ function zsiWishGo() {
 	setTimeout(function() {
 		pigPlaying.css('display','none');
 		zmaWishStart();
-		t.stop();
-		t1.stop();
+		t.clear();
+		t1.clear();
 	},2000);
 }
 
@@ -668,6 +692,7 @@ function zsiWishGo() {
 // 猪妈妈许愿开始
 function zmaWishStart() {
 	var zma5 = $('#zma5');
+	var zmaMon = $('#zma_mon');
 	var t = new TimelineMax();
 	var t1 = new TimelineMax();
 	var t2 = new TimelineMax();
@@ -773,6 +798,7 @@ function zmaWishGo() {
 // 猪爸爸许愿开始
 function zbaWishStart() {
 	var zba5 = $('#zba5');
+	var zbaMon = $('#zba_mon');
 	var t = new TimelineMax();
 	var t1 = new TimelineMax();
 	var t2 = new TimelineMax();
@@ -780,6 +806,7 @@ function zbaWishStart() {
 
 	well2.css('display','block');
 	zba5.css('display','block');
+	zbaMon.css('display','block');
 
 	// 猪爸爸前进
 	t.from(zba5,2,{
@@ -881,10 +908,11 @@ function zbaWishGo() {
 	t3.to(zbaWish,0,{
 		display: 'none',
 		onComplete: function() {
-			t1.stop();
-			t2.stop();
+			t1.clear();
+			t2.clear();
 			wishPage.css('display','none');			
-			shakeShake();
+			// shakeShake();
+			shakeResult();
 		}
 	},'+=4')
 }
@@ -937,7 +965,7 @@ function shakeShake() {
 	//首先定义一下，全局变量
 	var lastTime = 0;//此变量用来记录上次摇动的时间
 	var x = y = z = lastX = lastY = lastZ = 0;//此组变量分别记录对应x、y、z三轴的数值和上次的数值
-	var shakeSpeed = 1000;//设置阈值
+	var shakeSpeed = 5000;//设置阈值
 	//编写摇一摇方法
 	function shake(eventData){
 	        var acceleration = eventData.accelerationIncludingGravity;//获取设备加速度信息
@@ -952,7 +980,7 @@ function shakeShake() {
 	                //计算 公式的意思是 单位时间内运动的路程，即为我们想要的速度
 	                var speed = Math.abs(x + y + z - lastX - lastY - lastZ) / diffTime * 10000;
 	                if(speed > shakeSpeed){//如果计算出来的速度超过了阈值，那么就算作用户成功摇一摇
-	                        t.stop();
+	                        t.clear();
 	                        shakePage.css('display','none');
 	                        shakeResult();
 	                        //这里就是放置如果用户成功的摇一摇，将要触发的事件
@@ -965,7 +993,7 @@ function shakeShake() {
 
 }
 
-shakeResult();
+// shakeResult();
 // 摇一摇
 function shakeResult() {
 	// 是否第一次摇
@@ -993,22 +1021,25 @@ function shakeResult() {
 		var ticketBtn = $('#ticket_btn');
 
 		wishTwo.css('display','block');
-
+		// 优惠券点击
 		ticketBtn.on('click',function() {
+			console.log(555);
 			wishTwo.css('display','none');
 			wishTwo2.css('display','block');
 			toLastPage();
 		})
 
 	}
-
 }
 
+// toLastPage();
 function toLastPage() {
-	var bg9Btn = $('#bg9_btn');
+	var wishTwo2 = $('#wishTwo2');
+	var noShareBtn = $('#noShare_btn');
 	var lastPage = $('#lastPage');
-	bg9Btn.on('click',function() {
+	noShareBtn.on('click',function() {
 		lastPage.css('display','block');
+		wishTwo2.css('display','none');
 		restart();
 	})
 }
@@ -1017,9 +1048,22 @@ function toLastPage() {
 function restart() {
 	var lastPage = $('#lastPage');
 	var playAgain= $('#playAgain');
+	var clickDiv = $('.clickDiv');
+	var btnBox = $('#btnBox');
+	var well = $('#well');
+	var box2 = $('#box2');
+	// var homePage= $('#homePage');
 
 	playAgain.on('click',function() {
+		btnBox.css('display','block');
+		clickDiv.css('display','block');
+		btnBox.css('display','block');
+		box2.css('display','block');
+
 		lastPage.css('display','none');
-		
+		well.css('display','none');
+		// homePage.css('display','block');
+		firstShake = true;
+		firstPage();
 	})
 }
