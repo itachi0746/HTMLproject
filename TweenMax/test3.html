@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TweenMax动画库学习(一)</title>
+    <script src="jquery-3.3.1.min.js"></script>
+    <script src="TweenMax.min.js"></script>
+    <style>
+        html,body{
+            margin: 0;
+            padding: 0;
+        }
+        #div1{
+            width:100px;
+            height:100px;
+            background: #8D121A;
+            position: absolute;
+            left:0;
+            top:100px;
+        }
+    </style>
+    <script>
+//        stop()：停止动画
+//        play()：开始动画
+//        reverse()：反向开始动画
+//        onComplete()：运动结束后触发对应的函数
+//        onReverseComplete()：反向运动结束后触发对应的函数
+        $(function(){
+            var t =new TimelineMax();
+            // t.to("元素选择器或对象",持续时间,对象,【可选】动画延迟发生时间可写数字,"-=0.5","+=0.5")
+            t.to("#div1",1,{left:300,onComplete:function(){
+                // alert("left:300");
+            },onReverseComplete(){
+                // alert("left:0");
+            }},1);
+            t.to("#div1",2,{width:300,onComplete:function(){
+                // alert("width:300")
+            },onReverseComplete(){
+                // alert("width:100");
+            }},"+=1");
+            t.to("#div1",2,{height:300},"+=1");
+            t.to("#div1",2,{top:600});
+            t.to("#div1",2,{rotationZ:180});
+            t.to("#div1",2,{opacity:0});
+            t.repeat(-1); //停止动画
+            $("#play").click(function(){
+                t.play();//播放动画
+            });
+            $("#stop").click(function(){
+                t.stop();//停止动画
+            });
+            $("#reverse").click(function(){
+                t.restart();//反向执行动画
+            });
+        });
+    </script>
+</head>
+<body>
+<input type="button" id="play" value="播放"/>
+<input type="button" id="stop" value="停止"/>
+<input type="button" id="reverse" value="反向动画"/>
+<div id="div1"></div>
+</body>
+</html>
