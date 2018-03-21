@@ -472,7 +472,7 @@ function zboWishStart() {
 			onComplete: function() {
 				zboMon.css('display','none');
 				zboWish.css('display','block');
-				
+	
 				// 井,猪消失
 				t42.to(well2,0,{
 					display: 'none',
@@ -503,8 +503,6 @@ function zboWishStart() {
 						},2000);
 					}
 				});
-
-				
 
 			}
 		})
@@ -574,7 +572,6 @@ function zsiWishStart() {
 			x: 7*fs,
 			ease: Linear.easeIn,
 			onComplete: function () {
-				console.log('j投币');
 				// 投币
 				t52.staggerTo(zsiMon,1,{
 					cycle: {

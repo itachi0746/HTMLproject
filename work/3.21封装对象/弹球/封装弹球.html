@@ -1,0 +1,154 @@
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+	<style>
+		.box{
+			position: relative;
+			height: 95%;
+			width: 95%;
+			border: 2px solid;
+		}
+		.zhangai{
+			padding: 0;
+			margin: 0;
+			position: absolute;
+			height: 150px;
+			width: 150px;
+			bottom: 50%;
+			left: 50%;
+			background-color: green;
+		}
+		span{
+			padding: 0;
+			margin: 0;
+			position: absolute;
+			height: 50px;
+			width: 50px;
+			top: 20px;
+			left: 20px;
+			background-color: red;
+			border-radius:50%;
+		}		
+	</style>
+	
+</head>
+<body>
+	<div id="box" class="box">
+		<div id="zhangai" class="zhangai"></div>
+		<!-- <div id="boll" class="boll"></div> -->
+		<!-- <span></span> -->
+	</div>
+</body>
+<script>
+	function Ball(father,vx,vy,t) {
+		this.vx = vx;
+		this.vy = vy;
+		this.t = t;
+		this.x = 0;
+		this.y = 0;
+		this.father = father;
+		this.child = null;
+		// this.temp = this.index;
+
+
+	}	
+
+	Ball.prototype.tf = false;
+	Ball.prototype.lf = false;
+	// Ball.prototype.index = 0;
+
+	// Ball.prototype.box = document.getElementById( "box" );
+	// Ball.prototype.ball = document.getElementById( "boll" ); 
+	// Ball.prototype.zhangai = document.getElementById( "zhangai" );  
+
+	var box = document.getElementById( "box" );
+	// var ball = document.getElementById( "boll" ); 
+	var zhangai = document.getElementById( "zhangai" );  
+
+	Ball.prototype.move = function () {
+		console.log(this.child);
+
+
+		if (this.child.offsetLeft > box.clientWidth - this.child.offsetWidth || this.child.offsetLeft <0 ){		
+			this.vx*=-1;
+		}
+		if (this.child.offsetTop > box.clientHeight - this.child.offsetHeight || this.child.offsetTop <0 ){
+			this.vy*=-1;
+		}
+
+		if (this.child.offsetTop + this.child.offsetHeight > zhangai.offsetTop  //判断球和障碍物的上边和下边的关系
+			&& this.child.offsetTop < zhangai.offsetTop + zhangai.offsetHeight) {
+			if (this.child.offsetLeft > zhangai.offsetLeft - this.child.offsetWidth //判断球和障碍物的左边和右边的关系
+				&& this.child.offsetLeft < zhangai.offsetLeft + zhangai.offsetWidth) {
+				if (this.tf) this.vx *= -1;
+	       	 	if (this.lf) this.vy *= -1;
+	        	if (!this.tf && !this.lf){
+	        		this.vx *= -1; 
+	        		this.vy *= -1; 
+	     		}
+				this.lf = true;
+			}
+			else{
+				this.lf = false;
+				this.tf = true;
+	    	} 
+		}
+		else{
+			if (this.child.offsetLeft > zhangai.offsetLeft - this.child.offsetWidth //判断球和障碍物的左边和右边的关系
+				&& this.child.offsetLeft < zhangai.offsetLeft + zhangai.offsetWidth){
+				this.lf = true;
+			}
+			else{
+				this.lf = false;
+	    		this.tf = false;
+	    	}
+		}
+		this.y=this.child.offsetTop+this.vy;
+		this.x=this.child.offsetLeft+this.vx;
+		this.child.style.left=this.x +'px';	
+		this.child.style.top=this.y +'px';	
+		// console.log(this.x,ball.offsetLeft,this.vx);
+
+	};
+
+	Ball.prototype.action = function() {
+		console.log(this.move,this.t);
+
+	
+		var span = document.createElement('span');
+		this.father.appendChild(span);
+		this.child = span;
+
+		// var a = this.move;
+		// console.log(a===this.move);
+
+		setInterval(() => {
+			this.move();
+		},this.t);
+
+		// this.index++;
+
+
+	};
+
+
+	var a = new Ball(box,10,5,20);
+	var b = new Ball(box,15,15,20);
+	var c = new Ball(box,25,15,20);
+	var d = new Ball(box,50,15,20);
+	// var b = new Ball(10,5,20);
+
+	// var b = new Ball(20,5,20);
+	// console.log(a);
+
+	// a.action();
+	a.action();
+	b.action();
+	c.action();
+	d.action();
+
+
+
+</script>
+</html>
