@@ -1,4 +1,21 @@
 
+// 图片预加载
+function loadImg(arr){
+    var now = 0;
+    var len = arr.length;
+    var imgWrap = [];
+
+    for(var i=0;i<len;i++) {
+        imgWrap[i] = new Image();
+        imgWrap[i].src = arr[i];        
+    }
+    // console.log('OKOK');
+}
+
+var Imgs = ['img/bg1.png', 'img/bg10_yyy.png', 'img/bg11.png', 'img/bg11_btn.png', 'img/bg12.png', 'img/bg12_btn1.png', 'img/bg12_btn2.png', 'img/bg13.png', 'img/bg13_btn.png', 'img/bg13_title.png', 'img/bg2.png', 'img/bg8.png', 'img/bg8_nf.png', 'img/bg8_q1.png', 'img/bg8_q2.png', 'img/bg8_q3.png', 'img/bg8_yyy.png', 'img/bg9.png', 'img/bg9_btn.png', 'img/btn_box.png', 'img/p1_cloud1.png', 'img/p1_cloud2.png', 'img/p1_start.png', 'img/p1_sun.png', 'img/p1_title1.png', 'img/p1_title2.png', 'img/w1_din.png',
+ 'img/w1_hl.png', 'img/w1_hr.png', 'img/w1_yz.png', 'img/w1_zbo.png', 'img/w3_zbo.png', 'img/w3_zbo_yz.png', 'img/w3_zma.png', 'img/w3_zma_hl.png', 'img/w3_zma_hr.png', 'img/w4_zbo.png', 'img/w4_zbo_yz.png', 'img/w4_zsi.png', 'img/w4_zsi_yz.png', 'img/wish1_con.png', 'img/wish1_mon.png', 'img/wish2_but.png', 'img/wish2_con.png', 'img/wish2_nt.png', 'img/wish2_zbo.png', 'img/wish2_zsi.png', 'img/wish3_con.png', 'img/wish4_con.png', 'img/wish_well.png', 'img/yaoyiyao.png', 'img/zbaL.png', 
+'img/zbaR.png', 'img/zba_cloud.png', 'img/zba_fl.png', 'img/zba_fl1.png', 'img/zba_fr.png', 'img/zba_fr1.png', 'img/zba_hl.png', 'img/zba_hr.png', 'img/zba_yz.png', 'img/zboL.png', 'img/zboR.png', 'img/zbo_cloud.png', 'img/zbo_fl.png', 'img/zbo_fl1.png', 'img/zbo_fr.png', 'img/zbo_fr1.png', 'img/zbo_hl.png', 'img/zbo_hl1.png', 'img/zbo_hr.png', 'img/zbo_hr1.png', 'img/zbo_yz.png', 'img/zebR.png', 'img/zeb_box.png', 'img/zeb_fl.png', 'img/zeb_fr.png', 'img/zeb_hl.png', 'img/zeb_hr.png', 
+'img/zeb_yz.png', 'img/zmaL.png', 'img/zmaR.png', 'img/zma_cloud.png', 'img/zma_fl.png', 'img/zma_fl1.png', 'img/zma_fr.png', 'img/zma_fr1.png', 'img/zma_hl.png', 'img/zma_hr.png', 'img/zma_yz.png', 'img/zsiL.png', 'img/zsiR.png', 'img/zsi_cloud.png', 'img/zsi_fl.png', 'img/zsi_fl1.png', 'img/zsi_fr.png', 'img/zsi_fr1.png', 'img/zsi_hl.png', 'img/zsi_hl1.png', 'img/zsi_hr.png', 'img/zsi_hr1.png', 'img/zsi_yz.png'];
 // 计算出根元素的font-size
 var cw = document.documentElement.clientWidth;
 var fs =  40* (cw / 750);
@@ -22,7 +39,12 @@ t0.repeat(-1);
 
 
 // ready事件(首页的动画)
-$(firstPage);
+// $(firstPage);
+window.onload = function() {
+	loadImg(Imgs);
+	firstPage();
+	// console.log('2222');
+}
 
 // 第一页的
 var t11 = new TimelineMax();
@@ -69,7 +91,7 @@ function firstPage() {
 
 		// 猪姐弟前进
 		t12.from(zsi,4.2,{
-			x:-18*fs,
+			x:-22*fs,
 			ease: Linear.easeIn,
 		})
 		.from(zbo,4.2,{
@@ -431,15 +453,12 @@ function clickBox() {
 	})
 }
 
-
+// =======================================================
 var well2 = $('#well2');
 var onoff4 = true;
 var t45 = new TimelineMax();
 var t41 = new TimelineMax();
-var t42 = new TimelineMax();
 var t43 = new TimelineMax();
-var t44 = new TimelineMax();
-// 测试效果函数
 // zboWishStart();
 // 猪弟弟许愿动画
 function zboWishStart() {
@@ -468,44 +487,45 @@ function zboWishStart() {
 						{x:-5*fs,y:-1.3*fs},
 					]
 				}
-			},
-			onComplete: function() {
-				zboMon.css('display','none');
-				zboWish.css('display','block');
-	
-				// 井,猪消失
-				t42.to(well2,0,{
-					display: 'none',
-				},'+=1')
-				.to(zbo4,0,{
-					display: 'none',
-
-					onComplete: function() {
-						zboWish.css('display','none');
-						zbo5.css('display','block');
-						// 龙掉下来
-						t44.from('#dinosaur',.5,{
-							y: -20*fs,
-						});
-						// 猪手 龙摆动
-						t43.to('#dinosaur_wp',.5,{
-							rotation: -5,
-						})
-						.to('#dinosaur_wp',.5,{
-							rotation: 0,
-						});
-						t43.repeat(-1);
-						//  猪弟弟消失
-						setTimeout(function() {
-							zbo5.css('display','none');
-							zsiWishStart();
-							t43.stop();
-						},2000);
-					}
-				});
-
 			}
 		})
+		.to(zboMon,0,{display: 'none'})
+		.to(zboWish,0,{display: 'block'})
+
+
+		// 井,猪消失
+		.to(well2,0,{
+			display: 'none',
+		},'+=1')
+		.to(zbo4,0,{
+			display: 'none',}
+		)
+		.to(zboWish,0,{display: 'none'})
+
+		.to(zbo5,0,{display: 'block'})
+		// 龙掉下来
+		.from('#dinosaur',.5,{
+			y: -20*fs,
+			onComplete: function() {
+				// 猪手 龙摆动
+				t43.to('#dinosaur_wp',.5,{
+					rotation: -5,
+				})
+				.to('#dinosaur_wp',.5,{
+					rotation: 0,
+				});
+				t43.repeat(2);	
+				//  猪弟弟消失
+				setTimeout(function() {
+					zbo5.css('display','none');
+					// t43.stop();		
+					zsiWishStart();
+				},2000);					
+			}
+		});
+
+
+
 		// 猪弟弟跳跃,时长1.4s
 		t41.to('.zbo_fl',.2,{
 			x : .5*fs,
@@ -570,38 +590,34 @@ function zsiWishStart() {
 		// 猪姐姐前进   2s
 		t54.from(zsi5,2,{
 			x: 7*fs,
-			ease: Linear.easeIn,
-			onComplete: function () {
-				// 投币
-				t52.staggerTo(zsiMon,1,{
-					cycle: {
-						bezier: function() {
-							return [
-								{x:-2*fs,y:-2*fs},
-								{x:-3*fs,y:-1*fs},
-							]
-						}
-					}
-				},'+=1')
-				.to(zsiMon,0,{
-					opacity: 0,
-				})			
-				.to('#zsi_wish',.5,{
-					opacity: 1,
-				})
-				.to('#zsi5',0,{
-					display: 'none',
-				},'+=2')
-				.to(well2,0,{
-					display: 'none',
-					onComplete: function() {
-						$('#zsi_wish').css('opacity','0');
-						zsiWishGo();
-					}
-				})
-
+			ease: Linear.easeIn,})
+		// 投币
+		.staggerTo(zsiMon,1,{
+			cycle: {
+				bezier: function() {
+					return [
+						{x:-2*fs,y:-2*fs},
+						{x:-3*fs,y:-1*fs},
+					]
+				}
 			}
-		});
+		},'+=1')
+		.to(zsiMon,0,{
+			opacity: 0,
+		})			
+		.to('#zsi_wish',.5,{
+			opacity: 1,
+		})
+		.to('#zsi5',0,{
+			display: 'none',
+		},'+=2')
+		.to(well2,0,{
+			display: 'none',
+			onComplete: function() {
+				$('#zsi_wish').css('opacity','0');
+				zsiWishGo();
+			}
+		})
 
 		// 猪姐姐跳跃,时长1s
 		t51.to('#zsi_fl5',.2,{
@@ -664,22 +680,22 @@ function zsiWishGo() {
 	if(onoff6) {
 		onoff6 = false;
 		// 猪跳跃
-		t61.to(zsiNt,.5,{
+		t61.to(zsiNt,.3,{
 			y: -1*fs,
 			ease: Ease.easeOut,
 
 		})
-		.to(zsiNt,.5,{
+		.to(zsiNt,.3,{
 			y: 0*fs,
 			ease: Ease.easeOut,
 
 		})
-		.to(zboNt,.5,{
+		.to(zboNt,.3,{
 			y: -1*fs,
 			ease: Ease.easeOut,
 
-		},'-=.5')
-		.to(zboNt,.5,{
+		},'-=.3')
+		.to(zboNt,.3,{
 			y: 0*fs,
 			ease: Ease.easeOut,
 
@@ -826,18 +842,18 @@ function zmaWishGo() {
 			display: 'block',
 		});
 		// 猪手摆动
-		t81.to('.w3ZmaHl',1,{
+		t81.to('.w3ZmaHl',0.5,{
 			rotation: 20,
 		})
-		.to('.w3ZmaHr',1,{
+		.to('.w3ZmaHr',0.5,{
 			rotation: -20,
 		},0)
-		.to('.w3ZmaHl',1,{
+		.to('.w3ZmaHl',0.5,{
 			rotation: 0,
 		})
-		.to('.w3ZmaHr',1,{
+		.to('.w3ZmaHr',0.5,{
 			rotation: 0,
-		},'-=1')
+		},'-=0.5')
 		t81.repeat(-1);
 		// 猪消失
 		t82.to(zmaWish,0,{
@@ -952,11 +968,11 @@ function zbaWishGo() {
 			display: 'block',
 		})
 		// 姐姐玩球
-		t101.to(w4Zsi,1,{
+		t101.to(w4Zsi,0.5,{
 			y: -1*fs,
 			ease: Circ.easeOut,
 		})	
-		.to(w4Zsi,1,{
+		.to(w4Zsi,0.5,{
 			y: 1*fs,
 			ease: Circ.easeIn,
 		})
@@ -964,11 +980,11 @@ function zbaWishGo() {
 		t101.repeat(-1);
 
 		// 弟弟玩球
-		t102.to(w4Zbo,1,{
+		t102.to(w4Zbo,0.5,{
 			y: 0.5*fs,
 			ease: Circ.easeIn,
 		})
-		.to(w4Zbo,1,{
+		.to(w4Zbo,0.5,{
 			y: 0*fs,
 			ease: Circ.easeOut,
 		})
@@ -981,8 +997,8 @@ function zbaWishGo() {
 				t101.stop();
 				t102.stop();
 				wishPage.css('display','none');			
-				// shakeShake();
-				shakeResult();
+				shakeShake();
+				// shakeResult();
 			}
 		},'+=4')		
 	} else {
@@ -995,7 +1011,7 @@ function zbaWishGo() {
 }
 // =============================================================
 // 是否第一次摇
-var firstShake = false;	
+var firstShake = true;	
 var onoff11 = true;
 var t111 = new TimelineMax();
 // shakeShake();
@@ -1037,7 +1053,7 @@ function shakeShake() {
 	//首先定义一下，全局变量
 	var lastTime = 0;//此变量用来记录上次摇动的时间
 	var x = y = z = lastX = lastY = lastZ = 0;//此组变量分别记录对应x、y、z三轴的数值和上次的数值
-	var shakeSpeed = 6000;//设置阈值
+	var shakeSpeed = 5000;//设置阈值
 	//编写摇一摇方法
 	function shake(eventData){
 	        var acceleration = eventData.accelerationIncludingGravity;//获取设备加速度信息
@@ -1052,7 +1068,7 @@ function shakeShake() {
 	                //计算 公式的意思是 单位时间内运动的路程，即为我们想要的速度
 	                var speed = Math.abs(x + y + z - lastX - lastY - lastZ) / diffTime * 10000;
 	                if(speed > shakeSpeed){//如果计算出来的速度超过了阈值，那么就算作用户成功摇一摇
-	                        t.stop();
+	                        t111.stop();
 	                        shakePage.css('display','none');
 	                        shakeResult();
 	                        //这里就是放置如果用户成功的摇一摇，将要触发的事件
