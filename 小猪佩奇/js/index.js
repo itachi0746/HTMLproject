@@ -7,7 +7,7 @@ function loadImg(arr){
 
     for(var i=0;i<len;i++) {
         imgWrap[i] = new Image();
-        imgWrap[i].src = arr[i];        
+        imgWrap[i].src = arr[i];      
     }
     // console.log('OKOK');
 }
@@ -37,12 +37,16 @@ t0.to(sun,10,{
 });
 t0.repeat(-1);
 
-
 // ready事件(首页的动画)
 // $(firstPage);
 window.onload = function() {
 	loadImg(Imgs);
 	firstPage();
+
+// $(document).on('touchmove',function (e){
+//     e.preventDefault();
+//     console.log(123);
+// });	
 	// console.log('2222');
 }
 
@@ -65,23 +69,20 @@ function firstPage() {
 			x:-15*fs,
 			ease: Linear.easeIn,
 		})
-		.fromTo(homeStart,1,{
-			y: 10*fs,
-		},{
-			y: 0,
+		.to(homeStart,1,{
+			opacity: 1,
 			ease: Back.easeOut,
 			onComplete: function() {
 				// 开始按钮出现
 				t17.to(homeStart,2,{
-					scale: .8,
-					ease: Linear.easeIn,
-				},'+=.3')
-				.to(homeStart,2,{
 					scale: 1,
+					ease: Linear.easeIn,
+				})
+				.to(homeStart,2,{
+					scale: 0.8,
 					ease: Linear.easeIn,
 				});	
 				// t17.repeat(-1);
-			
 			}		
 		})
 		.from(zma,4,{
@@ -523,8 +524,6 @@ function zboWishStart() {
 				},2000);					
 			}
 		});
-
-
 
 		// 猪弟弟跳跃,时长1.4s
 		t41.to('.zbo_fl',.2,{
@@ -1053,7 +1052,7 @@ function shakeShake() {
 	//首先定义一下，全局变量
 	var lastTime = 0;//此变量用来记录上次摇动的时间
 	var x = y = z = lastX = lastY = lastZ = 0;//此组变量分别记录对应x、y、z三轴的数值和上次的数值
-	var shakeSpeed = 5000;//设置阈值
+	var shakeSpeed = 7000;//设置阈值
 	//编写摇一摇方法
 	function shake(eventData){
 	        var acceleration = eventData.accelerationIncludingGravity;//获取设备加速度信息

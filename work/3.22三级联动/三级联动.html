@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>三级联动</title>
+</head>
+<body>
+	<select class="qwe" id="a">
+		<option value="">请选择省份</option>
+	</select>
+	<select class="qwe" id="b">
+		<option value="">请选择城市</option>
+	</select>
+	<select class="qwe" id="c">
+		<option value="">请选择大区</option>
+	</select>
+
+</body>
+<script>
+	var a = document.getElementById('a');
+	var b = document.getElementById('b');
+	var c = document.getElementById('c');
+
+	var json = {
+		'广东省': {
+			'广州市': [
+				'白云区',
+				'越秀区',
+				'天河区',
+			],
+			'茂名市': [
+				'茂南区1',
+				'茂南区2',
+				'茂南区3',
+			],
+			'江门市': [
+				'蓬江区',
+				'江海区',
+				'杜远',
+			],
+		},
+		'湖南省': {
+			'长沙市': [
+				'长沙市白云区',
+				'长沙市越秀区',
+				'长沙市天河区',
+			],
+			'郴州市': [
+				'郴州市茂南区1',
+				'郴州市茂南区2',
+				'郴州市茂南区3',
+			],
+			'湘潭市': [
+				'湘潭市蓬江区',
+				'湘潭市江海区',
+				'湘潭市杜远',
+			],
+		},
+		'广西省': {
+			'柳州市': [
+				'柳州市白云区',
+				'柳州市越秀区',
+				'柳州市天河区',
+			],
+			'桂林市': [
+				'桂林市茂南区1',
+				'桂林市茂南区2',
+				'桂林市茂南区3',
+			],
+			'南宁': [
+				'南宁蓬江区',
+				'南宁江海区',
+				'南宁杜远',
+			],
+		},
+	}
+
+	for(var i in json) {
+		var option = document.createElement('option');
+		option.innerText = i;
+		option.value = i;
+		a.appendChild(option);
+	}
+
+	// 值改变的时候
+	a.onchange = function() {
+		// 每次都清空b的内容
+		b.innerHTML = '<option>请选择城市</option>';
+
+		if(this.value=='广东省') {
+			for(var j in json['广东省']) {
+
+				var option = document.createElement('option');
+				option.innerText = j;
+				option.value = j;
+				b.appendChild(option);		
+
+			}
+		}	
+		if(this.value=='广西省') {
+			for(var j in json['广西省']) {
+
+				var option = document.createElement('option');
+				option.innerText = j;
+				option.value = j;
+				b.appendChild(option);		
+
+			}
+		}	
+		if(this.value=='湖南省') {
+			for(var j in json['湖南省']) {
+
+				var option = document.createElement('option');
+				option.innerText = j;
+				option.value = j;
+				b.appendChild(option);		
+
+			}
+		}		
+	}
+
+	b.onchange = function () {
+		if(this.value=='广州市') {
+			for(var j in json['广东省']['广州市']) {
+
+					var option = document.createElement('option');
+					option.innerText = json.广东省.广州市[j];
+					option.value = json.广东省.广州市[j];
+					c.appendChild(option);					
+			}
+		}
+	}
+
+console.log(json);
+
+</script>
+</html>
