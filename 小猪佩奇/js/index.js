@@ -62,28 +62,32 @@ var onoff = true;
 // 首页的动画的函数
 function firstPage() {
 	homePage.css('display','block');
+    homeStart.css('display','block');
 
 	if(onoff) {
 		// 猪爸妈前进
 		t11.from(zba,4,{
 			x:-15*fs,
 			ease: Linear.easeIn,
+
 		})
-		.to(homeStart,1,{
-			opacity: 1,
-			ease: Back.easeOut,
+		.fromTo(homeStart,1, {
+            scale: 0,
+        },{
+			scale: 1,
+			ease: Linear.easeIn,
 			onComplete: function() {
 				// 开始按钮出现
 				t17.to(homeStart,2,{
-					scale: 1,
+					scale: 0.8,
 					ease: Linear.easeIn,
 				})
 				.to(homeStart,2,{
-					scale: 0.8,
+					scale: 1,
 					ease: Linear.easeIn,
-				});	
+				});
 				// t17.repeat(-1);
-			}		
+			}
 		})
 		.from(zma,4,{
 			x:-15*fs,
@@ -158,12 +162,12 @@ function firstPage() {
 
 		.to(zsi,.3,{
 			y:-1.5*fs,
-			ease: Circ.easeOut,
-		},'-=.1')
+			ease: Circ.easeOut
+        },'-=.1')
 		.to(zsi,.3,{
 			y:0,
-			ease: Circ.easeIn,
-		})
+			ease: Circ.easeIn
+        })
 
 		.to('#zsi_fl',.2,{
 			x : 0*fs,
@@ -187,8 +191,8 @@ function firstPage() {
 		// 猪弟弟跳跃,时长1.4s
 		t16.to('#zbo_fl',.2,{
 			x : .5*fs,
-			rotation:'-30deg',
-			
+			rotation:'-30deg'
+
 		})
 		.to('#zbo_fr',.2,{
 			x : -.6*fs,
@@ -224,7 +228,7 @@ function firstPage() {
 		t16.repeat(2);
 		t17.repeat(-1);
 		t13.repeat(1);
-		t14.repeat(1);		
+		t14.repeat(1);
 		onoff = false;
 	} else {
 		t11.restart();
@@ -233,7 +237,9 @@ function firstPage() {
 		t14.restart();
 		t15.restart();
 		t16.restart();
-		t17.restart();
+		setTimeout(function(){
+			t17.restart();
+		},4000)
 	}
 
 
@@ -254,12 +260,14 @@ var t23 = new TimelineMax();
 var t25 = new TimelineMax();
 // 开始按钮点击事件
 homeStart.on('click', function() {
+	t17.stop();
 	var box = $('#box');
 	var well = $('#well');
 	var zeb = $('#zeb');
 	// console.log(homePage,expressPage);
 	homePage.css('display','none');
 	expressPage.css('display','block');
+    homeStart.css('display','none');
 
 	if(onoff2) {
 		onoff2 = false;
@@ -1052,7 +1060,7 @@ function shakeShake() {
 	//首先定义一下，全局变量
 	var lastTime = 0;//此变量用来记录上次摇动的时间
 	var x = y = z = lastX = lastY = lastZ = 0;//此组变量分别记录对应x、y、z三轴的数值和上次的数值
-	var shakeSpeed = 7000;//设置阈值
+	var shakeSpeed = 8000;//设置阈值
 	//编写摇一摇方法
 	function shake(eventData){
 	        var acceleration = eventData.accelerationIncludingGravity;//获取设备加速度信息
