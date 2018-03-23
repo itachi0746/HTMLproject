@@ -4,23 +4,40 @@ function loadImg(arr){
     var now = 0;
     var len = arr.length;
     var imgWrap = [];
+    var myNum=0;
 
     for(var i=0;i<len;i++) {
         imgWrap[i] = new Image();
-        imgWrap[i].src = arr[i];      
-    }
-    // console.log('OKOK');
+        imgWrap[i].src = arr[i];  
+        // console.log(myNum);
+        imgWrap[i].onload = function() {
+        	myNum++;    
+ 			$("#process").html(Math.floor((myNum/len)*100) + "%");
+ 			// console.log(Math.floor((myNum/len)*100) + "%");
+			// 加载完的操作
+			if(myNum==len){
+				setTimeout(function() {
+					$("#loadingPage").css({"display":"none"});
+					firstPage();					
+				},500)
+
+        	}
+  		}
+	}
+	console.log(myNum,len);
 }
 
 var Imgs = ['img/bg1.png', 'img/bg10_yyy.png', 'img/bg11.png', 'img/bg11_btn.png', 'img/bg12.png', 'img/bg12_btn1.png', 'img/bg12_btn2.png', 'img/bg13.png', 'img/bg13_btn.png', 'img/bg13_title.png', 'img/bg2.png', 'img/bg8.png', 'img/bg8_nf.png', 'img/bg8_q1.png', 'img/bg8_q2.png', 'img/bg8_q3.png', 'img/bg8_yyy.png', 'img/bg9.png', 'img/bg9_btn.png', 'img/btn_box.png', 'img/p1_cloud1.png', 'img/p1_cloud2.png', 'img/p1_start.png', 'img/p1_sun.png', 'img/p1_title1.png', 'img/p1_title2.png', 'img/w1_din.png',
  'img/w1_hl.png', 'img/w1_hr.png', 'img/w1_yz.png', 'img/w1_zbo.png', 'img/w3_zbo.png', 'img/w3_zbo_yz.png', 'img/w3_zma.png', 'img/w3_zma_hl.png', 'img/w3_zma_hr.png', 'img/w4_zbo.png', 'img/w4_zbo_yz.png', 'img/w4_zsi.png', 'img/w4_zsi_yz.png', 'img/wish1_con.png', 'img/wish1_mon.png', 'img/wish2_but.png', 'img/wish2_con.png', 'img/wish2_nt.png', 'img/wish2_zbo.png', 'img/wish2_zsi.png', 'img/wish3_con.png', 'img/wish4_con.png', 'img/wish_well.png', 'img/yaoyiyao.png', 'img/zbaL.png', 
 'img/zbaR.png', 'img/zba_cloud.png', 'img/zba_fl.png', 'img/zba_fl1.png', 'img/zba_fr.png', 'img/zba_fr1.png', 'img/zba_hl.png', 'img/zba_hr.png', 'img/zba_yz.png', 'img/zboL.png', 'img/zboR.png', 'img/zbo_cloud.png', 'img/zbo_fl.png', 'img/zbo_fl1.png', 'img/zbo_fr.png', 'img/zbo_fr1.png', 'img/zbo_hl.png', 'img/zbo_hl1.png', 'img/zbo_hr.png', 'img/zbo_hr1.png', 'img/zbo_yz.png', 'img/zebR.png', 'img/zeb_box.png', 'img/zeb_fl.png', 'img/zeb_fr.png', 'img/zeb_hl.png', 'img/zeb_hr.png', 
 'img/zeb_yz.png', 'img/zmaL.png', 'img/zmaR.png', 'img/zma_cloud.png', 'img/zma_fl.png', 'img/zma_fl1.png', 'img/zma_fr.png', 'img/zma_fr1.png', 'img/zma_hl.png', 'img/zma_hr.png', 'img/zma_yz.png', 'img/zsiL.png', 'img/zsiR.png', 'img/zsi_cloud.png', 'img/zsi_fl.png', 'img/zsi_fl1.png', 'img/zsi_fr.png', 'img/zsi_fr1.png', 'img/zsi_hl.png', 'img/zsi_hl1.png', 'img/zsi_hr.png', 'img/zsi_hr1.png', 'img/zsi_yz.png'];
+
 // 计算出根元素的font-size
 var cw = document.documentElement.clientWidth;
 var fs =  40* (cw / 750);
 
 var homeStart = $('#homePageStart');
+var loadingPage = $('#loadingPage');
 var zba = $('#zba');
 var zma = $('#zma');
 var zsi = $('#zsi');
@@ -41,7 +58,7 @@ t0.repeat(-1);
 // $(firstPage);
 window.onload = function() {
 	loadImg(Imgs);
-	firstPage();
+	// firstPage();
 
 // $(document).on('touchmove',function (e){
 //     e.preventDefault();

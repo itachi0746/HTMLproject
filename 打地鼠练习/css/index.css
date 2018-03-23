@@ -32,3 +32,55 @@ html,body {
 	top: 4.6rem;
 	left: 3.7rem;
 }
+#one,#two,#three,#four,#five,
+#six,#seven,#eight,#nine {
+	/*background-color: red;*/
+	width: 3rem;
+	height: 3rem;
+	position: absolute;
+
+}
+#one {
+	top: 11.5rem;
+	left: 6.8rem;	
+	transition: all .3s;
+}
+#two {
+	top: 14.6rem;
+	left: 2.1rem;	
+}
+#three {
+	top: 13.4rem;
+	left: 12.1rem;	
+}
+#four {
+	top: 18.8rem;
+	left: 2.1rem;	
+}
+#five {
+	top: 16.8rem;
+	left: 7.1rem;	
+}
+#six {
+	top: 18.3rem;
+	left: 12.8rem;	
+}
+#seven {
+	top: 23.9rem;
+	left: 2.9rem;	
+}
+#eight {
+	top: 22.5rem;
+	left: 8.1rem;	
+}
+#nine {
+	top: 24rem;
+	left: 13.3rem;	
+}
+.wp div img {
+	/*height: 100%;*/
+	width: 5rem;
+	position: absolute;
+	bottom: -0.3rem;
+	left: -0.5rem;
+}
