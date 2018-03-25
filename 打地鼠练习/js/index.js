@@ -1,5 +1,8 @@
 var hole = document.getElementsByClassName('wp')[0].children;
 var score = document.getElementById('score');
+var resultPage = document.getElementById('resultPage');
+var result = document.getElementById('result');
+var timeLine = document.getElementById('timeLine');
 // hole =  hole.getElementsByTagName('div');
 // console.log(hole[0].children);
 
@@ -13,6 +16,7 @@ var smallWolf = ['img/x0.png','img/x1.png','img/x2.png','img/x3.png','img/x4.png
 var target = [bigWolf,smallWolf];
 // console.log(bigWolf==target[0]);
 
+// 点击狼事件
 for(var i=0;i<hole.length;i++) {
 	// 闭包!!!
 	hole[i]._index = i;
@@ -26,13 +30,29 @@ for(var i=0;i<hole.length;i++) {
 			// console.log(hole[this.index]);
 			// hole[this._index].innerHTML = '';
 			_img.src = '';
-			console.log(index);
+			// console.log(index);
 			hit();		
 		}
 
 	}
 	// console.log(i);
 }
+
+// 游戏时间倒数
+var timer0 = setInterval(function() {
+	gameTime--;
+    timeLine.style.width = (gameTime/oriTime)*210.6 + 'px';
+    console.log(timeWidth,timeLine.style.width);
+    // console.log(gameTime,oriTime);
+    if(gameTime===0) {
+		clearInterval(timer);
+		clearInterval(timer0);
+		clearInterval(timer2);
+		clearTimeout(timer3);
+		resultPage.style.display = 'block';
+		result.innerHTML = '你的得分是: ' + _score;
+	}
+},1000);
 
 // 图片下标
 var index;
@@ -43,6 +63,10 @@ var tgtHole;
 var _img;
 // 分数
 var _score = 0;
+var gameTime = 60;
+var oriTime = 60;
+var timeWidth = timeLine.offsetWidth;
+console.log(timeWidth);
 
 // 随机选狼出现的洞和随机的狼
 function select() {
@@ -75,7 +99,7 @@ function show(ele,tgt) {
 		// console.log(ele);
 		_img.src = tgt[index];
 		index++;
-		console.log(index);
+		// console.log(index);
 		// 敲打前的图数
 		if(index>=6) {
 			clearInterval(timer);
@@ -129,7 +153,7 @@ function hit() {
 
 	var timer = setInterval(function() {
         index++;
-		console.log(index);
+		// console.log(index);
         if(index>9) {
         	clearInterval(timer);
         	tgtHole.innerHTML = '';
