@@ -1,0 +1,527 @@
+* {
+	padding: 0;
+	margin: 0;
+}
+#homepage {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	display: none;
+
+}
+#loadingPage {
+	background: rgba(0,0,0,0.5);
+	width: 100%;
+	height: 100%;
+	background-size: 100% 100%;
+	/*text-align: center;*/
+	/*display: none;*/
+}
+#process {
+	color: white;
+	width: 10rem;
+	height: 5rem;
+	font-size: 3rem;
+	position: absolute;
+	top: 0rem;
+	left: 0rem;
+	right: 0rem;
+	bottom: 0rem;
+	margin: auto;
+	text-align: center;
+}
+
+/*背景图*/
+.bg {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	z-index: -999;
+}
+.bg-opc {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	background: rgba(0,0,0,.3);
+	z-index: 10;
+}
+.bg-opc-share {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	z-index: 10;
+
+}
+
+html, body{
+	/*margin:0; */
+	height:100%; 
+}
+.p1-title {
+	position: relative;
+	text-align: center;
+}
+.p1-title img:nth-child(1) {
+	position: relative;
+	top: 50px;
+	left: 4px;
+	width: 98%;
+}
+.p1-title img:nth-child(2),.p1-title img:nth-child(3) {
+	position: absolute;
+	top: 60px;
+	left: 4px;
+	width: 98%;	
+}
+
+.p1-title img:nth-child(3) {
+	-webkit-animation: fade linear 3s infinite alternate;
+}
+.p1-title img:nth-child(2) {
+	-webkit-animation: fade linear 3s infinite alternate-reverse;
+}
+
+.p1-title img:nth-child(4) {
+	position: absolute;
+	top: 90px;
+	left: 0px;
+	bottom: 0px;
+	right: 0px;
+	width: 80%;
+	margin: auto;
+}
+@-webkit-keyframes fade {
+	from {opacity: 1;}
+	to {opacity: 0;}
+}
+.title-font {
+	font-size: 17px;
+	color: white;
+	margin-top: 27px;
+	/*position: relative;*/
+}
+.title-font span{
+	position: relative;
+	left: 55%;
+}
+.p1-btns {
+	margin-top: 50px;
+}
+.p1-btns img {
+	width: 40%;
+	margin: 10px 0 10px 0;
+}
+.btn {
+	text-align: center;
+}
+#shuoming-page {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	display: none;	
+}
+.p2-title {
+	text-align: center;
+	margin-top: 20px;
+}
+.p2-title img {
+	width: 40%;
+}
+.rule {
+	/*text-align: center;*/
+	margin-top: 10px;
+	overflow: hidden;
+	width: 100%;
+	height: 80%;
+	position: relative;
+}
+.rule img:nth-child(1) {
+	width: 80%;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	margin: auto;
+}
+.rule img:nth-child(2) {
+	width: 72%;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	margin: auto;
+}
+.p2-return {
+	color: white;
+	font-size: 15px;
+	text-align: center;
+	margin-top: 5px;
+}
+
+#share-page {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+
+	display: none;
+}
+#ranking-page {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	display: none;
+}
+.ranking-title img {
+	width: 100%;
+}
+.user {
+	margin-top: 10px;
+	height: 40px;
+}
+.user-pic {
+	width: 40px;
+	height: 40px;
+	background: yellow;
+	float: left;
+	margin: 0 10px 0 20px;
+}
+.user-name {
+	height: 40px;
+	width: 130px;
+	color: white;
+	font-size: 17px;
+	float: left;
+	/*text-align: center;*/
+	line-height: 40px;
+}
+.user-time {
+	color: white;
+	font-size: 17px;
+	height: 40px;
+	width: 80px;
+	float: left;
+	line-height: 40px;
+	padding-left: 10px; 
+}
+.ranking {
+	color: white;
+	font-size: 25px;
+	height: 40px;
+	width: 40px;
+	float: left;
+	line-height: 40px;
+	font-weight: bold;
+	position: relative;
+	left: 20px;
+	text-align: center;
+}
+#gamestart-page {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	display: none;
+}
+.gamestart-page-title {
+	text-align: center;
+	margin-top: 30px;
+}
+.gamestart-page-title img {
+	/*height: 300px;*/
+	width: 60%;
+}
+.title-font2 {
+	text-align: center;
+	font-size: 17px;
+	color: white;
+	margin-top: 27px;
+}
+.rule-img {
+	text-align: center;
+	margin-top: 30px;
+	/*display: none;	*/
+}
+.rule-img img {
+	/*height: 300px;*/
+	width: 60%;
+}
+.gamestart-btn2 {
+	text-align: center;
+	margin-top: 50px;	
+	/*display: none;	*/
+}
+.gamestart-btn2 img {
+	/*height: 300px;*/
+	width: 50%;
+}
+.answer-img {
+	width: 100%;
+	margin-top: 20px;
+	display: none;
+	text-align: center;
+}
+.answer-img img {
+	width: 80px;
+	margin: 0 auto;
+	/*height: 100px;*/
+}
+.countdown {
+	width: 100%;
+	position: absolute;
+	bottom: 100px;
+	text-align: center;
+	display: none;
+}
+.countdown img {
+	width: 80px;
+	height: 80px;
+}
+#game-page {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	display: none;
+}
+#items {
+	width: 100%;
+	text-align: center;
+}
+#items img {
+	width: 80px;
+	height: 80px;
+	/*margin: 0px 5px;*/
+}
+.time-cost {
+	width: 300px;
+	height: 45px;
+	position: absolute;
+	bottom: 50px;
+	left: 26px;
+	/*text-align: center;*/
+}
+.time-cost img:nth-child(1) {
+	height: 45px;
+	width: 300px;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	margin: auto;
+}
+#timeover {
+	width: 240px;
+	height: 12px;
+	position: absolute;
+	top: 27px;
+	left: 38px;
+	/*margin: 27px 0 0 38px;*/
+}
+#time {
+	color: #34335d;
+	font-size: 18px;
+	position: absolute;
+	top: 3px;
+	left: 225px;
+}
+#result-page {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	display: none;
+}
+.result-page-title,.share-page2-title{
+	margin-top: 40px;
+	width: 100%;
+	position: relative;
+	height: 270px;
+	z-index: 20;
+	/*display: none;*/
+}
+.result-page-title img:nth-child(1),.result-page-title2 img:nth-child(1),
+.share-page2-title img:nth-child(1){
+	width: 75%;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	bottom: 0;
+	right: 0;
+	margin: auto;
+}
+.result-page-title img:nth-child(2),.result-page-title2 img:nth-child(2) {
+	width: 75%;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	bottom: 0;
+	right: 0;
+	margin: auto;
+}
+#gametime {
+	height: 35px;
+	width: 70px;
+	font-size: 25px;
+	color: white;
+	font-weight: bold;
+	position: absolute;
+	top: -35px;
+	left: 8px;
+	bottom: 0;
+	right: 0;
+	margin: auto;
+}
+#gamepoint,#gamepoint2 {
+	height: 36px;
+	width: 20px;
+	font-size: 32px;
+	text-align: center;
+	color: white;
+	font-weight: bold;
+	position: absolute;
+	top: 21px;
+	left: 9px;
+	bottom: 0;
+	right: 0;
+	margin: auto;
+}
+.game-continue {
+	margin-top: 70px;
+	width: 100%;
+	z-index: 20;
+	position: absolute;
+	text-align: center;
+}
+.game-continue img {
+	width: 50%;
+}
+.result-page-title2 {
+	margin-top: 40px;
+	width: 100%;
+	position: relative;
+	z-index: 20;
+	height: 270px;
+	display: none;	
+}
+#share-page2 {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	display: none;
+}
+.share-page2-title img:nth-child(2) {
+	width: 80%;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	bottom: 0;
+	right: 0;
+	margin: auto;	
+}
+.share-page2-font {
+	margin-top: 50px;
+	color: white;
+	font-size: 17px;
+	text-align: center;
+}
+#hongbao-page {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	display:none;
+}
+.open-hongbao {
+	width: 100%;
+	height: 60%;
+	margin-top: 30px;
+	position: relative;
+}
+.open-hongbao img:nth-child(1) {
+	width: 80%;
+	position: absolute;
+	top: 0px;
+	left: -15px;
+	bottom: 0;
+	right: 0;
+	margin: auto;	
+}
+.open-hongbao img:nth-child(2) {
+	width: 40%;
+	position: absolute;
+	top: 165px;
+	left: 0px;
+	bottom: 0;
+	right: 0;
+	margin: auto;
+}
+#get-hongbao-text{
+	width: 100%;
+	height: 80px;
+	display: none;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	bottom: 0;
+	right: 0;
+	margin: auto;
+	text-align: center;
+}
+#get-hongbao-text img {
+	width: 50%;
+}
+#howmuch {
+	width: 50px;
+	height: 30px;
+	text-align: center;
+	color: white;
+	font-size: 25px;
+	position: absolute;
+	top: 38px;
+	left: -66px;
+	bottom: 0;
+	right: 0;
+	margin: auto;
+	font-weight: bold;
+}
+#zhuli-page {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	display:none;	
+}
+.zhuli-page-btns,.zhuli-page-btns2 {
+	width: 100%;
+	height: 65px;
+	text-align: center;
+	margin-top: 110px;
+}
+.zhuli-page-btns img,.zhuli-page-btns2 img {
+	width: 40%;
+}
+.timeover-wp {
+	width: 240px;
+	height: 12px;
+	background: red;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	top: 0px;
+	bottom: 0px;
+	margin: auto;
+}
