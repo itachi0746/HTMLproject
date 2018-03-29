@@ -16,22 +16,30 @@ var smallWolf = ['img/x0.png','img/x1.png','img/x2.png','img/x3.png','img/x4.png
 var target = [bigWolf,smallWolf];
 // console.log(bigWolf==target[0]);
 
+// 点击布尔值
+var _click = true;
+
 // 点击狼事件
 for(var i=0;i<hole.length;i++) {
 	// 闭包!!!
 	hole[i]._index = i;
 	hole[i].onclick = function() {
-		if(hole[this._index].children.length!==0) {
-			clearInterval(timer);
-			clearInterval(timer2);
-			clearTimeout(timer3);
-			// console.log(i);
-			// console.log(hole);
-			// console.log(hole[this.index]);
-			// hole[this._index].innerHTML = '';
-			_img.src = '';
-			// console.log(index);
-			hit();		
+		if(_click) {
+            _click = false;
+            if(hole[this._index].children.length!==0) {
+                console.log('click');
+                clearInterval(timer);
+                clearInterval(timer2);
+                clearTimeout(timer3);
+                // console.log(i);
+                // console.log(hole);
+                // console.log(hole[this.index]);
+                // hole[this._index].innerHTML = '';
+                _img.src = '';
+                // console.log(index);
+                hit();
+            }
+
 		}
 
 	}
@@ -42,7 +50,7 @@ for(var i=0;i<hole.length;i++) {
 var timer0 = setInterval(function() {
 	gameTime--;
     timeLine.style.width = (gameTime/oriTime)*210.6 + 'px';
-    console.log(timeWidth,timeLine.style.width);
+    // console.log(timeWidth,timeLine.style.width);
     // console.log(gameTime,oriTime);
     if(gameTime===0) {
 		clearInterval(timer);
@@ -70,6 +78,7 @@ console.log(timeWidth);
 
 // 随机选狼出现的洞和随机的狼
 function select() {
+	_click = true;
 	index = 0;
 
 	var num = Math.floor(Math.random()*hole.length);
@@ -127,6 +136,7 @@ function hide(ele,tgt) {
 		// console.log(index);
         if(index<0) {
         	clearInterval(timer3);
+
         	ele.innerHTML = '';
         	select();
         	return;
@@ -135,7 +145,6 @@ function hide(ele,tgt) {
 
 	},100)
 }
-
 
 // 击打狼
 function hit() {
@@ -151,12 +160,14 @@ function hit() {
 	}
 	score.innerHTML = _score;
 
+	// 狼被打后消失
 	var timer = setInterval(function() {
         index++;
 		// console.log(index);
         if(index>9) {
         	clearInterval(timer);
         	tgtHole.innerHTML = '';
+        	// _click = true;
         	select();
         	// 记得停止函数
         	return;
