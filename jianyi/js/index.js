@@ -3,7 +3,6 @@
 var shuomingBtn = $('shuoming-btn');
 var startBtn = $('start-btn');
 var rankingBtn = $('ranking-btn');
-var shareBtn = $('share-btn');
 var p2Return = $('p2Return');
 var shareBtn = $('share-btn');
 var gamestartBtn = $('gamestart-btn2');
@@ -45,50 +44,44 @@ var imgArr = ['images/img_1.png','images/img_2.png','images/img_3.png','images/i
 'images/img_da.png','images/img_ft.png','images/img_gl.png','images/img_ha.png',
 'images/img_hr.png','images/img_hw.png','images/img_jd.png','images/img_jy.png',
 'images/img_lh.png','images/img_yh.png','images/img_yl.png','images/img_yq.png',
-]
+];
 // 答对要显示的图
 var imgArr2 = ['images/img_1_y.png','images/img_2_y.png','images/img_3_y.png','images/img_4_y.png',
 'images/img_da_y.png','images/img_ft_y.png','images/img_gl_y.png','images/img_ha_y.png',
 'images/img_hr_y.png','images/img_hw_y.png','images/img_jd_y.png','images/img_jy_y.png',
 'images/img_lh_y.png','images/img_yh_y.png','images/img_yl_y.png','images/img_yq_y.png',
-]
+];
 
 
 var imgArrWrap = [];
 // var imgArr2Wrap = [];
 // 图片加载函数
-function preloader() {
-    var now = 0;
-    var len = arr.length;
+function imgLoader() {
     var myNum=0;
+	var temp = imgArr.concat(imgArr2);
+    var len = temp.length;
 
-	var temp = imgArr;
-	for(var k=0;k<imgArr2.length;k++) {
-		temp.push(imgArr2[k]);
-	}
-	// console.log(2345);
-	for(var i=0;i<temp;i++) {
+	console.log(temp);
+	for(var i=0;i<len;i++) {
 		imgArrWrap[i] = new Image();
 		imgArrWrap[i].src = temp[i];
         imgArrWrap[i].onload = function() {
         	myNum++;    
  			_process.innerHTML = Math.floor((myNum/len)*100) + "%";
- 			// console.log(Math.floor((myNum/len)*100) + "%");
+ 			console.log(Math.floor((myNum/len)*100) + "%");
 			// 加载完的操作
-			if(myNum==len){
-				setTimeout(function() {
-					$("#loadingPage").css({"display":"none"});
-					firstPage();					
-				},500)
-
-        	}
+			if(myNum===len){
+				$("loadingPage").style.display = 'none';
+                homePage.style.display = 'block';
+            }
   		}
 	}
 
 	// console.log('imgOK');
 }
-
-window.onload = preloader();
+window.onload = function () {
+    imgLoader();
+};
 
 // 首页说明按钮
 shuomingBtn.onclick = function() {
@@ -145,7 +138,7 @@ continueBtn.onclick = function() {
 		nextLevel();	
 	}
 
-}
+};
 
 // 开红包
 getHongbaoBtn.onclick = function() {
@@ -177,7 +170,7 @@ function countdown() {
 }
 
 // 第几关
-var checkpoint = 1;
+var checkpoint = 5;
 // 储存图片地址的数组
 var result = [];
 var answerImgArr = [];
@@ -191,7 +184,7 @@ var endTime;
 // 游戏进度条长度
 var os;
 var osTemp = timeOver.style.width.replace('px','');
-console.log(osTemp);
+// console.log(osTemp);
 // 游戏赛点
 var gameChance = 5;
 // console.log(result.length);
@@ -300,7 +293,7 @@ var _click = false;
 function clickImg() {
 	_click = true;
 	// 答对的次数
-	var right = 0;
+	var right = 5;
 	// 过关要求答对的次数
 	var allRight = checkpoint + 1;
 
@@ -334,7 +327,7 @@ function clickImg() {
 							_click = true;
 							// gamePage.style.display = 'none';
 							resultPage.style.display = 'block';
-							if(right===7) {
+							if(right===6) {
 								ifAllClear();
 							}					
 						}
@@ -387,7 +380,8 @@ function ifAllClear() {
 	_clear = false;
 	setTimeout(function() {
 		hongbaoPage.style.display = 'block';
-		hongbaoPage.style.display = 'none';
+		resultPage.style.display = 'none';
+		gamePage.style.display = 'none';
 		continueBtn.style.display = 'none';
 	},1000)
 }
@@ -404,7 +398,8 @@ function calTime(start,end) {
 	var result = end - start;
 	timeCost += result;
 	var M = Math.floor(timeCost/1000/60%60);
-	var S = Math.floor(timeCost/1000%60);
+	var S = Math.floor(timeCost/1000%60) + 1;
+	console.log(M,S);
 
 	if(M<10){
 		M = '0' + M;
@@ -416,8 +411,26 @@ function calTime(start,end) {
 	resultPageTitle2.style.display = 'none';	
 	_gameTime.innerHTML = M + ':' + S;
 	_gamePoint.innerHTML = checkpoint;
-
 }
+//
+// function calTime2() {
+// 	var temp = (min * 60 + sec) - (minTemp * 60 + secTemp);
+// 	timeCost += temp;
+// 	var M = Math.floor(timeCost/60%60);
+// 	var S = Math.floor(timeCost%60);
+//
+// 	if(M<10){
+// 		M = '0' + M;
+// 	}
+// 	if(S<10){
+// 		S = '0' + S;
+// 	}
+// 	resultPageTitle.style.display = 'block';
+// 	resultPageTitle2.style.display = 'none';
+// 	_gameTime.innerHTML = M + ':' + S;
+// 	_gamePoint.innerHTML = checkpoint;
+// }
+
 
 // 是否过关
 var _clear = false;
@@ -455,12 +468,13 @@ function gameTime(m,s) {
 			s = 59;
 			m--;
 		}
-		innerTime(m,s);
 		if(_clear){
 			clearInterval(timer);
+            // calTime2();
 			minTemp = m;
 			secTemp = s;
 		}
+        innerTime(m,s);
 
 	},1000)
 }
