@@ -7,9 +7,31 @@
 	width: 100%;
 	height: 100%;
 	overflow: hidden;
-	/*display: none;*/
+	display: none;
 
 }
+#loadingPage {
+	background: rgba(0,0,0,0.5);
+	width: 100%;
+	height: 100%;
+	background-size: 100% 100%;
+	/*text-align: center;*/
+	/*display: none;*/
+}
+#process {
+	color: white;
+	width: 10rem;
+	height: 5rem;
+	font-size: 3rem;
+	position: absolute;
+	top: 0rem;
+	left: 0rem;
+	right: 0rem;
+	bottom: 0rem;
+	margin: auto;
+	text-align: center;
+}
+
 /*背景图*/
 .bg {
 	position: absolute;
@@ -40,7 +62,7 @@
 
 html, body{
 	/*margin:0; */
-	height:100%; 
+	height:100%;
 }
 .p1-title {
 	position: relative;
@@ -56,7 +78,7 @@ html, body{
 	position: absolute;
 	top: 60px;
 	left: 4px;
-	width: 98%;	
+	width: 98%;
 }
 
 .p1-title img:nth-child(3) {
@@ -104,7 +126,7 @@ html, body{
 	width: 100%;
 	height: 100%;
 	overflow: hidden;
-	display: none;	
+	display: none;
 }
 .p2-title {
 	text-align: center;
@@ -191,7 +213,7 @@ html, body{
 	width: 80px;
 	float: left;
 	line-height: 40px;
-	padding-left: 10px; 
+	padding-left: 10px;
 }
 .ranking {
 	color: white;
@@ -237,7 +259,7 @@ html, body{
 }
 .gamestart-btn2 {
 	text-align: center;
-	margin-top: 50px;	
+	margin-top: 50px;
 	/*display: none;	*/
 }
 .gamestart-btn2 img {
@@ -392,7 +414,7 @@ html, body{
 	position: relative;
 	z-index: 20;
 	height: 270px;
-	display: none;	
+	display: none;
 }
 #share-page2 {
 	position: absolute;
@@ -408,7 +430,7 @@ html, body{
 	left: 0px;
 	bottom: 0;
 	right: 0;
-	margin: auto;	
+	margin: auto;
 }
 .share-page2-font {
 	margin-top: 50px;
@@ -436,7 +458,7 @@ html, body{
 	left: -15px;
 	bottom: 0;
 	right: 0;
-	margin: auto;	
+	margin: auto;
 }
 .open-hongbao img:nth-child(2) {
 	width: 40%;
@@ -481,7 +503,7 @@ html, body{
 	width: 100%;
 	height: 100%;
 	overflow: hidden;
-	display:none;	
+	display:none;
 }
 .zhuli-page-btns,.zhuli-page-btns2 {
 	width: 100%;
