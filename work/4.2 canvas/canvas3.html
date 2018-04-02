@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>画图</title>
+</head>
+<body>
+	<canvas id="canvas"></canvas>
+</body>
+<script>
+canvas = document.getElementById("canvas");
+canvas.width = '400';
+canvas.height = '400';
+
+ctx = canvas.getContext("2d");
+
+var index = 0;
+setInterval(function() {
+
+	// ctx.beginPath();
+	// 画图 false:顺时针   true:逆时针
+	ctx.arc(200,200,100,0,index*Math.PI,true);
+	// ctx.closePath();
+
+	ctx.stroke();
+
+	index +=0.1;
+	
+},300)
+
+</script>
+</html>

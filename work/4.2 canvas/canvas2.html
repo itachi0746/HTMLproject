@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<canvas id="canvas"></canvas>
+</body>
+<script>
+canvas = document.getElementById("canvas");
+ctx = canvas.getContext("2d");
+ctx.lineWidth = 6;
+ctx.strokeStyle = "#333";
+ctx.beginPath();
+ctx.moveTo(433, 261);
+ctx.bezierCurveTo(321, 129, 144, 114, 107, 260);
+// ctx.stroke();
+ctx.closePath();
+
+	// 绘制矩形
+	// ctx.rect(100,100,200,200);
+	// ctx.fillStyle = 'red';
+
+	// 自动填充
+	// ctx.fillRect(100,100,200,200);
+
+
+	// ctx.fill();
+	ctx.stroke();
+
+</script>
+</html>
