@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>表单复选逻辑</title>
+	<style>
+		.deselectAll {
+			display: none;
+		}
+	</style>
+</head>
+<body>
+<form id="test-form" action="test">
+    <legend>请选择想要学习的编程语言：</legend>
+    <fieldset>
+        <p><label class="selectAll"><input type="checkbox"> <span class="selectAll">全选</span><span class="deselectAll">全不选</span></label> <a href="#0" class="invertSelect">反选</a></p>
+        <p><label><input type="checkbox" name="lang" value="javascript"  > JavaScript</label></p>
+        <p><label><input type="checkbox" name="lang" value="python"> Python</label></p>
+        <p><label><input type="checkbox" name="lang" value="ruby"> Ruby</label></p>
+        <p><label><input type="checkbox" name="lang" value="haskell"> Haskell</label></p>
+        <p><label><input type="checkbox" name="lang" value="scheme"> Scheme</label></p>
+        <p><button type="submit">Submit</button></p>
+    </fieldset>
+</form>	
+</body>
+<script src="jquery-3.3.1.min.js"></script>
+<script>
+var
+    form = $('#test-form'),
+    langs = form.find('[name=lang]'),
+    selectAll = form.find('label.selectAll :checkbox'),
+    selectAllLabel = form.find('label.selectAll span.selectAll'),
+    deselectAllLabel = form.find('label.selectAll span.deselectAll'),
+    invertSelect = form.find('a.invertSelect');	
+
+
+// var all = false;
+//     console.log(langs.length);
+// // $(langs[0]).attr('checked',true);
+// 	// form.css('background','red');
+//     selectAll.on('change',changeAll);
+
+// function changeAll() {
+//     	if(!all) {
+//         	for(var i=0;i<langs.length;i++) {
+//     			$(langs[i]).prop('checked',true);
+//     		}	
+//     		all = true;
+// 			$(selectAllLabel).css('display','none');
+// 			$(deselectAllLabel).css('display','inline'); 
+//     	}else {
+//         	for(var i=0;i<langs.length;i++) {
+//     			$(langs[i]).prop('checked',false);
+//     		}
+//     		all = false;
+// 			$(selectAllLabel).css('display','inline');
+// 			$(deselectAllLabel).css('display','none');     			
+//     	}
+// }
+
+// function changeText() {
+// 	console.log(_selected);		
+// 	for(var j=0;j<langs.length;j++) {
+// 		// console.log($(langs[j]).prop('checked'));
+// 		if($(langs[j]).prop('checked')===true) {
+// 			_selected++;
+// 		}
+
+// 	}
+
+// 	if(_selected===5) {
+// 		all = true;
+// 		selectAll.prop('checked',true);
+// 		$(selectAllLabel).css('display','none');
+// 		$(deselectAllLabel).css('display','inline'); 		
+// 	}else {
+// 		all = false;
+// 		selectAll.prop('checked',false);
+// 		$(selectAllLabel).css('display','inline');
+// 		$(deselectAllLabel).css('display','none');  			
+// 	}
+// 	_selected=0;
+// }	
+
+//     var _selected = 0;
+//     for(var i=0;i<langs.length;i++) {
+// 		$(langs[i]).on('change',function() {
+// 			// for(var j=0;j<langs.length;j++) {
+// 			// 	// console.log($(langs[j]).prop('checked'));
+// 			// 	if($(langs[j]).prop('checked')===true) {
+// 			// 		_selected++;
+// 			// 	}
+
+// 			// }
+// 			changeText();
+
+// 			// console.log(_selected);		
+// 		});
+// 	}
+
+// 	invertSelect.on('click',function() {
+// 			for(var j=0;j<langs.length;j++) {
+// 				// console.log($(langs[j]).prop('checked'));
+// 				if($(langs[j]).prop('checked')===true) {
+// 					$(langs[j]).prop('checked',false);
+// 				}else {
+// 					$(langs[j]).prop('checked',true);
+// 				}
+
+// 			}
+// 			changeText();		
+// 	})
+
+console.log(langs);
+console.log(langs.get(1));
+selectAll.change(function() {
+    if(selectAll.is(':checked')){
+        langs.prop('checked', true);
+        selectAllLabel.text('全不选');
+    } else {
+        langs.prop('checked', false);
+        selectAllLabel.text('全选');
+    }
+})
+
+langs.change(function() {
+    if(langs.filter(':checked').length === langs.length) {
+        selectAll.prop('checked', true);
+        selectAllLabel.text('全不选');
+    } else {
+        selectAll.prop('checked', false);
+        selectAllLabel.text('全选');
+    }
+})
+
+// 反选
+invertSelect.click(function() {
+    langs.each(function() {
+        $(this).prop('checked', !$(this).is(':checked'));
+    })
+    langs.change();
+});	
+</script>
+</html>
