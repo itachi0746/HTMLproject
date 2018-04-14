@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>echart00001.html</title>
+    
+    <meta name="keywords" content="keyword1,keyword2,keyword3">
+    <meta name="description" content="this is my page">
+    <meta name="content-type" content="text/html; charset=UTF-8">
+   <script type="text/javascript" src="echarts.common.min.js"></script>
+    <!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
+  </head>  
+  <body>
+   <script type="text/javascript">
+   //引入echarts的一些js文件，这里还有疑问，不知怎么直接引入，只能通过网址引入     
+   require.config({
+            paths:{ 
+                'echarts' : 'http://echarts.baidu.com/build/echarts',
+                'echarts/chart/bar' : 'http://echarts.baidu.com/build/echarts'
+            }
+        });
+        require(
+        [
+            'echarts',
+            'echarts/chart/line'
+        ],
+        //回调函数
+        DrawEChart   //这里是调用一个函数用于绘制图表
+        );
+
+        //渲染ECharts图表
+        function DrawEChart(ec) {
+            var mymon=new Array(12);
+            var myrain=new Array(12);
+            var myhot=new Array(12);
+            var data=[{"mon":"1月","rain":2.6,"hot":2.0},{"mon":"2月","rain":5.9,"hot":4.9},
+                      {"mon":"3月","rain":9.0,"hot":7.0},{"mon":"4月","rain":26.4,"hot":23.2},
+                      {"mon":"5月","rain":28.7,"hot":25.6},{"mon":"6月","rain":70.7,"hot":76.7},
+                      {"mon":"7月","rain":175.6,"hot":135.6},{"mon":"8月","rain":182.2,"hot":162.2},
+                      {"mon":"9月","rain":48.7,"hot":32.6},{"mon":"10月","rain":18.8,"hot":20.0},
+                      {"mon":"11月","rain":6.0,"hot":6.4},{"mon":"12月","rain":2.3,"hot":3.3}]
+            for(var i=0;i<data.length;i++){
+                mymon[i]=data[i].mon;
+                myrain[i]=data[i].rain;
+                myhot[i]=data[i].hot;
+            }
+            //图表渲染的容器对象
+           var chartContainer = document.getElementById("main");
+            //加载图表
+            var myChart = ec.init(chartContainer);
+            myChart.setOption({
+                //图表标题
+                title: {
+                    text: "ECharts简单线形图表及其配置展示实例", //正标题
+                    link: "http://www.stepday.com", //正标题链接 点击可在新窗口中打开
+                    x: "center", //标题水平方向位置
+                    subtext: "From:http://www.stepday.com", //副标题
+                    sublink: "http://www.stepday.com", //副标题链接
+                    //正标题样式
+                    textStyle: {
+                        fontSize:24
+                    },
+                    //副标题样式
+                    subtextStyle: {
+                        fontSize:12,
+                        color:"red"
+                    }
+            },
+            //数据提示框配置
+            tooltip: {
+                trigger: 'axis' //触发类型，默认数据触发，见下图，可选为：'item' | 'axis' 其实就是是否共享提示框
+            },
+            //图例配置
+            legend: {
+                data: ['蒸发量', '降水量'], //这里需要与series内的每一组数据的name值保持一致
+                y:"bottom"
+            },
+            //工具箱配置
+            toolbox: {
+                show: true, //是否显示工具箱
+                feature: {
+                    mark: false, // 辅助线标志，上图icon左数1/2/3，分别是启用，删除上一条，删除全部
+                    dataView: { readOnly: false }, // 数据视图，上图icon左数8，打开数据视图
+                    magicType: ['line', 'bar'],      // 图表类型切换，当前仅支持直角系下的折线图、柱状图转换，上图icon左数6/7，分别是切换折线图，切换柱形图
+                    restore: true, // 还原，复位原始图表，上图icon左数9，还原
+                    saveAsImage: true  // 保存为图片，上图icon左数10，保存
+                }
+            },
+            calculable: true,
+            //轴配置
+            xAxis: [
+                    {
+                        type: 'category',
+                        data: mymon,
+                        name: "月份"
+                    }
+                ],
+            //Y轴配置
+            yAxis: [
+                    {
+                        type: 'value',
+                        splitArea: { show: true },
+                        name:"数值"
+                    }
+                ],
+            //图表Series数据序列配置
+            series: [
+                    {
+                        name: '蒸发量',
+                        type: 'line',
+                        data: myhot
+                    },
+                    {
+                        name: '降水量',
+                        type: 'line',
+                        data: myrain
+                    }
+                ]
+        });
+        }
+    </script>
+   <div id="main" style="height:400px"></div>
+  </body>
+</html>

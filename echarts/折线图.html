@@ -20,18 +20,79 @@ var myChart = echarts.init(dom);
 var app = {};
 option = null;
 option = {
-    xAxis: {
-        type: 'category',
-        boundaryGap: false,
-        data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+    // 网格
+    grid: {
+      show: false,
+      shadowColor: 'red'
     },
+    xAxis: [{
+          // name: '日期',
+            type: 'category',
+            boundaryGap: false,
+            // 是否显示刻度
+            axisTick: {
+              show: false
+            },
+            data: ['2016-12', '2017-2', '2017-4', '2017-6', '2017-8', '2017-10', '预测'],
+            // 数据旋转
+            axisLabel: {
+              rotate: 30,
+              interval: 0
+            }
+        }, {
+          type: 'category',
+          boundaryGap: false,
+          axisTick: {
+            show: false
+          },
+          data: [],
+        }],
     yAxis: {
-        type: 'value'
+        type: 'value',
+        // 是否显示刻度
+        axisTick: {
+          show: false
+        },
+        // 是否显示轴线
+        axisLine: {
+          show: false
+        },
     },
+    splitLine:{
+      show:true,
+    },
+    // 数据提示框配置
+    tooltip: {
+        trigger: 'axis', //触发类型，默认数据触发，见下图，可选为：'item' | 'axis' 其实就是是否共享提示框
+        // 自定义提示框:
+        formatter: '日期: '+ '{b0}<br />'+'指数: '+' {c0}'
+
+    },
+    // 工具箱配置
+    toolbox: {
+      // 是否显示工具箱
+      show: true ,
+    },
+    // 在表格上方显示数据名字
+    // legend: {
+    //   data: ['指数']
+    // },
+    // calculable: true,
     series: [{
-        data: [820, 932, 901, 934, 1290, 1330, 1320],
-        type: 'line',
-        areaStyle: {}
+      name: '指数',
+      // 小圆点(默认为空心圆)
+      symbol: 'circle',
+      color: ['#3a7dda'],
+      data: [820, 932, 901, 934, 1290, 1330, 1320],
+      type: 'line',
+      // 线下面面积的颜色
+      areaStyle: {
+        color: '#f2f6fd'
+      },
+      itemStyle: {
+        repeat: 'repeat',
+      },
+      smooth: 0.3,
     }]
 };
 ;
