@@ -31,3 +31,32 @@ riseUp 3s linear 0.2s infinite;
 riseUp 3s linear .4s infinite;*/
 
 /*============================================================*/
+
+W3C中，关于font-family中有这句话：
+注意：使用某种特定的字体系列（Geneva）完全取决于用户机器上该字体系列是否
+可用；这个属性没有指示任何字体下载。因此，强烈推荐使用一个通用字体系列名
+作为后路。
+
+/*============================================================*/
+/*===========下箭头=============*/
+.bottom-arrow:before{  
+  content:"";  
+  border:8px solid #999;  
+  border-bottom:none;  
+  border-right-color:transparent;  
+  border-left-color:transparent;  
+  position:relative;  
+  top:18px;  
+  left:12px;  
+}
+.bottom-arrow:after{  
+  content:"";  
+  border:8px solid #fff;  
+  border-bottom:none;  
+  border-right-color:transparent;  
+  border-left-color:transparent;  
+  position:relative;  
+  top:16px;  
+  left:-4px;  
+}  
+/*============================================================*/

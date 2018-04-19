@@ -109,3 +109,24 @@ function loadImg(arr){
     // img.onerror = go;
     // img.onload = go;
 }
+
+// ==================================================
+// 阻止页面滚动
+
+var bodyEl = document.body
+var temp = 0
+
+function stopBodyScroll (isFixed) {
+  if (isFixed) {
+    temp = window.scrollY
+
+    bodyEl.style.position = 'fixed'
+    bodyEl.style.top = -temp + 'px'
+  } else {
+    bodyEl.style.position = ''
+    bodyEl.style.top = ''
+
+    window.scrollTo(0, temp) // 回到原先的top
+  }
+}
+// ==================================================
