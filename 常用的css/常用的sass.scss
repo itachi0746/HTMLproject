@@ -15,7 +15,7 @@ scss文件开头要加上这句
 
 文本溢出省略显示:
 
-@mixin text-ellipsis () {
+%text-ellipsis {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
