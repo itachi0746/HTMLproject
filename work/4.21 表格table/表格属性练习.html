@@ -1,0 +1,47 @@
+<!DOCTYPE html>  
+<html>  
+    <head>  
+        <!-- utf-8是每个网站都能识别的字体-->  
+        <meta charset="utf-8">   
+        <title>表格属性练习</title>  
+        <base target="_self">  
+    </head>  
+    <body>
+        <!-- 给table设置的width height 是最小宽高, 最大宽高还是由内容的多少决定 -->
+
+        <!--  
+        1.高度和宽度只能给table 和 td 使用。   
+        2.水平对齐和垂直对齐： 水平对齐：能给table 和tr td 使用。 垂直对齐：tr td使用。  
+        3.外边距和内边距只能给table使用。  
+        注意点：px是像素的意思，在定义字体大小和一些元素的宽度、高度用到。
+          
+        -->  
+          
+        <!--width和height在table中的使用-->  
+        <table border="1" width="500px" height="300px"><!--在没有给出宽度和高度的情况下，系统默认给出的宽度和高度是根据表格中填写的数据所控制的，表格中的数据的宽度和高度就是表格的系统默认宽度和高度-->  
+            <tr>  
+                <td>1.1</td>  
+                <td>1.2</td>  
+            </tr>  
+            <tr>  
+                <td>2.1</td>  
+                <td>2.1</td>  
+            </tr>  
+        </table>  
+        <br>  
+        <br>  
+        <br>  
+        <br>  
+        <!--在td中使用width和height只改变td所对应的单元格的高度和宽度，改变之后只有对应的单元格发生改变，因为要保证表格不变化，所以其他的单元格要发生想一个的改变。-->  
+        <table border="1" width="500px" height="300px">  
+            <tr>  
+                <td width="100px">1.1</td><!--只改变第一个单元格的宽度-->  
+                <td>1.2</td>  
+            </tr>  
+            <tr>  
+                <td height="200px">2.1</td><!--只改变第三个单元格的高度-->  
+                <td>2.2</td>  
+            </tr>  
+        </table>  
+    </body>  
+</html>  
