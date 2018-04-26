@@ -60,3 +60,23 @@ W3C中，关于font-family中有这句话：
   left:-4px;  
 }  
 /*============================================================*/
+段落首行缩进2字
+.text-indent2 {
+  text-indent: 2em;
+}
+/*============================================================*/
+
+HTML5之placeholder属性以及如何更改placeholder属性中文字颜色:
+
+input::-webkit-input-placeholder{
+    color:red;
+}
+input::-moz-placeholder{   /* Mozilla Firefox 19+ */
+    color:red;
+}
+input:-moz-placeholder{    /* Mozilla Firefox 4 to 18 */
+    color:red;
+}
+input:-ms-input-placeholder{  /* Internet Explorer 10-11 */ 
+    color:red;
+}
