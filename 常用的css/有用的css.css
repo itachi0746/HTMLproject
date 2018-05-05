@@ -80,3 +80,49 @@ input:-moz-placeholder{    /* Mozilla Firefox 4 to 18 */
 input:-ms-input-placeholder{  /* Internet Explorer 10-11 */ 
     color:red;
 }
+/*============================================================*/
+聊天框的小箭头(没边框)
+
+.r-ewm:before {
+  content: "";
+  position: absolute;
+  left: 100%;
+  top: 45%;
+  width: 0;
+  height: 0;
+  border-top: 5px solid transparent;
+  border-left: 10px solid white;
+  border-bottom: 5px solid transparent; }
+
+/*============================================================*/
+自定义五列的 CSS 类
+
+Bootstrap3布局--处理显示5列的方法。
+
+.col-xs-5ths, .col-sm-5ths, .col-md-5ths, .col-lg-5ths {
+    position: relative;
+    min-height: 1px;
+    padding-right: 10px;
+    padding-left: 10px;
+}
+ 
+@media ( min-width : 768px) {
+    .col-sm-5ths {
+        width: 20%;
+        float: left;
+    }
+}
+ 
+@media ( min-width : 992px) {
+    .col-md-5ths {
+        width: 20%;
+        float: left;
+    }
+}
+ 
+@media ( min-width : 1200px) {
+    .col-lg-5ths {
+        width: 20%;
+        float: left;
+    }
+}
