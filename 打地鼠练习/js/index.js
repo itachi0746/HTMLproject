@@ -23,6 +23,7 @@ var _click = true;
 for(var i=0;i<hole.length;i++) {
 	// 闭包!!!
 	hole[i]._index = i;
+	debugger;
 	hole[i].onclick = function() {
 		if(_click) {
             _click = false;

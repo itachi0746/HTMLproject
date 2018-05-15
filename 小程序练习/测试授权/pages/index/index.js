@@ -7,13 +7,15 @@ Page({
    */
   data: {
     userInfo: {},
+    hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo')
   },
   getUserInfo: function(e) {
     // console.log(e)
     app.globalData.userInfo = e.detail.userInfo
     this.setData({
-      userInfo: e.detail.userInfo
+      userInfo: e.detail.userInfo,
+      hasUserInfo: true
     }),
     console.log(this.data.userInfo)
     // console.log(app.globalData.userInfo)
@@ -30,6 +32,7 @@ Page({
       app.userInfoReadyCallback = res => {
         this.setData({
           userInfo: res.userInfo,
+          hasUserInfo: true
         })
         console.log(this.data.userInfo)
       }
