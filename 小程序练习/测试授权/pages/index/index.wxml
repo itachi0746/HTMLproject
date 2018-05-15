@@ -1,0 +1,5 @@
+<view>
+  <button wx:if='{{canIUse}}' open-type='getUserInfo' bindgetuserinfo='getUserInfo'>获得授权</button>
+
+  <text>{{userInfo}}</text>
+</view> 
