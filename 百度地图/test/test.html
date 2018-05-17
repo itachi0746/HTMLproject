@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>我的地图</title>
+    <script>
+        function initialize() {  
+            var mp = new BMap.Map('map');  
+                mp.centerAndZoom(new BMap.Point(121.491, 31.233), 11);  
+        }  
+            
+        function loadScript() {  
+            var script = document.createElement("script");  
+            script.src = "http://api.map.baidu.com/api?v=2.0&ak=8jmD3Hhd9QLXWtBcS2GyYcGF4zxDPdTG&callback=initialize";
+            document.body.appendChild(script);  
+        }
+        window.onload = loadScript; 
+    </script>
+</head>
+<body>
+</body>
+</html>
