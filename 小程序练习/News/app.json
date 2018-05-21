@@ -1,0 +1,13 @@
+{
+  "pages": [
+    "pages/news/news",
+    "pages/news/news-detail/news-detail",
+    "pages/comment/comment"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#000",
+    "navigationBarTitleText": "WxParse",
+    "navigationBarTextStyle": "white"
+  }
+}

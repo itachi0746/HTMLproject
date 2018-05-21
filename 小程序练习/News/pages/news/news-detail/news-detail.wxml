@@ -1,0 +1,58 @@
+<view wx:if="{{networkType}}" style="text-align:center;font-size:28rpx;color:red;margin-top:4px">当前处在无网状态,请检查网络！</view>
+<import src="../../../wxParse/wxParse.wxml" />
+
+<view class="container">
+  <template is="wxParse" data="{{wxParseData:insertData.nodes}}" />
+</view>
+
+
+
+<view class="tool" wx:if="{{show}}">
+  <view class="tool-item" catchtap="onUpTap" data-post-id="{{news.id}}">
+     <image animation="{{animationUp}}" wx:if="{{post.upStatus}}" src="/image/like.png" />
+     <image animation="{{animationUp}}" wx:else src="/image/like.png"/>
+    <text>{{ news.praie}}</text>
+  </view>
+  <view class="tool-item comment"  data-post-id="{{news.id}}">
+    <image src="/image/read.png"></image>
+   <text>{{news.readNum}}</text>
+  </view>
+  <view class="tool-item" catchtap="onCommentTap" data-post-id="{{news.id}}">
+    <image wx:if="{{post.collectionStatus}}" src="/images/icon/wx_app_collected.png" />
+    <image wx:else src="/image/message.png" />
+   <text>{{news.commentNum}}</text>
+  </view>
+</view>
+
+<view class="comment-detail-box" wx:if="{{show}}">
+  <view class="center">留言区</view>
+  <view class="comment-main-box">
+    <view class="comment-title">评论………（共{{comments.length}}条）</view>
+     
+    <block wx:for="{{comments}}" wx:for-item="item" wx:for-index="idx">
+      <view class="comment-item">
+        <view class="comment-item-header">
+          <view class="left-img">
+            <image src="{{item.CommentUserLogo}}" wx:if="{{item.CommentUserLogo}}"></image>
+            <image src="/image/0.jpg" wx:else></image>
+          </view>
+          <view class="right-user">
+            <text class="user-name" wx:if="{{item.CommentUserName}}">{{item.CommentUserName}}</text>
+            <text class="user-name" wx:else>游客</text>
+          </view>
+        </view>
+        <view class="comment-body">
+          <view class="comment-txt">
+            <text>{{item.CommentContent}}</text>
+          </view>
+          <view class="comment-img">
+            <block wx:for="{{item.Images}}" wx:for-item="img" wx:for-index="imgIdx">
+              <image src="{{url}}{{img}}"data-image-url="{{url}}{{img}}" mode="aspectFill" catchtap="previewImg" data-comment-idx="{{idx}}" data-img-idx="{{imgIdx}}"></image>
+            </block>
+          </view>
+        </view>
+        <view class="comment-time">{{item.CommentTime}}</view>
+      </view>
+    </block>
+  </view>
+</view>
