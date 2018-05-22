@@ -79,8 +79,9 @@ App({
   globalData: {
     
     appid: "wx30b4a19af8d1f8fd",
+    g_url: "http://localhost:52788",
 
-    g_url: "http://api2.jierutek.com",
+    // g_url: "http://api2.jierutek.com",
     g_userInfo: {},
     g_phone: {},
     code: {},

@@ -59,6 +59,25 @@ W3C中，关于font-family中有这句话：
   top:16px;  
   left:-4px;  
 }  
+/*===========右箭头=============*/
+.arrow{
+  position: relative;
+}
+.arrow:after, .arrow:before {
+  border: 7px solid transparent;
+  border-left: 7px solid #fff;
+  width: 0;
+  height: 0;
+  position: absolute;
+  top: 4px;
+  right: -14px;
+  content: ' ';
+}
+
+.arrow:before {
+  border-left-color: #f00;
+  right: -15px;
+}
 /*============================================================*/
 段落首行缩进2字
 .text-indent2 {
