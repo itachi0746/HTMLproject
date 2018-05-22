@@ -117,7 +117,7 @@ module.exports = {
   },
   request2: function (url, data, method, callback) {
     // debugger
-    console.log('request2 ing')
+    console.log('request2 start')
     wx.getNetworkType({
       success: function (res) {
         if (res.networkType !== "none") {
@@ -131,13 +131,14 @@ module.exports = {
             },
             success: function (res) {
               if (res.statusCode == 200) {
-                // console.log(res)
+                console.log('request2成功: ', res)
                 callback(res)
               }
 
-            }, fail: function (error) {
+            }, 
+            fail: function (error) {
               // fail
-              console.log(error)
+              console.log('request2失败: ', error)
 
             }
           })
@@ -147,7 +148,7 @@ module.exports = {
         }
       }
     })
-    console.log('request2 over')
+    console.log('request2 end')
   }
 
 }

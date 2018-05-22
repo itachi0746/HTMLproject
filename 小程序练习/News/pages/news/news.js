@@ -12,7 +12,8 @@ Page({
  
   url: app.globalData.g_url + '/api/News/Get?EntId=10017&OrgId=bdcf4820d9eb43c198101bb981bbbe3b&ContentType=d3a912ec4da440ebb946af8bde835841&dataType=JSON',
   
-  getData: function(data){
+  getData: function(data){  // get成功后, 渲染页面
+    console.log('news getData start')
     var news = [];
     for (var i in data.Models) {
       var subject = data.Models[i]
@@ -37,13 +38,14 @@ Page({
     wx.stopPullDownRefresh();
     //隐藏loading状态
     wx.hideNavigationBarLoading();
+    console.log('news getData end')
   },
   onLoad: function () {
-    console.log('news onload')
+    console.log('news onload start')
     var that = this;
     wx.login({
       success: function (res){
-        console.log('news onload login ing')
+        console.log('news login start')
         if (res.code){
           var code = { code: res.code, appid: "wx30b4a19af8d1f8fd" };
           wx.getUserInfo({
@@ -66,12 +68,12 @@ Page({
                 title: '请前往授权',
                 content: '未经授权暂无法查看该应用',
                 success: function (res) {
-                debugger
-                  if (res.confirm) {
+                // debugger
+                  if (res.confirm) {  // 用户点击确定
                     wx.openSetting({
                       success: (res) => {
                         if (res.authSetting["scope.userInfo"]){
-                          debugger
+                          // debugger
                           wx.login({
                             success: function (res){
                               if (res.code) {
@@ -94,10 +96,13 @@ Page({
                             }
                           })
                         }
+                      },
+                      fail: function(res) {
+                        console.log('openSetting 失败:', res)
                       }
                     })
-                  } else if(res.cancel){
-
+                  } else if (res.cancel) { // 用户点击取消
+                    // TODO: 用户点击取消
                   }
                 }
                 
