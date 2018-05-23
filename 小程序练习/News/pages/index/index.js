@@ -1,6 +1,7 @@
 //index.js
 //获取应用实例
 const app = getApp()
+var util = require('../../utils/util.js');
 
 Page({
   data: {
@@ -8,11 +9,68 @@ Page({
     userInfo: {},
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo')
+    
   },
-  //事件处理函数
-  goToNews: function () {
+  // 跳转
+  goToNews: function() {
     wx.redirectTo({
       url: '../news/news',
+    })
+  },
+
+  //事件处理函数
+  goToNews2: function () {
+    debugger
+
+    // ==============================
+    var that = this;
+
+    wx.checkSession({  // 检查登录态
+      success: function () {
+        debugger
+        console.log('登录态未过期')
+        //session_key 未过期，并且在本生命周期一直有效
+      },
+      fail: function () {
+        console.log('登录态已经过期,重新执行登录流程')
+        // session_key 已经失效，需要重新执行登录流程
+        debugger
+        wx.login({
+          success: function (res) {
+            console.log('index login');
+            debugger
+            if (res.code) {
+              app.globalData.code = res.code;
+              console.log(app.globalData.code)
+              var code = { code: res.code, appid: "wx30b4a19af8d1f8fd" };
+              wx.getUserInfo({
+                success: function (res) {
+                  debugger
+                  console.log('index getUserInfo成功: ', res);
+
+                  app.globalData.g_userInfo = Object.assign(code, res.userInfo);
+                  console.log('g_userInfo:', app.globalData.g_userInfo)
+                  wx.setStorageSync('user', app.globalData.g_userInfo)
+                  // var token = wx.getStorageSync('token')
+                  // console.log('index get token:', token)
+                  that.doLogin();
+                  // that.getSystemInfo();
+                  app.success = false
+                },
+                fail: function (res) {
+                  console.log('app getUserInfo失败: ', res);
+                }
+              })
+            }
+            else {
+              console.log('获取用户登录态失败！' + res.errMsg)
+
+            }
+            console.log('login end');
+          }
+        })
+
+      }
     })
   },
   onLoad: function () {
@@ -51,5 +109,44 @@ Page({
       userInfo: e.detail.userInfo,
       hasUserInfo: true
     })
+    this.goToNews2();
+  },
+  // 用code去登录
+  doLogin: function () {
+    console.log('index doLogin start');
+    debugger
+    var url = app.globalData.g_url + '/api/WxApplet/login?dataType=JSON';
+    // console.log(url);
+    var data = app.globalData.g_userInfo;
+    data.EntId = "10017";
+    data.OrgId = "bdcf4820d9eb43c198101bb981bbbe3b";
+    util.request2(url, data, "POST", function (res) {
+      console.log(res)
+      var get = wx.getStorageSync('token')
+      get ? get : wx.setStorageSync('token', res.data.Token)
+      console.log(wx.getStorageSync('token'))
+    })
+    console.log('index doLogin end')
+  },
+  //用户设备信息
+  getSystemInfo: function () {
+    debugger
+    console.log('getSystemInfo start')
+    var that = this;
+    var url = app.globalData.g_url + '/api/WxApplet/SyncSystemInfo?dataType=JSON';
+    wx.getSystemInfo({
+      success: function (res) {
+        app.globalData.g_phone = res
+        var data = res;
+        data.EntId = "10017";
+        data.OrgId = "bdcf4820d9eb43c198101bb981bbbe3b";
+        wx.setStorageSync('phone', app.globalData.g_phone)
+        util.request2(url, data, "POST", function (res) {
+          var get = wx.getStorageSync('token')
+          get ? get : wx.setStorageSync('token', res.data.Token)
+        })
+      }
+    })
+    console.log('getSystemInfo end')
   }
 })

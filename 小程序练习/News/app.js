@@ -4,39 +4,39 @@ App({
 
   onLaunch: function () {
     console.log('app onLaunch');
-    var that = this;
-    // debugger
-      wx.login({
-        success: function (res){
-          console.log('app login');
-          // debugger
-          if (res.code) {
-            var code = { code: res.code, appid: "wx30b4a19af8d1f8fd" };
-            wx.getUserInfo({
-              success: function (res) {
-                console.log('app getUserInfo成功: ',res);
-               
-                that.globalData.g_userInfo = Object.assign(code, res.userInfo);
-                // console.log(that.globalData.g_userInfo)
-                wx.setStorageSync('user', that.globalData.g_userInfo)
-                var token = wx.getStorageSync('token')
-                console.log('app get token:',token)
-                that.getUserInfo();
-                that.getSystemInfo();
-                that.success = false
-              },
-              fail: function (res) {
-                console.log('app getUserInfo失败: ', res);
-                
-              }
-            })
-          } else {
-            console.log('获取用户登录态失败！' + res.errMsg)
-            
-          }
-          console.log('login end');
-        }
-      })
+    // var that = this;
+    // // debugger
+    // wx.login({
+    //   success: function (res){
+    //     console.log('app login');
+    //     // debugger
+    //     if (res.code) {
+    //       var code = { code: res.code, appid: "wx30b4a19af8d1f8fd" };
+    //       wx.getUserInfo({
+    //         success: function (res) {
+    //           console.log('app getUserInfo成功: ',res);
+              
+    //           that.globalData.g_userInfo = Object.assign(code, res.userInfo);
+    //           // console.log(that.globalData.g_userInfo)
+    //           wx.setStorageSync('user', that.globalData.g_userInfo)
+    //           var token = wx.getStorageSync('token')
+    //           console.log('app get token:',token)
+    //           that.getUserInfo();
+    //           that.getSystemInfo();
+    //           that.success = false
+    //         },
+    //         fail: function (res) {
+    //           console.log('app getUserInfo失败: ', res);
+    //         }
+    //       })
+    //     } 
+    //     else {
+    //       console.log('获取用户登录态失败！' + res.errMsg)
+          
+    //     }
+    //     console.log('login end');
+    //   }
+    // })
     
   },
   //
@@ -87,7 +87,8 @@ App({
     g_phone: {},
     code: {},
     EntId:"10017",
-    OrgId:"bdcf4820d9eb43c198101bb981bbbe3b"
+    OrgId:"bdcf4820d9eb43c198101bb981bbbe3b",
+    authorization: false
   }
 
 })

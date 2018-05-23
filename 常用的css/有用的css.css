@@ -78,10 +78,56 @@ W3C中，关于font-family中有这句话：
   border-left-color: #f00;
   right: -15px;
 }
+/*==============关闭按钮=====================*/
+.close {  
+    width: 40px;  
+    height: 40px;  
+    position: relative;  
+}  
+
+.close:before, .close:after {  
+    content: '';  
+    position: absolute;  
+    top: 50%;  
+    width: 40px;  
+    height: 1px;  
+    background-color: #888;  
+    -webkit-transform: rotate(45deg);  
+    transform: rotate(45deg);  
+}  
+
+.close:after {  
+    -webkit-transform: rotate(-45deg);  
+    transform: rotate(-45deg);  
+}  
+/*==================================================*/
+/*=============箭头部分================*/  
+.down-arrow {  
+    width: 40px;  
+    height: 40px;  
+}  
+
+.down-arrow:after {  
+    content: '';  
+    display: block;  
+    width: 25px;  
+    height: 25px;  
+    border-right: 1px solid #888;  
+    border-top: 1px solid #888;  
+    -webkit-transform: rotate(135deg); /*箭头方向可以自由切换角度*/  
+    transform: rotate(135deg);  
+}  
 /*============================================================*/
 段落首行缩进2字
 .text-indent2 {
   text-indent: 2em;
+}
+文本溢出省略显示:
+(要设置宽度,超出宽度才隐藏)
+.text-ellipsis {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 /*============================================================*/
 

@@ -80,7 +80,7 @@ module.exports = {
   request: function (that, url, data, method, callback) {
     console.log('request ing')
     console.log(url)
-    // debugger
+    debugger
     wx.getNetworkType({
 
       success: function (res) {
@@ -96,12 +96,18 @@ module.exports = {
             },
             success: function (res) {
               if (res.statusCode == 200) {
-                console.log(res.data)
+                debugger
+                console.log('request成功: ',res.data)
                 callback(res.data)
                 that.setData({
                   networkType: false
                 });
               }
+
+            },
+            fail: function(err) {
+              debugger
+              console.log('request失败: ',err)
             }
           })
         } else {
@@ -116,21 +122,23 @@ module.exports = {
     console.log('request over')
   },
   request2: function (url, data, method, callback) {
-    // debugger
+    debugger
     console.log('request2 start')
     wx.getNetworkType({
       success: function (res) {
+        console.log('request2 start');
         if (res.networkType !== "none") {
           wx.request({
             url: url, //仅为示例，并非真实的接口地址
             data: data,
             method: method,
             header: {
-              "Content-Type": "application/x-www-form-urlencoded",
-              "Cookie": wx.getStorageSync('token')
+              'content-type': 'application/json', // 默认值
+              'Cookie': wx.getStorageSync('token')
             },
             success: function (res) {
               if (res.statusCode == 200) {
+                debugger
                 console.log('request2成功: ', res)
                 callback(res)
               }
@@ -138,6 +146,7 @@ module.exports = {
             }, 
             fail: function (error) {
               // fail
+              debugger
               console.log('request2失败: ', error)
 
             }
