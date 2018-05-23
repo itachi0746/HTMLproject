@@ -88,7 +88,7 @@ App({
     code: {},
     EntId:"10017",
     OrgId:"bdcf4820d9eb43c198101bb981bbbe3b",
-    authorization: false
+    refuse: false
   }
 
 })

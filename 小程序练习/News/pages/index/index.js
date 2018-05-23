@@ -8,8 +8,8 @@ Page({
     motto: 'Hello World',
     userInfo: {},
     hasUserInfo: false,
-    canIUse: wx.canIUse('button.open-type.getUserInfo')
-    
+    canIUse: wx.canIUse('button.open-type.getUserInfo'),
+    refuse: false
   },
   // 跳转
   goToNews: function() {
@@ -102,14 +102,34 @@ Page({
       })
     }
   },
-  getUserInfo: function (e) {
+  getUserInfo: function (e) {  // 获得授权按钮点击事件
+    var that = this;
     console.log('index 自定义getUserInfo start:', e)
-    app.globalData.userInfo = e.detail.userInfo
-    this.setData({
-      userInfo: e.detail.userInfo,
-      hasUserInfo: true
-    })
-    this.goToNews2();
+    if (e.detail.userInfo) {  // 用户点击授权
+      app.globalData.userInfo = e.detail.userInfo
+      this.setData({
+        userInfo: e.detail.userInfo,
+        hasUserInfo: true
+      })
+      this.goToNews2();
+    }
+    else {  // 用户点击拒绝
+      wx.showModal({
+        title: '请前往授权',
+        content: '未经授权暂无法查看该应用',
+        success(res) {
+          if (res.confirm) {  // 用户点击确定
+            app.globalData.refuse = true,
+              that.setData({
+              refuse: true
+            })
+
+          } else if (res.cancel) {  // 用户点击拒绝
+            console.log('55555555')
+          }
+        }
+      })
+    }
   },
   // 用code去登录
   doLogin: function () {
