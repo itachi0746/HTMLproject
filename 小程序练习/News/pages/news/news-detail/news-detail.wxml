@@ -3,7 +3,9 @@
 
 <view class="container">
   <template is="wxParse" data="{{wxParseData:insertData.nodes}}" />
+  
 </view>
+
 
 
 <view class="tool" wx:if="{{show}}">
