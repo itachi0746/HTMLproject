@@ -5,7 +5,7 @@ var util = require('../../utils/util.js');
 
 Page({
   data: {
-    motto: 'Hello World',
+    motto: 'Welcome',
     userInfo: {},
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),

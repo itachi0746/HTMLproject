@@ -6,7 +6,6 @@
 </view>
 
 
-
 <view class="tool" wx:if="{{show}}">
   <view class="tool-item" catchtap="onUpTap" data-post-id="{{news.id}}">
      <image animation="{{animationUp}}" wx:if="{{post.upStatus}}" src="/image/like.png" />
