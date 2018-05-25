@@ -21,6 +21,6 @@
     </view>
   </block>
   <view style="text-align:center;font-size:24rpx;padding:8rpx" wx-if="{{loading}}">正在加载<image src="/image/89.gif" style="width:28rpx;height:28rpx;margin-left:6rpx;vertical-align:middle"/></view>
-  <view style="text-align:center" style="text-align:center;font-size:24rpx;padding:8rpx" wx-if="{{loadingOver}}">已加载玩</view>
+  <view style="text-align:center" style="text-align:center;font-size:24rpx;padding:8rpx" wx-if="{{loadingOver}}">没有更多了...</view>
 </view>
 

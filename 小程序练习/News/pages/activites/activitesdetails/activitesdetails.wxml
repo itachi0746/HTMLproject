@@ -1,0 +1,92 @@
+<view wx:if="{{networkType}}" style="text-align:center;font-size:28rpx;color:red;margin-top:4px">当前处在无网状态,请检查网络！</view>
+<view class="container">
+  <image class="head-img" src="http://erp.jierutek.com/Files/10138/5b3d80f67d2f40ababbe3c0a256bf59f/2017-10/PartContent/Images/44ccf76de04c447386212f73766aad9d.jpg" mode="aspectFill" />
+  <view class="head-img-hover">
+    <text class="activites-title">接入科技篮球友谊赛</text>
+    <text class="activites-sponsor">主办方 · 广州接入科技软件开发部</text>
+    <view class="activites-text">
+      <text class="red ">2386</text>
+      <text class="peopleNum marginR10">人报名</text>
+      <text class="red ">10</text>
+      <text class="zanNum marginR10" style="border:0">点赞</text>
+    </view>
+  </view>
+  <image class="movie-img" src="http://erp.jierutek.com/Files/10138/5b3d80f67d2f40ababbe3c0a256bf59f/2017-10/PartContent/Images/44ccf76de04c447386212f73766aad9d.jpg" data-src="http://erp.jierutek.com/Files/10138/5b3d80f67d2f40ababbe3c0a256bf59f/2017-10/PartContent/Images/44ccf76de04c447386212f73766aad9d.jpg"
+    catchtap="viewMoviePostImg" />
+  <view class="activites-summary">
+    <view class="flex-row">
+      <text class="mark">活动地点：</text>
+      <text class="mark">广州天河区棠下村</text>
+    </view>
+    <view class="flex-row">
+      <text class="mark">活动时间：</text>
+      <text class="mark">2017：12:21 ~ 2018:1:12</text>
+    </view>
+    <view class="flex-row">
+      <text class="mark">活动类型：</text>
+      <text class="mark">体育竞技</text>
+    </view>
+    <view class="flex-row">
+      <text class="mark">活动费用：</text>
+      <text class="mark">免费</text>
+    </view>
+  </view>
+  <view class="activites-item activites-show">
+    <text class="activites-item-title">活动介绍</text>
+    <text class="activites-content">推荐多多来参加活动：在健康快乐生活中来互动，舒畅愉悦心情里促互益。有人说“人生最大的错误，是用身心健康换取身外之物”；适度活动在维护身心健康的同时亦可以促进现场交流甚至互益让身外之物自然伴随。
+        让分享成为平时习惯！欢迎转发分享！机制：持续分享则持续受益！
+    </text>
+  </view>
+  
+  <view class="activites-item sponsor-warp">
+    <text class="activites-item-title">举办方</text>
+     <view class="sponsorImg">
+        <view class="imgItem">
+          <image
+src="http://erp.jierutek.com/Files/10138/5b3d80f67d2f40ababbe3c0a256bf59f/2017-11/PS/Images/2808335667b5404982dc223369d6c56a.jpg" mode="aspectFit">
+        </image>
+        </view>
+        <view class="imgItem">
+           <image src="http://erp.jierutek.com/Files/10138/5b3d80f67d2f40ababbe3c0a256bf59f/2017-11/PS/Images/97e8d00ebd714720b35e69f14ae0005a.jpg" mode="aspectFit">
+     </image>
+        </view>
+    
+     </view>
+     <view class="activites-tip">
+        <view class="item">
+          <text class="tip-num">1</text>快速订阅：长按上面二维码图片进行订阅（推荐） 
+        </view>
+        <view  class="item">
+          <text class="tip-num">2</text>搜索订阅：搜公众号名称广州接入信息科技有限公司  
+        </view>
+        <view  class="item">
+          <text class="tip-num">3</text>技术支持：搜企商云惠或公众号“jierutek_com” 
+        </view>
+     </view>
+     <view class="activeTool flexR">
+        <view class="item"><image src="/image/zan.png"></image>1人点赞</view>
+        <view class="item"><image src="/image/pinglun.png"></image>1条评论</view>
+        <view class="item"><image src="/image/people.png"></image>0人报名</view>
+     </view>
+     <view class="activites-item border0">
+         <text class="activites-item-title pinglun-conunt">全部评论 ({{a}})</text>
+         <view class="speakContent">
+            暂无评论,快来抢沙发
+         </view>
+     </view>
+  </view>
+
+</view>
+
+<view class="operation-area">
+    <view class="dianzan item">
+      <image src="/image/zanFFF.png">
+      
+      </image>
+    </view>
+    <view class="pinglun item"  catchtap="onTapToDetail" data-post-id="1">
+      <image src="/image/pinglunFFF.png">
+        
+        </image>
+    </view>
+</view>

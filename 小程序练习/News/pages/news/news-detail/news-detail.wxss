@@ -1,3 +1,4 @@
+/* @import "../../../wxParse/wxParse.wxss"; */
 
 .tool{display:flex;-webkit-display:flex;padding:6px 10px;flex-direction: row}
 .tool-item{margin-right:10px}
@@ -5,6 +6,9 @@
 .tool-item text{ color:#666;font-size:26rpx;margin-bottom:20rpx;margin-left:10rpx;letter-spacing:2rpx;line-height: 40rpx;display:inline-block;margin-top:-4px}
 
 .center{text-align:center}
+.detailPic {
+  text-indent: 0!important;
+}
 .comment-item {
   margin: 20rpx 0 20rpx 24rpx;
   padding: 24rpx 24rpx 24rpx 0;

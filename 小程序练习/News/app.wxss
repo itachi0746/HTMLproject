@@ -1,4 +1,6 @@
 /**app.wxss**/
+@import "/wxParse/wxParse.wxss";
+
 .container {
   height: 100%;
   display: flex;
@@ -8,3 +10,10 @@
   box-sizing: border-box;
   position: relative;
 } 
+.flexC{display:flex;flex-direction:column}
+.flexR{display:flex;flex-direction:row}
+.flex1{flex:1}
+.le{float:left}
+.ri{float:right}
+.ov{overflow:hidden}
+.border0{border:0!important}

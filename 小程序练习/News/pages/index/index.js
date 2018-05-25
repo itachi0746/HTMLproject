@@ -13,9 +13,10 @@ Page({
   },
   // 跳转
   goToNews: function() {
-    wx.redirectTo({
+    wx.switchTab({
       url: '../news/news',
     })
+    console.log('goToNews')
   },
 
   //事件处理函数
@@ -41,7 +42,7 @@ Page({
             debugger
             if (res.code) {
               app.globalData.code = res.code;
-              console.log(app.globalData.code)
+              console.log('app.globalData.code:', app.globalData.code)
               var code = { code: res.code, appid: "wx30b4a19af8d1f8fd" };
               wx.getUserInfo({
                 success: function (res) {

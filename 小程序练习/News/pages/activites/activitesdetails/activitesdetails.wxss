@@ -1,0 +1,42 @@
+.container{
+    display:flex;
+    flex-direction: column;
+}
+.operation-area{position:fixed;bottom:200rpx;right:20rpx;display:flex;flex-direction: column;justify-content: center;align-items:center;background:rgba(0,0,0,0.3)}
+.operation-area .item{width:50rpx;height:50rpx;padding:20rpx;box-sizing:content-box;}
+.operation-area .item image{width:100%;height:100%}
+page{font-size:26rpx}
+.head-img{width:100%;height: 320rpx;-webkit-filter:blur(10px);
+}
+.head-img-hover{
+  width:100%;height:320rpx;position:absolute;top:0;left:0;display:flex;flex-direction:column;
+}
+.activites-title{
+    font-size: 19px; color:#fff; font-weight:bold;margin-top: 50rpx;margin-left: 40rpx;letter-spacing: 2px;
+}
+.activites-sponsor{
+    font-size: 30rpx;color:#fff;margin-left: 40rpx;margin-top: 30rpx;
+}
+.movie-img{height:238rpx;width: 175rpx;position: absolute;top:160rpx;right: 30rpx;
+}
+text{display:inline-block}
+.flex-row{margin-bottom:6rpx}
+.marginR10{padding:0 10px 0 6rpx;border-right:1px solid #aaa;}
+.activites-text{font-size:28rpx;color:#fff;margin-top:20px}
+.red{color:red}
+.activites-text .red{padding-left:32rpx}
+.activites-summary{padding:35rpx;color: #777777;box-sizing:border-box;border-bottom:1px solid #eee}
+.mark{margin-right: 30rpx; white-space:nowrap;color: #666;font-size:24rpx}
+.activites-item{margin:0 20px; display:flex;flex-direction: column; padding:40rpx 0;border-bottom:1px solid #eee }
+.activites-item-title{color:#666;font-size:34rpx}
+.activites-content{ margin-top: 20rpx;line-height:40rpx; letter-spacing: 1px;color:#666}
+.sponsor-warp .sponsorImg{display:flex;flex-direction: row;height:230rpx;margin-top:30rpx;} 
+.sponsor-warp .sponsorImg .imgItem{flex:1;display:flex;align-items:center;justify-content: center;border:1px solid #eee}
+.sponsor-warp .sponsorImg .imgItem image{height:200rpx;width:200rpx}
+.activites-tip{margin-top:30rpx;}
+.activites-tip .item{margin-bottom:10rpx}
+.activites-tip .item .tip-num{border-radius:100%;color:#fff;width:40rpx;height:40rpx;line-height:40rpx;text-align:center;margin-right:6rpx;background:rgb(0, 176, 240)}
+.activeTool .item{flex:1;border-right:1px solid #eee;color:#999;text-align:center;padding:4rpx 0}
+.activeTool .item:last-child{border:0}
+.activeTool image{width:30rpx;height:30rpx;margin-right:6rpx}
+.speakContent{border-top:1px solid #eee;border-bottom:1px solid #eee;padding:60rpx 0;text-align:center;margin-top:40rpx}
