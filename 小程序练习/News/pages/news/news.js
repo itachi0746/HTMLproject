@@ -47,7 +47,7 @@ Page({
     var token = wx.getStorageSync('token');
     console.log(token);
     wx.showNavigationBarLoading();
-    var url = that.url + "&PageIndex=1&PageSize=3";
+    var url = that.url + "&PageIndex=1&PageSize=3";  // 页数 新闻数
     util.request(that, url, "", 'GET', function (data) {
       that.getData(data)
     });

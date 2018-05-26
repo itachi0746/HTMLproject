@@ -21,7 +21,7 @@ Page({
 
   //事件处理函数
   goToNews2: function () {
-    debugger
+    // debugger
 
     // ==============================
     var that = this;
