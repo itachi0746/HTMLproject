@@ -1,5 +1,7 @@
-// var arr = [10, 20, 1, 2];
+/*jshint esversion: 6 */
 
+
+// var arr = [10, 20, 1, 2];
 
 
 // console.log(arr.sort((x,y) => y-x));
