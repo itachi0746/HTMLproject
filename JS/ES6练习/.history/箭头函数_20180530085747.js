@@ -8,7 +8,6 @@
 var fn = x => x * x;
 // console.log(fn(2));
 
-// ==================================================
 
 
 var obj = {
@@ -28,7 +27,6 @@ var a = obj.getAge(); // 25
 // function full(person) {
 //   return person.first + ' ' + person.last;
 // }
-// ==================================================
 
 function foo() {
   setTimeout(() => {
