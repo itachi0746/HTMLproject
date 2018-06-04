@@ -87,8 +87,9 @@ App({
     g_phone: {},
     code: {},
     EntId:"10017",
-    OrgId:"bdcf4820d9eb43c198101bb981bbbe3b",
-    refuse: false
+    OrgId:"bdcf4820d9eb43c198101bb981bbbe3b"
+    // refuse: false,
+    // hasToken: false
   }
 
 })

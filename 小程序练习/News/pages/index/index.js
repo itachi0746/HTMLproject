@@ -9,7 +9,9 @@ Page({
     userInfo: {},
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
-    refuse: false
+    userConfirm: false,
+    hasToken: false
+
   },
   // 跳转
   goToNews: function() {
@@ -30,6 +32,9 @@ Page({
       success: function () {
         debugger
         console.log('登录态未过期')
+        that.setData({
+          hasToken: true
+        })
         //session_key 未过期，并且在本生命周期一直有效
       },
       fail: function () {
@@ -120,13 +125,22 @@ Page({
         content: '未经授权暂无法查看该应用',
         success(res) {
           if (res.confirm) {  // 用户点击确定
-            app.globalData.refuse = true,
-              that.setData({
-              refuse: true
+            // that.setData({
+            //   userConfirm: true
+            // })
+            wx.showToast({
+              title: '请点击授权',
+              icon: 'none',
+              duration: 2000
             })
-
           } else if (res.cancel) {  // 用户点击拒绝
             console.log('55555555')
+            wx.showToast({
+              title: '拒绝授权将不能正常访问程序',
+              icon: 'none',
+              duration: 2000
+            })
+
           }
         }
       })
@@ -137,7 +151,8 @@ Page({
     console.log('index doLogin start');
     debugger
     var url = app.globalData.g_url + '/api/WxApplet/login?dataType=JSON';
-    // console.log(url);
+    var that = this;
+    // console.log(that);
     var data = app.globalData.g_userInfo;
     data.EntId = "10017";
     data.OrgId = "bdcf4820d9eb43c198101bb981bbbe3b";
@@ -145,6 +160,10 @@ Page({
       console.log(res)
       var get = wx.getStorageSync('token')
       get ? get : wx.setStorageSync('token', res.data.Token)
+      app.globalData.hasToken = true,
+      that.setData({
+        hasToken : true
+      })
       console.log(wx.getStorageSync('token'))
     })
     console.log('index doLogin end')
