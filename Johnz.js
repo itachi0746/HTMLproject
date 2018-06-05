@@ -130,3 +130,10 @@ function stopBodyScroll (isFixed) {
   }
 }
 // ==================================================
+
+// JQuery方法
+//当点击跳转链接后，回到页面顶部位置  
+$("#back-to-top").click(function(){  
+    $('body,html').animate({scrollTop:0},500);  
+    return false;  
+});  
