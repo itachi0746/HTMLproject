@@ -15,7 +15,8 @@ Page({
     interval: 5000,
     duration: 300,
     vertical: true,
-    imgMode: 'scaleToFill'
+    imgMode: 'scaleToFill',
+    animationData: {}
   },
 
   onLoad: function () {
@@ -30,6 +31,18 @@ Page({
       console.log(res.errCode)
     })
   },
+  rotate: function () {
+
+    animation.rotate(360).step()
+
+    this.setData({
+      animationData: animation.export()
+    })
+  },
+  onShow: function () {
+
+  },
+
   getUserInfo: function(e) {
 
   }

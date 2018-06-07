@@ -1,9 +1,6 @@
 <!--index.wxml-->
 <view>
-  <view class="music">
-    <!-- <image src="{{musicUrl}}"></image> -->
-    
-  </view>
+  <view class="music" bindtap="playMusic"></view>
   <swiper indicator-dots="{{indicatorDots}}"
     autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" vertical="{{vertical}}">
     <block wx:for="{{imgUrls}}">
