@@ -10,33 +10,61 @@ Page({
       '../../image/3.jpg'
     ] ,
     musicUrl: '../../image/normalmusic.svg',
+    ewm: 'http://erp.jierutek.com/Files/10017/bdcf4820d9eb43c198101bb981bbbe3b/2016-03/PS/Images/b105803b93024526b4f665c508537eef.jpg',
     indicatorDots: false,
     autoplay: false,
     interval: 5000,
-    duration: 300,
+    duration: 500,
     vertical: true,
     imgMode: 'scaleToFill',
-    animationData: {}
+    _music: 'musicRotate',
+    musicObj: {}
   },
 
   onLoad: function () {
     const innerAudioContext = wx.createInnerAudioContext()
+
     innerAudioContext.autoplay = true
-    innerAudioContext.src = 'http://ws.stream.qqmusic.qq.com/M500001VfvsJ21xFqb.mp3?guid=ffffffff82def4af4b12b3cd9337d5e7&uin=346897220&vkey=6292F51E1E384E061FF02C31F716658E5C81F5594D561F2E88B854E81CAAB7806D5E4F103E55D33C16F3FAC506D1AB172DE8600B37E43FAD&fromtag=46'
+    innerAudioContext.loop = true
+    innerAudioContext.src = 'http://erp.jierutek.com/Files/10017/bdcf4820d9eb43c198101bb981bbbe3b/2017-11/OBJ_PART_CONTENT/Annex/78f3c58788c04a0687cf3179662d3154.mp3'
+    this.setData({
+      musicObj: innerAudioContext
+    })
     innerAudioContext.onPlay(() => {
       console.log('开始播放')
+      this.setData({
+        _music: 'musicRotate'
+        
+      })
+    })
+    innerAudioContext.onPause(() => {
+      console.log('暂停播放')
+      this.setData({
+        _music : ''
+
+      })
     })
     innerAudioContext.onError((res) => {
       console.log(res.errMsg)
       console.log(res.errCode)
     })
   },
-  rotate: function () {
+  playMusic: function () {  // 点击播放 暂停
+    var music = this.data.musicObj
+    music.paused ? music.play() : music.pause()
 
-    animation.rotate(360).step()
-
-    this.setData({
-      animationData: animation.export()
+  },
+  preview: function(e) {
+    var current = e.target.dataset.src
+    wx.previewImage({
+      current: current,
+      urls: this.data.ewm.split(),
+      success: (res) => {
+        console.log(res)
+      },
+      fail: (res) => {
+        console.log(res)
+      }
     })
   },
   onShow: function () {

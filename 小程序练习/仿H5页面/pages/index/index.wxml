@@ -1,6 +1,6 @@
 <!--index.wxml-->
 <view>
-  <view class="music" bindtap="playMusic"></view>
+  <view class="music {{_music}}" bindtap="playMusic"></view>
   <swiper indicator-dots="{{indicatorDots}}"
     autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" vertical="{{vertical}}">
     <block wx:for="{{imgUrls}}">
@@ -8,6 +8,11 @@
         <image src="{{item}}" class="slide-image" mode="{{imgMode}}"/>
       </swiper-item>
     </block>
+      <swiper-item class="lastPage">
+        <text class="line"></text>
+        <image class="ewmImg" src="{{ewm}}" mode="aspectFit" bindtap="preview"></image>
+        <view>扫一扫了解更多信息</view>
+      </swiper-item>
   </swiper>
 
 </view>
