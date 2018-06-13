@@ -30,3 +30,6 @@ ReactDOM.render(
   <Toggle />,
   document.getElementById('root')
 );
+function aaa(bb) {
+  return bb
+}

@@ -1,5 +1,5 @@
 {
-  "name": "react-1",
+  "name": "_react",
   "version": "1.0.0",
   "description": "learn react",
   "main": "test.js",
@@ -22,9 +22,5 @@
     "gulp-watch": "^5.0.0",
     "reactify": "^1.1.1",
     "vinyl-source-stream": "^2.0.0"
-  },
-  "dependencies": {
-    "react": "^16.4.0",
-    "react-dom": "^16.4.0"
   }
 }
