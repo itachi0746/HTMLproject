@@ -1,0 +1,34 @@
+<template name="activityItemTpl">
+  <view class="activity-container">
+
+    <view class="activites-item flexR ">
+      <view class="activites-img">
+        <image src="{{imgUrl}}" mode="aspectFill"></image>
+      </view>
+      <view class="activites-text;flexC;flex1">
+        <view class="p1">{{activityTitle}} </view>
+        <view class="activites-text-item">
+          <view class="address-icon icon1">
+
+            地址：
+          </view>
+          <text>{{activityAddress}} </text>
+        </view>
+        <view class="activites-text-item">
+          <view class="activites-time icon1">
+            时间：
+          </view>
+          <text>{{activityTime}}</text>
+        </view>
+        <view class="activites-text-item">
+          <image src="/image/read.png"></image>
+          <text>{{activityRead}}</text>
+
+          <image src="/image/user.png"></image>
+          <text>{{activityUser}}</text>
+        </view>
+      </view>
+    </view>
+
+  </view>
+</template>

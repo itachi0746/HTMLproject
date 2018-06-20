@@ -9,7 +9,7 @@ class Toggle extends Component {
   }
 
   handleClick() {
-    this.setState(prevState => ({  // 接受上一个状态作为参数 setState可以接受一个对象作为参数,也可以接受一个函数
+    this.setState(prevState => ({  // 接受上一个状态作为参数 
       isToggleOn: !prevState.isToggleOn
     }));
   }

@@ -1,0 +1,23 @@
+
+page{font-size:26rpx;color:#666}
+.serchTop{display:flex;flex-direction:row;padding:16rpx 25rpx;position:fixed;z-index:66;background:#fff}
+.searchBtn{width:100rpx;height:65rpx;display:flex;flex-direction: column;justify-content: center;align-items:center;background:#aaa}
+.active-itme{width:167rpx;margin:10rpx;align-items:center;display:inline-flex}
+.active-itme image{width:70rpx;height:70rpx;}
+.active-itme text{font-size:26rpx;margin:16rpx 0;}
+.activites-num{float:left;margin-left:20rpx}
+.all-activites{padding:20rpx 0;background:#aaa;overflow:hidden}
+.activites-city{margin-right:16rpx;float:right}
+.activites-img{width:150rpx;height:150rpx}
+.activites-img image{width:100%;height:100%;}
+.activites-content{padding:16rpx}
+.activites-item{padding:20rpx 0;border-bottom:1px solid #ccc}
+.activites-text{margin-left:16rpx;}
+.p1{font-size:32rpx;padding-left:10rpx;margin-bottom:6rpx;}
+.activites-text-item .icon1{margin:0 10rpx;display:inline-block;}
+.activites-text-item .icon1 image{width:100%;height:100%;margin:0}
+.activites-text-item{margin-top:4rpx;font-size:24rpx;}
+.activites-text-item .icon1 image{vertical-align: top}
+.activites-text-item text{line-height:30rpx}
+.activites-text-item image{width:30rpx;height:30rpx;margin:0 12rpx;vertical-align:middle;
+ }

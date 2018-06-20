@@ -1,153 +1,51 @@
 <view wx:if="{{networkType}}" style="text-align:center;font-size:28rpx;color:red;margin-top:4px">当前处在无网状态,请检查网络！</view>
 <!--搜索查询-->
 <view class="serchTop">
-   <input placeholder="搜索活动"  class="searchInput"/>
-   <view class="searchBtn"><icon type="search" color="#fff"/></view>
+  <input placeholder="搜索活动" class="searchInput" />
+  <view class="searchBtn">
+    <icon type="search" color="#fff" />
+  </view>
 </view>
 <!--活动分类-->
- <scroll-view scroll-x style="width:100%;white-space:nowrap;padding-top:100rpx" class="active-nav flexR">
-    <view class="active-itme flexC">
-        <image src="http://bpic.588ku.com/element_origin_min_pic/01/56/72/315747d2373d5e0.jpg"></image>
-        <text>篮球</text>
-    </view>
-    <view class="active-itme flexC">
-        <image src="http://bpic.588ku.com/element_origin_min_pic/01/56/72/315747d2373d5e0.jpg"></image>
-        <text>篮球</text>
-    </view>
-    <view class="active-itme flexC">
-        <image src="http://bpic.588ku.com/element_origin_min_pic/01/56/72/315747d2373d5e0.jpg"></image>
-        <text>篮球</text>
-    </view>
-    <view class="active-itme flexC">
-        <image src="http://bpic.588ku.com/element_origin_min_pic/01/56/72/315747d2373d5e0.jpg"></image>
-        <text>篮球</text>
-    </view>
-    <view class="active-itme flexC">
-        <image src="http://bpic.588ku.com/element_origin_min_pic/01/56/72/315747d2373d5e0.jpg"></image>
-        <text>篮球</text>
-    </view>
-  </scroll-view>
-  <!--活动内容-->
-  <view>
-    <view class="all-activites">
-        <view class="activites-num">全部活动（0/9）</view>
-        <view class="activites-city">
-          <text>当前城市：</text>
-          <text>广州</text>
-        </view>
-    </view>
-    <view class="activites-content">
-       <view class="activites-item flexR " catchtap="onTapToDetail" data-post-id="1">
-        <view class="activites-img">
-          <image src="http://i2.chinanews.com/simg/cmshd/2017/11/28/0fbf97fddb3e44ee8977328ec96c81ee.jpg"  mode="aspectFill"></image>
-        </view>
-        <view class="activites-text;flexC;flex1">
-            <view class="p1">广州接入信息科技有限公司 </view>
-             <view class="activites-text-item">
-                  <view class="address-icon icon1">
-                    
-                    地址：
-                  </view>
-                   <text>广州接入信息科技有限公司 </text>
-              </view>
-            <view class="activites-text-item">
-              <view class="activites-time icon1">
-                时间：
-              </view>
-               <text>2017~10~23 11:20-2017~10~23 11:20</text>
-            </view>
-            <view class="activites-text-item">
-              <image src="/image/read.png"></image>
-              <text>20</text>
-              
-              <image src="/image/user.png"></image>
-              <text>20</text>
-            </view>
-        </view>
-      </view>
-       <view class="activites-item flexR ">
-        <view class="activites-img">
-          <image src="http://i2.chinanews.com/simg/cmshd/2017/11/28/0fbf97fddb3e44ee8977328ec96c81ee.jpg"  mode="aspectFill"></image>
-        </view>
-        <view class="activites-text;flexC;flex1">
-            <view class="p1">广州接入信息科技有限公司 </view>
-             <view class="activites-text-item">
-                  <view class="address-icon icon1">
-                    
-                    地址：
-                  </view>
-                   <text>广州接入信息科技有限公司 </text>
-              </view>
-            <view class="activites-text-item">
-              <view class="activites-time icon1">
-                时间：
-              </view>
-               <text>2017~10~23 11:20-2017~10~23 11:20</text>
-            </view>
-            <view class="activites-text-item">
-              <image src="/image/read.png"></image>
-              <text>20</text>
-              
-              <image src="/image/user.png"></image>
-              <text>20</text>
-            </view>
-        </view>
-      </view>
-       <view class="activites-item flexR ">
-        <view class="activites-img">
-          <image src="http://i2.chinanews.com/simg/cmshd/2017/11/28/0fbf97fddb3e44ee8977328ec96c81ee.jpg"  mode="aspectFill"></image>
-        </view>
-        <view class="activites-text;flexC;flex1">
-            <view class="p1">广州接入信息科技有限公司 </view>
-             <view class="activites-text-item">
-                  <view class="address-icon icon1">
-                    
-                    地址：
-                  </view>
-                   <text>广州接入信息科技有限公司 </text>
-              </view>
-            <view class="activites-text-item">
-              <view class="activites-time icon1">
-                时间：
-              </view>
-               <text>2017~10~23 11:20-2017~10~23 11:20</text>
-            </view>
-            <view class="activites-text-item">
-              <image src="/image/read.png"></image>
-              <text>20</text>
-              
-              <image src="/image/user.png"></image>
-              <text>20</text>
-            </view>
-        </view>
-      </view>
-       <view class="activites-item flexR ">
-        <view class="activites-img">
-          <image src="http://i2.chinanews.com/simg/cmshd/2017/11/28/0fbf97fddb3e44ee8977328ec96c81ee.jpg"  mode="aspectFill"></image>
-        </view>
-        <view class="activites-text;flexC;flex1">
-            <view class="p1">广州接入信息科技有限公司 </view>
-             <view class="activites-text-item">
-                  <view class="address-icon icon1">
-                    
-                    地址：
-                  </view>
-                   <text>广州接入信息科技有限公司 </text>
-              </view>
-            <view class="activites-text-item">
-              <view class="activites-time icon1">
-                时间：
-              </view>
-               <text>2017~10~23 11:20-2017~10~23 11:20</text>
-            </view>
-            <view class="activites-text-item">
-              <image src="/image/read.png"></image>
-              <text>20</text>
-              
-              <image src="/image/user.png"></image>
-              <text>20</text>
-            </view>
-        </view>
-      </view> 
+<scroll-view scroll-x style="width:100%;white-space:nowrap;padding-top:100rpx" class="active-nav flexR">
+  <view class="active-itme flexC">
+    <image src="http://bpic.588ku.com/element_origin_min_pic/01/56/72/315747d2373d5e0.jpg"></image>
+    <text>篮球</text>
+  </view>
+  <view class="active-itme flexC">
+    <image src="http://bpic.588ku.com/element_origin_min_pic/01/56/72/315747d2373d5e0.jpg"></image>
+    <text>篮球</text>
+  </view>
+  <view class="active-itme flexC">
+    <image src="http://bpic.588ku.com/element_origin_min_pic/01/56/72/315747d2373d5e0.jpg"></image>
+    <text>篮球</text>
+  </view>
+  <view class="active-itme flexC">
+    <image src="http://bpic.588ku.com/element_origin_min_pic/01/56/72/315747d2373d5e0.jpg"></image>
+    <text>篮球</text>
+  </view>
+  <view class="active-itme flexC">
+    <image src="http://bpic.588ku.com/element_origin_min_pic/01/56/72/315747d2373d5e0.jpg"></image>
+    <text>篮球</text>
+  </view>
+</scroll-view>
+<!--活动内容-->
+<view>
+  <view class="all-activites">
+    <view class="activites-num">全部活动（0/9）</view>
+    <view class="activites-city">
+      <text>当前城市：</text>
+      <text>广州</text>
     </view>
   </view>
+  <view class="activites-content">
+
+    <block wx:for="{{activites}}" wx:for-item="item" wx:for-index="idx" bindscrolltolower="onScrollLower">
+
+      <view catchtap="onTapToDetail" data-post-id="{{activites[idx].id}}">
+        <template is="activityItemTpl" data="{{...item}}" />
+      </view>
+    </block>
+
+  </view>
+</view>

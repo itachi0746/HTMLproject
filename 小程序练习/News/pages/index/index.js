@@ -30,7 +30,7 @@ Page({
 
     wx.checkSession({  // 检查登录态
       success: function () {
-        debugger
+        // debugger
         console.log('登录态未过期')
         that.setData({
           hasToken: true
@@ -48,7 +48,7 @@ Page({
             if (res.code) {
               app.globalData.code = res.code;
               console.log('app.globalData.code:', app.globalData.code)
-              var code = { code: res.code, appid: "wx30b4a19af8d1f8fd" };
+              var code = { code: res.code, appid: app.globalData.appid };
               wx.getUserInfo({
                 success: function (res) {
                   debugger

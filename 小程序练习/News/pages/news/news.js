@@ -9,7 +9,7 @@ Page({
     loading:false,
     success: app.success ? app.success:true
   },
- 
+  // http://api2.jierutek.com/Help
   url: app.globalData.g_url + '/api/News/Get?EntId=10017&OrgId=bdcf4820d9eb43c198101bb981bbbe3b&ContentType=d3a912ec4da440ebb946af8bde835841&dataType=JSON',
   
   getData: function(data){  // get成功后, 渲染页面
@@ -52,82 +52,6 @@ Page({
       that.getData(data)
     });
 
-    // wx.login({
-    //   success: function (res){
-    //     console.log('news login start')
-    //     if (res.code){
-    //       var code = { code: res.code, appid: "wx30b4a19af8d1f8fd" };
-    //       wx.getUserInfo({
-    //         // withCredentials: true,
-    //         success: function (res) {
-    //           debugger
-    //           app.globalData.g_userInfo = Object.assign(code, res.userInfo);
-    //           wx.setStorageSync('user', app.globalData.g_userInfo)
-    //           var token = wx.getStorageSync('token')
-    //           console.log('news login :',token);
-    //           // app.getUserInfo();
-    //           // app.getSystemInfo();
-    //           wx.showNavigationBarLoading()
-    //           var url = that.url + "&PageIndex=1&PageSize=3";
-    //           util.request(that, url, "", 'GET', function (data) {
-    //             that.getData(data)
-    //           });
-    //         },
-     
-    //         fail: function (res) {
-    //           console.log(res);
-    //           wx.showModal({
-    //             title: '请前往授权',
-    //             content: '未经授权暂无法查看该应用',
-    //             success: function (res) {
-    //             // debugger
-    //               if (res.confirm) {  // 用户点击确定
-    //                 wx.openSetting({
-    //                   success: (res) => {
-    //                     if (res.authSetting["scope.userInfo"]){
-    //                       // debugger
-    //                       wx.login({
-    //                         success: function (res){
-    //                           if (res.code) {
-    //                             var code = { code: res.code, appid: "wx21737bb3a6e1d87c" };
-    //                             wx.getUserInfo({
-    //                               success: function (res) {
-    //                                 app.globalData.g_userInfo = Object.assign(code, res.userInfo);
-    //                                 wx.setStorageSync('user', app.globalData.g_userInfo)
-    //                                 var token = wx.getStorageSync('token')
-    //                                 app.getUserInfo();
-    //                                 app.getSystemInfo();
-    //                                 wx.showNavigationBarLoading()
-    //                                 var url = that.url + "&PageIndex=1&PageSize=3";
-    //                                 util.request(that, url, "", 'GET', function (data) {
-    //                                   that.getData(data)
-    //                                 });
-    //                               },
-    //                             });
-    //                           }
-    //                         }
-    //                       })
-    //                     }
-    //                   },
-    //                   fail: function(res) {
-    //                     console.log('openSetting 失败:', res)
-    //                   }
-    //                 })
-    //               } else if (res.cancel) { // 用户点击取消
-    //                 // TODO: 用户点击取消
-    //               }
-    //             }
-                
-    //           })
-    //         }
-    //       })
-    //     } else {
-    //       console.log('获取用户登录态失败！' + res.errMsg)
-
-
-    //     }
-    //   }
-    // })
     
    
   },
