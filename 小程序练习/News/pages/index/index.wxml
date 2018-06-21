@@ -6,11 +6,14 @@
       <image bindtap="" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
       <text class="userinfo-nickname">{{userInfo.nickName}}</text>
     </block>
-    <button wx:if="{{hasUserInfo && hasToken}}"  bindtap="goToNews"> 进入应用 </button> 
+    <button wx:if="{{hasUserInfo && hasToken}}" bindtap="goToNews"> 进入应用 </button>
   </view>
   <view class="usermotto">
     <text class="user-motto">{{motto}}</text>
   </view>
+
+
+  
   <!-- <view class="open-setting" wx:if="{{userConfirm}}">
     <button open-type="openSetting">打开授权设置页</button>
 

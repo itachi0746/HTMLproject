@@ -39,7 +39,7 @@ App({
     // })
     
   },
-  //
+  
   getUserInfo: function () {
     console.log('app自定义 getUserInfo start');
     // debugger

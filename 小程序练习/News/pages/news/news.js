@@ -47,7 +47,7 @@ Page({
     var token = wx.getStorageSync('token');
     console.log(token);
     wx.showNavigationBarLoading();
-    var url = that.url + "&PageIndex=1&PageSize=3";  // 页数 新闻数
+    var url = that.url + "&PageIndex=1&PageSize=4";  // 页数 新闻数
     util.request(that, url, "", 'GET', function (data) {
       that.getData(data)
     });
@@ -69,7 +69,7 @@ Page({
   onPullDownRefresh: function (event){
     var that=this
     wx.showNavigationBarLoading();
-    var refreshUrl = this.url +"&PageIndex=1&PageSize=3"
+    var refreshUrl = this.url +"&PageIndex=1&PageSize=4"
     //刷新页面后将页面所有初始化参数恢复到初始值
     this.data.news = [];
     util.request(that,refreshUrl, '','GET', this.getData);
@@ -80,7 +80,7 @@ Page({
   onReachBottom:function (event) {
     var news1 = this.data.news,that=this
     //拼接下一组数据的URL
-    var nextUrl = this.url+"&PageIndex=" + (this.data.page+1) + "&PageSize=3";
+    var nextUrl = this.url+"&PageIndex=" + (this.data.page+1) + "&PageSize=4";
     that.setData({
       loading:true,
       loadingOver: false
@@ -124,6 +124,7 @@ Page({
     })
     //显示loading状态
     wx.showNavigationBarLoading();
+
   },
 
   onTapToDetail(event) {
@@ -135,6 +136,12 @@ Page({
     })
   },
   onShareAppMessage: function () {
+    // wx.removeStorage({
+    //   key: 'token',
+    //   success: function (res) {
+    //     console.log('清除token')
+    //   }
+    // })
     return {
       title: '接入信息',
       desc: '小程序!',
