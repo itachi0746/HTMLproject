@@ -45,22 +45,20 @@ Page({
     console.log('news onload start')
     var that = this;
     var token = wx.getStorageSync('token');
-    console.log(token);
     wx.showNavigationBarLoading();
     var url = that.url + "&PageIndex=1&PageSize=4";  // 页数 新闻数
     util.request(that, url, "", 'GET', function (data) {
       that.getData(data)
     });
 
-    
-   
   },
 
   // target 和currentTarget
   // target指的是当前点击的组件 和currentTarget 指的是事件捕获的组件
   // target这里指的是image，而currentTarget指的是swiper
+  // 点击swiper
   onSwiperTap: function (event) {
-   
+   console.log('点击swiper',event)
     var postId = event.target.dataset.postId;
     wx.navigateTo({
       url: "news-detail/news-detail?id=" + postId
@@ -127,6 +125,7 @@ Page({
 
   },
 
+  // 点击新闻
   onTapToDetail(event) {
     // debugger
     var postId = event.currentTarget.dataset.postId;
@@ -136,12 +135,12 @@ Page({
     })
   },
   onShareAppMessage: function () {
-    // wx.removeStorage({
-    //   key: 'token',
-    //   success: function (res) {
-    //     console.log('清除token')
-    //   }
-    // })
+    wx.removeStorage({
+      key: 'token',
+      success: function (res) {
+        console.log('清除token')
+      }
+    })
     return {
       title: '接入信息',
       desc: '小程序!',

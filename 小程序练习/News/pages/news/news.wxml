@@ -5,7 +5,7 @@
 <view wx:if="{{!networkType}}">
   <swiper catchtap="onSwiperTap" vertical="{{false}}"  indicator-dots="true" autoplay="true" interval="5000"  circular="true">
     <swiper-item>
-      <image src="http://i2.chinanews.com/simg/cmshd/2017/11/28/0fbf97fddb3e44ee8977328ec96c81ee.jpg" data-post-id='3' />
+      <image src="{{news[0].CM03_IMG}}" data-post-id='{{news[0].id}}' />
     </swiper-item>
     <swiper-item>
       <image src="http://image1.chinanews.com.cn/cnsupload/big/2017/10-16/4-561/71475ba8666146b0947f08837d2b53d0.jpg" data-post-id='4' />

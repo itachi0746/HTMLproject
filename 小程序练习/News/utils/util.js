@@ -77,6 +77,7 @@ module.exports = {
     }
 
   },
+
   request: function (that, url, data, method, callback) {
     console.log('request ing')
     console.log(url)
@@ -129,7 +130,7 @@ module.exports = {
         console.log('request2 start');
         if (res.networkType !== "none") {
           wx.request({
-            url: url, //仅为示例，并非真实的接口地址
+            url: url,
             data: data,
             method: method,
             header: {
@@ -159,5 +160,6 @@ module.exports = {
     })
     console.log('request2 end')
   }
+
 
 }

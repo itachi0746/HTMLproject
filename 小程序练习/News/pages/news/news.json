@@ -1,6 +1,6 @@
 {
     "navigationBarTextStyle": "white",
-    "navigationBarTitleText": "新 闻",
+    "navigationBarTitleText": "接入新闻",
     "enablePullDownRefresh": true,
     "backgroundTextStyle": "dark"
 }

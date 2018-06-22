@@ -1,21 +1,10 @@
 <!--index.wxml-->
 <view class="container">
-  <view class="userinfo">
-    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获得授权 </button>
-    <block wx:else>
-      <image bindtap="" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
-      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-    </block>
-    <button wx:if="{{hasUserInfo && hasToken}}" bindtap="goToNews"> 进入应用 </button>
+
+  <view>
+    <image src="{{welcomeImg}}" mode="widthFix" class='br10'></image>
   </view>
-  <view class="usermotto">
-    <text class="user-motto">{{motto}}</text>
-  </view>
+  <view class='text'>必须完成微信授权才能继续使用</view>
+  <button size='default' type='primary' open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 授权微信用户信息 </button>
 
-
-  
-  <!-- <view class="open-setting" wx:if="{{userConfirm}}">
-    <button open-type="openSetting">打开授权设置页</button>
-
-  </view> -->
 </view>
