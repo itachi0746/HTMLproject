@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Vue</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script></head>
+<body>
+  <span id="test">Message: {{ msg }}</span>
+  <button id="app2" v-bind:disabled="isButtonDisabled">Button</button>
+</body>
+<script>
+  var app = new Vue({
+    el: '#test',
+    data: {
+      msg: '<span v-html="rawHtml"></span></p>'
+    }
+  })
+  var app2 = new Vue({
+    el: '#app2',
+    data: {
+      isButtonDisabled: true
+    }
+  })
+</script>
+</html>
