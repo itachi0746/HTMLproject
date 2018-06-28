@@ -26,33 +26,11 @@
     <button-counter></button-counter>
   </div>
 
-  <div  id="app4">
-    <template v-if='true'>
-      <h1>Title</h1>
-      <p>pp1111p1p1p1p1p</p>
-      <p>pp1111p1p1p1p1p</p>
-    </template>
-
-  </div>
-
-  <div  id="app5">
-    <template v-if='loginType === "username"'>
-      <label for="">Username</label>
-      <input type="text" placeholder="Enter your username">
-    </template>
-    <template v-else>
-      <label for="">Email</label>
-      <input type="text" placeholder="Enter your email address">
-    </template>
-
-  </div>
-
-  <ul id="app6">
-    <li v-for="num in items">
-      {{ num.message }}
-    </li>
-  </ul>
-
+  <template v-if='true'>
+    <h1>Title</h1>
+    <p>pp1111p1p1p1p1p</p>
+    <p>pp1111p1p1p1p1p</p>
+  </template>
 </body>
 <script>
 
@@ -131,30 +109,6 @@
   })
   new Vue({ el: '#components-demo' });
 
-
-var app4 = new Vue({
-  el: '#app4',
-  data: {
-    ok: true
-  }
-})
-
-var app5 = new Vue({
-  el: '#app5',
-  data: {
-    loginType: 'email'
-  }
-})
-
-var app6 = new Vue({
-  el: '#app6',
-  data: {
-    items: [
-      {message: 'one'},
-      {message: 'two'}
-    ]
-  }
-})
 
 </script>
 

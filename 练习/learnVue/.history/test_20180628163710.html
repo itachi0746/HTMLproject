@@ -34,25 +34,6 @@
     </template>
 
   </div>
-
-  <div  id="app5">
-    <template v-if='loginType === "username"'>
-      <label for="">Username</label>
-      <input type="text" placeholder="Enter your username">
-    </template>
-    <template v-else>
-      <label for="">Email</label>
-      <input type="text" placeholder="Enter your email address">
-    </template>
-
-  </div>
-
-  <ul id="app6">
-    <li v-for="num in items">
-      {{ num.message }}
-    </li>
-  </ul>
-
 </body>
 <script>
 
@@ -136,23 +117,6 @@ var app4 = new Vue({
   el: '#app4',
   data: {
     ok: true
-  }
-})
-
-var app5 = new Vue({
-  el: '#app5',
-  data: {
-    loginType: 'email'
-  }
-})
-
-var app6 = new Vue({
-  el: '#app6',
-  data: {
-    items: [
-      {message: 'one'},
-      {message: 'two'}
-    ]
   }
 })
 

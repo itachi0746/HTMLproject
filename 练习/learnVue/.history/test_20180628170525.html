@@ -46,13 +46,6 @@
     </template>
 
   </div>
-
-  <ul id="app6">
-    <li v-for="num in items">
-      {{ num.message }}
-    </li>
-  </ul>
-
 </body>
 <script>
 
@@ -143,16 +136,6 @@ var app5 = new Vue({
   el: '#app5',
   data: {
     loginType: 'email'
-  }
-})
-
-var app6 = new Vue({
-  el: '#app6',
-  data: {
-    items: [
-      {message: 'one'},
-      {message: 'two'}
-    ]
   }
 })
 

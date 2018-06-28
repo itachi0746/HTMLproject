@@ -48,7 +48,7 @@
   </div>
 
   <ul id="app6">
-    <li v-for="num in items">
+    <li v-for="num in nums">
       {{ num.message }}
     </li>
   </ul>
@@ -149,7 +149,7 @@ var app5 = new Vue({
 var app6 = new Vue({
   el: '#app6',
   data: {
-    items: [
+    nums: [
       {message: 'one'},
       {message: 'two'}
     ]
