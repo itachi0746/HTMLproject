@@ -70,6 +70,7 @@ var mySwiper = new Swiper('.swiper-container',{
 
 		},
 	},
+		preloadingImages: true,
 		simulateTouch: false,//禁止鼠标模拟
 		direction: 'horizontal',
 		navigation: {
