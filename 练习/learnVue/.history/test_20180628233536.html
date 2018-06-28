@@ -15,7 +15,6 @@
 </head>
 
 <body>
-  <!-- 类名带 - 时,要写上单引号 -->
     <div id="app0" v-bind:class="{'text-danger':isRed}">text-danger</div>
 
   <span id="test">Message: {{ msg }}</span>
@@ -62,7 +61,6 @@
   </div>
 
   <ul id="app6">
-      <!-- v-for 指令需要使用 item in items 形式的特殊语法 -->
     <li v-for="num in items">
       {{ num.message }}
     </li>
@@ -72,9 +70,7 @@
 <script>
   var app0 = new Vue({
     el: '#app0',
-    data: {
-      isRed: true
-    }
+    isRed: true
   })
 
   var app = new Vue({

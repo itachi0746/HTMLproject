@@ -7,23 +7,10 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Vue</title>
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-  <style>
-    .text-danger {
-      color: red;
-    }
-  </style>
 </head>
 
 <body>
-  <!-- 类名带 - 时,要写上单引号 -->
-    <div id="app0" v-bind:class="{'text-danger':isRed}">text-danger</div>
-
   <span id="test">Message: {{ msg }}</span>
-
-  <!-- Mustache 语法不能作用在 HTML 特性上，遇到这种情况应该使用 v-bind 指令 -->
-  <!-- v-bind 指令可以用于响应式地更新 HTML 特性  (绑定属性) -->
-  <!-- v-on 指令，它用于监听 DOM 事件 -->
-  <!-- 每个绑定都只能包含单个表达式 -->
 
   <button id="app2" v-bind:disabled="isButtonDisabled">Button</button>
 
@@ -41,7 +28,7 @@
   </div>
 
   <div id="app4">
-    <template v-if='false'>
+    <template v-if='true'>
       <h1>Title</h1>
       <p>pp1111p1p1p1p1p</p>
       <p>pp1111p1p1p1p1p</p>
@@ -62,7 +49,6 @@
   </div>
 
   <ul id="app6">
-      <!-- v-for 指令需要使用 item in items 形式的特殊语法 -->
     <li v-for="num in items">
       {{ num.message }}
     </li>
@@ -70,12 +56,6 @@
 
 </body>
 <script>
-  var app0 = new Vue({
-    el: '#app0',
-    data: {
-      isRed: true
-    }
-  })
 
   var app = new Vue({
     el: '#test',
@@ -87,7 +67,7 @@
   var app2 = new Vue({
     el: '#app2',
     data: {
-      isButtonDisabled: []
+      isButtonDisabled: false
     }
   })
 
@@ -96,10 +76,7 @@
     data: {
       message: 'hello'
     },
-    // 计算属性是基于它们的依赖进行缓存的。计算属性只有在它的相关依赖发生改变时才会重新求值。
-    // 这就意味着只要 message 还没有发生改变，多次访问 reversedMessage 计算属性会立即返回之前的计算结果，而不必再次执行函数。
-    computed: {  // 对于任何复杂逻辑，你都应当使用计算属性computed
-    // 计算属性的 getter
+    computed: {
       reversedMessage: function () {
         // `this` 指向 app3 实例
         return this.message.split('').reverse().join('')
