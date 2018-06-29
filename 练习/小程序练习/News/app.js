@@ -2,11 +2,11 @@ var util = require('./utils/util.js')
 App({
   success:true,
 
-  onLaunch: function () {
+  onLaunch: function (options) {
     console.log('app onLaunch');
 
-
-    
+    var scene = decodeURIComponent(options.scene)
+    console.log('app options', options, scene);
   },
   
   getUserInfo: function () {
@@ -15,8 +15,8 @@ App({
     var url = this.globalData.g_url + '/api/WxApplet/login?dataType=JSON';
     // console.log(url);
     var data = this.globalData.g_userInfo;
-    data.EntId = "10017";
-    data.OrgId = "bdcf4820d9eb43c198101bb981bbbe3b";
+    data.EntId = this.globalData.EntId;
+    data.OrgId = this.globalData.OrgId;
     util.request2(url, data, "POST", function (res) {
       // console.log(res)
       var get = wx.getStorageSync('token')
@@ -35,8 +35,8 @@ App({
       success: function (res) {
         that.globalData.g_phone = res
         var data = res;
-        data.EntId = "10017";
-        data.OrgId = "bdcf4820d9eb43c198101bb981bbbe3b";
+        data.EntId = this.globalData.EntId;
+        data.OrgId = this.globalData.OrgId;
         wx.setStorageSync('phone', that.globalData.g_phone)
         util.request2(url, data, "POST", function (res) {
           var get = wx.getStorageSync('token')

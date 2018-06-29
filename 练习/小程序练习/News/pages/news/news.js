@@ -10,7 +10,7 @@ Page({
     success: app.success ? app.success:true
   },
   // http://api2.jierutek.com/Help
-  url: app.globalData.g_url + '/api/News/Get?EntId=10017&OrgId=bdcf4820d9eb43c198101bb981bbbe3b&ContentType=d3a912ec4da440ebb946af8bde835841&dataType=JSON',
+  url: app.globalData.g_url + '/api/News/Get?EntId=' + app.globalData.EntId + '&OrgId=' + app.globalData.OrgId + '&ContentType=d3a912ec4da440ebb946af8bde835841&dataType=JSON',
   
   getData: function(data){  // get成功后, 渲染页面
     console.log('news getData start')
@@ -40,9 +40,15 @@ Page({
     wx.hideNavigationBarLoading();
     console.log('news getData end')
   },
-  onLoad: function () {
+  onLoad: function (options) {
+
     debugger
     console.log('news onload start')
+
+    // var scene = decodeURIComponent(options.scene)
+    // var query = options.query.EntId
+    // console.log(scene)
+
     var that = this;
     var token = wx.getStorageSync('token');
     wx.showNavigationBarLoading();

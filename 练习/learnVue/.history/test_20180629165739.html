@@ -74,8 +74,8 @@
 
   <ul id="app6">
     <!-- v-for 指令需要使用 item in items 形式的特殊语法 -->
-    <li v-for="item in items" :key="item.id">
-      {{ item.message }}
+    <li v-for="num in items">
+      {{ num.message }}
     </li>
   </ul>
 
@@ -188,9 +188,8 @@
     el: '#app6',
     data: {
       items: [
-        { message: 'one', id: '0' },
-        { message: 'two', id: '1' },
-        { message: 'three', id: '2' }
+        { message: 'one' },
+        { message: 'two' }
       ]
     }
   })

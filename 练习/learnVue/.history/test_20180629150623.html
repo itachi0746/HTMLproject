@@ -11,20 +11,19 @@
     .text-danger {
       color: red;
     }
-    .active {
-      background-color: blue;
-    }
   </style>
 </head>
 
 <body>
-    <!-- 操作元素的 class 列表和内联样式是数据绑定的一个常见需求。 -->
-    <!-- 因为它们都是属性，所以我们可以用 v-bind 处理它们：只需要通过表达式计算出字符串结果即可 -->
-    <!-- 表达式结果的类型除了字符串之外，还可以是对象或数组。 -->
-  <div id="app" class="static"
-  v-bind:class="{ active: isActive, 'text-danger': hasError }">
-  5236363jrjrjrj
-</div>
+  <xmp>
+    <table>
+      <tr>
+        <th width="120">a</td>
+          <th width="120">b</td>
+            <th width="120">c</td>
+      </tr>
+    </table>
+  </xmp>
 
   <!-- 类名带 - 时,要写上单引号 -->
   <div id="app0" v-bind:class="{'text-danger':isRed}">text-danger</div>
@@ -74,8 +73,8 @@
 
   <ul id="app6">
     <!-- v-for 指令需要使用 item in items 形式的特殊语法 -->
-    <li v-for="item in items" :key="item.id">
-      {{ item.message }}
+    <li v-for="num in items">
+      {{ num.message }}
     </li>
   </ul>
 
@@ -89,10 +88,9 @@
   })
 
   var app = new Vue({
-    el: '#app',
+    el: '#test',
     data: {
-      isActive: true,
-      hasError: true
+      msg: '<span v-html="rawHtml"></span></p>'
     }
   })
 
@@ -188,9 +186,8 @@
     el: '#app6',
     data: {
       items: [
-        { message: 'one', id: '0' },
-        { message: 'two', id: '1' },
-        { message: 'three', id: '2' }
+        { message: 'one' },
+        { message: 'two' }
       ]
     }
   })

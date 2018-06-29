@@ -76,8 +76,9 @@ Page({
     })
   },
 
-  onLoad: function() {
+  onLoad: function(options) {
     let that = this
+    // console.log(options)
     console.log('index onload', this.data)
 
 
@@ -189,6 +190,7 @@ Page({
     console.log('使用code去登录获取token')
     debugger
     var url = app.globalData.g_url + '/api/WxApplet/login?dataType=JSON';
+    // var url = app.globalData.g_url + '/api/WxApplet/login?dataType=JSON';
     var that = this;
 
     var data = app.globalData.g_userInfo;
