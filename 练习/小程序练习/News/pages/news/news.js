@@ -7,13 +7,52 @@ Page({
     page: 1,
     networkType: false,
     loading:false,
-    success: app.success ? app.success:true
+    success: app.success ? app.success:true,
+    imgUrls: []
   },
   // http://api2.jierutek.com/Help
   url: app.globalData.g_url + '/api/News/Get?EntId=' + app.globalData.EntId + '&OrgId=' + app.globalData.OrgId + '&ContentType=d3a912ec4da440ebb946af8bde835841&dataType=JSON',
+
+  // 获取企业信息 TODO
+  // getEntData: function() {
+  //   let that = this
+  //   let url = app.globalData.g_url + '/api/Ent/PostAds'
+  //   let data = {
+  //     EntId: app.globalData.EntId,
+  //     OrgId: app.globalData.OrgId
+  //   }
+
+  //   util.request2(url, data, 'POST', function (res) {
+
+  //   })
+
+  // },
+
+  // 获取轮播图图片url
+  getImgUrls: function() {
+    let that = this
+    let url = app.globalData.g_url + '/api/Ent/PostAds'
+    let data = {
+      EntId: app.globalData.EntId,
+      OrgId: app.globalData.OrgId
+    }
+
+    util.request2(url, data, 'POST', function (res) {
+      console.log('getImgUrls',res.data)
+      let temp = []
+      
+      for (let i = 0; i < res.data.Data.length; i ++ ) {
+        temp.push(app.globalData.g_url + res.data.Data[i].ImageUrl)
+      }
+      // console.log(temp)
+      that.setData({
+        imgUrls: temp
+      })
+    })
+  },
   
   getData: function(data){  // get成功后, 渲染页面
-    console.log('news getData start')
+    // console.log('news getData start')
     var news = [];
     for (var i in data.Models) {
       var subject = data.Models[i]
@@ -34,16 +73,17 @@ Page({
       news.push(temp)
     }
     this.setData({news:news})
-    console.log(news);
+    // console.log(news);
     wx.stopPullDownRefresh();
     //隐藏loading状态
     wx.hideNavigationBarLoading();
-    console.log('news getData end')
+    // console.log('news getData end')
   },
   onLoad: function (options) {
 
     debugger
     console.log('news onload start')
+    this.getImgUrls()
 
     // var scene = decodeURIComponent(options.scene)
     // var query = options.query.EntId
@@ -104,16 +144,23 @@ Page({
             CM03_PRAIE_COUNT: subject.CM03_PRAIE_COUNT,
             CM03_COMMENT_COUNT: subject.CM03_COMMENT_COUNT,
             CM03_TEXT: subject.CM03_TEXT,
-            CM03_SUMMARY: subject.CM03_SUMMARY
+            CM03_SUMMARY: subject.CM03_SUMMARY,
+            CM03_IMG: app.globalData.g_url + subject.CM03_PIC_URL1
+
           }
           news2.push(temp)
         }
         var news=news1.concat(news2);
         if (data.RecordCount < news.length){
+          // console.log('RecordCount',data.RecordCount)
           that.setData({
             loading: false,
-            loadingOver:true
+            loadingOver:true,
           })
+          // 如果没有更多  就取消这个事件
+          that.onReachBottom = function() {
+            return false
+          }
         }else{
           that.setData({
             loading:false,
@@ -135,22 +182,18 @@ Page({
   onTapToDetail(event) {
     // debugger
     var postId = event.currentTarget.dataset.postId;
-    console.log(postId);
+    // console.log(postId);
     wx.navigateTo({
       url: "news-detail/news-detail?id=" + postId
     })
+
   },
   onShareAppMessage: function () {
-    wx.removeStorage({
-      key: 'token',
-      success: function (res) {
-        console.log('清除token')
-      }
-    })
+
     return {
-      title: '接入信息',
-      desc: '小程序!',
-      path: '/pages/news/news'
+      title: '接入信息小程序',
+      desc: '欢迎使用',
+      path: '/pages/index/index'
     }
   }
 

@@ -79,8 +79,8 @@ module.exports = {
   },
 
   request: function (that, url, data, method, callback) {
-    console.log('request ing')
-    console.log(url)
+    // console.log('request ing')
+    // console.log(url)
     debugger
     wx.getNetworkType({
 
@@ -98,7 +98,7 @@ module.exports = {
             success: function (res) {
               if (res.statusCode == 200) {
                 debugger
-                console.log('request成功: ',res.data)
+                console.log('请求成功: ',res.data)
                 callback(res.data)
                 that.setData({
                   networkType: false
@@ -108,7 +108,7 @@ module.exports = {
             },
             fail: function(err) {
               debugger
-              console.log('request失败: ',err)
+              console.log('请求失败: ',err)
             }
           })
         } else {
@@ -120,14 +120,13 @@ module.exports = {
 
       }
     })
-    console.log('request over')
+    // console.log('request over')
   },
   request2: function (url, data, method, callback) {
     debugger
-    console.log('request2 start')
+    // console.log('request2 start')
     wx.getNetworkType({
       success: function (res) {
-        console.log('request2 start');
         if (res.networkType !== "none") {
           wx.request({
             url: url,
@@ -154,11 +153,11 @@ module.exports = {
           })
         } else {
 
-          console.log(22)
+          // console.log(22)
         }
       }
     })
-    console.log('request2 end')
+    // console.log('request2 end')
   }
 
 

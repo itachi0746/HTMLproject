@@ -3,16 +3,21 @@
 
 <view wx:if="{{networkType}}" style="text-align:center;font-size:28rpx;color:red;margin-top:4px">当前处在无网状态,请检查网络！</view>
 <view wx:if="{{!networkType}}">
-  <swiper catchtap="onSwiperTap" vertical="{{false}}"  indicator-dots="true" autoplay="true" interval="5000"  circular="true">
-    <swiper-item>
-      <image src="{{news[0].CM03_IMG}}" data-post-id='{{news[0].id}}' />
+  <swiper catchtap="onSwiperTap" vertical="{{false}}" indicator-dots="true" autoplay="true" interval="5000" circular="true">
+    <block wx:for="{{imgUrls}}">
+      <swiper-item>
+        <image src="{{item}}"/>
+      </swiper-item>
+    </block>
+    <!-- <swiper-item>
+      <image src="{{}}" data-post-id='' />
     </swiper-item>
     <swiper-item>
       <image src="http://image1.chinanews.com.cn/cnsupload/big/2017/10-16/4-561/71475ba8666146b0947f08837d2b53d0.jpg" data-post-id='4' />
     </swiper-item>
     <swiper-item>
       <image src="http://image1.chinanews.com.cn/cnsupload/big/2017/11-26/4-426/53917ba22e674bb6aecda1fc6702842e.jpg" data-post-id='5' />
-    </swiper-item>
+    </swiper-item> -->
   </swiper>
   <block wx:for="{{news}}" wx:for-item="item" wx:for-index="idx" bindscrolltolower="onScrollLower">
 
@@ -20,7 +25,8 @@
       <template is="postItemTpl" data="{{...item}}" />
     </view>
   </block>
-  <view style="text-align:center;font-size:24rpx;padding:8rpx" wx-if="{{loading}}">正在加载<image src="/image/89.gif" style="width:28rpx;height:28rpx;margin-left:6rpx;vertical-align:middle"/></view>
-  <view style="text-align:center" style="text-align:center;font-size:24rpx;padding:8rpx" wx-if="{{loadingOver}}">没有更多了...</view>
+  <view style="text-align:center;font-size:24rpx;padding:8rpx" wx-if="{{loading}}">正在加载
+    <image src="/image/89.gif" style="width:28rpx;height:28rpx;margin-left:6rpx;vertical-align:middle" />
+  </view>
+  <view style="text-align:center" style="text-align:center;font-size:24rpx;padding:10rpx" wx-if="{{loadingOver}}">没有更多了...</view>
 </view>
-
