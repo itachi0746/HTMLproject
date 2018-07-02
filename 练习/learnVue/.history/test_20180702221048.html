@@ -11,7 +11,6 @@
     .text-danger {
       color: red;
     }
-
     .active {
       background-color: blue;
     }
@@ -19,12 +18,13 @@
 </head>
 
 <body>
-  <!-- 操作元素的 class 列表和内联样式是数据绑定的一个常见需求。 -->
-  <!-- 因为它们都是属性，所以我们可以用 v-bind 处理它们：只需要通过表达式计算出字符串结果即可 -->
-  <!-- 表达式结果的类型除了字符串之外，还可以是对象或数组。 -->
-  <div id="app" class="static" v-bind:class="{ active: isActive, 'text-danger': hasError }">
-    5236363jrjrjrj
-  </div>
+    <!-- 操作元素的 class 列表和内联样式是数据绑定的一个常见需求。 -->
+    <!-- 因为它们都是属性，所以我们可以用 v-bind 处理它们：只需要通过表达式计算出字符串结果即可 -->
+    <!-- 表达式结果的类型除了字符串之外，还可以是对象或数组。 -->
+  <div id="app" class="static"
+  v-bind:class="{ active: isActive, 'text-danger': hasError }">
+  5236363jrjrjrj
+</div>
 
   <!-- 类名带 - 时,要写上单引号 -->
   <div id="app0" v-bind:class="{'text-danger':isRed}">text-danger</div>
@@ -74,15 +74,9 @@
 
   <ul id="app6">
     <!-- v-for 指令需要使用 item in items 形式的特殊语法 -->
-    <!-- 建议尽可能在使用 v-for 时提供 key,  -->
-    <!-- 为了给 Vue 一个提示，以便它能跟踪每个节点的身份，从而重用和重新排序现有元素 -->
     <li v-for="item in items" :key="item.id">
       {{ item.message }}
     </li>
-  </ul>
-
-  <ul id="app7">
-    <li v-for="n in even(numbers)">{{ n }}</li>
   </ul>
 
 </body>
@@ -193,9 +187,6 @@
   })
 
   var app6 = new Vue({
-    // Vue 包含一组观察数组的变异方法，所以它们也将会触发视图更新。这些方法如下：
-    // push() pop() shift() unshift() splice() sort() reverse() // 改变原数组
-    // filter(), concat() 和 slice() 。这些不会改变原始数组，但总是返回一个新数组
     el: '#app6',
     data: {
       items: [
@@ -203,20 +194,6 @@
         { message: 'two', id: '1' },
         { message: 'three', id: '2' }
       ]
-    }
-  })
-
-  var app7 = new Vue({
-    el: '#app7',
-    data: {
-      numbers: [1, 2, 3, 4, 5, 6]
-    },
-    methods: {
-      even: function (numbers) {
-        return numbers.filter(function (number) {
-          return number % 2 === 0
-        })
-      }
     }
   })
 
