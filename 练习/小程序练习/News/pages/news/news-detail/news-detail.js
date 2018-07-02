@@ -11,8 +11,8 @@ Page({
   onLoad: function (options){
     this.postId=options.id
     var we = this;
-    var url= app.globalData.g_url+'/api/News/Detail?dataType=JSON',id= {Id:this.postId}
-    var url1 = app.globalData.g_url + '/api/Comment/GetCommentList?dataType=JSON';
+    var url= app.globalData.g_url+'/api/News/Detail?dataType=JSON',id= {Id:this.postId}  // 文章内容
+    var url1 = app.globalData.g_url + '/api/Comment/GetCommentList?dataType=JSON';  // 评论内容
     var data1 = { CommentId: options.id, CommentType: "d3a912ec4da440ebb946af8bde835841" }
     // 获取新闻文章的请求
     util.request(we,url, id, "GET", function (res) {
