@@ -226,6 +226,13 @@
   })
 
   var app6 = new Vue({
+    // 由于 JavaScript 的限制，Vue 不能检测以下变动的数组：
+    // 当你利用索引直接设置一个项时，例如：vm.items[indexOfItem] = newValue
+    // 当你修改数组的长度时，例如：vm.items.length = newLength
+    // Vue 不能检测对象属性的添加或删除 
+    // vm.b = 2
+    // `vm.b` 不是响应式的
+
     // Vue 包含一组观察数组的变异方法，所以它们也将会触发视图更新。这些方法如下：
     // push() pop() shift() unshift() splice() sort() reverse() // 改变原数组
     // filter(), concat() 和 slice() 。这些不会改变原始数组，但总是返回一个新数组
@@ -276,6 +283,11 @@
         }
       }
     }
+    // 在事件处理程序中调用 event.preventDefault() 或 event.stopPropagation() 是非常常见的需求
+    // <!-- 阻止事件冒泡 -->
+    // <a v-on:click.stop="doThis"></a>
+    // <!-- 阻止默认行为 -->
+    // <form v-on:submit.prevent="onSubmit"></form>
   })
 
   var example3 = new Vue({
@@ -285,7 +297,7 @@
     }
   })
 
-Vue.component('blog-post', {
+var a= Vue.component('blog-post', {
   props: ['post'],
   template: `
     <div class="blog-post">
