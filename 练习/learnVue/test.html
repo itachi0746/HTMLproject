@@ -85,6 +85,39 @@
     <li v-for="n in even(numbers)">{{ n }}</li>
   </ul>
 
+  <div id="example-2">
+    <!-- `greet` 是在下面定义的方法名 -->
+    <button v-on:click="greet">Greet</button>
+  </div>
+
+  <div id="app8">
+    <!-- v-model 指令在表单 <input> 及 <textarea> 元素上创建双向数据绑定。 -->
+    <input v-model="message" placeholder="edit me">
+    <p>Message is: {{ message }}</p>
+  </div>
+
+  <div id='example-3'>
+    <input type="checkbox" id="jack" value="Jack" v-model="checkedNames">
+    <label for="jack">Jack</label>
+    <input type="checkbox" id="john" value="John" v-model="checkedNames">
+    <label for="john">John</label>
+    <input type="checkbox" id="mike" value="Mike" v-model="checkedNames">
+    <label for="mike">Mike</label>
+    <br>
+    <span>Checked names: {{ checkedNames }}</span>
+  </div>
+
+  <div id="blog-posts-events-demo">
+      <div :style="{ fontSize: postFontSize + 'em' }">
+        <blog-post
+          v-for="post in posts"
+          v-bind:key="post.id"
+          v-bind:post="post"
+          v-on:enlarge-text="postFontSize += 0.1"
+        ></blog-post>
+      </div>
+    </div>
+
 </body>
 <script>
   var app0 = new Vue({
@@ -166,7 +199,7 @@
 
   // 定义一个名为 button-counter 的新组件
   Vue.component('button-counter', {
-    data: function () {
+    data: function () {  // data 必须是一个函数
       return {
         count: 0
       }
@@ -219,6 +252,65 @@
       }
     }
   })
+
+  var app8 = new Vue({
+    el: '#app8',
+    data: {
+      message: ''
+    }
+  })
+
+  var example2 = new Vue({
+    el: '#example-2',
+    data: {
+      name: 'Vue.js'
+    },
+    // 在 `methods` 对象中定义方法
+    methods: {
+      greet: function (event) {
+        // `this` 在方法里指向当前 Vue 实例
+        alert('Hello ' + this.name + '!')
+        // `event` 是原生 DOM 事件
+        if (event) {
+          alert(event.target.tagName)
+        }
+      }
+    }
+  })
+
+  var example3 = new Vue({
+    el: '#example-3',
+    data: {
+      checkedNames: []
+    }
+  })
+
+Vue.component('blog-post', {
+  props: ['post'],
+  template: `
+    <div class="blog-post">
+      <h3>{{ post.title }}</h3>
+      <button  v-on:click="$emit('enlarge-text')">
+        Enlarge text
+      </button>
+      <div v-html="post.content"></div>
+    </div>
+  `
+})
+
+  new Vue({
+  el: '#blog-posts-events-demo',
+  data: {
+    posts: [
+      { id: 1, title: 'My journey with Vue', content: 'content1' },
+      { id: 2, title: 'Blogging with Vue', content: 'content2'  },
+      { id: 3, title: 'Why Vue is so fun', content: 'content3'  }
+    ],
+    postFontSize: 1
+  }
+})
+
+
 
 </script>
 
