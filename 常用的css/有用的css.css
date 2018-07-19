@@ -191,3 +191,8 @@ Bootstrap3布局--处理显示5列的方法。Bootstrap4不需要
         float: left;
     }
 }
+
+/*============================================================*/
+应用如下 CSS 可以隐藏滚动条：
+
+.class ::-webkit-scrollbar {display:none}
