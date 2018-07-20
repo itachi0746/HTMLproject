@@ -1,0 +1,95 @@
+
+* {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.search {
+  position: relative;
+  background-color: #fff;
+  width: 100%;
+  top: 0;
+  left: 0;
+  padding: 0.4rem;
+  border-bottom: 1px solid #ddd;
+}
+.search img {
+  position: absolute;
+  left: 1rem;
+  top: 0.9rem;
+}
+
+.search input {
+  width: 100%;
+  height: 100%;
+  font-size: 1rem;
+  padding: 0.3rem 0.2rem 0.2rem 1.5rem;
+  border-radius: 15px;
+  /* line-height: 1px; */
+  border: 0;
+  background-color: #f3f2f8;
+  color: #999999;
+}
+.box {
+  width: 100%;
+  font-size: 0;
+  /* margin-top: 2.5rem; */
+}
+
+.tagBoxWrap {
+  overflow: hidden;
+  width: 20%;
+  position: absolute;
+  top: 2.5rem;
+  bottom: 1rem;
+}
+.tagBox {
+  font-size: 1rem;
+}
+.tagBox li {
+  background-color: #f8f8f8;
+  text-align: center;
+  height: 2rem;
+  line-height: 2rem;
+}
+.contentBoxWrap {
+  overflow: hidden;
+  width: 80%;
+  position: absolute;
+  top: 2.5rem;
+  bottom: 1rem;
+  left: 20%;
+  font-size: 0.6rem;
+}
+.contentBoxWrap ul {
+  overflow: hidden;
+}
+.contentBoxWrap li {
+  width: 33%;
+  padding: 0 0 .5rem;
+  float: left;
+  text-align: center;
+}
+.img {
+  width: 80%;
+  height: 80%;
+  margin: 0 auto;
+}
+.img img {
+  width: 100%;
+  height: 100%;
+}
+li .txt {
+  display: block;
+  font-size: 1.2em;
+  color: #606060;
+  text-align: center;
+  line-height: 2em;
+  margin: .5em 0 0;
+}
+.chosen {
+  background-color: #fff!important;
+}
+.notChosen {
+  background-color: #f8f8f8!important;
+
+}
