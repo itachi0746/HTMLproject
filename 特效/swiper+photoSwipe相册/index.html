@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1,user-scalable=0">
+	<title>PhotoSwipe + swiper</title>
+	<link rel="stylesheet" href="css/photoswipe.css">
+	<link rel="stylesheet" href="css/default-skin/default-skin.css">
+	<link rel="stylesheet" href="css/swiper.min.css">
+	<script src="js/jquery-3.3.1.min.js"></script>
+
+	<script src="js/photoswipe.min.js"></script>
+	<script src="js/photoswipe-ui-default.min.js"></script>
+	<style>
+		* {
+			padding: 0;
+			margin: 0;
+		}
+
+		.swiper-container1 {
+			width: 100%;
+			height: 300px;
+		}
+	</style>
+</head>
+
+<body>
+
+	
+	<!--轮播图-->
+	<div class="swiper-container swiper-container1" id="origin-img">
+		<div class="swiper-wrapper">
+			<div class="swiper-slide">
+				<a href="./img/b1_1.jpg" data-size="1000x1400">
+					<img src="./img/s1_1.jpg" alt="">
+				</a>
+			</div>
+			<div class="swiper-slide">
+				<img src="./img/s1_2.jpg" alt="">
+			</div>
+			<div class="swiper-slide">
+				<img src="./img/s1_3.jpg" alt="">
+			</div>
+		</div>
+		<!-- 如果需要分页器 -->
+		<div class="swiper-pagination swiper-pagination1"></div>
+
+	</div>
+
+	<!-- Root element of PhotoSwipe. Must have class pswp. -->
+	<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+		<div class="pswp__bg"></div>
+		<!-- Slides wrapper with overflow:hidden. -->
+		<div class="pswp__scroll-wrap">
+			<!-- Container that holds slides. PhotoSwipe keeps only 3 slides in DOM to save memory. -->
+			<div class="pswp__container">
+				<!-- don't modify these 3 pswp__item elements, data is added later on -->
+				<div class="pswp__item"></div>
+				<div class="pswp__item"></div>
+				<div class="pswp__item"></div>
+			</div>
+			<!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+			<div class="pswp__ui pswp__ui--hidden">
+				<div class="pswp__top-bar">
+					<!--  Controls are self-explanatory. Order can be changed. -->
+					<div class="pswp__counter"></div>
+					<button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+					<button class="pswp__button pswp__button--share" title="Share"></button>
+
+					<div class="pswp__preloader">
+						<div class="pswp__preloader__icn">
+							<div class="pswp__preloader__cut">
+								<div class="pswp__preloader__donut"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+					<div class="pswp__share-tooltip"></div>
+				</div>
+				<button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button>
+				<button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button>
+				<div class="pswp__caption">
+					<div class="pswp__caption__center"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script src="js/swiper.min.js"></script>
+
+	<script>
+		let clickIndex = 0;
+
+		let swiper1 = new Swiper('.swiper-container1', {
+			pagination: {
+				el: '.swiper-pagination1'
+			},
+			loop: false,
+			autoplay: {
+				disableOnInteraction: false,  // 手动滑动后 不停止自动滑动
+			},
+			on: {
+				// 点击出现
+				click: function () {
+					this.autoplay.stop();  // 自动播放停止
+					clickIndex = this.realIndex;  // 记录下当前滑到第几张
+
+					openPhotoSwipe();
+				},
+			},
+		});
+
+		
+
+		var openPhotoSwipe = function () {
+			var pswpElement = document.querySelectorAll('.pswp')[0];
+			// build items array
+			var items = [
+				{
+					src: 'img/b1_1.jpg',
+					w: 1200,
+					h: 1600,
+				},
+				{
+					src: 'img/b1_2.jpg',
+					w: 1200,
+					h: 1600,
+				},
+				{
+					src: 'img/b1_3.jpg',
+					w: 1200,
+					h: 1600,
+				}
+			];
+
+			// define options (if needed)
+			var options = {
+				index: clickIndex,
+				loop: false,
+				closeOnScroll: false,
+				// history & focus options are disabled on CodePen        
+				history: true,
+				focus: true,
+				shareEl: false,
+				tapToClose: true,
+
+				showAnimationDuration: 0,
+				hideAnimationDuration: 0,
+				getDoubleTapZoom: function (isMouseClick, item) {
+
+					// isMouseClick          - true if mouse, false if double-tap
+					// item                  - slide object that is zoomed, usually current
+					// item.initialZoomLevel - initial scale ratio of image
+					//                         e.g. if viewport is 700px and image is 1400px,
+					//                              initialZoomLevel will be 0.5
+
+					if (isMouseClick) {
+						console.log('isMouseClick');
+						
+						// is mouse click on image or zoom icon
+
+						// zoom to original
+						return 1;
+
+						// e.g. for 1400px image:
+						// 0.5 - zooms to 700px
+						// 2   - zooms to 2800px
+
+					} else {
+						console.log('double-tap');
+
+						// is double-tap
+
+						// zoom to original if initial zoom is less than 0.7x,
+						// otherwise to 1.5x, to make sure that double-tap gesture always zooms image
+						return item.initialZoomLevel < 0.7 ? 1 : 1.2;
+					}
+				}
+			};
+
+			var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, options);
+			gallery.init();
+			gallery.listen('close', function () {
+				console.log('close');
+
+				let tmp = this.getCurrentIndex(); // 当前图片下标
+				console.log('tmp', tmp);
+				console.log('swiper1.realIndex', swiper1.realIndex);
+
+				swiper1.slideTo(tmp, 100, false);
+
+				console.log('swiper1.realIndex', swiper1.realIndex);
+
+				swiper1.autoplay.start();
+			});
+		};
+
+		var myphoto = document.getElementById('origin-img');
+		myphoto.onclick = function () {
+			// var p_id = myphoto.getAttribute('rel');
+			openPhotoSwipe();
+		}
+	</script>
+</body>
+
+</html>
