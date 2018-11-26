@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+
+</head>
+<body>
+  <div id="main"></div>
+  <script src="dist/require.js"></script>
+  <script src='dist/echarts.js'></script>
+  <script src="dist/echarts-x.js"></script>
+
+  <script type="text/javascript">
+      // 配置后续加载的各种 chart 配置 config
+      require.config({
+          paths: {
+              'echarts': 'dist',
+              'echarts-x': 'dist'
+          }
+      });
+
+      // 然后就可以动态加载图表进行绘制啦
+      require([
+          'echarts',
+          'echarts-x',
+          // ECharts-X 中 map3d 的地图绘制基于 ECharts 中的 map。
+//          'echarts/chart/map',
+          'dist/map3d'
+      ], function (ec) {
+          // 跟 ECharts 一样的方式初始化
+          var myChart = ec.init(document.getElementById('main'));
+
+      })
+  </script>
+</body>
+</html>

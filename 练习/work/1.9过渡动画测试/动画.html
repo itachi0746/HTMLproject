@@ -7,7 +7,7 @@
 		.box {
 			width: 54px;
 			height: 62px;
-			background-color: red;
+			/*background-color: red;*/
 			position: absolute;
 			top: 0;
 			left: 0;
@@ -40,7 +40,7 @@
 
 			/*不加前缀在安卓上会卡*/
 			/*-webkit-animation: one 3s ease 0.5s infinite alternate;*/
-			-webkit-animation: one 3s infinite steps(2);
+			-webkit-animation: one 1s steps(2, start) infinite;
 		}
 
 /*		@-webkit-keyframes one {
@@ -60,7 +60,7 @@
 				background-position: 0;
 			}
 			100% {
-				background-position: -54px;
+				background-position: -108px;
 			}
 		}
 	</style>
