@@ -168,3 +168,8 @@ $payColor: #ff5000;  // 淘宝色
 %_hui {
   background-color: #ff8298;
 }
+
+// 四边透明阴影
+%_fourShadow {
+  box-shadow: 5px 5px 5px rgba(0,0,0,0.2),5px -5px 5px rgba(0,0,0,0.2),-5px 5px 5px rgba(0,0,0,0.2),-5px -5px 5px rgba(0,0,0,0.2);
+}
