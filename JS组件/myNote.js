@@ -181,3 +181,42 @@ function moneyChange(num, accuracy) {
   })
   return result
 }
+
+/**
+ * 数字化为金钱格式,千分位
+ * @param num
+ * @returns {string|*}
+ */
+function toMoney(num){
+  num = num.toFixed(2);
+  num = parseFloat(num)
+  num = num.toLocaleString();
+  return num;//返回的是字符串23,245.12保留2位小数
+}
+
+/**
+ * 返回今天或者指定日期
+ * @param detract 减去的天数
+ * @returns {string}
+ */
+function returnDate(detract) {
+  var myDate = new Date();
+  var y,m,d;
+  if(!detract) {
+    y = myDate.getFullYear();
+    m = myDate.getMonth() + 1;
+    d = myDate.getDate();
+    return y+'-'+m+'-'+d;
+  } else {
+    // var preDate = new Date(curDate.getTime() - 24*60*60*1000); //前一天
+    // y = myDate.getFullYear();
+    // m = myDate.getMonth() + 1;
+    var sec = 24*60*60*1000*detract;
+    var theDate = new Date(myDate.getTime()-sec);
+    y = theDate.getFullYear();
+    m = theDate.getMonth() + 1;
+    d = theDate.getDate();
+    return y+'-'+m+'-'+d;
+  }
+
+}
