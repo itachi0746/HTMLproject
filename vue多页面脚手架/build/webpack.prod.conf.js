@@ -120,7 +120,7 @@ const webpackConfig = merge(baseWebpackConfig, {
     }),
     new webpack.optimize.CommonsChunkPlugin({
       name: 'common-api',
-      chunks: ['admin', 'index'],
+      chunks: ['admin', 'index','test'],
       minChunks: Infinity
     }),
     // extract webpack runtime and module manifest to its own file in order to
@@ -138,7 +138,7 @@ const webpackConfig = merge(baseWebpackConfig, {
       children: true,
       minChunks: 3
     }),
-    
+
     // copy custom static assets
     new CopyWebpackPlugin([
       {
@@ -153,7 +153,7 @@ const webpackConfig = merge(baseWebpackConfig, {
 
 if (config.build.productionGzip) {
   const CompressionWebpackPlugin = require('compression-webpack-plugin')
-  
+
   webpackConfig.plugins.push(
     new CompressionWebpackPlugin({
       asset: '[path].gz[query]',

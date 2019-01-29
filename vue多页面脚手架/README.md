@@ -1,5 +1,7 @@
 # multiple-vue-amazing
 
+# 添加新页面,要修改build文件夹下的utils.js和webpack.prod.conf.js
+
 > A Vue.js project
 
 ## Build Setup
