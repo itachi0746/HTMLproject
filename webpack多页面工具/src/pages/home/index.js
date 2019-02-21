@@ -5,4 +5,4 @@ import {throttle} from '../../tools/utils';
 import * as _ from "lodash";
 console.log("At page 'index' :", _);
 console.log(throttle);
-console.log('首页的js运行了～～11')
+console.log('首页的js运行了～～55555')
