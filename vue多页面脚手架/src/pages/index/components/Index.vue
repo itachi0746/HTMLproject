@@ -14,12 +14,17 @@
 </template>
 
 <script>
-export default {
+  import myModule from '../../../common'
+
+  export default {
   name: 'HelloWorld',
   data () {
     return {
       msg: 'Welcome to Index2'
     }
+  },
+  mounted () {
+    console.log(myModule)
   }
 }
 </script>

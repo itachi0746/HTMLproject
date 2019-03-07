@@ -1,4 +1,3 @@
-import $ from './jquery-3.3.1.min'
-import './rem'
+import myModule from './utils'
 
-export default window.$
+export default myModule
