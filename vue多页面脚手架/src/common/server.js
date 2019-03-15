@@ -50,7 +50,7 @@ Axios.interceptors.request.use(
   }
 )
 
-// 返回状态判断(添加响应拦截器)
+//返回状态判断(添加响应拦截器), 统一处理响应
 Axios.interceptors.response.use(
   res => {
     // 对响应数据做些事
@@ -59,7 +59,7 @@ Axios.interceptors.response.use(
         message: res.data.ErrMsg, // 弹出错误信息
         duration: 1000,
         background: '#fef0f0'
-      })
+      });
       return Promise.reject(res.data.ErrMsg)
     }
     return res
@@ -69,7 +69,7 @@ Axios.interceptors.response.use(
       message: '请求出错', // 弹出错误信息
       duration: 1000,
       background: '#fef0f0'
-    })
+    });
 
     // 下面是接口回调的status
 
@@ -102,19 +102,20 @@ Axios.interceptors.response.use(
 
 // 封装axios的post请求
 let postData = function (url, params = {}) {
-  let theRequestUrl = url
-  console.log('开始访问:' + theRequestUrl)
+  let theRequestUrl = url;
+  console.log("开始访问:" + theRequestUrl);
   return new Promise((resolve, reject) => {
     Axios.post(url, params)
-      .then(response => {
-        resolve(response.data)
+      .then(response => { // 成功状态,把res的data传下去
+        // console.log(response);
+        resolve(response.data);
       })
-      // .catch((error) => {
-      //   console.log(theRequestUrl + ':请求出错')
-      //   reject(error)
-      // })
+      .catch((error) => { // 出错的情况,把error传下去
+        console.log(theRequestUrl + ':请求出错');
+        reject(error);
+      })
   })
-}
+};
 
 export { postData }
 

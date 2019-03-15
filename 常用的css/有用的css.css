@@ -206,3 +206,11 @@ box-shadow: 0 -0.02667rem 0.05333rem rgba(0, 0, 0, 0.1);
 /*上下滚动*/
 overflow-y: auto;
 -webkit-overflow-scrolling: touch;/* 解决ios滑动不流畅问题 */
+
+/*============================================================*/
+/*换行*/
+word-break: break-all; /* 允许单词在任何地方被打破（这里所说的打破是强行折断换行） */
+overflow-wrap: break-word; /* 不打断单词 */
+
+/*不换行*/
+white-space:nowrap;
