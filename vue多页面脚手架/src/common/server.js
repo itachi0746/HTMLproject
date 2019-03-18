@@ -60,7 +60,7 @@ Axios.interceptors.response.use(
         duration: 1000,
         background: '#fef0f0'
       });
-      return Promise.reject(res.data.ErrMsg)
+      return Promise.reject(res.data.ErrMsg) // 返回promise对象,把错误信息传下去
     }
     return res
   },
