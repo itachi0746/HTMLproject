@@ -47,7 +47,8 @@ exports.cssLoaders = function (options) {
     if (options.extract) {
       return ExtractTextPlugin.extract({
         use: loaders,
-        fallback: 'vue-style-loader'
+        fallback: 'vue-style-loader',
+        publicPath: '../../'
       })
     } else {
       return ['vue-style-loader'].concat(loaders)
@@ -60,6 +61,7 @@ exports.cssLoaders = function (options) {
     postcss: generateLoaders(),
     less: generateLoaders('less'),
     sass: generateLoaders('sass', {indentedSyntax: true}),
+    // scss: generateLoaders('sass'),
     scss: generateLoaders('sass').concat(
       {
         loader: 'sass-resources-loader',
@@ -152,9 +154,7 @@ exports.htmlPlugin = function () {
     if(filename === 'index') {
       chunks = ['manifest', 'vendor', 'vendor-index', 'common-api', filename];
     }
-    if(filename === 'test') {
-      chunks = ['manifest', 'vendor', 'vendor-test', 'common-api', filename];
-    }
+
     let conf = {
       // 模板来源
       template: filePath,

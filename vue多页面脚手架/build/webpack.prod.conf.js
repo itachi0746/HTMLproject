@@ -23,6 +23,7 @@ const webpackConfig = merge(baseWebpackConfig, {
   },
   devtool: config.build.productionSourceMap ? config.build.devtool : false,
   output: {
+    publicPath: './',
     path: config.build.assetsRoot,
     filename: utils.assetsPath('js/[name].[chunkhash].js'),
     chunkFilename: utils.assetsPath('js/[id].[chunkhash].js')
@@ -94,33 +95,33 @@ const webpackConfig = merge(baseWebpackConfig, {
         )
       }
     }),
-    new webpack.optimize.CommonsChunkPlugin({
-      name: 'vendor-admin',
-      chunks: ['vendor'],
-      minChunks: function (module, count) {
-        return (
-          module.resource &&
-          /\.js$/.test(module.resource) &&
-          module.resource.indexOf(path.join(__dirname, '../node_modules')) === 0 &&
-          module.resource.indexOf('element-ui') != -1
-        )
-      }
-    }),
-    new webpack.optimize.CommonsChunkPlugin({
-      name: 'vendor-index',
-      chunks: ['vendor'],
-      minChunks: function (module, count) {
-        return (
-          module.resource &&
-          /\.js$/.test(module.resource) &&
-          module.resource.indexOf(path.join(__dirname, '../node_modules')) === 0 &&
-          module.resource.indexOf('bootstrap-vue') != -1
-        )
-      }
-    }),
+    // new webpack.optimize.CommonsChunkPlugin({
+    //   name: 'vendor-admin',
+    //   chunks: ['vendor'],
+    //   minChunks: function (module, count) {
+    //     return (
+    //       module.resource &&
+    //       /\.js$/.test(module.resource) &&
+    //       module.resource.indexOf(path.join(__dirname, '../node_modules')) === 0 &&
+    //       module.resource.indexOf('element-ui') != -1
+    //     )
+    //   }
+    // }),
+    // new webpack.optimize.CommonsChunkPlugin({
+    //   name: 'vendor-index',
+    //   chunks: ['vendor'],
+    //   minChunks: function (module, count) {
+    //     return (
+    //       module.resource &&
+    //       /\.js$/.test(module.resource) &&
+    //       module.resource.indexOf(path.join(__dirname, '../node_modules')) === 0 &&
+    //       module.resource.indexOf('bootstrap-vue') != -1
+    //     )
+    //   }
+    // }),
     new webpack.optimize.CommonsChunkPlugin({
       name: 'common-api',
-      chunks: ['admin', 'index','test'],
+      chunks: ['admin', 'index'],
       minChunks: Infinity
     }),
     // extract webpack runtime and module manifest to its own file in order to
