@@ -28,6 +28,7 @@ module.exports = {
     'no-debugger': 'off',
     "no-console": "off",
     'quotes': [ 'error', 'single' ],
-    'one-var': 'off'
+    'one-var': 'off',
+    'indent': ["error", 2, { "ignoreComments": true }],
   }
 }
