@@ -234,3 +234,24 @@ function isMobile() {
 
   return _isMobile
 }
+
+
+var t_img; // 定时器
+/**
+ * 检测html的fontsize是否已设置, 如果已设置则进行下一步 ,否则递归
+ * @param cb 回调函数
+ * @returns {boolean}
+ */
+function hasSetRem(cb) {
+  var theHTML = document.getElementsByTagName('html')[0];
+  var theFS = theHTML.style.fontSize;
+  if (theFS) {
+    clearTimeout(t_img); // 清除定时器
+    cb()
+    return false
+  } else {
+    t_img = setTimeout(function() {
+      hasSetRem(cb); // 递归扫描
+    },300);
+  }
+}
