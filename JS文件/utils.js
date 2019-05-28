@@ -220,3 +220,17 @@ function returnDate(detract) {
   }
 
 }
+
+/**
+ * 判断是否手机
+ * @returns {boolean|Array|{index: number, input: string}}
+ */
+function isMobile() {
+  var ua = navigator.userAgent;
+  var ipad = ua.match(/(iPad).*OS\s([\d_]+)/),
+    isIphone =!ipad && ua.match(/(iPhone\sOS)\s([\d_]+)/),
+    isAndroid = ua.match(/(Android)\s+([\d.]+)/),
+    _isMobile = isIphone || isAndroid;
+
+  return _isMobile
+}
