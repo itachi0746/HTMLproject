@@ -14,7 +14,7 @@
 </template>
 
 <script>
-  import myModule from '../../../common'
+  import utils from '../../../common'
 
   export default {
   name: 'HelloWorld',
@@ -24,7 +24,7 @@
     }
   },
   mounted () {
-    console.log(myModule)
+    console.log(utils)
   }
 }
 </script>

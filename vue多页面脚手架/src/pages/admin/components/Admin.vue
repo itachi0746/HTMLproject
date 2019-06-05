@@ -6,17 +6,16 @@
 </template>
 
 <script>
-import myModule from '../../../common'
+import utils from '../../../common'
 
 export default {
-  name: 'HelloWorld',
   data () {
     return {
       msg: 'Welcome to Admin'
     }
   },
   mounted () {
-    console.log(myModule)
+    console.log(utils)
   }
 }
 </script>

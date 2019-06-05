@@ -259,3 +259,9 @@ white-space:nowrap;
     scrollbar-track-color: #666; /**//*立体滚动条背景颜色*/
     scrollbar-base-color:#f8f8f8; /**//*滚动条的基本颜色*/
 }
+
+/*项目中用到的定义字体的顺序*/
+/*MAC OS就用平芳黑体，到了WINDOWS下就用雅黑*/
+body {
+    font-family: PingFang SC, Verdana, Helvetica Neue, Microsoft Yahei, Hiragino Sans GB, Microsoft Sans Serif, WenQuanYi Micro Hei, sans-serif;
+}

@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { Notify } from 'vant'
+import { Notify, Toast } from 'vant'
 
 let ROOT
 // 环境的切换
@@ -54,12 +54,14 @@ Axios.interceptors.request.use(
 Axios.interceptors.response.use(
   res => {
     // 对响应数据做些事
-    if (res.data.Data && !res.data.Success) {
+    if (!res.data.Success) {
+      Toast.clear()
       Notify({
         message: res.data.ErrMsg, // 弹出错误信息
-        duration: 1000,
-        background: '#fef0f0'
-      });
+        duration: 2000,
+        background: '#fef0f0',
+        color: 'red'
+      })
       return Promise.reject(res.data.ErrMsg) // 返回promise对象,把错误信息传下去
     }
     return res
