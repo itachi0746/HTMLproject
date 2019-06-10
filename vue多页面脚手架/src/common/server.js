@@ -67,6 +67,7 @@ Axios.interceptors.response.use(
     return res
   },
   error => {
+    Toast.clear()
     Notify({
       message: '请求出错', // 弹出错误信息
       duration: 1000,
