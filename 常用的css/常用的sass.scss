@@ -173,3 +173,32 @@ $payColor: #ff5000;  // 淘宝色
 %_fourShadow {
   box-shadow: 5px 5px 5px rgba(0,0,0,0.2),5px -5px 5px rgba(0,0,0,0.2),-5px 5px 5px rgba(0,0,0,0.2),-5px -5px 5px rgba(0,0,0,0.2);
 }
+
+// 可用在渲染富文本样式上
+.dtl-main{
+
+  /deep/ *{
+    padding:0;
+    margin:0;
+  }
+  /deep/ img{
+    max-width:100%;
+  }
+  /deep/ p{
+    font-size:.8rem;
+    /*line-height:20px;*/
+    font-family:"MicrosoftYahei",Arial,sans-serif;
+
+  }
+  /deep/ span{
+    font-size:.8rem;
+    /*line-height:24px;*/
+    font-family:"MicrosoftYahei",Arial,sans-serif;
+
+  }
+  /deep/ h1,h2,h3,h4,h5,h6{
+    font-family:"PTSans","SFUIDisplay",".PingFangSC","PingFangSC","NeueHaasGroteskTextPro","ArialNova","SegoeUI","MicrosoftYaHei","MicrosoftJhengHei","HelveticaNeue","SourceHanSansSC","NotoSansCJKSC","SourceHanSansCN","NotoSansSC","SourceHanSansTC","NotoSansCJKTC","HiraginoSansGB",sans-serif;
+    text-rendering:optimizelegibility;margin-bottom:1em;font-weight:bold;line-height:1.2rem;
+  }
+
+}
