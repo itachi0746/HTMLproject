@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>公告滚动</title>
+  <style type="text/css">
+    .case {
+      position: absolute;
+      width: 800px;
+      height: 30px;
+      overflow: hidden;
+      left: calc(50% - 400px);
+      top: 150px;
+    }
+    .case .part1 {
+      float: left;
+      width: 5%;
+      height: 30px;
+    }
+    .case .part1 img {
+      width: 20px;
+      height: 20px;
+      float: right;
+      margin-top: 5px;
+    }
+    .case .part2 {
+      float: left;
+      width: 93%;
+      height: 30px;
+      text-indent: 1em;
+      overflow: hidden;
+    }
+    #part2 ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      width: 10000px; /* 重点 */
+    }
+    #part2 ul li {
+      width: auto;
+      height: 30px;
+      font-size: 16px;
+      line-height: 30px;
+      color: #575757;
+      overflow: hidden;
+      float: left; /* 重点 */
+      position: relative;
+      left: 0px;
+      /*transition: all .1s;*/
+    }
+    #scroll1 {
+      height: 100%;
+    }
+  </style>
+</head>
+<body>
+<div class="case">
+  <div class="part1">
+    <img src="img/laba.png">
+  </div>
+  <div class="part2" id="part2">
+    <div id="scroll1">
+      <ul>
+        <li id="scroll-li">不要被别人表现出来的毫不费力所迷惑，</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript">
+
+var scrollLi = document.getElementById('scroll-li');
+
+scrollLi.style.left = '0px'
+
+function formatStr (str) { // 去掉 px 返回Num
+  return eval(str.substr(0, str.length - 2))
+}
+function roll() {
+  var theLeftOrigin  = formatStr(scrollLi.style.left);
+  var theLeft  = theLeftOrigin;
+  var theWidth  = scrollLi.offsetWidth;
+  if (theLeft < 0) {
+    theLeft *= -1
+  }
+//  console.log(theLeft,theWidth)
+  if(theLeft - theWidth >= 0) {
+    scrollLi.style.left = '0px'
+  } else {
+    theLeftOrigin-=1
+    scrollLi.style.left = theLeftOrigin + 'px'
+  }
+}
+
+var StopRoll = setInterval(roll, 60);
+
+</script>
+</body>
+</html>
