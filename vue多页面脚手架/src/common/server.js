@@ -54,16 +54,16 @@ Axios.interceptors.request.use(
 Axios.interceptors.response.use(
   res => {
     // 对响应数据做些事
-    if (!res.data.Success) {
-      Toast.clear()
-      Notify({
-        message: res.data.ErrMsg, // 弹出错误信息
-        duration: 2000,
-        background: '#fef0f0',
-        color: 'red'
-      })
-      return Promise.reject(res.data.ErrMsg) // 返回promise对象,把错误信息传下去
-    }
+    // if (!res.data.Success) {
+    //   Toast.clear()
+    //   Notify({
+    //     message: res.data.ErrMsg, // 弹出错误信息
+    //     duration: 2000,
+    //     background: '#fef0f0',
+    //     color: 'red'
+    //   })
+    //   return Promise.reject(res.data.ErrMsg) // 返回promise对象,把错误信息传下去
+    // }
     return res
   },
   error => {
