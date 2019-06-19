@@ -5,6 +5,7 @@ import App from './App'
 import router from './router'
 import { Button, Cell } from 'vant'
 import '@/common/rem.js'
+// require('../../common/mock') // 用于模拟数据, 正式环境需要注释掉
 
 Vue.use(Button).use(Cell)
 
