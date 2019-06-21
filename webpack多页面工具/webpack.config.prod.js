@@ -137,7 +137,7 @@ let webpackConfig = {
     }),
     new ExtractTextPlugin({
      // filename: 'static/css/[name].[hash:7].css'
-     filename: 'static/css/[name].[chunkhash].css'
+     filename: 'static/css/[name].[contenthash].css'
     }),
     //设置每一次build之前先删除dist  
     new CleanWebpackPlugin(  

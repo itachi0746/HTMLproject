@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import utils from '../../../common'
+import {utils, postData} from '../../../common'
 
 export default {
   data () {

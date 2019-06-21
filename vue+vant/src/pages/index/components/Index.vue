@@ -14,7 +14,7 @@
 </template>
 
 <script>
-  import utils from '../../../common'
+  import {utils} from '../../../common'
 
   export default {
   name: 'HelloWorld',
