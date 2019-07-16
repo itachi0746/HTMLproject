@@ -5,8 +5,8 @@ Vue.use(VueRouter)
 
 const routes = [
   {
-    path: '/', name: 'login', component: r => {
-    require(['./login/Login'], r)
+    path: '/', name: 'index', component: r => {
+    require(['./components/HelloWorld.vue'], r)
   }, meta: {title: 'console 登录1'}
   }
 ]
