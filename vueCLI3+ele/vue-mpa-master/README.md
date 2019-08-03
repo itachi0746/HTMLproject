@@ -53,7 +53,8 @@ npm install
 │  ├─pages // 页面文件夹，每个页面都是一个文件夹
 │  │  ├─about // about 页面
 │  │  │      app.js // 一般不做更改
-│  │  │      app.vue // 页面的 html、css、js 都写在这个文件里
+│  │  │      app.vue // 引入About.vue
+│  │  │      About.vue // 页面的 html、css、js 都写在这个文件里
 │  │  │      
 │  │  ├─index
 │  │  │      app.js
@@ -67,6 +68,7 @@ npm install
 │  ├─style // 公共样式文件夹，可以定义一些公共样式，如浏览器重置样式 reset.scss，此文件夹可按需求随意更改
 │  │  │  index.scss
 │  │  │  common.css // 公共样式
+│  │  │  mixin.scss // 全局scss
 │  │  │
 │  │  └─core
 │  │          index.scss

@@ -35,6 +35,7 @@ export async function get(url, params = {}) {
         console.log(err);
     }
 }
+
 const os = {
     windows: /Windows/ig.test(navigator.userAgent),
     macos: /Mac OS/ig.test(navigator.userAgent)
@@ -42,14 +43,13 @@ const os = {
 
 // post 请求
 export async function post(url, params = {}) {
-  let theUrl = url
-  try {
+    let theUrl = url
+    try {
         console.log(`开始访问: ${theUrl}`)
         let res = await axios.post(url, params);
         return new Promise((resolve) => {
-            var data = res.body
             // if (data.retcode === 0) {
-                resolve(res.data);
+            resolve(res.data);
             // }
         })
     } catch (err) {
@@ -60,18 +60,18 @@ export async function post(url, params = {}) {
 
 // 封装axios的post请求
 let postData = function (url, params = {}) {
-  let theRequestUrl = url
-  console.log('开始访问:' + theRequestUrl)
-  return new Promise((resolve, reject) => {
-    axios.post(url, params)
-      .then(response => {
-        resolve(response.data)
-      })
-      .catch((error) => {
-        console.log(theRequestUrl + ':请求出错')
-        reject(error)
-      })
-  })
+    let theRequestUrl = url
+    console.log('开始访问:' + theRequestUrl)
+    return new Promise((resolve, reject) => {
+        axios.post(url, params)
+            .then(response => {
+                resolve(response.data)
+            })
+            .catch((error) => {
+                console.log(theRequestUrl + ':请求出错')
+                reject(error)
+            })
+    })
 }
 
-export { postData }
+export {postData}
