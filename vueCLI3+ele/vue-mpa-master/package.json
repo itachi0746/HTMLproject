@@ -63,8 +63,8 @@
           "*"
         ],
         "selectorBlackList": [
-          "^van-",
-          "^el-"
+          "van-",
+          "el-"
         ]
       }
     }
