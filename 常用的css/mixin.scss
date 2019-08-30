@@ -107,3 +107,29 @@ $priceColor: #f44582;
   font-size: $size;
   font-size: calculateRem($size);
 }
+
+// 页面高度1080  $value: 设计图高度
+@function vh( $value ) {
+  @return ( $value / (1080) * 100 ) + vh;
+}
+
+
+@mixin clearfix() {
+  &:before,
+  &:after {
+    content: "";
+    display: table;
+  }
+  &:after {
+    clear: both;
+  }
+}
+
+/// Make a context based selector a little more friendly
+/// @author Hugo Giraudel
+/// @param {String} $context
+@mixin when-inside($context) {
+  #{$context} & {
+    @content;
+  }
+}

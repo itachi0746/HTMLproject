@@ -125,3 +125,7 @@ $bgColor: #F3EBE1;
 //  }
 //}
 
+// 页面高度1080  $value: 设计图高度
+@function vh( $value ) {
+    @return ( $value / (1080) * 100 ) + vh;
+}
