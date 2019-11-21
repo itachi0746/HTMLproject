@@ -265,3 +265,8 @@ white-space:nowrap;
 body {
     font-family: PingFang SC, Verdana, Helvetica Neue, Microsoft Yahei, Hiragino Sans GB, Microsoft Sans Serif, WenQuanYi Micro Hei, sans-serif;
 }
+
+.scroll-div {
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch; /* 解决ios滑动不流畅问题 */
+}
