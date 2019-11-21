@@ -19,7 +19,7 @@ function Random(min, max) {
 
 // 根据屏幕大小动态改变根元素(html)的字体大小
 function setFontSize() {
-  ;(function(doc, win) {
+  (function(doc, win) {
     var docEl = doc.documentElement,
       resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
       recalc = function() {
