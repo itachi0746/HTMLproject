@@ -1,6 +1,30 @@
 /* eslint-disable */
 export default {
     /**
+     * 存储localStorage
+     */
+    setStore: (name, content) => {
+        if (!name) return;
+        if (typeof content !== 'string') {
+            content = JSON.stringify(content);
+        }
+        window.localStorage.setItem(name, content);
+    },
+    /**
+     * 获取localStorage
+     */
+    getStore: name => {
+        if (!name) return;
+        return window.localStorage.getItem(name);
+    },
+    /**
+     * 删除localStorage
+     */
+    removeStore: name => {
+        if (!name) return;
+        window.localStorage.removeItem(name);
+    },
+    /**
      * 导航到指定页面
      * @param pageName
      * @param defaultUrl
@@ -26,6 +50,73 @@ export default {
             args[argname] = decodeURIComponent(value)// 存为属性
         }
         return args
+    },
+    /**
+     * 对象转换为查询
+     * @param obj
+     * @returns {*}
+     */
+    toQuery (obj) {
+        var theItems = [];
+        for (var key in obj) {
+            if (obj[key] == undefined || obj[key] == null) {
+                theItems.push(key + '=' + (obj[key] || ''));
+            }
+            else {
+                theItems.push(key + '=' + (obj[key]));
+            }
+        }
+        return theItems.join('&');
+    },
+    // 获得hash字符串参数
+    getHashParams: function () {
+        let args = {}
+        let hashStr = location.hash
+        if (hashStr.indexOf('?') === -1) { // 如果没有参数
+            return null
+        }
+        let query = hashStr.split('?')[1] // 获取查询串
+        let pairs = query.split('&') // 在逗号处断开
+        for (let i = 0; i < pairs.length; i++) {
+            let pos = pairs[i].indexOf('=') // 查找name=value
+            if (pos === -1) continue // 如果没有找到就跳过
+            let argname = pairs[i].substring(0, pos).toLowerCase() // 提取name
+            let value = pairs[i].substring(pos + 1) // 提取value
+            args[argname] = decodeURIComponent(value) // 存为属性
+        }
+        return args
+    },
+    // 根据id获取元素
+    $id (id) {
+        return document.getElementById(id)
+    },
+
+    // 根据class获取元素
+    $cls (cls) {
+        return document.getElementsByClassName(cls)
+    },
+    // 压缩图片
+    compress (img) {
+        let canvas = document.createElement("canvas");
+        let ctx = canvas.getContext("2d");
+        let initSize = img.src.length;
+        let width = img.width;
+        let height = img.height;
+        canvas.width = width;
+        canvas.height = height;
+        // 铺底色
+        ctx.fillStyle = "#fff";
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+        ctx.drawImage(img, 0, 0, width, height);
+
+        let encoderOptions = 0.5 // 可以从 0 到 1 的区间内选择图片的质量,这里超过1M就进行压缩
+        //进行压缩
+        let ndata = canvas.toDataURL("image/jpeg", encoderOptions);
+        console.log("*******压缩后的图片大小*******");
+        // console.log(ndata)
+        //            debugger
+        console.log(ndata.length);
+        return ndata;
     },
     IOSConfig: function () {
         let userAgent = navigator.userAgent
@@ -96,32 +187,6 @@ export default {
         return m < 10 ? '0' + m : m
     },
     /**
-     * 时间戳转为为普通日期格式
-     * @param shijianchuo 时间戳
-     * @param hm 是否返回小时 分钟
-     * @returns {string}
-     */
-    formatTime: function (shijianchuo, hm) {
-        //shijianchuo是整数，否则要parseInt转换
-        // var time = new Date(shijianchuo)
-
-        let time = shijianchuo, result
-        let y = time.getFullYear()
-        let m = time.getMonth() + 1
-        let d = time.getDate()
-        let h = time.getHours()
-        let mm = time.getMinutes()
-        if (hm) {
-            result = y + '-' + this.add0(m) + '-' + this.add0(d) + ' ' + this.add0(h) + ':' + this.add0(mm)
-        } else {
-            result = y + '-' + this.add0(m) + '-' + this.add0(d)
-        }
-        // var s = time.getSeconds()
-        // return y + '-' + add0(m) + '-' + add0(d) + ' ' + add0(h) + ':' + add0(mm) + ':' + add0(s)
-        // return y + '-' + this.add0(m) + '-' + this.add0(d)
-        return result
-    },
-    /**
      * json转formdata
      * @param jsonData
      * @returns {*}
@@ -151,65 +216,6 @@ export default {
             form.append(obj.fieldName, obj.value)
         }
         return form
-    },
-    /**
-     * 把对象转为formdata
-     * @param dataObj
-     */
-    createFormData2: function (dataObj) {
-        let form = new FormData()
-        for (let key in dataObj) {
-            if (!dataObj[key]) {
-                console.log(`${key} 为空: ${dataObj[key]}`)
-                dataObj[key] = ''
-                // return false
-            }
-            form.append(key, dataObj[key])
-        }
-        return form
-    },
-    /**
-     * 格式化后台返回的日期字符串, 返回时间戳
-     * @param dateStr 例如 '/Date(157737600000)/'
-     */
-    formatDate: function (dateStr) {
-        if (!dateStr || typeof dateStr !== 'string') {
-            console.log('参数错误:', dateStr)
-            return ''
-        }
-        // debugger
-        let theResult = dateStr
-        let theReg = /\/Date\(\d*\)\//g
-        let theReg2 = /\/Date\(-{1}\d*\)\//g
-        if (theReg2.test(theResult)) { // 带负号的时间, 返回为空值
-            console.log(`时间格式不正确: ${theResult}`)
-            return ''
-        }
-        if (!theReg.test(theResult)) {
-            console.log(`时间格式不正确: ${theResult}`)
-            return ''
-        }
-        theResult = 'new ' + theResult.substr(1, theResult.length - 2)
-        // console.log(theResult)
-
-        theResult = eval(theResult)
-        // console.log(theResult)
-
-        return theResult
-    },
-    /**
-     * 统一处理时间
-     * @param dateStr /Date(157737600000)/
-     * @param hm 是否需要小时分钟
-     */
-    handleTime: function (dateStr, hm = false) {
-        // console.log(dateStr)
-        let theResult = this.formatDate(dateStr)
-        if (!theResult) {
-            return theResult
-        }
-        theResult = this.formatTime(theResult, hm)
-        return theResult
     },
     /**
      * 判断是空对象
@@ -251,137 +257,6 @@ export default {
         return empty
     },
     /**
-     * 检查密码是否相同
-     */
-    checkPSW(theFieldArr) {
-        // debugger
-        let psw1, psw2
-        for (let obj of theFieldArr) {
-            if (obj.name === '密码1') {
-                psw1 = obj.value
-            } else if (obj.name === '密码2') {
-                psw2 = obj.value
-            }
-        }
-        return psw1 === psw2
-    },
-    /**
-     * 检查密码长度 长度在6~20之间，只能包含字母、数字和下划线
-     */
-    checkPSW2(theFieldArr) {
-        // debugger
-        let reg = /^(\w){6,20}$/, psw1
-        for (let obj of theFieldArr) {
-            if (obj.name === '密码1') {
-                psw1 = obj.value
-                return reg.test(psw1)
-            }
-        }
-    },
-    /**
-     * 检查必填项
-     */
-    checkRequired(theFieldArr) {
-        for (let obj of theFieldArr) {
-            if (!obj.required) {
-                continue
-            }
-            if (!obj.value) {
-                console.log('必填值不能为空', obj.fieldName)
-                return false
-            }
-        }
-        return true
-    },
-    /**
-     * 登录后清除历史记录
-     */
-    clearHistory() {
-        try {
-            if (jsBridge) {
-                jsBridge.clearHistory()
-                console.log('清除历史记录')
-            } else {
-                console.log('没有jsBridge')
-            }
-        } catch (e) {
-            console.log(e)
-            console.log('没有jsBridge')
-        }
-    },
-    /**
-     * 清除缓存
-     */
-    clearCache() {
-        try {
-            if (jsBridge) {
-                jsBridge.clearCache()
-                console.log('清除缓存')
-            } else {
-                console.log('没有jsBridge')
-            }
-        } catch (e) {
-            console.log(e)
-            console.log('没有jsBridge')
-        }
-    },
-    /**
-     * 格式化数据对象的时间戳字符串, null字符串
-     */
-    formatObj(obj, hm) {
-        for (let key in obj) { // 格式化时间
-            if (typeof obj[key] !== 'string') {
-                if (obj[key] === null || obj[key] === undefined) { // 格式化null
-                    obj[key] = ''
-                }
-                continue
-            }
-            // obj[key] = obj[key].trim()
-            if (obj[key].indexOf('/Date') !== -1) {
-                obj[key] = this.handleTime(obj[key], hm)
-            }
-            if (obj[key] === 'null') { // 格式化'null'
-                obj[key] = ''
-            }
-        }
-        return obj
-    },
-    /**
-     * 处理要显示的数据
-     * @param mapObj 字段映射
-     * @param dataObj 数据对象
-     */
-    handleMapData(mapObj, dataObj) {
-        let resultArr = []
-        for (let key in mapObj) {
-            if (!dataObj[key]) { // 空则跳过
-                console.log(`字段 ${key} 没有值: ${dataObj[key]}`)
-                // continue
-            }
-            const obj = {
-                key: mapObj[key],
-                value: dataObj[key]
-            }
-            resultArr.push(obj)
-        }
-        return resultArr
-    },
-    /**
-     * 计算字段数组中, 必填项是否已有值
-     * @param arr
-     */
-    computeRequired(arr) {
-        for (let obj of arr) {
-            if (!obj.required) {
-                continue
-            }
-            if (!obj.value) {
-                return true
-            }
-        }
-        return false
-    },
-    /**
      * 检查字段 手机的值
      * @param theValue
      */
@@ -410,46 +285,6 @@ export default {
         return Value <= min || Value >= max
     },
     /**
-     * 格式化 数字 0 和负数
-     * @param num 数字
-     */
-    formatZero(num) {
-        if (typeof num !== 'number') {
-            return num
-        }
-        return num <= 0 ? '' : num
-    },
-    /**
-     * 格式化地区名 去掉 省 市 两字
-     * @param provinceName
-     * @param cityName
-     */
-    formatArea(provinceName, cityName) {
-        if (typeof provinceName !== 'string' || typeof cityName !== 'string') {
-            return
-        }
-        let sheng = '省', shi = '市'
-        provinceName = this.delStr(provinceName, sheng)
-        cityName = this.delStr(cityName, shi)
-        return provinceName + cityName
-    },
-    /**
-     * 删除字符串中的特定字符
-     * @param str 原来的字符串
-     * @param target 要删除的目标字符串
-     */
-    delStr(str, target) {
-        if (typeof str !== 'string' || typeof target !== 'string') {
-            return str
-        }
-        let i = str.indexOf(target)
-        if (i === -1) {
-            console.log(`目标字符不存在: ${str},${target}`)
-            return str
-        }
-        return str.substr(0, i)
-    },
-    /**
      * 检查统一社会信用代码
      * 市面上现在有2中企业营业执照注册号(统一社会信用代码)，一种是15位(从2007年开始)，一种是18位(从2015年开始)
      * @param val
@@ -461,34 +296,6 @@ export default {
         }
         let reg = /(^(?:(?![IOZSV])[\dA-Z]){2}\d{6}(?:(?![IOZSV])[\dA-Z]){10}$)|(^\d{15}$)/
         return reg.test(val)
-    },
-    /**
-     * vant的toast
-     * @param me vue实例对象
-     * @param msg 要显示的文字
-     * @param type toast类型 默认是success
-     * @param time 显示时间 默认为2000毫秒
-     */
-    toast(me, msg, type = 'success', time = 2000) {
-        let opt = {
-            duration: time,
-            message: msg
-        }
-        let loadingOpt = {
-            duration: 0,
-            message: '加载中...',
-            mask: true,
-            forbidClick: true, // 禁用背景点击
-        }
-        if (type === 'success') {
-            me.$toast.success(opt)
-        } else if (type === 'fail') {
-            me.$toast.fail(opt)
-        } else if (type === 'loading') {
-            me.$toast.loading(loadingOpt)
-        } else if (type === 'clear') {
-            me.$toast.clear()
-        }
     },
     /**
      * 获取经纬度

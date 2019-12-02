@@ -42,24 +42,24 @@ const os = {
 }
 
 // post 请求
-export async function post(url, params = {}) {
-    let theUrl = url
-    try {
-        console.log(`开始访问: ${theUrl}`)
-        let res = await axios.post(url, params);
-        return new Promise((resolve) => {
-            // if (data.retcode === 0) {
-            resolve(res.data);
-            // }
-        })
-    } catch (err) {
-        console.log(`请求出错: ${theUrl}`)
-        console.log(err);
-    }
-}
+// export async function post(url, params = {}) {
+//     let theUrl = url
+//     try {
+//         console.log(`开始访问: ${theUrl}`)
+//         let res = await axios.post(url, params);
+//         return new Promise((resolve) => {
+//             // if (data.retcode === 0) {
+//             resolve(res.data);
+//             // }
+//         })
+//     } catch (err) {
+//         console.log(`请求出错: ${theUrl}`)
+//         console.log(err);
+//     }
+// }
 
 // 封装axios的post请求
-let postData = function (url, params = {}) {
+export async function post(url, params = {}) {
     let theRequestUrl = url
     console.log('开始访问:' + theRequestUrl)
     return new Promise((resolve, reject) => {
@@ -73,5 +73,3 @@ let postData = function (url, params = {}) {
             })
     })
 }
-
-export {postData}
