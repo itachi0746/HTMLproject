@@ -1,7 +1,5 @@
 <template>
-    <div>
-        <Index></Index>
-    </div>
+    <Index></Index>
 </template>
 <style lang="scss">
 
