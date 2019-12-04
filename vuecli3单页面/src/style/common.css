@@ -1,0 +1,63 @@
+/*@font-face {*/
+
+/*font-family:'fzztjw';*/
+
+/*src: url('../font/SourceHanSansCN-Normal.otf');*/
+
+/*font-weight: normal;*/
+
+/*font-style: normal;*/
+
+/*}*/
+
+
+/*通用样式*/
+#app{
+	background-color: #F5F5F5;
+	height: 100%;
+}
+.cp {
+	cursor: pointer;
+}
+
+.cna {
+	cursor: not-allowed !important;
+}
+
+.oh {
+	overflow: hidden;
+}
+
+.full-div {
+	width: 100%;
+	height: 100%;
+	position: relative;
+}
+
+.hideClose {
+	display: none !important;
+}
+
+.pen {
+	pointer-events: none;
+}
+
+.pea {
+	pointer-events: auto;
+}
+
+.clearfix:after {
+	/*伪元素是行内元素 正常浏览器清除浮动方法*/
+	content: "";
+	display: block;
+	height: 0;
+	clear: both;
+	visibility: hidden;
+}
+
+.clearfix {
+	*zoom: 1;
+	/*ie6清除浮动的方式 *号只有IE6-IE7执行，其他浏览器不执行*/
+}
+
+
