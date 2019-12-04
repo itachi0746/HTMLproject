@@ -3,19 +3,20 @@ module.exports = {
     outputDir: './dist',
     publicPath: './', // 相当于baseUrl
     productionSourceMap: !(process.env.NODE_ENV === 'production'),
-    // devServer: {
-    //     port: 83,
-    //     proxy: {
-    //         '/api': {
-    //             target: 'http://localhost:16789/ActivityHotelService',
-    //             ws: true,
-    //             changeOrigin: true,
-    //             pathRewrite: {
-    //                 '^/api': ''
-    //             }
-    //         }
-    //     } // 配置开发环境 URL 便于本地开发调试
-    // },
+    devServer: {
+        port: 83,
+        disableHostCheck: true, // 设置这个手机可以直接访问
+        // proxy: {
+        //     '/api': {
+        //         target: 'http://localhost:16789/ActivityHotelService',
+        //         ws: true,
+        //         changeOrigin: true,
+        //         pathRewrite: {
+        //             '^/api': ''
+        //         }
+        //     }
+        // } // 配置开发环境 URL 便于本地开发调试
+    },
     chainWebpack: config => {
         const oneOfsMap = config.module.rule('scss').oneOfs.store
         oneOfsMap.forEach(item => {
