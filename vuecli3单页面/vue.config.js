@@ -1,7 +1,7 @@
 module.exports = {
     lintOnSave: false,
     outputDir: './dist',
-    publicPath: './', // 相当于baseUrl
+    publicPath: './', // BASE_URL 客户端全局变量
     productionSourceMap: !(process.env.NODE_ENV === 'production'),
     devServer: {
         port: 83,
