@@ -23,6 +23,7 @@ const axios = theaxios.create({
 // axios.defaults.timeout = 10000; // 超时
 // axios.defaults.baseURL = process.env.VUE_APP_BASE_URL; // 不同环境下的BASE_URL
 // console.log(axios.defaults.baseURL)
+
 // 请求拦截
 axios.interceptors.request.use(function (config) {
     // Do something before request is sent
@@ -46,25 +47,25 @@ axios.interceptors.response.use(function (response) {
     // debugger
     const resData = response.data
     toast.hideLoading()
-    if (resData.code === '401') {
-        utils.doLogin()
-        return null
-    }
-    if (resData.code === '403') {
-        // debugger
-        const theUrl = resData.data
-        if (!theUrl) {
-            Notify({ type: 'danger', message: resData.message });
-            return null
-        }
-        let times = parseInt(utils.getStore('doWxLoginTimes'))
-        if (times === 0) {
-            utils.doWxLogin(theUrl)
-        }
-        times++
-        utils.setStore('doWxLoginTimes', times) // 记录返回码403次数
-        return null
-    }
+    // if (resData.code === '401') {
+    //     utils.doLogin()
+    //     return null
+    // }
+    // if (resData.code === '403') {
+    //     // debugger
+    //     const theUrl = resData.data
+    //     if (!theUrl) {
+    //         Notify({ type: 'danger', message: resData.message });
+    //         return null
+    //     }
+    //     let times = parseInt(utils.getStore('doWxLoginTimes'))
+    //     if (times === 0) {
+    //         utils.doWxLogin(theUrl)
+    //     }
+    //     times++
+    //     utils.setStore('doWxLoginTimes', times) // 记录返回码403次数
+    //     return null
+    // }
     return response;
 }, function (error) {
     // debugger
