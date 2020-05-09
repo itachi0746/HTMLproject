@@ -42,5 +42,37 @@ export default {
         setTimeout(() => {
             this.setTime()
         }, 1000)
-    }
+    },
+	//密码必须为大写字母、小写字母、数字、字符三组以上组合且长度不少于8位数
+	checkPass(s){
+		if(s.length < 8){
+			return 0;
+		}
+		var ls = 0;
+		if(s.match(/([a-z])+/)){
+			ls++;
+			// console.log('a-z:',ls)
+		}
+		if(s.match(/([0-9])+/)){
+			ls++;
+			// console.log('0-9:',ls)
+
+		}
+		if(s.match(/([A-Z])+/)){
+			ls++;
+			// console.log('A-Z:',ls)
+
+		}
+		// if(s.match(/[^a-zA-Z0-9]+/)){
+		//     ls++;
+		// }
+		//  var myReg = /[~!@#$%^&*()/\|,.<>?"'();:_+-=\[\]{}]/
+		var regEn = /[`~!@#$%^&*()_+\-<>?:"{},.\/;'[\]]/im
+		if (s.match(regEn)) {
+			ls++;
+			// console.log('myReg:',ls)
+
+		}
+		return ls
+	},
 }
