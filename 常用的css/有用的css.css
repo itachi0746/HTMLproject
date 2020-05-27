@@ -118,20 +118,28 @@ riseUp 3s linear .4s infinite;*/
     transform: rotate(135deg);  
 }  
 /*============================================================*/
-段落首行缩进2字
+/*段落首行缩进2字*/
 .text-indent2 {
   text-indent: 2em;
 }
-文本溢出省略显示:
-(要设置宽度,超出宽度才隐藏)
+/*文本溢出省略显示:*/
+/*(要设置宽度,超出宽度才隐藏)*/
 .text-ellipsis {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
 }
+/*最多显示两行的文字，多余的内容会被省略*/
+.van-multi-ellipsis--l2 {
+    display: -webkit-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
 /*============================================================*/
 
-HTML5之placeholder属性以及如何更改placeholder属性中文字颜色:
+/*HTML5之placeholder属性以及如何更改placeholder属性中文字颜色:*/
 
 input::-webkit-input-placeholder{
     color:red;
