@@ -265,3 +265,25 @@ function formatSeconds(value) {
     result = `${h}:${m}:${s}`
     return result
 }
+
+function removeClasss(ele,txt){
+	var str =  ele.className,
+		index = str.indexOf(txt);
+	if(index > -1){
+
+		ele.className = str.replace(txt,"");
+
+	}
+
+}
+// removeClasss(document.querySelector("#tests"),"a");
+
+function addClasss(ele,txt){
+	var str =  ele.className;
+
+	console.log(str);
+
+	ele.className += txt;
+
+
+}

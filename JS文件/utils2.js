@@ -75,4 +75,22 @@ export default {
 		}
 		return ls
 	},
+	// 获得hash字符串参数
+	getHashParams: function () {
+		let args = {}
+		let hashStr = location.hash
+		if (hashStr.indexOf('?') === -1) { // 如果没有参数
+			return null
+		}
+		let query = hashStr.split('?')[1] // 获取查询串
+		let pairs = query.split('&') // 在逗号处断开
+		for (let i = 0; i < pairs.length; i++) {
+			let pos = pairs[i].indexOf('=') // 查找name=value
+			if (pos === -1) continue // 如果没有找到就跳过
+			let argname = pairs[i].substring(0, pos).toLowerCase() // 提取name
+			let value = pairs[i].substring(pos + 1) // 提取value
+			args[argname] = decodeURIComponent(value) // 存为属性
+		}
+		return args
+	},
 }
